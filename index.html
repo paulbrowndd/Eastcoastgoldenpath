@@ -24,344 +24,123 @@
     --red-bg: #1a0505;
     --red-border: #4a0d0d;
     --grey: #4b5563;
-    --grey-bg: #111418;
     --accent: #3b82f6;
     --accent2: #6366f1;
   }
-
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    line-height: 1.5;
-    min-height: 100vh;
-  }
+  body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.5; min-height: 100vh; }
 
   /* ── Header ── */
-  header {
-    border-bottom: 1px solid var(--border);
-    padding: 20px 32px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: var(--surface);
-    position: sticky;
-    top: 0;
-    z-index: 50;
-  }
-
+  header { border-bottom: 1px solid var(--border); padding: 18px 32px; display: flex; align-items: center; justify-content: space-between; background: var(--surface); position: sticky; top: 0; z-index: 50; gap: 16px; flex-wrap: wrap; }
   .header-left { display: flex; align-items: center; gap: 14px; }
+  .logo-mark { width: 36px; height: 36px; background: linear-gradient(135deg, var(--accent), var(--accent2)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 16px; color: white; flex-shrink: 0; }
+  .header-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 18px; letter-spacing: -0.3px; }
+  .header-sub { font-size: 12px; color: var(--muted); font-family: 'DM Mono', monospace; }
+  .header-right { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .header-meta { text-align: right; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); line-height: 1.8; }
+  .header-date { font-size: 13px; color: var(--text); font-weight: 500; }
 
-  .logo-mark {
-    width: 36px; height: 36px;
-    background: linear-gradient(135deg, var(--accent), var(--accent2));
-    border-radius: 8px;
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: 16px;
-    color: white;
-    flex-shrink: 0;
-  }
+  /* Date nav */
+  .date-nav { display: flex; align-items: center; gap: 6px; }
+  .date-btn { background: var(--surface2); border: 1px solid var(--border); color: var(--text); padding: 6px 10px; border-radius: 6px; cursor: pointer; font-family: 'DM Mono', monospace; font-size: 11px; transition: border-color 0.15s, background 0.15s; }
+  .date-btn:hover:not(:disabled) { border-color: var(--accent); background: #1a2235; }
+  .date-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+  .date-btn.active { border-color: var(--accent); background: #1a2235; color: var(--accent); }
+  .date-select { background: var(--surface2); border: 1px solid var(--border); color: var(--text); padding: 6px 10px; border-radius: 6px; font-family: 'DM Mono', monospace; font-size: 12px; cursor: pointer; }
+  .date-select:focus { outline: none; border-color: var(--accent); }
 
-  .header-title {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 18px;
-    letter-spacing: -0.3px;
-  }
-
-  .header-sub {
-    font-size: 12px;
-    color: var(--muted);
-    font-family: 'DM Mono', monospace;
-  }
-
-  .header-meta {
-    text-align: right;
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: var(--muted);
-    line-height: 1.8;
-  }
-
-  .header-date {
-    font-size: 13px;
-    color: var(--text);
-    font-weight: 500;
-  }
+  /* Tabs */
+  .tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--border); padding: 0 32px; background: var(--surface); margin-bottom: 0; }
+  .tab { padding: 12px 16px; font-family: 'DM Mono', monospace; font-size: 12px; color: var(--muted); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color 0.15s, border-color 0.15s; white-space: nowrap; }
+  .tab:hover { color: var(--text); }
+  .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
 
   /* ── Main ── */
   main { padding: 28px 32px; max-width: 1600px; margin: 0 auto; }
-
-  /* ── Section headers ── */
-  .section-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 16px;
-    margin-top: 36px;
-  }
-
-  .section-header:first-child { margin-top: 0; }
-
-  .section-label {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 13px;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-
-  .section-count {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    padding: 2px 8px;
-    border-radius: 99px;
-    color: var(--muted);
-  }
-
-  .section-line {
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-  }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
 
   /* ── Summary bar ── */
-  .summary-bar {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 28px;
-    flex-wrap: wrap;
-  }
-
-  .summary-chip {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 14px;
-    border-radius: 8px;
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
-    border: 1px solid;
-  }
-
+  .summary-bar { display: flex; gap: 12px; margin-bottom: 28px; flex-wrap: wrap; }
+  .summary-chip { display: flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 8px; font-family: 'DM Mono', monospace; font-size: 12px; border: 1px solid; }
   .summary-chip.green  { background: var(--green-bg);  border-color: var(--green-border);  color: var(--green); }
   .summary-chip.yellow { background: var(--yellow-bg); border-color: var(--yellow-border); color: var(--yellow); }
   .summary-chip.red    { background: var(--red-bg);    border-color: var(--red-border);    color: var(--red); }
-  .summary-chip.grey   { background: var(--grey-bg);   border-color: var(--border);        color: var(--muted); }
-
+  .summary-chip.grey   { background: var(--surface2);  border-color: var(--border);        color: var(--muted); }
   .chip-dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
   .chip-num { font-size: 18px; font-weight: 500; line-height: 1; }
   .chip-label { opacity: .7; font-size: 11px; }
 
+  /* ── Section headers ── */
+  .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; margin-top: 36px; }
+  .section-header:first-child { margin-top: 0; }
+  .section-label { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted); }
+  .section-count { font-family: 'DM Mono', monospace; font-size: 11px; background: var(--surface2); border: 1px solid var(--border); padding: 2px 8px; border-radius: 99px; color: var(--muted); }
+  .section-line { flex: 1; height: 1px; background: var(--border); }
+
   /* ── Facility grid ── */
-  .facility-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-    gap: 10px;
-  }
-
-  .facility-card {
-    border-radius: 10px;
-    padding: 14px 14px 12px;
-    border: 1px solid;
-    transition: transform 0.15s, box-shadow 0.15s;
-    cursor: default;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .facility-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    transition: opacity 0.15s;
-    background: radial-gradient(circle at 50% 0%, currentColor 0%, transparent 70%);
-  }
-
-  .facility-card:hover { transform: translateY(-2px); }
-  .facility-card:hover::before { opacity: 0.04; }
-
+  .facility-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; }
+  .facility-card { border-radius: 10px; padding: 14px 14px 12px; border: 1px solid; transition: transform 0.15s, box-shadow 0.15s; cursor: default; position: relative; overflow: hidden; }
   .facility-card.green  { background: var(--green-bg);  border-color: var(--green-border);  color: var(--green); }
   .facility-card.yellow { background: var(--yellow-bg); border-color: var(--yellow-border); color: var(--yellow); }
   .facility-card.red    { background: var(--red-bg);    border-color: var(--red-border);    color: var(--red); }
-  .facility-card.grey   { background: var(--grey-bg);   border-color: var(--border);        color: var(--muted); }
+  .facility-card.grey   { background: var(--surface2);  border-color: var(--border);        color: var(--muted); }
+  .facility-card:hover { transform: translateY(-2px); }
+  .card-name { font-family: 'DM Mono', monospace; font-weight: 500; font-size: 13px; color: var(--text); margin-bottom: 8px; }
+  .card-pct { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 26px; line-height: 1; color: currentColor; }
+  .card-no-data { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); margin-top: 4px; }
+  .card-bar { margin-top: 10px; height: 3px; background: var(--border); border-radius: 99px; overflow: hidden; }
+  .card-bar-fill { height: 100%; border-radius: 99px; background: currentColor; }
 
-  .card-name {
-    font-family: 'DM Mono', monospace;
-    font-weight: 500;
-    font-size: 13px;
-    color: var(--text);
-    margin-bottom: 8px;
-    letter-spacing: 0.3px;
-  }
-
-  .card-pct {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: 26px;
-    line-height: 1;
-    color: currentColor;
-  }
-
-  .card-no-data {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: var(--muted);
-    margin-top: 4px;
-  }
-
-  .card-bar {
-    margin-top: 10px;
-    height: 3px;
-    background: var(--border);
-    border-radius: 99px;
-    overflow: hidden;
-  }
-
-  .card-bar-fill {
-    height: 100%;
-    border-radius: 99px;
-    background: currentColor;
-    transition: width 0.6s ease;
-  }
-
-  /* ── SLA Stack Rank table ── */
-  .table-wrap {
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
-  }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 13px;
-  }
-
-  thead {
-    background: var(--surface2);
-    border-bottom: 1px solid var(--border);
-  }
-
-  th {
-    padding: 11px 16px;
-    text-align: left;
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    color: var(--muted);
-    font-weight: 400;
-  }
-
-  tbody tr {
-    border-bottom: 1px solid var(--border);
-    transition: background 0.1s;
-  }
-
+  /* ── SLA Table ── */
+  .table-wrap { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  thead { background: var(--surface2); border-bottom: 1px solid var(--border); }
+  th { padding: 11px 16px; text-align: left; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.8px; text-transform: uppercase; color: var(--muted); font-weight: 400; }
+  tbody tr { border-bottom: 1px solid var(--border); transition: background 0.1s; }
   tbody tr:last-child { border-bottom: none; }
   tbody tr:hover { background: var(--surface2); }
-
-  td {
-    padding: 11px 16px;
-    color: var(--text);
-    font-size: 13px;
-  }
-
-  .td-rank {
-    font-family: 'DM Mono', monospace;
-    color: var(--muted);
-    font-size: 11px;
-    width: 36px;
-  }
-
-  .td-step {
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
-  }
-
-  .td-facility {
-    font-family: 'DM Mono', monospace;
-    font-weight: 500;
-    font-size: 12px;
-  }
-
-  .td-route {
-    color: var(--muted);
-    font-size: 12px;
-    font-family: 'DM Mono', monospace;
-  }
-
-  .td-count {
-    text-align: right;
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 15px;
-  }
-
-  .td-bar { width: 120px; }
-
-  .inline-bar {
-    height: 4px;
-    background: var(--border);
-    border-radius: 99px;
-    overflow: hidden;
-  }
-
-  .inline-bar-fill {
-    height: 100%;
-    border-radius: 99px;
-    background: var(--red);
-    opacity: 0.7;
-  }
-
-  /* step type colors */
-  .step-hub  { color: var(--accent); }
+  td { padding: 11px 16px; color: var(--text); }
+  .td-rank { font-family: 'DM Mono', monospace; color: var(--muted); font-size: 11px; width: 36px; }
+  .td-step { font-family: 'DM Mono', monospace; font-size: 12px; }
+  .td-facility { font-family: 'DM Mono', monospace; font-weight: 500; font-size: 12px; }
+  .td-route { color: var(--muted); font-size: 12px; font-family: 'DM Mono', monospace; }
+  .td-count { text-align: right; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 15px; }
+  .inline-bar { height: 4px; background: var(--border); border-radius: 99px; overflow: hidden; width: 120px; }
+  .inline-bar-fill { height: 100%; border-radius: 99px; background: var(--red); opacity: 0.7; }
+  .step-hub { color: var(--accent); }
   .step-truck { color: var(--yellow); }
   .step-spoke { color: #a855f7; }
   .step-dispatch { color: #f97316; }
-  .step-delivery { color: var(--green); }
 
-  /* ── Threshold legend ── */
-  .legend {
-    display: flex;
-    gap: 20px;
-    margin-top: 20px;
-    flex-wrap: wrap;
-  }
+  /* ── Trend view ── */
+  .trend-grid { display: flex; flex-direction: column; gap: 6px; }
+  .trend-row { display: grid; grid-template-columns: 80px 1fr; align-items: center; gap: 12px; padding: 8px 12px; border-radius: 8px; background: var(--surface); border: 1px solid var(--border); }
+  .trend-name { font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 500; color: var(--text); }
+  .trend-bars { display: flex; gap: 4px; align-items: flex-end; height: 40px; }
+  .trend-day { display: flex; flex-direction: column; align-items: center; gap: 3px; flex: 1; min-width: 0; }
+  .trend-bar-wrap { width: 100%; display: flex; align-items: flex-end; height: 28px; }
+  .trend-bar { width: 100%; border-radius: 3px 3px 0 0; min-height: 2px; transition: height 0.3s; }
+  .trend-bar.green  { background: var(--green); }
+  .trend-bar.yellow { background: var(--yellow); }
+  .trend-bar.red    { background: var(--red); }
+  .trend-bar.grey   { background: var(--border); }
+  .trend-date-label { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100%; text-align: center; }
+  .trend-pct-label { font-family: 'DM Mono', monospace; font-size: 9px; white-space: nowrap; }
+  .trend-pct-label.green  { color: var(--green); }
+  .trend-pct-label.yellow { color: var(--yellow); }
+  .trend-pct-label.red    { color: var(--red); }
+  .trend-pct-label.grey   { color: var(--muted); }
 
-  .legend-item {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: var(--muted);
-  }
-
+  /* ── Legend ── */
+  .legend { display: flex; gap: 20px; margin-top: 20px; flex-wrap: wrap; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); }
   .legend-dot { width: 8px; height: 8px; border-radius: 50%; }
 
   /* ── Footer ── */
-  footer {
-    margin-top: 48px;
-    padding: 20px 32px;
-    border-top: 1px solid var(--border);
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: var(--muted);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+  footer { margin-top: 48px; padding: 20px 32px; border-top: 1px solid var(--border); font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); display: flex; justify-content: space-between; align-items: center; }
+
+  .no-data-msg { text-align: center; padding: 60px 20px; color: var(--muted); font-family: 'DM Mono', monospace; }
 </style>
 </head>
 <body>
@@ -374,61 +153,85 @@
       <div class="header-sub">Hub &amp; Spoke OTD Performance</div>
     </div>
   </div>
-  <div class="header-meta">
-    <div class="header-date" id="display-date">—</div>
-    <div>pulled <span id="pulled-at">—</span></div>
-    <div>source: Parcel Golden Path · Sigma</div>
+  <div class="header-right">
+    <div class="date-nav">
+      <button class="date-btn" id="btn-prev" onclick="navigateDate(-1)" title="Previous day">&#8592;</button>
+      <select class="date-select" id="date-select" onchange="loadDate(this.value)"></select>
+      <button class="date-btn" id="btn-next" onclick="navigateDate(1)" title="Next day">&#8594;</button>
+    </div>
+    <div class="header-meta">
+      <div class="header-date" id="display-date">—</div>
+      <div>pulled <span id="pulled-at">—</span></div>
+    </div>
   </div>
 </header>
 
+<div class="tabs">
+  <div class="tab active" onclick="switchTab('daily')">Daily View</div>
+  <div class="tab" onclick="switchTab('trends')">Trends</div>
+</div>
+
 <main>
 
-  <!-- Summary bar -->
-  <div class="summary-bar" id="summary-bar"></div>
+  <!-- DAILY TAB -->
+  <div class="tab-panel active" id="tab-daily">
+    <div class="summary-bar" id="summary-bar"></div>
 
-  <!-- Hubs -->
-  <div class="section-header">
-    <span class="section-label">Hubs</span>
-    <span class="section-count" id="hub-count">—</span>
-    <span class="section-line"></span>
+    <div class="section-header">
+      <span class="section-label">Hubs</span>
+      <span class="section-count" id="hub-count">—</span>
+      <span class="section-line"></span>
+    </div>
+    <div class="facility-grid" id="hub-grid"></div>
+
+    <div class="section-header">
+      <span class="section-label">Spokes</span>
+      <span class="section-count" id="spoke-count">—</span>
+      <span class="section-line"></span>
+    </div>
+    <div class="facility-grid" id="spoke-grid"></div>
+
+    <div class="section-header">
+      <span class="section-label">Steps Missing SLA — Yesterday (East Region)</span>
+      <span class="section-line"></span>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Step</th>
+            <th>Facility</th>
+            <th>Route</th>
+            <th style="text-align:right">Misses</th>
+            <th style="width:120px"></th>
+          </tr>
+        </thead>
+        <tbody id="sla-tbody"></tbody>
+      </table>
+    </div>
+
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#22c55e"></div>≥ 95% On Track</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#f59e0b"></div>90–94% Watch</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#ef4444"></div>&lt; 90% Critical</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#4b5563"></div>No Data</div>
+    </div>
   </div>
-  <div class="facility-grid" id="hub-grid"></div>
 
-  <!-- Spokes -->
-  <div class="section-header">
-    <span class="section-label">Spokes</span>
-    <span class="section-count" id="spoke-count">—</span>
-    <span class="section-line"></span>
-  </div>
-  <div class="facility-grid" id="spoke-grid"></div>
+  <!-- TRENDS TAB -->
+  <div class="tab-panel" id="tab-trends">
+    <div class="section-header" style="margin-top:0">
+      <span class="section-label">Hubs — Last 14 Days</span>
+      <span class="section-line"></span>
+    </div>
+    <div class="trend-grid" id="hub-trend-grid"></div>
 
-  <!-- SLA Stack Rank -->
-  <div class="section-header">
-    <span class="section-label">Steps Missing SLA — Yesterday (East Region)</span>
-    <span class="section-line"></span>
-  </div>
-
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Step</th>
-          <th>Facility</th>
-          <th>Route</th>
-          <th style="text-align:right">Misses</th>
-          <th class="td-bar"></th>
-        </tr>
-      </thead>
-      <tbody id="sla-tbody"></tbody>
-    </table>
-  </div>
-
-  <div class="legend">
-    <div class="legend-item"><div class="legend-dot" style="background:#22c55e"></div>≥ 95% On Track</div>
-    <div class="legend-item"><div class="legend-dot" style="background:#f59e0b"></div>90–94% Watch</div>
-    <div class="legend-item"><div class="legend-dot" style="background:#ef4444"></div>&lt; 90% Critical</div>
-    <div class="legend-item"><div class="legend-dot" style="background:#4b5563"></div>No Data</div>
+    <div class="section-header">
+      <span class="section-label">Spokes — Last 14 Days</span>
+      <span class="section-line"></span>
+    </div>
+    <div class="trend-grid" id="spoke-trend-grid"></div>
   </div>
 
 </main>
@@ -439,10 +242,12 @@
 </footer>
 
 <script>
-async function loadData() {
-  const res = await fetch('data/latest.json?t=' + Date.now());
-  return res.json();
-}
+let allData = {};      // { "2026-06-07": {...}, ... }
+let availableDates = [];
+let currentDate = null;
+
+const EAST_HUBS   = ['ATL-15','EWR-2','GCO-1','NNJ-7','NYC-1','SLC-8'];
+const EAST_SPOKES = ['ATL-11','ATL-12','BKN-9','BLT-3','BNX-1','BOS-5','BOS-6','CIN-5','CLE-7','CLT-3','CNJ-2','COL-5','DCA-5','DET-13','HBG-2','HFD-3','HGR-1','HUD-1','JAX-2','LIN-1','NAS-2','NNJ-5','NNJ-6','ORL-3','PHL-7','PHL-8','PIT-2','QNS-2','RAL-3','RIC-2','TPA-4','VAB-4'];
 
 function statusClass(pct) {
   if (pct === null || pct === undefined) return 'grey';
@@ -456,92 +261,183 @@ function stepClass(step) {
   if (step.includes('Truck')) return 'step-truck';
   if (step.includes('Spoke')) return 'step-spoke';
   if (step.includes('Dispatch')) return 'step-dispatch';
-  if (step.includes('Delivery')) return 'step-delivery';
   return '';
+}
+
+function formatDate(dateStr) {
+  const d = new Date(dateStr + 'T12:00:00');
+  return d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+}
+
+function formatDateLong(dateStr) {
+  const d = new Date(dateStr + 'T12:00:00');
+  return d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+}
+
+async function fetchJSON(url) {
+  const res = await fetch(url + '?t=' + Date.now());
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  return res.json();
+}
+
+async function init() {
+  // Load index
+  const index = await fetchJSON('data/index.json');
+  availableDates = index.dates.sort();
+
+  // Populate date selector
+  const sel = document.getElementById('date-select');
+  availableDates.forEach(d => {
+    const opt = document.createElement('option');
+    opt.value = d;
+    opt.textContent = formatDate(d);
+    sel.appendChild(opt);
+  });
+
+  // Load all date data for trends
+  await Promise.all(availableDates.map(async d => {
+    try {
+      allData[d] = await fetchJSON(`data/${d}.json`);
+    } catch(e) { console.warn('Could not load', d, e); }
+  }));
+
+  // Show latest
+  loadDate(index.latest);
+}
+
+function loadDate(dateStr) {
+  currentDate = dateStr;
+  document.getElementById('date-select').value = dateStr;
+
+  const idx = availableDates.indexOf(dateStr);
+  document.getElementById('btn-prev').disabled = idx <= 0;
+  document.getElementById('btn-next').disabled = idx >= availableDates.length - 1;
+
+  const data = allData[dateStr];
+  if (!data) return;
+
+  // Header
+  document.getElementById('display-date').textContent = formatDateLong(dateStr);
+  document.getElementById('pulled-at').textContent = data.pulled_at || '—';
+
+  renderDaily(data);
+  renderTrends();
+}
+
+function navigateDate(dir) {
+  const idx = availableDates.indexOf(currentDate);
+  const next = availableDates[idx + dir];
+  if (next) loadDate(next);
+}
+
+function renderDaily(data) {
+  const facs = data.facilities || {};
+
+  // Summary
+  let g=0, y=0, r=0, n=0;
+  Object.values(facs).forEach(f => {
+    const c = statusClass(f.otd_pct);
+    if (c==='green') g++; else if (c==='yellow') y++; else if (c==='red') r++; else n++;
+  });
+  document.getElementById('summary-bar').innerHTML = `
+    <div class="summary-chip green"><div class="chip-dot"></div><span class="chip-num">${g}</span><span class="chip-label">On Track</span></div>
+    <div class="summary-chip yellow"><div class="chip-dot"></div><span class="chip-num">${y}</span><span class="chip-label">Watch</span></div>
+    <div class="summary-chip red"><div class="chip-dot"></div><span class="chip-num">${r}</span><span class="chip-label">Critical</span></div>
+    ${n ? `<div class="summary-chip grey"><div class="chip-dot"></div><span class="chip-num">${n}</span><span class="chip-label">No Data</span></div>` : ''}
+  `;
+
+  // Hubs
+  const hubs = EAST_HUBS.filter(f => facs[f]);
+  document.getElementById('hub-count').textContent = hubs.length;
+  document.getElementById('hub-grid').innerHTML = hubs.map(name => renderCard(name, facs[name])).join('');
+
+  // Spokes
+  const spokes = EAST_SPOKES.filter(f => facs[f]);
+  document.getElementById('spoke-count').textContent = spokes.length;
+  document.getElementById('spoke-grid').innerHTML = spokes.map(name => renderCard(name, facs[name])).join('');
+
+  // SLA
+  const sla = data.sla_stack_rank || [];
+  const maxMiss = sla.length ? Math.max(...sla.map(r => r.miss_count)) : 1;
+  document.getElementById('sla-tbody').innerHTML = sla.map((row, i) => {
+    const barW = Math.round((row.miss_count / maxMiss) * 100);
+    const route = row.from_stop !== row.next_stop ? `${row.from_stop} → ${row.next_stop}` : row.from_stop;
+    return `<tr>
+      <td class="td-rank">${i+1}</td>
+      <td class="td-step"><span class="${stepClass(row.step)}">${row.step}</span></td>
+      <td class="td-facility">${row.facility}</td>
+      <td class="td-route">${route}</td>
+      <td class="td-count">${row.miss_count.toLocaleString()}</td>
+      <td><div class="inline-bar"><div class="inline-bar-fill" style="width:${barW}%"></div></div></td>
+    </tr>`;
+  }).join('');
 }
 
 function renderCard(name, data) {
   const cls = statusClass(data.otd_pct);
   const pct = data.otd_pct;
-  const fillPct = pct ? Math.min(100, pct) : 0;
   return `
     <div class="facility-card ${cls}">
       <div class="card-name">${name}</div>
       ${pct !== null && pct !== undefined
         ? `<div class="card-pct">${pct.toFixed(1)}<span style="font-size:14px;font-weight:600;opacity:.6">%</span></div>`
         : `<div class="card-no-data">no data</div>`}
-      <div class="card-bar"><div class="card-bar-fill" style="width:${fillPct}%"></div></div>
+      <div class="card-bar"><div class="card-bar-fill" style="width:${Math.min(100, pct || 0)}%"></div></div>
     </div>`;
 }
 
-function renderSummary(facilities) {
-  let g = 0, y = 0, r = 0, n = 0;
-  Object.values(facilities).forEach(f => {
-    const cls = statusClass(f.otd_pct);
-    if (cls === 'green') g++;
-    else if (cls === 'yellow') y++;
-    else if (cls === 'red') r++;
-    else n++;
+function renderTrends() {
+  // Use up to last 14 available dates
+  const dates = availableDates.slice(-14);
+
+  function renderTrendGrid(facilities, containerId) {
+    const html = facilities.map(name => {
+      const bars = dates.map(d => {
+        const dayData = allData[d];
+        const pct = dayData?.facilities?.[name]?.otd_pct ?? null;
+        const cls = statusClass(pct);
+        const height = pct !== null ? Math.max(4, Math.round((pct / 100) * 28)) : 4;
+        const label = pct !== null ? pct.toFixed(1) + '%' : '—';
+        const shortDate = d.slice(5).replace('-', '/'); // "06/07"
+        return `
+          <div class="trend-day">
+            <div class="trend-pct-label ${cls}">${label}</div>
+            <div class="trend-bar-wrap">
+              <div class="trend-bar ${cls}" style="height:${height}px"></div>
+            </div>
+            <div class="trend-date-label">${shortDate}</div>
+          </div>`;
+      }).join('');
+
+      return `
+        <div class="trend-row">
+          <div class="trend-name">${name}</div>
+          <div class="trend-bars">${bars}</div>
+        </div>`;
+    }).join('');
+
+    document.getElementById(containerId).innerHTML = html ||
+      '<div class="no-data-msg">No trend data available yet.</div>';
+  }
+
+  renderTrendGrid(EAST_HUBS, 'hub-trend-grid');
+  renderTrendGrid(EAST_SPOKES, 'spoke-trend-grid');
+}
+
+function switchTab(name) {
+  document.querySelectorAll('.tab').forEach((t, i) => {
+    t.classList.toggle('active', ['daily','trends'][i] === name);
   });
-  return `
-    <div class="summary-chip green"><div class="chip-dot"></div><span class="chip-num">${g}</span><span class="chip-label">On Track</span></div>
-    <div class="summary-chip yellow"><div class="chip-dot"></div><span class="chip-num">${y}</span><span class="chip-label">Watch</span></div>
-    <div class="summary-chip red"><div class="chip-dot"></div><span class="chip-num">${r}</span><span class="chip-label">Critical</span></div>
-    ${n ? `<div class="summary-chip grey"><div class="chip-dot"></div><span class="chip-num">${n}</span><span class="chip-label">No Data</span></div>` : ''}
-  `;
+  document.querySelectorAll('.tab-panel').forEach(p => {
+    p.classList.toggle('active', p.id === 'tab-' + name);
+  });
+  if (name === 'trends') renderTrends();
 }
 
-function renderSLA(rows) {
-  const maxMiss = Math.max(...rows.map(r => r.miss_count));
-  return rows.map((row, i) => {
-    const barW = Math.round((row.miss_count / maxMiss) * 100);
-    const route = row.from_stop !== row.next_stop
-      ? `${row.from_stop} → ${row.next_stop}`
-      : row.from_stop;
-    return `
-      <tr>
-        <td class="td-rank">${i + 1}</td>
-        <td class="td-step"><span class="${stepClass(row.step)}">${row.step}</span></td>
-        <td class="td-facility">${row.facility}</td>
-        <td class="td-route">${route}</td>
-        <td class="td-count">${row.miss_count.toLocaleString()}</td>
-        <td class="td-bar"><div class="inline-bar"><div class="inline-bar-fill" style="width:${barW}%"></div></div></td>
-      </tr>`;
-  }).join('');
-}
-
-loadData().then(data => {
-  // Header
-  const d = new Date(data.date + 'T12:00:00');
-  document.getElementById('display-date').textContent =
-    d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
-  document.getElementById('pulled-at').textContent = data.pulled_at;
-
-  // Summary
-  document.getElementById('summary-bar').innerHTML = renderSummary(data.facilities);
-
-  // Hubs
-  const hubs = Object.entries(data.facilities).filter(([,v]) => v.type === 'hub');
-  const spokes = Object.entries(data.facilities).filter(([,v]) => v.type === 'spoke');
-
-  document.getElementById('hub-count').textContent = hubs.length;
-  document.getElementById('spoke-count').textContent = spokes.length;
-
-  document.getElementById('hub-grid').innerHTML =
-    hubs.map(([name, d]) => renderCard(name, d)).join('');
-  document.getElementById('spoke-grid').innerHTML =
-    spokes.map(([name, d]) => renderCard(name, d)).join('');
-
-  // SLA Stack Rank
-  document.getElementById('sla-tbody').innerHTML = renderSLA(data.sla_stack_rank);
-}).catch(err => {
-  console.error('Failed to load data:', err);
-  document.querySelector('main').innerHTML = `
-    <div style="text-align:center;padding:80px 20px;color:var(--muted);font-family:'DM Mono',monospace">
-      <div style="font-size:32px;margin-bottom:12px">⚠</div>
-      <div>No data loaded yet.</div>
-      <div style="margin-top:8px;font-size:11px">Trigger a pull to populate data/latest.json</div>
-    </div>`;
+init().catch(err => {
+  console.error(err);
+  document.querySelector('main').innerHTML =
+    '<div class="no-data-msg"><div style="font-size:32px;margin-bottom:12px">⚠</div><div>Could not load data.</div></div>';
 });
 </script>
 </body>
