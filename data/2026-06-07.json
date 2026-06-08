@@ -4,27 +4,197 @@
   "facilities": {
     "ATL-15": {
       "type": "hub",
-      "otd_pct": 89.2
+      "otd_pct": 89.2,
+      "routes": [
+        {
+          "route": "ATL-15 > NAS-2",
+          "otd_pct": 46.3
+        },
+        {
+          "route": "ATL-15 > ATL-12",
+          "otd_pct": 86.9
+        },
+        {
+          "route": "ATL-15 > ORD-7",
+          "otd_pct": 90.8
+        },
+        {
+          "route": "ATL-15 > ATL-11",
+          "otd_pct": 90.8
+        },
+        {
+          "route": "ATL-15 > JAX-2",
+          "otd_pct": 97.1
+        },
+        {
+          "route": "ATL-15 > EWR-2",
+          "otd_pct": 98.8
+        },
+        {
+          "route": "ATL-15 > CLT-3",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "ATL-15 > ORL-3",
+          "otd_pct": 100.0
+        }
+      ]
     },
     "EWR-2": {
       "type": "hub",
-      "otd_pct": 92.7
+      "otd_pct": 92.7,
+      "routes": [
+        {
+          "route": "EWR-2 > HBG-2",
+          "otd_pct": 0.0
+        },
+        {
+          "route": "EWR-2 > PHL-8",
+          "otd_pct": 0.0
+        },
+        {
+          "route": "EWR-2 > DCA-5",
+          "otd_pct": 0.0
+        },
+        {
+          "route": "EWR-2 > RIC-2",
+          "otd_pct": 38.6
+        },
+        {
+          "route": "EWR-2 > PIT-2",
+          "otd_pct": 69.1
+        },
+        {
+          "route": "EWR-2 > ATL-15",
+          "otd_pct": 90.1
+        },
+        {
+          "route": "EWR-2 > NNJ-6",
+          "otd_pct": 94.2
+        },
+        {
+          "route": "EWR-2 > CNJ-2",
+          "otd_pct": 94.8
+        },
+        {
+          "route": "EWR-2 > PHL-7",
+          "otd_pct": 97.8
+        },
+        {
+          "route": "EWR-2 > HUD-1",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "EWR-2 > HGR-1",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "EWR-2 > ORD-7",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "EWR-2 > QNS-2",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "EWR-2 > BOS-5",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "EWR-2 > HFD-3",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "EWR-2 > NNJ-5",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "EWR-2 > BLT-3",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "EWR-2 > BOS-6",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "EWR-2 > LIN-1",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "EWR-2 > BNX-1",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "EWR-2 > BKN-9",
+          "otd_pct": 100.0
+        }
+      ]
     },
     "GCO-1": {
       "type": "hub",
-      "otd_pct": 99.7
+      "otd_pct": 99.7,
+      "routes": [
+        {
+          "route": "GCO-1 > ORD-7",
+          "otd_pct": 99.95
+        },
+        {
+          "route": "GCO-1 > CLE-7",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "GCO-1 > DET-13",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "GCO-1 > DFW-1",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "GCO-1 > EWR-2",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "GCO-1 > ATL-15",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "GCO-1 > CHI-17",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "GCO-1 > CIN-5",
+          "otd_pct": 100.0
+        }
+      ]
     },
     "NNJ-7": {
       "type": "hub",
-      "otd_pct": null
+      "otd_pct": null,
+      "routes": []
     },
     "NYC-1": {
       "type": "hub",
-      "otd_pct": 100.0
+      "otd_pct": 100.0,
+      "routes": [
+        {
+          "route": "NYC-1 > BKN-9",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "NYC-1 > LIN-1",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "NYC-1 > EWR-2",
+          "otd_pct": 100.0
+        }
+      ]
     },
     "SLC-8": {
       "type": "hub",
-      "otd_pct": null
+      "otd_pct": null,
+      "routes": []
     },
     "ATL-11": {
       "type": "spoke",
