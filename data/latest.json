@@ -4,15 +4,15 @@
   "facilities": {
     "ATL-15": {
       "type": "hub",
-      "otd_pct": 95.9
+      "otd_pct": 89.2
     },
     "EWR-2": {
       "type": "hub",
-      "otd_pct": 97.0
+      "otd_pct": 92.7
     },
     "GCO-1": {
       "type": "hub",
-      "otd_pct": 96.4
+      "otd_pct": 99.7
     },
     "NNJ-7": {
       "type": "hub",
