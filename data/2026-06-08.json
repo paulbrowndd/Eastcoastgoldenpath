@@ -1,6 +1,6 @@
 {
   "date": "2026-06-08",
-  "pulled_at": "2026-06-09 17:04 EST",
+  "pulled_at": "2026-06-09 17:08 EST",
   "facilities": {
     "ATL-15": {
       "type": "hub",
@@ -328,151 +328,179 @@
   },
   "sla_stack_rank": [
     {
-      "step": "2.1 Hub Sortation",
+      "step": "3.2 Truck Transit",
       "facility": "EWR-2",
       "from_stop": "EWR-2",
-      "next_stop": "BNX-1",
-      "miss_count": 1
-    },
-    {
-      "step": "2.1 Hub Sortation",
-      "facility": "EWR-2",
-      "from_stop": "EWR-2",
-      "next_stop": "QNS-2",
-      "miss_count": 1
-    },
-    {
-      "step": "2.1 Hub Sortation",
-      "facility": "EWR-2",
-      "from_stop": "EWR-2",
-      "next_stop": "ATL-15",
-      "miss_count": 1
-    },
-    {
-      "step": "2.1 Hub Sortation",
-      "facility": "EWR-2",
-      "from_stop": "EWR-2",
-      "next_stop": "HUD-1",
-      "miss_count": 1
-    },
-    {
-      "step": "2.1 Hub Sortation",
-      "facility": "EWR-2",
-      "from_stop": "EWR-2",
-      "next_stop": "BLT-3",
-      "miss_count": 1
-    },
-    {
-      "step": "2.1 Hub Sortation",
-      "facility": "EWR-2",
-      "from_stop": "EWR-2",
-      "next_stop": "RIC-2",
-      "miss_count": 1
-    },
-    {
-      "step": "2.1 Hub Sortation",
-      "facility": "EWR-2",
-      "from_stop": "EWR-2",
-      "next_stop": "NNJ-6",
-      "miss_count": 1
-    },
-    {
-      "step": "2.1 Hub Sortation",
-      "facility": "EWR-2",
-      "from_stop": "EWR-2",
-      "next_stop": "CNJ-2",
-      "miss_count": 1
-    },
-    {
-      "step": "2.1 Hub Sortation",
-      "facility": "EWR-2",
-      "from_stop": "EWR-2",
-      "next_stop": "PHL-8",
-      "miss_count": 1
-    },
-    {
-      "step": "4 Spoke Sortation",
-      "facility": "PHL-8",
-      "from_stop": "PHL-8",
-      "next_stop": "PHL-8",
-      "miss_count": 1
-    },
-    {
-      "step": "4 Spoke Sortation",
-      "facility": "TPA-4",
-      "from_stop": "TPA-4",
-      "next_stop": "TPA-4",
-      "miss_count": 1
-    },
-    {
-      "step": "4 Spoke Sortation",
-      "facility": "BNX-1",
-      "from_stop": "BNX-1",
-      "next_stop": "BNX-1",
-      "miss_count": 1
-    },
-    {
-      "step": "4 Spoke Sortation",
-      "facility": "BOS-6",
-      "from_stop": "BOS-6",
-      "next_stop": "BOS-6",
-      "miss_count": 1
-    },
-    {
-      "step": "4 Spoke Sortation",
-      "facility": "NAS-2",
-      "from_stop": "NAS-2",
-      "next_stop": "NAS-2",
-      "miss_count": 1
-    },
-    {
-      "step": "4 Spoke Sortation",
-      "facility": "QNS-2",
-      "from_stop": "QNS-2",
-      "next_stop": "QNS-2",
-      "miss_count": 1
+      "next_stop": "ORD-7",
+      "miss_count": 5763
     },
     {
       "step": "3.1 Truck Arrival",
       "facility": "EWR-2",
       "from_stop": "EWR-2",
       "next_stop": "DCA-5",
-      "miss_count": 1
+      "miss_count": 5499
+    },
+    {
+      "step": "2.1 Hub Sortation",
+      "facility": "EWR-2",
+      "from_stop": "EWR-2",
+      "next_stop": "ATL-15",
+      "miss_count": 3688
+    },
+    {
+      "step": "3.2 Truck Transit",
+      "facility": "ATL-15",
+      "from_stop": "ATL-15",
+      "next_stop": "CLT-3",
+      "miss_count": 3604
+    },
+    {
+      "step": "3.1 Truck Arrival",
+      "facility": "ORD-7",
+      "from_stop": "ORD-7",
+      "next_stop": "DET-13",
+      "miss_count": 3081
+    },
+    {
+      "step": "2.1 Hub Sortation",
+      "facility": "EWR-2",
+      "from_stop": "EWR-2",
+      "next_stop": "BLT-3",
+      "miss_count": 2671
     },
     {
       "step": "3.1 Truck Arrival",
       "facility": "EWR-2",
       "from_stop": "EWR-2",
       "next_stop": "PHL-7",
-      "miss_count": 1
+      "miss_count": 2234
+    },
+    {
+      "step": "4 Spoke Sortation",
+      "facility": "BOS-6",
+      "from_stop": "BOS-6",
+      "next_stop": "BOS-6",
+      "miss_count": 2091
+    },
+    {
+      "step": "3.2 Truck Transit",
+      "facility": "EWR-2",
+      "from_stop": "EWR-2",
+      "next_stop": "BNX-1",
+      "miss_count": 1808
     },
     {
       "step": "3.1 Truck Arrival",
       "facility": "EWR-2",
       "from_stop": "EWR-2",
       "next_stop": "BNX-1",
-      "miss_count": 1
+      "miss_count": 1808
     },
     {
-      "step": "3.1 Truck Arrival",
-      "facility": "NNJ-5",
-      "from_stop": "NNJ-5",
-      "next_stop": "NNJ-7",
-      "miss_count": 1
+      "step": "1.1 First Mile Arr",
+      "facility": "ATL-15",
+      "from_stop": "AEO-GA-1",
+      "next_stop": "ATL-15",
+      "miss_count": 1300
+    },
+    {
+      "step": "3.2 Truck Transit",
+      "facility": "ATL-15",
+      "from_stop": "ATL-15",
+      "next_stop": "ORL-3",
+      "miss_count": 1227
+    },
+    {
+      "step": "4 Spoke Sortation",
+      "facility": "PHL-8",
+      "from_stop": "PHL-8",
+      "next_stop": "PHL-8",
+      "miss_count": 1028
+    },
+    {
+      "step": "3.2 Truck Transit",
+      "facility": "CLE-7",
+      "from_stop": "ORD-7",
+      "next_stop": "CLE-7",
+      "miss_count": 1010
+    },
+    {
+      "step": "4 Spoke Sortation",
+      "facility": "NAS-2",
+      "from_stop": "NAS-2",
+      "next_stop": "NAS-2",
+      "miss_count": 767
+    },
+    {
+      "step": "5 Dispatch",
+      "facility": "PIT-2",
+      "from_stop": "PIT-2",
+      "next_stop": "PIT-2",
+      "miss_count": 744
+    },
+    {
+      "step": "5 Dispatch",
+      "facility": "DET-13",
+      "from_stop": "DET-13",
+      "next_stop": "DET-13",
+      "miss_count": 644
+    },
+    {
+      "step": "2.1 Hub Sortation",
+      "facility": "EWR-2",
+      "from_stop": "EWR-2",
+      "next_stop": "RIC-2",
+      "miss_count": 469
+    },
+    {
+      "step": "6 Delivery",
+      "facility": "BNX-1",
+      "from_stop": "BNX-1",
+      "next_stop": "",
+      "miss_count": 374
+    },
+    {
+      "step": "5 Dispatch",
+      "facility": "HBG-2",
+      "from_stop": "HBG-2",
+      "next_stop": "HBG-2",
+      "miss_count": 277
+    },
+    {
+      "step": "6 Delivery",
+      "facility": "QNS-2",
+      "from_stop": "QNS-2",
+      "next_stop": "",
+      "miss_count": 253
+    },
+    {
+      "step": "5 Dispatch",
+      "facility": "CLT-3",
+      "from_stop": "CLT-3",
+      "next_stop": "CLT-3",
+      "miss_count": 174
+    },
+    {
+      "step": "6 Delivery",
+      "facility": "PHL-8",
+      "from_stop": "PHL-8",
+      "next_stop": "",
+      "miss_count": 136
     },
     {
       "step": "5 Dispatch",
       "facility": "BOS-5",
       "from_stop": "BOS-5",
       "next_stop": "BOS-5",
-      "miss_count": 1
+      "miss_count": 134
     },
     {
-      "step": "5 Dispatch",
-      "facility": "BOS-6",
-      "from_stop": "BOS-6",
-      "next_stop": "BOS-6",
-      "miss_count": 1
+      "step": "2.1 Hub Sortation",
+      "facility": "EWR-2",
+      "from_stop": "EWR-2",
+      "next_stop": "CNJ-2",
+      "miss_count": 129
     }
   ]
 }
