@@ -14,6 +14,7 @@
     --yellow: #f59e0b; --yellow-bg: #1a1200; --yellow-border: #4a3000;
     --red: #ef4444; --red-bg: #1a0505; --red-border: #4a0d0d;
     --accent: #3b82f6; --accent2: #6366f1;
+    --orange: #f97316; --orange-bg: #1a0a00; --orange-border: #4a2000;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.5; min-height: 100vh; }
@@ -63,6 +64,10 @@
   .section-count { font-family: 'DM Mono', monospace; font-size: 11px; background: var(--surface2); border: 1px solid var(--border); padding: 2px 8px; border-radius: 99px; color: var(--muted); }
   .section-line { flex: 1; height: 1px; background: var(--border); }
 
+  /* ── Hub row: OTD cards + pallet tracker side by side ── */
+  .hub-row { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: start; }
+  @media (max-width: 900px) { .hub-row { grid-template-columns: 1fr; } }
+
   /* Facility cards */
   .facility-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; }
   .facility-card { border-radius: 10px; padding: 14px 14px 12px; border: 1px solid; transition: transform 0.15s, box-shadow 0.15s; position: relative; overflow: hidden; }
@@ -79,6 +84,34 @@
   .card-no-data { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); margin-top: 4px; }
   .card-bar { margin-top: 10px; height: 3px; background: var(--border); border-radius: 99px; overflow: hidden; }
   .card-bar-fill { height: 100%; border-radius: 99px; background: currentColor; }
+
+  /* ── Pallet Tracker ── */
+  .pallet-tracker { display: flex; flex-direction: column; gap: 8px; min-width: 260px; }
+  .pallet-tracker-label { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+  .pallet-tracker-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  .pallet-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; transition: border-color 0.15s; }
+  .pallet-card:hover { border-color: var(--accent2); }
+  .pallet-card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+  .pallet-hub-name { font-family: 'DM Mono', monospace; font-weight: 500; font-size: 13px; color: var(--text); }
+  .pallet-outbound-badge { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); background: var(--surface2); border: 1px solid var(--border); padding: 2px 7px; border-radius: 99px; }
+
+  .pallet-counts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+  .pallet-count-item { display: flex; flex-direction: column; gap: 2px; }
+  .pallet-count-type { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.6px; }
+  .pallet-count-num { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 22px; line-height: 1; }
+  .pallet-count-num.high   { color: var(--green); }
+  .pallet-count-num.medium { color: var(--yellow); }
+  .pallet-count-num.low    { color: var(--red); }
+
+  .pallet-depletion-bar { height: 5px; background: var(--border); border-radius: 99px; overflow: hidden; }
+  .pallet-depletion-fill { height: 100%; border-radius: 99px; transition: width 0.6s ease; }
+  .pallet-depletion-fill.high   { background: var(--green); }
+  .pallet-depletion-fill.medium { background: var(--yellow); }
+  .pallet-depletion-fill.low    { background: var(--red); }
+  .pallet-depletion-meta { display: flex; justify-content: space-between; margin-top: 5px; font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); }
+
+  .no-inventory-msg { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); text-align: center; padding: 20px 12px; background: var(--surface); border: 1px dashed var(--border); border-radius: 10px; }
 
   /* SLA Table */
   .table-wrap { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
@@ -114,13 +147,12 @@
   .trend-pct-label { font-family: 'DM Mono', monospace; font-size: 9px; white-space: nowrap; }
   .trend-pct-label.green { color: var(--green); } .trend-pct-label.yellow { color: var(--yellow); } .trend-pct-label.red { color: var(--red); } .trend-pct-label.grey { color: var(--muted); }
 
-  /* ── Detail Modal ── */
+  /* Detail Modal */
   .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.65); z-index: 200; display: none; align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(4px); }
   .modal-overlay.open { display: flex; }
   .modal { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; width: 100%; max-width: 500px; max-height: 82vh; overflow-y: auto; box-shadow: 0 24px 60px rgba(0,0,0,0.7); animation: modalIn 0.18s ease; }
   @keyframes modalIn { from { opacity:0; transform: scale(0.95) translateY(10px); } to { opacity:1; transform: none; } }
   .modal-header { padding: 20px 24px 16px; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; position: sticky; top: 0; background: var(--surface); z-index: 1; border-radius: 16px 16px 0 0; }
-  .modal-title-block {}
   .modal-facility-name { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 22px; }
   .modal-subtitle { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); margin-top: 2px; }
   .modal-close { background: var(--surface2); border: 1px solid var(--border); color: var(--muted); width: 30px; height: 30px; border-radius: 7px; cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: color 0.15s, border-color 0.15s; line-height: 1; }
@@ -165,7 +197,7 @@
 <div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
   <div class="modal" id="modal">
     <div class="modal-header">
-      <div class="modal-title-block">
+      <div>
         <div class="modal-facility-name" id="modal-facility-name">—</div>
         <div class="modal-subtitle">Hub Sortation · Route Breakdown</div>
       </div>
@@ -215,14 +247,22 @@
   <div class="tab-panel active" id="tab-daily">
     <div class="summary-bar" id="summary-bar"></div>
 
+    <!-- Hub section: OTD cards + pallet tracker side by side -->
     <div class="section-header">
       <span class="section-label">Hubs</span>
       <span class="section-count" id="hub-count">—</span>
       <span class="section-line"></span>
       <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted)">click for route detail</span>
     </div>
-    <div class="facility-grid" id="hub-grid"></div>
+    <div class="hub-row">
+      <div class="facility-grid" id="hub-grid"></div>
+      <div>
+        <div class="pallet-tracker-label">Pallet Inventory</div>
+        <div class="pallet-tracker" id="pallet-tracker"></div>
+      </div>
+    </div>
 
+    <!-- Spokes -->
     <div class="section-header">
       <span class="section-label">Spokes</span>
       <span class="section-count" id="spoke-count">—</span>
@@ -230,6 +270,7 @@
     </div>
     <div class="facility-grid" id="spoke-grid"></div>
 
+    <!-- SLA Stack Rank -->
     <div class="section-header">
       <span class="section-label">Steps Missing SLA — Yesterday (East Region)</span>
       <span class="section-line"></span>
@@ -283,17 +324,9 @@ function sc(pct) {
   if (pct === null || pct === undefined) return 'grey';
   if (pct >= 95) return 'green'; if (pct >= 90) return 'yellow'; return 'red';
 }
-
-function statusLabel(cls) {
-  return { green: 'On Track', yellow: 'Watch', red: 'Critical', grey: 'No Data' }[cls];
-}
-
-function formatDate(d) {
-  return new Date(d + 'T12:00:00').toLocaleDateString('en-US', { weekday:'short', month:'short', day:'numeric' });
-}
-function formatDateLong(d) {
-  return new Date(d + 'T12:00:00').toLocaleDateString('en-US', { weekday:'long', month:'long', day:'numeric', year:'numeric' });
-}
+function statusLabel(cls) { return {green:'On Track',yellow:'Watch',red:'Critical',grey:'No Data'}[cls]; }
+function formatDate(d) { return new Date(d+'T12:00:00').toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'}); }
+function formatDateLong(d) { return new Date(d+'T12:00:00').toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'}); }
 
 async function fetchJSON(url) {
   const res = await fetch(url + '?t=' + Date.now());
@@ -338,6 +371,8 @@ function navigateDate(dir) {
 
 function renderDaily(data) {
   const facs = data.facilities || {};
+
+  // Summary chips
   let g=0,y=0,r=0,n=0;
   Object.values(facs).forEach(f => { const c=sc(f.otd_pct); if(c==='green')g++; else if(c==='yellow')y++; else if(c==='red')r++; else n++; });
   document.getElementById('summary-bar').innerHTML = `
@@ -346,14 +381,20 @@ function renderDaily(data) {
     <div class="summary-chip red"><div class="chip-dot"></div><span class="chip-num">${r}</span><span class="chip-label">Critical</span></div>
     ${n?`<div class="summary-chip grey"><div class="chip-dot"></div><span class="chip-num">${n}</span><span class="chip-label">No Data</span></div>`:''}`;
 
+  // Hubs
   const hubs = EAST_HUBS.filter(f => facs[f]);
   document.getElementById('hub-count').textContent = hubs.length;
   document.getElementById('hub-grid').innerHTML = hubs.map(name => renderCard(name, facs[name], true)).join('');
 
+  // Pallet tracker
+  renderPalletTracker(data.pallet_inventory);
+
+  // Spokes
   const spokes = EAST_SPOKES.filter(f => facs[f]);
   document.getElementById('spoke-count').textContent = spokes.length;
   document.getElementById('spoke-grid').innerHTML = spokes.map(name => renderCard(name, facs[name], false)).join('');
 
+  // SLA
   const sla = data.sla_stack_rank || [];
   const maxMiss = sla.length ? Math.max(...sla.map(r => r.miss_count)) : 1;
   document.getElementById('sla-tbody').innerHTML = sla.map((row, i) => {
@@ -364,21 +405,62 @@ function renderDaily(data) {
   }).join('');
 }
 
+function palletColorClass(pct) {
+  if (pct >= 60) return 'high';
+  if (pct >= 30) return 'medium';
+  return 'low';
+}
+
+function renderPalletTracker(inventory) {
+  const el = document.getElementById('pallet-tracker');
+  if (!inventory || Object.keys(inventory).length === 0) {
+    el.innerHTML = '<div class="no-inventory-msg">No inventory data.<br>Provide starting counts to enable tracking.</div>';
+    return;
+  }
+  el.innerHTML = Object.entries(inventory).map(([hub, d]) => {
+    const pct = Math.round((d.remaining_pallets / d.starting_pallets) * 100);
+    const cls = palletColorClass(pct);
+    return `
+      <div class="pallet-card">
+        <div class="pallet-card-header">
+          <div class="pallet-hub-name">${hub}</div>
+          <div class="pallet-outbound-badge">−${d.outbound_today} outbound</div>
+        </div>
+        <div class="pallet-counts">
+          <div class="pallet-count-item">
+            <div class="pallet-count-type">Pallets</div>
+            <div class="pallet-count-num ${cls}">${d.remaining_pallets.toLocaleString()}</div>
+          </div>
+          <div class="pallet-count-item">
+            <div class="pallet-count-type">Gaylords</div>
+            <div class="pallet-count-num ${cls}">${d.remaining_gaylords.toLocaleString()}</div>
+          </div>
+        </div>
+        <div class="pallet-depletion-bar">
+          <div class="pallet-depletion-fill ${cls}" style="width:${pct}%"></div>
+        </div>
+        <div class="pallet-depletion-meta">
+          <span>${pct}% remaining</span>
+          <span>started ${d.starting_pallets.toLocaleString()}</span>
+        </div>
+      </div>`;
+  }).join('');
+}
+
 function renderCard(name, data, isHub) {
   const cls = sc(data.otd_pct);
   const pct = data.otd_pct;
   const hasRoutes = isHub && data.routes && data.routes.length > 0;
-  const clickable = hasRoutes ? 'clickable' : '';
-  const hint = hasRoutes ? '<div class="card-detail-hint">▸ routes</div>' : '';
   const onclick = hasRoutes ? `onclick="openModal('${name}')"` : '';
+  const hint = hasRoutes ? '<div class="card-detail-hint">▸ routes</div>' : '';
   return `
-    <div class="facility-card ${cls} ${clickable}" ${onclick}>
+    <div class="facility-card ${cls} ${hasRoutes?'clickable':''}" ${onclick}>
       ${hint}
       <div class="card-name">${name}</div>
       ${pct !== null && pct !== undefined
         ? `<div class="card-pct">${pct.toFixed(1)}<span style="font-size:14px;font-weight:600;opacity:.6">%</span></div>`
         : `<div class="card-no-data">no data</div>`}
-      <div class="card-bar"><div class="card-bar-fill" style="width:${Math.min(100, pct||0)}%"></div></div>
+      <div class="card-bar"><div class="card-bar-fill" style="width:${Math.min(100,pct||0)}%"></div></div>
     </div>`;
 }
 
@@ -386,71 +468,49 @@ function openModal(facilityName) {
   if (!currentDayData) return;
   const fac = currentDayData.facilities[facilityName];
   if (!fac) return;
-
   const cls = sc(fac.otd_pct);
   document.getElementById('modal-facility-name').textContent = facilityName;
   const heroEl = document.getElementById('modal-hero-pct');
   heroEl.textContent = fac.otd_pct !== null ? fac.otd_pct.toFixed(1) + '%' : '—';
   heroEl.className = 'modal-hero-pct ' + cls;
-
   const badge = document.getElementById('modal-hero-badge');
   badge.textContent = statusLabel(cls);
   badge.className = 'modal-hero-badge ' + cls;
-
   const routes = fac.routes || [];
-  document.getElementById('modal-routes-label').textContent =
-    `${routes.length} route${routes.length !== 1 ? 's' : ''} · sorted by performance`;
-
-  if (routes.length === 0) {
-    document.getElementById('modal-route-list').innerHTML =
-      '<div class="modal-no-routes">No route breakdown available.</div>';
+  document.getElementById('modal-routes-label').textContent = `${routes.length} route${routes.length!==1?'s':''} · sorted by performance`;
+  if (!routes.length) {
+    document.getElementById('modal-route-list').innerHTML = '<div class="modal-no-routes">No route breakdown available.</div>';
   } else {
-    // Split into issues vs healthy
     const issues = routes.filter(r => sc(r.otd_pct) !== 'green');
     const healthy = routes.filter(r => sc(r.otd_pct) === 'green');
-
     let html = '';
-    if (issues.length) {
-      html += `<div class="routes-divider">⚠ Impacted routes (${issues.length})</div>`;
-      html += issues.map(r => routeRow(r)).join('');
-    }
-    if (healthy.length) {
-      html += `<div class="routes-divider">✓ On track (${healthy.length})</div>`;
-      html += healthy.map(r => routeRow(r)).join('');
-    }
+    if (issues.length) { html += `<div class="routes-divider">⚠ Impacted routes (${issues.length})</div>`; html += issues.map(r => routeRow(r)).join(''); }
+    if (healthy.length) { html += `<div class="routes-divider">✓ On track (${healthy.length})</div>`; html += healthy.map(r => routeRow(r)).join(''); }
     document.getElementById('modal-route-list').innerHTML = html;
   }
-
   document.getElementById('modal-overlay').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
 
 function routeRow(r) {
   const cls = sc(r.otd_pct);
-  const rowCls = cls === 'red' ? 'route-red' : cls === 'yellow' ? 'route-yellow' : '';
+  const rowCls = cls==='red'?'route-red':cls==='yellow'?'route-yellow':'';
   const barW = r.otd_pct !== null ? Math.min(100, r.otd_pct) : 0;
-  // Extract just the destination from "EWR-2 > DCA-5" → "→ DCA-5"
   const parts = r.route.split(' > ');
-  const displayRoute = parts.length === 2 ? `→ ${parts[1]}` : r.route;
-  const pctDisplay = r.otd_pct !== null ? r.otd_pct.toFixed(1) + '%' : '—';
+  const displayRoute = parts.length===2 ? `→ ${parts[1]}` : r.route;
   return `
     <div class="route-row ${rowCls}">
       <div class="route-left">
         <div class="route-name">${displayRoute}</div>
         <div class="route-bar-wrap"><div class="route-bar-fill ${cls}" style="width:${barW}%"></div></div>
       </div>
-      <div class="route-pct ${cls}">${pctDisplay}</div>
+      <div class="route-pct ${cls}">${r.otd_pct!==null?r.otd_pct.toFixed(1)+'%':'—'}</div>
     </div>`;
 }
 
-function closeModal(e) {
-  if (e.target === document.getElementById('modal-overlay')) closeModalDirect();
-}
-function closeModalDirect() {
-  document.getElementById('modal-overlay').classList.remove('open');
-  document.body.style.overflow = '';
-}
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModalDirect(); });
+function closeModal(e) { if (e.target===document.getElementById('modal-overlay')) closeModalDirect(); }
+function closeModalDirect() { document.getElementById('modal-overlay').classList.remove('open'); document.body.style.overflow=''; }
+document.addEventListener('keydown', e => { if (e.key==='Escape') closeModalDirect(); });
 
 function renderTrends() {
   const dates = availableDates.slice(-14);
@@ -459,10 +519,9 @@ function renderTrends() {
       const bars = dates.map(d => {
         const pct = allData[d]?.facilities?.[name]?.otd_pct ?? null;
         const cls = sc(pct);
-        const h = pct !== null ? Math.max(4, Math.round((pct/100)*28)) : 4;
-        const label = pct !== null ? pct.toFixed(1)+'%' : '—';
+        const h = pct!==null?Math.max(4,Math.round((pct/100)*28)):4;
         return `<div class="trend-day">
-          <div class="trend-pct-label ${cls}">${label}</div>
+          <div class="trend-pct-label ${cls}">${pct!==null?pct.toFixed(1)+'%':'—'}</div>
           <div class="trend-bar-wrap"><div class="trend-bar ${cls}" style="height:${h}px"></div></div>
           <div class="trend-date-label">${d.slice(5).replace('-','/')}</div>
         </div>`;
@@ -476,8 +535,8 @@ function renderTrends() {
 }
 
 function switchTab(name) {
-  document.querySelectorAll('.tab').forEach((t,i) => t.classList.toggle('active', ['daily','trends'][i]===name));
-  document.querySelectorAll('.tab-panel').forEach(p => p.classList.toggle('active', p.id==='tab-'+name));
+  document.querySelectorAll('.tab').forEach((t,i) => t.classList.toggle('active',['daily','trends'][i]===name));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.toggle('active',p.id==='tab-'+name));
   if (name==='trends') renderTrends();
 }
 
