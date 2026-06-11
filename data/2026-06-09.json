@@ -498,5 +498,28 @@
       "next_stop": "",
       "miss_count": 138
     }
-  ]
+  ],
+  "pallet_inventory": {
+    "ATL-15": {
+      "starting_pallets": 1000,
+      "starting_gaylords": 1000,
+      "outbound_today": 137,
+      "remaining_pallets": 863,
+      "remaining_gaylords": 863
+    },
+    "EWR-2": {
+      "starting_pallets": 1000,
+      "starting_gaylords": 1000,
+      "outbound_today": 396,
+      "remaining_pallets": 604,
+      "remaining_gaylords": 604
+    },
+    "MCI-1": {
+      "starting_pallets": 1000,
+      "starting_gaylords": 1000,
+      "outbound_today": 14,
+      "remaining_pallets": 986,
+      "remaining_gaylords": 986
+    }
+  }
 }
