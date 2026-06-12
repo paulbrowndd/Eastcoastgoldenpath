@@ -521,13 +521,13 @@
     },
     "EWR-2": {
       "starting_pallets": 2678,
-      "starting_gaylords": 1410,
+      "starting_gaylords": 3354,
       "outbound_today": 354,
       "remaining_pallets": 2324,
-      "remaining_gaylords": 1056,
+      "remaining_gaylords": 3000,
       "avg_daily_outbound": 349,
       "days_remaining_pallets": 6.7,
-      "days_remaining_gaylords": 3.0,
+      "days_remaining_gaylords": 8.6,
       "history_days": 30
     },
     "MCI-1": {
