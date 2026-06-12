@@ -112,6 +112,14 @@
   .pallet-depletion-meta { display: flex; justify-content: space-between; margin-top: 5px; font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); }
 
   .no-inventory-msg { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); text-align: center; padding: 20px 12px; background: var(--surface); border: 1px dashed var(--border); border-radius: 10px; }
+  .pallet-days-remaining { display: flex; align-items: center; gap: 0; margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border); }
+  .pallet-days-block { flex: 1; text-align: center; }
+  .pallet-days-divider { width: 1px; height: 28px; background: var(--border); }
+  .pallet-days-num { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 16px; line-height: 1; }
+  .pallet-days-num.high   { color: var(--green); }
+  .pallet-days-num.medium { color: var(--yellow); }
+  .pallet-days-num.low    { color: var(--red); }
+  .pallet-days-label { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--muted); margin-top: 3px; text-transform: uppercase; letter-spacing: 0.5px; }
 
   /* SLA Table */
   .table-wrap { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
@@ -411,6 +419,12 @@ function palletColorClass(pct) {
   return 'low';
 }
 
+function daysColorClass(days) {
+  if (days >= 7) return 'high';
+  if (days >= 3) return 'medium';
+  return 'low';
+}
+
 function renderPalletTracker(inventory) {
   const el = document.getElementById('pallet-tracker');
   if (!inventory || Object.keys(inventory).length === 0) {
@@ -418,31 +432,57 @@ function renderPalletTracker(inventory) {
     return;
   }
   el.innerHTML = Object.entries(inventory).map(([hub, d]) => {
-    const pct = Math.round((d.remaining_pallets / d.starting_pallets) * 100);
-    const cls = palletColorClass(pct);
+    const palletPct = Math.round((d.remaining_pallets / d.starting_pallets) * 100);
+    const gaylordPct = Math.round((d.remaining_gaylords / d.starting_gaylords) * 100);
+    const palletCls = palletColorClass(palletPct);
+    const gaylordCls = palletColorClass(gaylordPct);
+    const hasTrend = d.avg_daily_outbound !== undefined;
+    const daysPallets = d.days_remaining_pallets;
+    const daysGaylords = d.days_remaining_gaylords;
+    const limitingDays = hasTrend ? Math.min(daysPallets, daysGaylords) : null;
+    const daysCls = hasTrend ? daysColorClass(limitingDays) : 'high';
+    const histNote = hasTrend ? `${d.history_days}d avg` : '';
+
     return `
       <div class="pallet-card">
         <div class="pallet-card-header">
           <div class="pallet-hub-name">${hub}</div>
-          <div class="pallet-outbound-badge">−${d.outbound_today} outbound</div>
+          <div class="pallet-outbound-badge">−${d.outbound_today} today</div>
         </div>
         <div class="pallet-counts">
           <div class="pallet-count-item">
             <div class="pallet-count-type">Pallets</div>
-            <div class="pallet-count-num ${cls}">${d.remaining_pallets.toLocaleString()}</div>
+            <div class="pallet-count-num ${palletCls}">${d.remaining_pallets.toLocaleString()}</div>
           </div>
           <div class="pallet-count-item">
             <div class="pallet-count-type">Gaylords</div>
-            <div class="pallet-count-num ${cls}">${d.remaining_gaylords.toLocaleString()}</div>
+            <div class="pallet-count-num ${gaylordCls}">${d.remaining_gaylords.toLocaleString()}</div>
           </div>
         </div>
-        <div class="pallet-depletion-bar">
-          <div class="pallet-depletion-fill ${cls}" style="width:${pct}%"></div>
+        <div class="pallet-depletion-bar" title="Pallet depletion">
+          <div class="pallet-depletion-fill ${palletCls}" style="width:${palletPct}%"></div>
         </div>
         <div class="pallet-depletion-meta">
-          <span>${pct}% remaining</span>
-          <span>started ${d.starting_pallets.toLocaleString()}</span>
+          <span>pallets ${palletPct}%</span>
+          <span>gaylords ${gaylordPct}%</span>
         </div>
+        ${hasTrend ? `
+        <div class="pallet-days-remaining">
+          <div class="pallet-days-block">
+            <div class="pallet-days-num ${daysColorClass(daysPallets)}">${daysPallets}d</div>
+            <div class="pallet-days-label">pallets left</div>
+          </div>
+          <div class="pallet-days-divider"></div>
+          <div class="pallet-days-block">
+            <div class="pallet-days-num ${daysColorClass(daysGaylords)}">${daysGaylords}d</div>
+            <div class="pallet-days-label">gaylords left</div>
+          </div>
+          <div class="pallet-days-divider"></div>
+          <div class="pallet-days-block">
+            <div class="pallet-days-num" style="color:var(--muted);font-size:13px">${d.avg_daily_outbound}</div>
+            <div class="pallet-days-label">${histNote}</div>
+          </div>
+        </div>` : ''}
       </div>`;
   }).join('');
 }
