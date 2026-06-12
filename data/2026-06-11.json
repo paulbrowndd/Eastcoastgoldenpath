@@ -513,21 +513,33 @@
       "starting_gaylords": 1410,
       "outbound_today": 107,
       "remaining_pallets": 2571,
-      "remaining_gaylords": 1303
+      "remaining_gaylords": 1303,
+      "avg_daily_outbound": 119,
+      "days_remaining_pallets": 21.6,
+      "days_remaining_gaylords": 10.9,
+      "history_days": 9
     },
     "EWR-2": {
       "starting_pallets": 2678,
       "starting_gaylords": 1410,
       "outbound_today": 354,
       "remaining_pallets": 2324,
-      "remaining_gaylords": 1056
+      "remaining_gaylords": 1056,
+      "avg_daily_outbound": 349,
+      "days_remaining_pallets": 6.7,
+      "days_remaining_gaylords": 3.0,
+      "history_days": 30
     },
     "MCI-1": {
       "starting_pallets": 1115,
       "starting_gaylords": 740,
       "outbound_today": 13,
       "remaining_pallets": 1102,
-      "remaining_gaylords": 727
+      "remaining_gaylords": 727,
+      "avg_daily_outbound": 14,
+      "days_remaining_pallets": 78.7,
+      "days_remaining_gaylords": 51.9,
+      "history_days": 20
     }
   }
 }
