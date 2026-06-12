@@ -132,6 +132,61 @@ main{padding:18px 28px;max-width:1700px;margin:0 auto}
 /* ═══ HUB ROW ═══ */
 .hub-row{display:grid;grid-template-columns:1fr 320px;gap:20px;align-items:start}
 @media(max-width:900px){.hub-row{grid-template-columns:1fr}}
+  /* ═══ DASHLINK SIGN ═══ */
+  .hub-row{display:grid;grid-template-columns:1fr 320px;gap:20px;align-items:start}
+  .hub-left{display:flex;flex-direction:column;gap:12px}
+  .dashlink-sign{
+    flex:1;
+    background:var(--panel);
+    border:1px solid #0d3d1a;
+    border-radius:10px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    padding:28px 20px;
+    position:relative;overflow:hidden;
+    min-height:140px;
+  }
+  .dashlink-sign::before{
+    content:'';position:absolute;inset:0;
+    background:radial-gradient(ellipse at 50% 0%,rgba(0,230,118,.07) 0%,transparent 70%);
+    pointer-events:none;
+  }
+  .dashlink-sign::after{
+    content:'';position:absolute;
+    top:0;left:10%;right:10%;height:1px;
+    background:linear-gradient(90deg,transparent,rgba(0,230,118,.4),transparent);
+  }
+  .dl-logo-row{display:flex;align-items:center;gap:14px;margin-bottom:10px}
+  .dl-dd-icon{
+    width:44px;height:44px;flex-shrink:0;
+    filter:drop-shadow(0 0 8px rgba(0,230,118,.5));
+  }
+  .dl-wordmark{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:42px;letter-spacing:3px;
+    color:var(--green);
+    text-shadow:0 0 20px rgba(0,230,118,.4),0 0 60px rgba(0,230,118,.15);
+    line-height:1;
+  }
+  .dl-tagline{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:9px;letter-spacing:2.5px;text-transform:uppercase;
+    color:var(--green-mid);opacity:.7;
+    margin-top:2px;
+  }
+  .dl-scan-line{
+    position:absolute;top:0;left:0;right:0;height:2px;
+    background:linear-gradient(90deg,transparent,rgba(0,230,118,.6),transparent);
+    animation:scanDown 3.5s ease-in-out infinite;
+  }
+  @keyframes scanDown{
+    0%{top:0;opacity:0} 5%{opacity:1} 95%{opacity:1} 100%{top:100%;opacity:0}
+  }
+  .dl-corner{position:absolute;width:12px;height:12px;border-color:var(--green-mid);border-style:solid;opacity:.4}
+  .dl-corner.tl{top:8px;left:8px;border-width:1px 0 0 1px}
+  .dl-corner.tr{top:8px;right:8px;border-width:1px 1px 0 0}
+  .dl-corner.bl{bottom:8px;left:8px;border-width:0 0 1px 1px}
+  .dl-corner.br{bottom:8px;right:8px;border-width:0 1px 1px 0}
+
 
 /* ═══ FACILITY GRID ═══ */
 .fac-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px}
@@ -415,7 +470,22 @@ footer{margin-top:28px;padding:18px 28px;border-top:1px solid var(--border);font
       <span class="sec-hint">CLICK FOR ROUTE DETAIL</span>
     </div>
     <div class="hub-row">
-      <div class="fac-grid" id="hub-grid" style="grid-template-columns:repeat(3,1fr)"></div>
+      <div class="hub-left">
+        <div class="fac-grid" id="hub-grid" style="grid-template-columns:repeat(3,1fr)"></div>
+        <div class="dashlink-sign">
+          <div class="dl-scan-line"></div>
+          <div class="dl-corner tl"></div><div class="dl-corner tr"></div>
+          <div class="dl-corner bl"></div><div class="dl-corner br"></div>
+          <div class="dl-logo-row">
+            <svg class="dl-dd-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M50 5C25.1 5 5 25.1 5 50s20.1 45 45 45 45-20.1 45-45S74.9 5 50 5zm0 8c20.4 0 37 16.6 37 37S70.4 87 50 87 13 70.4 13 50s16.6-37 37-37z" fill="#00e676" opacity=".3"/>
+              <path d="M50 18c-17.7 0-32 14.3-32 32s14.3 32 32 32 32-14.3 32-32-14.3-32-32-32zm-8 16h16c8.8 0 16 7.2 16 16s-7.2 16-16 16H42V34zm8 8v16h8c4.4 0 8-3.6 8-8s-3.6-8-8-8h-8z" fill="#00e676"/>
+            </svg>
+            <div class="dl-wordmark">DashLink</div>
+          </div>
+          <div class="dl-tagline">East Region Operations · Powered by DoorDash</div>
+        </div>
+      </div>
       <div class="pallet-section">
         <div class="pallet-header">Pallet Inventory</div>
         <div class="pallet-cards" id="pallet-cards"></div>
