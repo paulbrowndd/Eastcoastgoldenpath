@@ -550,77 +550,70 @@ function fmtLong(d){return new Date(d+'T12:00:00').toLocaleDateString('en-US',{w
 
 async function fetchJ(url){const r=await fetch(url+'?t='+Date.now());if(!r.ok)throw new Error(r.status);return r.json()}
 
+function eosFlag(key, val, yesIsGood) {
+  const yes = val && val.toLowerCase() === 'yes';
+  const isWarn = key === 'VOLUME VARIANCE' && yes;
+  const cls = (!val||val==='nan') ? 'na' : isWarn ? 'warn' : (yesIsGood?(yes?'ok':'bad'):(yes?'bad':'ok'));
+  const display = (!val||val==='nan') ? '—' : isWarn ? '⚠ YES' : yes ? (yesIsGood?'✓ YES':'✗ YES') : (yesIsGood?'✗ NO':'✓ NO');
+  return '<div class="eos-flag '+cls+'"><span class="flag-key">'+key+'</span><span class="flag-val">'+display+'</span></div>';
+}
+
 function renderEOS(data) {
   const reports = data.eos_reports || {};
   const hubs = ['ATL-15','EWR-2','GCO-1','MCI-1','NYC-1','SLC-8'];
   document.getElementById('eos-count').textContent = Object.keys(reports).length;
 
-  document.getElementById('eos-grid').innerHTML = hubs.map(hub => {
+  const cards = hubs.map(function(hub) {
     const r = reports[hub];
-    if (!r) return `
-      <div class="eos-card eos-none">
-        <div class="eos-card-header">
-          <div class="eos-header-left">
-            <div class="eos-hub-name">${hub}</div>
-          </div>
-          <div class="eos-status-badge na">NO REPORT</div>
-        </div>
-        <div class="eos-card-body">
-          <div class="eos-no-report">
-            <div style="font-size:24px">⚫</div>
-            <div>No end of shift report submitted</div>
-          </div>
-        </div>
-      </div>`;
+    if (!r) {
+      return '<div class="eos-card eos-none">'
+        + '<div class="eos-card-header">'
+          + '<div class="eos-header-left"><div class="eos-hub-name">'+hub+'</div></div>'
+          + '<div class="eos-status-badge na">NO REPORT</div>'
+        + '</div>'
+        + '<div class="eos-card-body"><div class="eos-no-report"><div style="font-size:24px;margin-bottom:8px">⚫</div><div>No end of shift report submitted</div></div></div>'
+        + '</div>';
+    }
 
-    const isYes = v => v && v.toLowerCase() === 'yes';
-    const hasIssues = isYes(r.late_inbound_rolled) || isYes(r.late_outbounds) || isYes(r.pallets_on_floor) || !isYes(r.all_trucks_departed);
+    const isYes = function(v){ return v && v.toLowerCase()==='yes'; };
+    const hasIssues = isYes(r.late_inbound_rolled)||isYes(r.late_outbounds)||isYes(r.pallets_on_floor)||!isYes(r.all_trucks_departed);
     const hasWarn   = isYes(r.volume_variance) && !hasIssues;
     const cardCls   = hasIssues ? 'eos-issues' : hasWarn ? 'eos-warn' : 'eos-clean';
     const badgeCls  = hasIssues ? 'bad' : hasWarn ? 'warn' : 'ok';
     const badgeTxt  = hasIssues ? 'ISSUES' : hasWarn ? 'WATCH' : 'CLEAN';
 
-    function flag(key, val, yesIsGood) {
-      const yes = isYes(val);
-      const isWarn = key === 'VOLUME VARIANCE' && yes;
-      let cls = (!val || val==='nan') ? 'na' : isWarn ? 'warn' : (yesIsGood ? (yes?'ok':'bad') : (yes?'bad':'ok'));
-      const display = (!val||val==='nan') ? '—' : isWarn ? '⚠ YES' : yes ? (yesIsGood?'✓ YES':'✗ YES') : (yesIsGood?'✗ NO':'✓ NO');
-      return `<div class="eos-flag ${cls}"><span class="flag-key">${key}</span><span class="flag-val">${display}</span></div>`;
-    }
+    const flags = '<div class="eos-flags">'
+      + eosFlag('ALL TRUCKS OUT',   r.all_trucks_departed, true)
+      + eosFlag('INBOUND ROLLED',   r.late_inbound_rolled, false)
+      + eosFlag('LATE OUTBOUNDS',   r.late_outbounds,      false)
+      + eosFlag('PALLETS ON FLOOR', r.pallets_on_floor,    false)
+      + eosFlag('VOLUME VARIANCE',  r.volume_variance,     false)
+      + '</div>';
 
-    const rolled = r.rolled_details && r.rolled_details !== 'nan' && r.rolled_details.trim()
-      ? `<div><div class="eos-block-label">↩ Rolled Volume</div><div class="eos-alert rolled"><strong>DETAILS</strong>${r.rolled_details.substring(0,200)}${r.rolled_details.length>200?'…':''}</div></div>` : '';
+    const rolled = (r.rolled_details && r.rolled_details!=='nan' && r.rolled_details.trim())
+      ? '<div><div class="eos-block-label">↩ Rolled Volume</div><div class="eos-alert rolled"><strong>DETAILS</strong> '+r.rolled_details.substring(0,200)+(r.rolled_details.length>200?'…':'')+'</div></div>' : '';
 
-    const lanes = r.rollover_lanes && r.rollover_lanes !== 'nan' && r.rollover_lanes.trim()
-      ? `<div><div class="eos-block-label">📦 Rollover Lanes</div><div class="eos-alert lanes"><strong>LANES</strong>${r.rollover_lanes.substring(0,200)}${r.rollover_lanes.length>200?'…':''}</div></div>` : '';
+    const lanes = (r.rollover_lanes && r.rollover_lanes!=='nan' && r.rollover_lanes.trim())
+      ? '<div><div class="eos-block-label">📦 Rollover Lanes</div><div class="eos-alert lanes"><strong>LANES</strong> '+r.rollover_lanes.substring(0,200)+(r.rollover_lanes.length>200?'…':'')+'</div></div>' : '';
 
-    const summary = r.summary && r.summary !== 'nan' && r.summary.trim()
-      ? `<div><div class="eos-block-label">Shift Summary</div><div class="eos-summary-text">${r.summary.substring(0,350)}${r.summary.length>350?'…':''}</div></div>` : '';
+    const summary = (r.summary && r.summary!=='nan' && r.summary.trim())
+      ? '<div><div class="eos-block-label">Shift Summary</div><div class="eos-summary-text">'+r.summary.substring(0,350)+(r.summary.length>350?'…':'')+'</div></div>' : '';
 
-    return `
-      <div class="eos-card ${cardCls}">
-        <div class="eos-card-header">
-          <div class="eos-header-left">
-            <div class="eos-hub-name">${hub}</div>
-            <div class="eos-date">${r.op_date || '—'}</div>
-          </div>
-          <div class="eos-status-badge ${badgeCls}">${badgeTxt}</div>
-        </div>
-        <div class="eos-card-body">
-          <div class="eos-flags">
-            ${flag('ALL TRUCKS OUT',  r.all_trucks_departed, true)}
-            ${flag('INBOUND ROLLED',  r.late_inbound_rolled, false)}
-            ${flag('LATE OUTBOUNDS',  r.late_outbounds,      false)}
-            ${flag('PALLETS ON FLOOR',r.pallets_on_floor,    false)}
-            ${flag('VOLUME VARIANCE', r.volume_variance,     false)}
-          </div>
-          ${rolled}
-          ${lanes}
-          ${summary}
-        </div>
-      </div>`;
-  }).join('');
+    return '<div class="eos-card '+cardCls+'">'
+      + '<div class="eos-card-header">'
+        + '<div class="eos-header-left">'
+          + '<div class="eos-hub-name">'+hub+'</div>'
+          + '<div class="eos-date">'+( r.op_date||'—')+'</div>'
+        + '</div>'
+        + '<div class="eos-status-badge '+badgeCls+'">'+badgeTxt+'</div>'
+      + '</div>'
+      + '<div class="eos-card-body">'+flags+rolled+lanes+summary+'</div>'
+      + '</div>';
+  });
+
+  document.getElementById('eos-grid').innerHTML = cards.join('');
 }
+
 
 async function init(){
   const idx=await fetchJ('data/index.json');
