@@ -649,8 +649,9 @@ function renderDaily(data){
     <div class="hdr-stat"><div class="hdr-stat-num n">${n}</div><div class="hdr-stat-lbl">No Data</div></div>`;
 
   const hubs=HUBS.filter(f=>facs[f]);
+  const eos=data.eos_reports||{};
   document.getElementById('hub-count').textContent=hubs.length;
-  document.getElementById('hub-grid').innerHTML=hubs.map(n=>facCard(n,facs[n],true)).join('');
+  document.getElementById('hub-grid').innerHTML=hubs.map(n=>facCard(n,facs[n],true,eos[n]||null)).join('');
 
   const spokes=SPOKES.filter(f=>facs[f]);
   document.getElementById('spoke-count').textContent=spokes.length;
@@ -668,11 +669,31 @@ function renderDaily(data){
   }).join('');
 }
 
-function facCard(name,data,isHub){
+function facCard(name,data,isHub,eosData){
   const cls=sc(data.otd_pct);const p=data.otd_pct;
   const hasRoutes=isHub&&data.routes&&data.routes.length>0;
   const click=hasRoutes?`onclick="openModal('${name}')"`:''
   const hint=hasRoutes?'<div class="card-hint">▸ ROUTES</div>':'';
+
+  // EOS strip for hub cards
+  let eosStrip = '';
+  if(isHub && eosData){
+    const isYes = v => v && v.toLowerCase()==='yes';
+    const pills = [
+      { label:'TRUCKS OUT',    cls: isYes(eosData.all_trucks_departed) ? 'ok' : 'bad' },
+      { label:'ROLLED',        cls: isYes(eosData.late_inbound_rolled) ? 'bad' : 'ok' },
+      { label:'LATE OB',       cls: isYes(eosData.late_outbounds)      ? 'bad' : 'ok' },
+      { label:'FLOOR PALLETS', cls: isYes(eosData.pallets_on_floor)    ? 'bad' : 'ok' },
+      { label:'VOL VAR',       cls: isYes(eosData.volume_variance)     ? 'warn': 'ok' },
+    ];
+    const pillsHtml = pills.map(pill =>
+      `<span class="card-eos-pill ${pill.cls}">${pill.label}</span>`
+    ).join('');
+    eosStrip = `<div class="card-eos-strip"><span class="card-eos-label">EOS</span>${pillsHtml}</div>`;
+  } else if(isHub) {
+    eosStrip = `<div class="card-eos-strip"><span class="card-eos-label">EOS</span><span class="card-eos-pill na">NO REPORT</span></div>`;
+  }
+
   return `<div class="fac-card ${cls}${hasRoutes?' clickable':''}" ${click}>
     <div class="led ${cls}"></div>
     ${hint}
@@ -681,6 +702,7 @@ function facCard(name,data,isHub){
       ?`<div class="card-pct ${cls}">${p.toFixed(1)}<span class="card-pct-unit">%</span></div>`
       :`<div class="card-nodata">NO DATA</div>`}
     <div class="card-bar"><div class="card-bar-fill ${cls}" style="width:${Math.min(100,p||0)}%"></div></div>
+    ${eosStrip}
   </div>`;
 }
 
