@@ -389,6 +389,82 @@ footer{margin-top:28px;padding:18px 28px;border-top:1px solid var(--border);font
 .ticker-item .ti-val{font-weight:600}
 .ticker-item .ti-val.g{color:var(--green)} .ticker-item .ti-val.y{color:var(--yellow)} .ticker-item .ti-val.r{color:var(--red)} .ticker-item .ti-val.n{color:var(--text3)}
 .ticker-sep{color:var(--muted)}
+
+  /* ═══ EOS REPORTS ═══ */
+  .eos-grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 14px;
+  }
+  .eos-card {
+    background: var(--panel);
+    border: 1px solid var(--border2);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform .15s, box-shadow .15s;
+    display: flex;
+    flex-direction: column;
+  }
+  .eos-card:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(0,0,0,.4); }
+  .eos-card.eos-clean  { border-top: 3px solid var(--green); }
+  .eos-card.eos-issues { border-top: 3px solid var(--red); }
+  .eos-card.eos-warn   { border-top: 3px solid var(--yellow); }
+  .eos-card.eos-none   { border-top: 3px solid var(--muted); }
+  .eos-card-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 18px 12px; border-bottom: 1px solid var(--border);
+    background: var(--panel2);
+  }
+  .eos-header-left { display: flex; align-items: center; gap: 10px; }
+  .eos-hub-name { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 1.5px; color: #fff; }
+  .eos-date { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: var(--text3); letter-spacing: .3px; }
+  .eos-status-badge {
+    font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: .8px;
+    padding: 3px 10px; border-radius: 4px; border: 1px solid; white-space: nowrap;
+  }
+  .eos-status-badge.ok   { background: var(--green-dim); border-color: #1a5c33; color: var(--green); }
+  .eos-status-badge.bad  { background: var(--red-dim);   border-color: #5c1c1c; color: var(--red); }
+  .eos-status-badge.warn { background: var(--yellow-dim);border-color: #5c4400; color: var(--yellow); }
+  .eos-status-badge.na   { background: var(--panel2);    border-color: var(--border); color: var(--text3); }
+  .eos-card-body { padding: 14px 18px 18px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+  .eos-flags { display: flex; flex-direction: column; gap: 4px; }
+  .eos-flag {
+    display: flex; align-items: center; justify-content: space-between;
+    font-family: 'IBM Plex Mono', monospace; font-size: 9px;
+    padding: 5px 10px; border-radius: 5px; border: 1px solid;
+  }
+  .eos-flag .flag-key { color: var(--text3); }
+  .eos-flag .flag-val { font-weight: 600; }
+  .eos-flag.ok   { background: rgba(0,230,118,.05);  border-color: rgba(0,230,118,.15); }
+  .eos-flag.ok   .flag-val { color: var(--green); }
+  .eos-flag.bad  { background: rgba(255,61,61,.08);  border-color: rgba(255,61,61,.22); }
+  .eos-flag.bad  .flag-val { color: var(--red); }
+  .eos-flag.warn { background: rgba(255,202,40,.06); border-color: rgba(255,202,40,.2); }
+  .eos-flag.warn .flag-val { color: var(--yellow); }
+  .eos-flag.na   { background: transparent;           border-color: var(--border); }
+  .eos-flag.na   .flag-val { color: var(--text3); }
+  .eos-block-label {
+    font-family: 'IBM Plex Mono', monospace; font-size: 8px; letter-spacing: 1.2px;
+    text-transform: uppercase; color: var(--text3); margin-bottom: 5px;
+  }
+  .eos-summary-text {
+    font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--text2);
+    line-height: 1.7; background: var(--panel2); padding: 10px 12px;
+    border-radius: 6px; border: 1px solid var(--border);
+  }
+  .eos-alert {
+    padding: 8px 12px; border-radius: 6px; border-left: 2px solid;
+    font-family: 'IBM Plex Mono', monospace; font-size: 9px; line-height: 1.6;
+  }
+  .eos-alert.rolled { background: rgba(255,202,40,.06); border-color: var(--yellow); color: var(--yellow); }
+  .eos-alert.lanes  { background: rgba(249,115,22,.06); border-color: #f97316; color: #f97316; }
+  .eos-alert strong { display: block; margin-bottom: 3px; font-size: 8px; letter-spacing: .5px; }
+  .eos-no-report {
+    font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--text3);
+    text-align: center; padding: 40px 20px; border: 1px dashed var(--border);
+    border-radius: 10px; display: flex; flex-direction: column; align-items: center; gap: 8px;
+  }
+
 </style>
 </head>
 <body>
