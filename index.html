@@ -130,57 +130,11 @@ main{padding:18px 28px;max-width:1700px;margin:0 auto}
 .sec-hint{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--text3);letter-spacing:.5px}
 
 /* ═══ HUB ROW ═══ */
-.hub-row{display:grid;grid-template-columns:1fr 320px;gap:20px;align-items:start}
+.hub-row{display:flex;flex-direction:column;gap:14px}
 @media(max-width:900px){.hub-row{grid-template-columns:1fr}}
   /* ═══ DASHLINK SIGN ═══ */
-  .hub-row{display:grid;grid-template-columns:1fr 320px;gap:20px;align-items:start}
-  .hub-left{display:flex;flex-direction:column;gap:12px}
-  .dashlink-sign{
-    flex:1;
-    background:var(--panel);
-    border:1px solid #0d3d1a;
-    border-radius:10px;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    padding:40px 20px;
-    position:relative;overflow:hidden;
-  }
-  .dashlink-sign::before{
-    content:'';position:absolute;inset:0;
-    background:radial-gradient(ellipse at 50% 0%,rgba(0,230,118,.07) 0%,transparent 70%);
-    pointer-events:none;
-  }
-  .dashlink-sign::after{
-    content:'';position:absolute;
-    top:0;left:10%;right:10%;height:1px;
-    background:linear-gradient(90deg,transparent,rgba(0,230,118,.4),transparent);
-  }
-
-  .dl-wordmark{
-    font-family:'Bebas Neue',sans-serif;
-    font-size:96px;letter-spacing:8px;
-    color:var(--green);
-    text-shadow:0 0 30px rgba(0,230,118,.5),0 0 80px rgba(0,230,118,.2),0 0 120px rgba(0,230,118,.1);
-    line-height:1;
-  }
-  .dl-tagline{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:11px;letter-spacing:3px;text-transform:uppercase;
-    color:var(--green-mid);opacity:.7;
-    margin-top:10px;
-  }
-  .dl-scan-line{
-    position:absolute;top:0;left:0;right:0;height:2px;
-    background:linear-gradient(90deg,transparent,rgba(0,230,118,.6),transparent);
-    animation:scanDown 3.5s ease-in-out infinite;
-  }
-  @keyframes scanDown{
-    0%{top:0;opacity:0} 5%{opacity:1} 95%{opacity:1} 100%{top:100%;opacity:0}
-  }
-  .dl-corner{position:absolute;width:12px;height:12px;border-color:var(--green-mid);border-style:solid;opacity:.4}
-  .dl-corner.tl{top:8px;left:8px;border-width:1px 0 0 1px}
-  .dl-corner.tr{top:8px;right:8px;border-width:1px 1px 0 0}
-  .dl-corner.bl{bottom:8px;left:8px;border-width:0 0 1px 1px}
-  .dl-corner.br{bottom:8px;right:8px;border-width:0 1px 1px 0}
+  .hub-row{display:flex;flex-direction:column;gap:14px}
+  
 
 
 /* ═══ FACILITY GRID ═══ */
@@ -240,7 +194,7 @@ main{padding:18px 28px;max-width:1700px;margin:0 auto}
 .pallet-section{min-width:280px}
 .pallet-header{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:1.5px;color:var(--text2);margin-bottom:10px;display:flex;align-items:center;gap:10px}
 .pallet-header::after{content:'';flex:1;height:1px;background:var(--border2)}
-.pallet-cards{display:flex;flex-direction:column;gap:8px}
+.pallet-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px}
 
 .pal-card{
   background:var(--panel);border:1px solid var(--border2);border-radius:10px;
@@ -542,21 +496,30 @@ footer{margin-top:28px;padding:18px 28px;border-top:1px solid var(--border);font
       <span class="sec-hint">CLICK FOR ROUTE DETAIL</span>
     </div>
     <div class="hub-row">
-      <div class="hub-left">
-        <div class="fac-grid" id="hub-grid" style="grid-template-columns:repeat(3,1fr)"></div>
-        <div class="dashlink-sign">
-          <div class="dl-scan-line"></div>
-          <div class="dl-corner tl"></div><div class="dl-corner tr"></div>
-          <div class="dl-corner bl"></div><div class="dl-corner br"></div>
-          <div class="dl-wordmark">DashLink</div>
-          <div class="dl-tagline">East Region Operations · Powered by DoorDash</div>
-        </div>
-      </div>
+      <div class="fac-grid" id="hub-grid" style="grid-template-columns:repeat(3,1fr)"></div>
       <div class="pallet-section">
         <div class="pallet-header">Pallet Inventory</div>
         <div class="pallet-cards" id="pallet-cards"></div>
       </div>
+      <div>
+        <div class="sec" style="margin-top:0;margin-bottom:12px">
+          <span class="sec-label">End of Shift</span>
+          <span class="sec-count" id="daily-eos-count">—</span>
+          <span class="sec-line"></span>
+          <span class="sec-hint">MOST RECENT PER HUB</span>
+        </div>
+        <div class="eos-grid-layout" id="daily-eos-grid"></div>
+      </div>
     </div>
+
+    <!-- EOS Cards on Daily View -->
+    <div class="sec">
+      <span class="sec-label">End of Shift</span>
+      <span class="sec-count" id="daily-eos-count">—</span>
+      <span class="sec-line"></span>
+      <span class="sec-hint">MOST RECENT PER HUB</span>
+    </div>
+    <div class="eos-grid-layout" id="daily-eos-grid"></div>
 
     <!-- Spokes -->
     <div class="sec">
@@ -634,10 +597,12 @@ function eosFlag(key, val, yesIsGood) {
   return '<div class="eos-flag '+cls+'"><span class="flag-key">'+key+'</span><span class="flag-val">'+display+'</span></div>';
 }
 
-function renderEOS(data) {
+function renderEOS(data, containerId) {
+  containerId = containerId || 'eos-grid';
   const reports = data.eos_reports || {};
   const hubs = ['ATL-15','EWR-2','GCO-1','MCI-1','NYC-1','SLC-8'];
-  document.getElementById('eos-count').textContent = Object.keys(reports).length;
+  if(containerId==='eos-grid') document.getElementById('eos-count').textContent = Object.keys(reports).length;
+  if(containerId==='daily-eos-grid' && document.getElementById('daily-eos-count')) document.getElementById('daily-eos-count').textContent = Object.keys(reports).length;
 
   const cards = hubs.map(function(hub) {
     const r = reports[hub];
@@ -687,7 +652,8 @@ function renderEOS(data) {
       + '</div>';
   });
 
-  document.getElementById('eos-grid').innerHTML = cards.join('');
+  var target = document.getElementById(containerId);
+  if(target) target.innerHTML = cards.join('');
 }
 
 
@@ -712,7 +678,8 @@ function loadDate(ds){
   renderDaily(currentData);
   renderTicker(currentData);
   renderTrends();
-  renderEOS(currentData);
+  renderEOS(currentData,"eos-grid");
+  renderEOS(currentData,"daily-eos-grid");
 }
 
 function navigateDate(dir){const i=availableDates.indexOf(currentDate);const n=availableDates[i+dir];if(n)loadDate(n)}
@@ -874,7 +841,7 @@ function renderTrends(){
 function switchTab(name){
   document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',['daily','trends','eos'][i]===name));
   document.querySelectorAll('.tab-panel').forEach(p=>p.classList.toggle('active',p.id==='tab-'+name));
-  if(name==='eos')renderEOS(currentData);
+  if(name==='eos')renderEOS(currentData,'eos-grid');
   if(name==='trends')renderTrends();
 }
 
