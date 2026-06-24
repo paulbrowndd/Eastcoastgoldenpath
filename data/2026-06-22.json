@@ -525,5 +525,73 @@
       "days_remaining_gaylords": 51.9,
       "history_days": 20
     }
+  },
+  "eos_reports": {
+    "ATL-15": {
+      "op_date": "2026-06-23",
+      "all_trucks_departed": "No",
+      "late_inbound_rolled": "No",
+      "volume_variance": "Yes",
+      "late_outbounds": "Yes",
+      "pallets_on_floor": "Yes",
+      "summary": "Built bar inbound arrived 2 hours late. ORL-3 > TPA-4 Outbound never arrived. ORL-3 > TPA-4 was not able to be loaded due to truck never arriving.",
+      "rollover_lanes": "ORL-3 > TPA-4 was not able to be loaded due to truck never arriving",
+      "rolled_details": ""
+    },
+    "EWR-2": {
+      "op_date": "2026-06-23",
+      "all_trucks_departed": "Yes",
+      "late_inbound_rolled": "Yes",
+      "volume_variance": "No",
+      "late_outbounds": "Yes",
+      "pallets_on_floor": "No",
+      "summary": "Rolled 15 pallets due to 3 inbound loads arriving late to site. Will get processed first thing tomorrow morning. Outbound all dispatched on time with the exception of BOS-5 and RIC-2/VAB-4 due to them arriving on site late.",
+      "rollover_lanes": "",
+      "rolled_details": "AEO-PA truck id:DLUFQR 2,400 parcels rolled. Vester NY truck id: DLJBXY 835 parcels rolled. ORD7 truck id: DLAGX4 1,500 parcels rolled"
+    },
+    "GCO-1": {
+      "op_date": "2026-06-23",
+      "all_trucks_departed": "Yes",
+      "late_inbound_rolled": "No",
+      "volume_variance": "No",
+      "late_outbounds": "No",
+      "pallets_on_floor": "No",
+      "summary": "No issues with this evening sort.",
+      "rollover_lanes": "",
+      "rolled_details": ""
+    },
+    "MCI-1": {
+      "op_date": "2026-06-23",
+      "all_trucks_departed": "Yes",
+      "late_inbound_rolled": "No",
+      "volume_variance": "No",
+      "late_outbounds": "No",
+      "pallets_on_floor": "No",
+      "summary": "Everything went smooth. Trucks left on time and everybody worked well as a team.",
+      "rollover_lanes": "",
+      "rolled_details": ""
+    },
+    "NYC-1": {
+      "op_date": "2026-06-22",
+      "all_trucks_departed": "No",
+      "late_inbound_rolled": "No",
+      "volume_variance": "No",
+      "late_outbounds": "No",
+      "pallets_on_floor": "No",
+      "summary": "No Issues",
+      "rollover_lanes": "",
+      "rolled_details": ""
+    },
+    "SLC-8": {
+      "op_date": "2026-06-23",
+      "all_trucks_departed": "Yes",
+      "late_inbound_rolled": "No",
+      "volume_variance": "No",
+      "late_outbounds": "No",
+      "pallets_on_floor": "No",
+      "summary": "Another successful night with Hydrojug ramp up. Timing is key. Make sure everyone is drinking water and focused on same goal.",
+      "rollover_lanes": "",
+      "rolled_details": ""
+    }
   }
 }
