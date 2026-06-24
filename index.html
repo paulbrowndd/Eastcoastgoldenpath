@@ -699,18 +699,18 @@ function facCard(name,data,isHub,eosData){
   if(isHub && eosData){
     const isYes = v => v && v.toLowerCase()==='yes';
     const pills = [
-      { label:'TRUCKS OUT',    cls: isYes(eosData.all_trucks_departed) ? 'ok' : 'bad' },
-      { label:'ROLLED',        cls: isYes(eosData.late_inbound_rolled) ? 'bad' : 'ok' },
-      { label:'LATE OB',       cls: isYes(eosData.late_outbounds)      ? 'bad' : 'ok' },
-      { label:'FLOOR PALLETS', cls: isYes(eosData.pallets_on_floor)    ? 'bad' : 'ok' },
-      { label:'VOL VAR',       cls: isYes(eosData.volume_variance)     ? 'warn': 'ok' },
+      { key:'TRUCKS OUT',    val: isYes(eosData.all_trucks_departed) ? '✓ YES' : '✗ NO',  cls: isYes(eosData.all_trucks_departed) ? 'ok' : 'bad' },
+      { key:'INBOUND ROLLED',val: isYes(eosData.late_inbound_rolled) ? '✗ YES' : '✓ NO',  cls: isYes(eosData.late_inbound_rolled) ? 'bad' : 'ok' },
+      { key:'LATE OUTBOUNDS',val: isYes(eosData.late_outbounds)      ? '✗ YES' : '✓ NO',  cls: isYes(eosData.late_outbounds)      ? 'bad' : 'ok' },
+      { key:'FLOOR PALLETS', val: isYes(eosData.pallets_on_floor)    ? '✗ YES' : '✓ NO',  cls: isYes(eosData.pallets_on_floor)    ? 'bad' : 'ok' },
+      { key:'VOL VARIANCE',  val: isYes(eosData.volume_variance)     ? '⚠ YES' : '✓ NO',  cls: isYes(eosData.volume_variance)     ? 'warn': 'ok' },
     ];
-    const pillsHtml = pills.map(pill =>
-      `<span class="card-eos-pill ${pill.cls}">${pill.label}</span>`
+    const pillsHtml = pills.map(p =>
+      `<div class="card-eos-pill ${p.cls}"><span class="pill-key">${p.key}</span><span class="pill-val">${p.val}</span></div>`
     ).join('');
-    eosStrip = `<div class="card-eos-strip"><span class="card-eos-label">EOS</span>${pillsHtml}</div>`;
+    eosStrip = `<div class="card-eos-strip"><span class="card-eos-label">End of Shift</span><div class="card-eos-pills">${pillsHtml}</div></div>`;
   } else if(isHub) {
-    eosStrip = `<div class="card-eos-strip"><span class="card-eos-label">EOS</span><span class="card-eos-pill na">NO REPORT</span></div>`;
+    eosStrip = `<div class="card-eos-strip"><span class="card-eos-label">End of Shift</span><div class="card-eos-pills"><div class="card-eos-pill na"><span class="pill-key">REPORT</span><span class="pill-val">NOT SUBMITTED</span></div></div></div>`;
   }
 
   return `<div class="fac-card ${cls}${hasRoutes?' clickable':''}" ${click}>
@@ -787,6 +787,43 @@ function openModal(name){
     if(good.length)html+=`<div class="route-divider">✓ ON TRACK (${good.length})</div>`+good.map(routeRow).join('');
     document.getElementById('m-routes').innerHTML=html;
   }
+  // EOS section in modal
+  const eos = currentData && currentData.eos_reports ? currentData.eos_reports[facilityName] : null;
+  let eosHtml = '';
+  if(eos) {
+    const isYes = v => v && v.toLowerCase() === 'yes';
+    const mflag = (key, val, yesIsGood) => {
+      const yes = isYes(val);
+      const cls = (!val||val==='nan') ? 'na' : yesIsGood ? (yes?'ok':'bad') : (yes?'bad':'ok');
+      const display = (!val||val==='nan') ? '—' : yes ? (yesIsGood?'✓ YES':'✗ YES') : (yesIsGood?'✗ NO':'✓ NO');
+      const warnOverride = key==='VOL VARIANCE' && yes ? 'warn' : cls;
+      const warnDisp = key==='VOL VARIANCE' && yes ? '⚠ YES' : display;
+      return `<div class="modal-eos-flag ${warnOverride}"><span class="mef-key">${key}</span><span class="mef-val">${warnDisp}</span></div>`;
+    };
+    const rolled = eos.rolled_details && eos.rolled_details!=='nan' && eos.rolled_details.trim()
+      ? `<div class="modal-eos-alert rolled"><strong>↩ ROLLED VOLUME</strong><br>${eos.rolled_details.substring(0,250)}</div>` : '';
+    const lanes = eos.rollover_lanes && eos.rollover_lanes!=='nan' && eos.rollover_lanes.trim()
+      ? `<div class="modal-eos-alert lanes"><strong>📦 ROLLOVER LANES</strong><br>${eos.rollover_lanes.substring(0,250)}</div>` : '';
+    const summary = eos.summary && eos.summary!=='nan' && eos.summary.trim()
+      ? `<div class="modal-eos-summary">${eos.summary.substring(0,500)}${eos.summary.length>500?'…':''}</div>` : '';
+    eosHtml = `
+      <div class="modal-eos-section">
+        <div class="modal-eos-title">End of Shift Report · ${eos.op_date||'—'}</div>
+        <div class="modal-eos-flags">
+          ${mflag('ALL TRUCKS OUT',  eos.all_trucks_departed, true)}
+          ${mflag('INBOUND ROLLED',  eos.late_inbound_rolled, false)}
+          ${mflag('LATE OUTBOUNDS',  eos.late_outbounds,      false)}
+          ${mflag('FLOOR PALLETS',   eos.pallets_on_floor,    false)}
+          ${mflag('VOL VARIANCE',    eos.volume_variance,     false)}
+        </div>
+        ${rolled}${lanes}${summary}
+      </div>`;
+  } else {
+    eosHtml = `<div class="modal-eos-section"><div class="modal-eos-title">End of Shift Report</div><div class="modal-eos-no-report">No EOS report submitted for this hub</div></div>`;
+  }
+  // Append EOS to modal body
+  document.querySelector('.modal-body').insertAdjacentHTML('beforeend', eosHtml);
+
   document.getElementById('modal-overlay').classList.add('open');
   document.body.style.overflow='hidden';
 }
@@ -799,7 +836,13 @@ function routeRow(r){
   return `<div class="route-row ${rowCls}"><div class="route-left"><div class="route-name">${disp}</div><div class="route-bar-track"><div class="route-bar-fill ${cls}" style="width:${bw}%"></div></div></div><div class="route-pct ${cls}">${r.otd_pct!==null?r.otd_pct.toFixed(1)+'%':'—'}</div></div>`;
 }
 function closeModal(e){if(e.target===document.getElementById('modal-overlay'))closeModalDirect()}
-function closeModalDirect(){document.getElementById('modal-overlay').classList.remove('open');document.body.style.overflow=''}
+function closeModalDirect(){
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow='';
+  // Remove EOS section so it doesn't duplicate on next open
+  const prev = document.querySelector('.modal-eos-section');
+  if(prev) prev.remove();
+}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModalDirect()});
 
 function renderTrends(){
