@@ -766,7 +766,7 @@ function openModal(name){
     document.getElementById('m-routes').innerHTML=html;
   }
   // EOS section in modal
-  const eos = currentData && currentData.eos_reports ? currentData.eos_reports[facilityName] : null;
+  const eos = currentData && currentData.eos_reports ? currentData.eos_reports[name] : null;
   let eosHtml = '';
   if(eos) {
     const isYes = v => v && v.toLowerCase() === 'yes';
