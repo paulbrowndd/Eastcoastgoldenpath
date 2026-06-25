@@ -529,5 +529,72 @@
       "history_days": 20
     }
   },
-  "eos_reports": {}
+  "eos_reports": {
+    "ATL-15": {
+      "op_date": "2026-06-24",
+      "all_trucks_departed": "Yes",
+      "late_inbound_rolled": "Yes",
+      "volume_variance": "Yes",
+      "late_outbounds": "Yes",
+      "pallets_on_floor": "Yes",
+      "summary": "Today's operation ran smoothly overall. Primary issues were transportation delays with several trucks arriving late and one truck not arriving due to mechanical issues. Major win: team finished scanning ahead of schedule, maintained strong urgency and kept freight moving.",
+      "rolled_details": "MCI-1 DL3T38N1HAYFM18 731 parcels \u2014 none rolled over",
+      "rollover_lanes": "EWR-2 had one pallet left \u2014 truck was full, no space"
+    },
+    "EWR-2": {
+      "op_date": "2026-06-24",
+      "all_trucks_departed": "Yes",
+      "late_inbound_rolled": "Yes",
+      "volume_variance": "No",
+      "late_outbounds": "Yes",
+      "pallets_on_floor": "No",
+      "summary": "All volume processed with exception of STORD which arrived 1hr late. Processed as much STORD freight as possible \u2014 arrived with 15 pallets, left 13. Outbound no issues besides 2 late loads.",
+      "rolled_details": "STORD, truck ID: EC53 \u2014 2,480 parcels rolled",
+      "rollover_lanes": ""
+    },
+    "GCO-1": {
+      "op_date": "2026-06-24",
+      "all_trucks_departed": "Yes",
+      "late_inbound_rolled": "No",
+      "volume_variance": "No",
+      "late_outbounds": "No",
+      "pallets_on_floor": "No",
+      "summary": "No issues with this evening's sort.",
+      "rolled_details": "",
+      "rollover_lanes": ""
+    },
+    "MCI-1": {
+      "op_date": "2026-06-24",
+      "all_trucks_departed": "Yes",
+      "late_inbound_rolled": "No",
+      "volume_variance": "No",
+      "late_outbounds": "No",
+      "pallets_on_floor": "No",
+      "summary": "Everything was smooth.",
+      "rolled_details": "",
+      "rollover_lanes": ""
+    },
+    "NYC-1": {
+      "op_date": "2026-06-24",
+      "all_trucks_departed": "Yes",
+      "late_inbound_rolled": "No",
+      "volume_variance": "No",
+      "late_outbounds": "No",
+      "pallets_on_floor": "No",
+      "summary": "None.",
+      "rolled_details": "",
+      "rollover_lanes": ""
+    },
+    "SLC-8": {
+      "op_date": "2026-06-24",
+      "all_trucks_departed": "Yes",
+      "late_inbound_rolled": "No",
+      "volume_variance": "No",
+      "late_outbounds": "No",
+      "pallets_on_floor": "No",
+      "summary": "No issues to report.",
+      "rolled_details": "",
+      "rollover_lanes": ""
+    }
+  }
 }
