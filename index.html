@@ -3,481 +3,387 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>East Region · Golden Path</title>
+<title>DashLink · East Region</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono:wght@400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
-:root {
-  --bg:        #06080c;
-  --bg2:       #0c0f15;
-  --panel:     #0f1318;
-  --panel2:    #141820;
-  --border:    #1c2330;
-  --border2:   #242e3d;
-  --text:      #d8dde8;
-  --text2:     #8894a8;
-  --text3:     #4a5568;
-  --green:     #00e676;
-  --green-dim: #003d1a;
-  --green-mid: #00a152;
-  --yellow:    #ffca28;
-  --yellow-dim:#3d2e00;
-  --yellow-mid:#c99a00;
-  --red:       #ff3d3d;
-  --red-dim:   #3d0a0a;
-  --red-mid:   #c42b2b;
-  --blue:      #2979ff;
-  --blue-dim:  #0a1a3d;
-  --cyan:      #00e5ff;
-  --purple:    #7c4dff;
-  --muted:     #3a4455;
+:root{
+  --bg:#020c08;
+  --bg2:#040f0a;
+  --panel:#060f09;
+  --panel2:#0a180f;
+  --border:rgba(0,255,136,0.12);
+  --border2:rgba(0,255,136,0.22);
+  --text:#b8ffd8;
+  --text2:rgba(0,255,136,0.55);
+  --text3:rgba(0,255,136,0.28);
+  --green:#00ff88;
+  --green-dim:rgba(0,255,136,0.08);
+  --green-mid:#00cc66;
+  --yellow:#ffcc00;
+  --yellow-dim:rgba(255,204,0,0.08);
+  --red:#ff3344;
+  --red-dim:rgba(255,51,68,0.08);
+  --muted:rgba(0,255,136,0.15);
+  --accent:#00ff88;
 }
-
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;font-size:13px;line-height:1.5;min-height:100vh;overflow-x:hidden}
+body{background:var(--bg);color:var(--text);font-family:'Share Tech Mono',monospace;font-size:12px;line-height:1.5;min-height:100vh;overflow-x:hidden}
 
-/* ═══ SCANLINE OVERLAY ═══ */
-body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.03) 2px,rgba(0,0,0,.03) 4px);pointer-events:none;z-index:1000}
+body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.025) 2px,rgba(0,0,0,0.025) 4px);pointer-events:none;z-index:1000}
 
 /* ═══ HEADER ═══ */
 header{
-  background:linear-gradient(180deg,#0c111a 0%,var(--bg2) 100%);
-  border-bottom:1px solid var(--border2);
-  padding:0 28px;
-  display:flex;align-items:stretch;justify-content:space-between;gap:24px;
-  position:sticky;top:0;z-index:100;
-  min-height:64px;
+  background:var(--bg2);
+  border-bottom:1px solid var(--border);
+  padding:0 24px;
+  display:flex;align-items:stretch;justify-content:space-between;gap:20px;
+  position:sticky;top:0;z-index:100;min-height:60px;
+  position:relative;
 }
-.hdr-left{display:flex;align-items:center;gap:20px}
-.hdr-logo{
-  display:flex;align-items:center;gap:12px;
-  border-right:1px solid var(--border);
-  padding-right:20px;
-}
-.hdr-badge{
-  width:38px;height:38px;
-  background:linear-gradient(135deg,var(--blue) 0%,var(--purple) 100%);
-  border-radius:8px;
-  display:flex;align-items:center;justify-content:center;
-  font-family:'Bebas Neue',sans-serif;font-size:20px;color:#fff;
-  box-shadow:0 0 20px rgba(41,121,255,.35);
-  flex-shrink:0;
-}
-.hdr-title-block{}
-.hdr-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:2px}
-.hdr-title{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:1px;color:#fff;line-height:1}
-.hdr-status-cluster{display:flex;align-items:center;gap:16px}
-.hdr-stat{text-align:center}
-.hdr-stat-num{font-family:'Bebas Neue',sans-serif;font-size:28px;line-height:1}
-.hdr-stat-num.g{color:var(--green)} .hdr-stat-num.y{color:var(--yellow)} .hdr-stat-num.r{color:var(--red)} .hdr-stat-num.n{color:var(--text3)}
-.hdr-stat-lbl{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--text3);margin-top:1px}
-.hdr-divider{width:1px;height:32px;background:var(--border)}
-.hdr-right{display:flex;align-items:center;gap:12px}
-.hdr-meta{text-align:right;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--text3);line-height:2}
-.hdr-date-str{font-size:11px;color:var(--text2)}
-.date-nav{display:flex;align-items:center;gap:4px}
-.nav-btn{
-  background:var(--panel2);border:1px solid var(--border2);color:var(--text2);
-  width:28px;height:28px;border-radius:5px;cursor:pointer;
-  font-size:13px;display:flex;align-items:center;justify-content:center;
-  transition:all .15s;
-}
-.nav-btn:hover:not(:disabled){border-color:var(--blue);color:#fff;background:#1a2235}
-.nav-btn:disabled{opacity:.25;cursor:not-allowed}
-.date-sel{
-  background:var(--panel2);border:1px solid var(--border2);color:var(--text);
-  padding:5px 10px;border-radius:5px;font-family:'IBM Plex Mono',monospace;font-size:11px;cursor:pointer;
-}
-.date-sel:focus{outline:none;border-color:var(--blue)}
+header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--green),transparent);opacity:0.4;}
+
+.hdr-left{display:flex;align-items:center;gap:0}
+
+/* LOGO */
+.hdr-logo{display:flex;align-items:center;gap:14px;padding-right:20px;border-right:1px solid var(--border);}
+.logo-parcel{width:38px;height:38px;flex-shrink:0;}
+.logo-text-block{}
+.logo-wordmark{font-family:'Orbitron',sans-serif;font-size:16px;font-weight:900;color:var(--green);letter-spacing:4px;line-height:1;text-shadow:0 0 12px rgba(0,255,136,0.5);}
+.logo-sub{font-size:7px;color:var(--text3);letter-spacing:2px;margin-top:3px;}
+
+/* header stats */
+.hdr-stats{display:flex;align-items:center;gap:0;padding-left:20px;}
+.hdr-stat{text-align:center;padding:0 16px;border-right:1px solid var(--border);}
+.hdr-stat:last-child{border-right:none;}
+.hdr-stat-num{font-family:'Orbitron',sans-serif;font-size:24px;font-weight:700;line-height:1;}
+.hdr-stat-num.g{color:var(--green);text-shadow:0 0 8px rgba(0,255,136,0.4);}
+.hdr-stat-num.y{color:var(--yellow);text-shadow:0 0 8px rgba(255,204,0,0.4);}
+.hdr-stat-num.r{color:var(--red);text-shadow:0 0 8px rgba(255,51,68,0.4);}
+.hdr-stat-num.n{color:var(--text3);}
+.hdr-stat-lbl{font-size:7px;letter-spacing:2px;color:var(--text3);margin-top:2px;text-transform:uppercase;}
+
+.hdr-right{display:flex;align-items:center;gap:10px;}
+.hdr-meta{text-align:right;font-size:9px;color:var(--text3);letter-spacing:1px;line-height:1.8;}
+.hdr-date-str{font-size:10px;color:var(--text2);}
+.date-nav{display:flex;align-items:center;gap:4px;}
+.nav-btn{background:var(--panel2);border:1px solid var(--border);color:var(--text2);width:26px;height:26px;border-radius:3px;cursor:pointer;font-size:12px;display:flex;align-items:center;justify-content:center;transition:all .15s;}
+.nav-btn:hover:not(:disabled){border-color:var(--green);color:var(--green);box-shadow:0 0 6px rgba(0,255,136,0.2);}
+.nav-btn:disabled{opacity:0.2;cursor:not-allowed;}
+.date-sel{background:var(--panel2);border:1px solid var(--border);color:var(--text);padding:4px 8px;border-radius:3px;font-family:'Share Tech Mono',monospace;font-size:10px;cursor:pointer;letter-spacing:1px;}
+.date-sel:focus{outline:none;border-color:var(--green);}
+
+/* ═══ TICKER ═══ */
+.ticker-wrap{overflow:hidden;background:var(--bg);border-bottom:1px solid var(--border);padding:5px 0;position:relative;}
+.ticker-wrap::before,.ticker-wrap::after{content:'';position:absolute;top:0;bottom:0;width:60px;z-index:2;}
+.ticker-wrap::before{left:0;background:linear-gradient(90deg,var(--bg),transparent);}
+.ticker-wrap::after{right:0;background:linear-gradient(-90deg,var(--bg),transparent);}
+.ticker-inner{display:flex;gap:0;white-space:nowrap;animation:ticker-scroll 60s linear infinite;}
+@keyframes ticker-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ticker-item{display:inline-flex;align-items:center;gap:6px;padding:0 16px;font-size:9px;letter-spacing:1px;color:var(--text3);}
+.ticker-item .ti-name{color:var(--text3);}
+.ticker-item .ti-val.g{color:var(--green);}
+.ticker-item .ti-val.y{color:var(--yellow);}
+.ticker-item .ti-val.r{color:var(--red);}
+.ticker-item .ti-val.n{color:var(--text3);}
+.ticker-sep{color:var(--border2);padding:0 2px;}
 
 /* ═══ TABS ═══ */
-.tabs{
-  display:flex;gap:0;
-  border-bottom:1px solid var(--border);
-  background:var(--bg2);
-  padding:0 28px;
-}
-.tab{
-  padding:12px 20px;
-  font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.5px;
-  color:var(--text3);cursor:pointer;
-  border-bottom:2px solid transparent;margin-bottom:-1px;
-  transition:color .15s,border-color .15s;
-  white-space:nowrap;
-}
-.tab:hover{color:var(--text2)}
-.tab.active{color:var(--cyan);border-bottom-color:var(--cyan)}
+.tabs{display:flex;gap:0;border-bottom:1px solid var(--border);background:var(--bg2);padding:0 24px;}
+.tab{padding:11px 18px;font-family:'Orbitron',sans-serif;font-size:9px;letter-spacing:2px;color:var(--text3);cursor:pointer;border-bottom:1px solid transparent;margin-bottom:-1px;transition:all .15s;white-space:nowrap;}
+.tab:hover{color:var(--text2);}
+.tab.active{color:var(--green);border-bottom-color:var(--green);text-shadow:0 0 8px rgba(0,255,136,0.4);}
 
 /* ═══ MAIN ═══ */
-main{padding:18px 28px;max-width:1700px;margin:0 auto}
+main{padding:16px 24px;max-width:1700px;margin:0 auto}
 .tab-panel{display:none}
 .tab-panel.active{display:block}
 
 /* ═══ SECTION HEADERS ═══ */
-.sec{display:flex;align-items:center;gap:12px;margin-bottom:12px;margin-top:22px}
-.sec:first-child{margin-top:0}
-.sec-label{
-  font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:1.5px;
-  color:var(--text2);white-space:nowrap;
-}
-.sec-count{
-  font-family:'IBM Plex Mono',monospace;font-size:10px;
-  background:var(--panel2);border:1px solid var(--border2);
-  padding:1px 8px;border-radius:99px;color:var(--text3);
-}
-.sec-line{flex:1;height:1px;background:linear-gradient(90deg,var(--border2),transparent)}
-.sec-hint{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--text3);letter-spacing:.5px}
+.sec{display:flex;align-items:center;gap:10px;margin-bottom:10px;margin-top:20px;}
+.sec:first-child{margin-top:0;}
+.sec-label{font-family:'Orbitron',sans-serif;font-size:8px;letter-spacing:2.5px;color:var(--text3);text-transform:uppercase;}
+.sec-count{font-family:'Orbitron',sans-serif;font-size:8px;background:var(--panel2);border:1px solid var(--border);color:var(--text2);padding:1px 6px;border-radius:2px;}
+.sec-line{flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent);}
+.sec-hint{font-size:8px;color:var(--text3);letter-spacing:1px;}
 
-/* ═══ HUB ROW ═══ */
-.hub-row{display:flex;flex-direction:column;gap:14px}
-@media(max-width:900px){.hub-row{grid-template-columns:1fr}}
-  /* ═══ DASHLINK SIGN ═══ */
-  .hub-row{display:flex;flex-direction:column;gap:14px}
-  
-
-
-/* ═══ FACILITY GRID ═══ */
-.fac-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px}
-
-/* ═══ FACILITY CARD ═══ */
+/* ═══ HUB CARDS ═══ */
+.hub-row{display:flex;flex-direction:column;gap:12px;}
+.fac-grid{display:grid;gap:10px;}
 .fac-card{
-  border-radius:10px;padding:12px 12px 10px;border:1px solid;
-  position:relative;overflow:hidden;
-  transition:transform .15s,box-shadow .15s;
   background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:0;
+  padding:12px 14px;
+  position:relative;overflow:hidden;
+  clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));
+  transition:border-color .15s,box-shadow .15s;
 }
-.fac-card::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg,rgba(255,255,255,.03) 0%,transparent 60%);
-  pointer-events:none;
-}
-.fac-card.clickable{cursor:pointer}
-.fac-card.clickable:hover{transform:translateY(-3px)}
+.fac-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,255,136,0.15),transparent);}
+.fac-card.clickable{cursor:pointer;}
+.fac-card.clickable:hover{border-color:var(--border2);box-shadow:0 0 12px rgba(0,255,136,0.06);}
+.fac-card.green{border-color:rgba(0,255,136,0.2);}
+.fac-card.yellow{border-color:rgba(255,204,0,0.2);}
+.fac-card.red{border-color:rgba(255,51,68,0.2);}
 
-.fac-card.green {border-color:#1a4d2e;box-shadow:0 0 0 1px rgba(0,230,118,.08) inset}
-.fac-card.yellow{border-color:#4d3800;box-shadow:0 0 0 1px rgba(255,202,40,.08) inset}
-.fac-card.red   {border-color:#4d1212;box-shadow:0 0 0 1px rgba(255,61,61,.08) inset}
-.fac-card.grey  {border-color:var(--border)}
+.card-hint{font-size:7px;color:var(--text3);letter-spacing:1px;text-align:right;margin-bottom:4px;}
+.card-name{font-family:'Orbitron',sans-serif;font-size:11px;font-weight:700;color:rgba(0,255,136,0.7);letter-spacing:1px;margin-bottom:6px;}
+.card-pct{font-family:'Orbitron',sans-serif;font-size:26px;font-weight:900;line-height:1;}
+.card-pct-unit{font-size:11px;font-weight:400;}
+.card-pct.green{color:var(--green);text-shadow:0 0 10px rgba(0,255,136,0.35);}
+.card-pct.yellow{color:var(--yellow);text-shadow:0 0 10px rgba(255,204,0,0.35);}
+.card-pct.red{color:var(--red);text-shadow:0 0 10px rgba(255,51,68,0.35);}
+.card-nodata{font-size:10px;color:var(--text3);letter-spacing:2px;padding:8px 0;}
+.card-bar{height:2px;background:rgba(0,255,136,0.06);margin-top:8px;overflow:hidden;}
+.card-bar-fill{height:100%;transition:width 1s ease;}
+.card-bar-fill.green{background:linear-gradient(90deg,rgba(0,255,136,0.2),var(--green));}
+.card-bar-fill.yellow{background:linear-gradient(90deg,rgba(255,204,0,0.2),var(--yellow));}
+.card-bar-fill.red{background:linear-gradient(90deg,rgba(255,51,68,0.2),var(--red));}
 
-.fac-card.clickable:hover.green {box-shadow:0 6px 24px rgba(0,230,118,.15),0 0 0 1px rgba(0,230,118,.2) inset}
-.fac-card.clickable:hover.yellow{box-shadow:0 6px 24px rgba(255,202,40,.15),0 0 0 1px rgba(255,202,40,.2) inset}
-.fac-card.clickable:hover.red   {box-shadow:0 6px 24px rgba(255,61,61,.15),0 0 0 1px rgba(255,61,61,.2) inset}
+.led{width:6px;height:6px;border-radius:50%;position:absolute;top:10px;right:10px;}
+.led.green{background:var(--green);box-shadow:0 0 6px var(--green);animation:led-pulse 2s ease-in-out infinite;}
+.led.yellow{background:var(--yellow);box-shadow:0 0 6px var(--yellow);animation:led-pulse 2s ease-in-out infinite 0.3s;}
+.led.red{background:var(--red);box-shadow:0 0 6px var(--red);animation:led-pulse 1s ease-in-out infinite;}
+.led.grey{background:var(--text3);}
+@keyframes led-pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
 
-/* LED pulse */
-.led{
-  position:absolute;top:10px;right:10px;
-  width:7px;height:7px;border-radius:50%;
-}
-.led.green {background:var(--green);box-shadow:0 0 6px var(--green);animation:pulse-g 2.4s ease-in-out infinite}
-.led.yellow{background:var(--yellow);box-shadow:0 0 6px var(--yellow);animation:pulse-y 2s ease-in-out infinite}
-.led.red   {background:var(--red);box-shadow:0 0 8px var(--red);animation:pulse-r 1.2s ease-in-out infinite}
-.led.grey  {background:var(--muted);box-shadow:none;animation:none}
+/* ═══ SPOKE GRID ═══ */
+.spoke-grid-wrap .fac-grid .fac-card{padding:8px 10px;}
+.spoke-grid-wrap .card-name{font-size:9px;margin-bottom:3px;}
+.spoke-grid-wrap .card-pct{font-size:18px;}
+.spoke-grid-wrap .card-bar{margin-top:5px;}
 
-@keyframes pulse-g{0%,100%{opacity:1;box-shadow:0 0 4px var(--green)}50%{opacity:.4;box-shadow:0 0 10px var(--green)}}
-@keyframes pulse-y{0%,100%{opacity:1;box-shadow:0 0 4px var(--yellow)}50%{opacity:.45;box-shadow:0 0 12px var(--yellow)}}
-@keyframes pulse-r{0%,100%{opacity:1;box-shadow:0 0 6px var(--red)}50%{opacity:.3;box-shadow:0 0 14px var(--red)}}
-
-.card-hint{position:absolute;bottom:10px;right:10px;font-family:'IBM Plex Mono',monospace;font-size:8px;color:var(--text3);opacity:0;transition:opacity .15s;letter-spacing:.5px}
-.fac-card.clickable:hover .card-hint{opacity:1}
-
-.card-name{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:12px;color:var(--text);margin-bottom:10px;letter-spacing:.3px}
-.card-pct{font-family:'Bebas Neue',sans-serif;font-size:30px;line-height:1;letter-spacing:1px}
-.card-pct.green {color:var(--green)} .card-pct.yellow{color:var(--yellow)} .card-pct.red{color:var(--red)} .card-pct.grey{color:var(--text3)}
-.card-pct-unit{font-size:16px;opacity:.6;font-family:'IBM Plex Sans',sans-serif;font-weight:600}
-.card-nodata{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--text3);margin-top:4px}
-.card-bar{margin-top:10px;height:2px;background:var(--border2);border-radius:99px;overflow:hidden}
-.card-bar-fill{height:100%;border-radius:99px}
-.card-bar-fill.green{background:var(--green)} .card-bar-fill.yellow{background:var(--yellow)} .card-bar-fill.red{background:var(--red)} .card-bar-fill.grey{background:var(--muted)}
-
-/* ═══ PALLET TRACKER ═══ */
-.pallet-section{min-width:280px}
-.pallet-header{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:1.5px;color:var(--text2);margin-bottom:10px;display:flex;align-items:center;gap:10px}
-.pallet-header::after{content:'';flex:1;height:1px;background:var(--border2)}
-.pallet-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px}
-
+/* ═══ PALLET SECTION ═══ */
+.pallet-section{width:100%;}
+.pallet-header{font-family:'Orbitron',sans-serif;font-size:8px;letter-spacing:2px;color:var(--text3);margin-bottom:8px;display:flex;align-items:center;gap:10px;}
+.pallet-header::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent);}
+.pallet-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px;}
 .pal-card{
-  background:var(--panel);border:1px solid var(--border2);border-radius:10px;
-  padding:12px 14px;position:relative;overflow:hidden;
-  transition:border-color .15s;
+  background:var(--panel);border:1px solid var(--border);
+  border-radius:0;padding:12px 14px;
+  clip-path:polygon(0 0,calc(100% - 6px) 0,100% 6px,100% 100%,0 100%);
 }
-.pal-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:1px;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,.06),transparent);
-}
-.pal-card:hover{border-color:var(--blue)}
-
-.pal-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px}
-.pal-hub{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:13px;color:#fff}
-.pal-badge{
-  font-family:'IBM Plex Mono',monospace;font-size:9px;
-  background:var(--panel2);border:1px solid var(--border2);
-  padding:2px 7px;border-radius:4px;color:var(--text3);letter-spacing:.3px;
-}
-.pal-counts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
-.pal-count-type{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.8px;margin-bottom:2px}
-.pal-count-num{font-family:'Bebas Neue',sans-serif;font-size:24px;line-height:1;letter-spacing:.5px}
-.pal-count-num.hi{color:var(--green)} .pal-count-num.md{color:var(--yellow)} .pal-count-num.lo{color:var(--red)}
-
-.pal-bars{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px}
-.pal-bar-wrap{} 
-.pal-bar-label{font-family:'IBM Plex Mono',monospace;font-size:8px;color:var(--text3);margin-bottom:3px;display:flex;justify-content:space-between}
-.pal-bar-track{height:3px;background:var(--border2);border-radius:99px;overflow:hidden}
-.pal-bar-fill{height:100%;border-radius:99px}
-.pal-bar-fill.hi{background:var(--green)} .pal-bar-fill.md{background:var(--yellow)} .pal-bar-fill.lo{background:var(--red)}
-
-.pal-days{display:grid;grid-template-columns:1fr 1px 1fr 1px 1fr;gap:0;border-top:1px solid var(--border);padding-top:10px;margin-top:2px}
-.pal-days-divider{background:var(--border);align-self:center;height:28px}
-.pal-days-col{text-align:center;padding:0 4px}
-.pal-days-num{font-family:'Bebas Neue',sans-serif;font-size:18px;line-height:1}
-.pal-days-num.hi{color:var(--green)} .pal-days-num.md{color:var(--yellow)} .pal-days-num.lo{color:var(--red)} .pal-days-num.na{color:var(--text3)}
-.pal-days-sub{font-family:'IBM Plex Mono',monospace;font-size:8px;color:var(--text3);margin-top:2px;letter-spacing:.3px}
+.pal-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+.pal-hub{font-family:'Orbitron',sans-serif;font-size:11px;color:var(--green-mid);letter-spacing:1px;}
+.pal-badge{font-size:8px;color:var(--text3);letter-spacing:1px;background:var(--panel2);border:1px solid var(--border);padding:2px 7px;border-radius:2px;}
+.pal-counts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;}
+.pal-count-type{font-size:8px;color:var(--text3);letter-spacing:1px;margin-bottom:2px;}
+.pal-count-num{font-family:'Orbitron',sans-serif;font-size:18px;font-weight:700;}
+.pal-count-num.hi{color:var(--green);}
+.pal-count-num.md{color:var(--yellow);}
+.pal-count-num.lo{color:var(--red);}
+.pal-bars{display:flex;flex-direction:column;gap:5px;margin-bottom:8px;}
+.pal-bar-wrap{}
+.pal-bar-label{display:flex;justify-content:space-between;font-size:7px;color:var(--text3);letter-spacing:1px;margin-bottom:2px;}
+.pal-bar-track{height:3px;background:rgba(0,255,136,0.06);border-radius:0;overflow:hidden;}
+.pal-bar-fill{height:100%;transition:width 1s ease;}
+.pal-bar-fill.hi{background:linear-gradient(90deg,rgba(0,255,136,0.2),var(--green));}
+.pal-bar-fill.md{background:linear-gradient(90deg,rgba(255,204,0,0.2),var(--yellow));}
+.pal-bar-fill.lo{background:linear-gradient(90deg,rgba(255,51,68,0.2),var(--red));}
+.pal-days{display:flex;align-items:center;border-top:1px solid var(--border);padding-top:8px;gap:0;}
+.pal-days-col{flex:1;text-align:center;}
+.pal-days-num{font-family:'Orbitron',sans-serif;font-size:14px;font-weight:700;}
+.pal-days-num.hi{color:var(--green);}
+.pal-days-num.md{color:var(--yellow);}
+.pal-days-num.lo{color:var(--red);}
+.pal-days-num.na{color:var(--text2);font-size:12px;}
+.pal-days-sub{font-size:7px;color:var(--text3);letter-spacing:1px;margin-top:1px;}
+.pal-days-divider{width:1px;height:28px;background:var(--border);}
 
 /* ═══ SLA TABLE ═══ */
-.tbl-wrap{border:1px solid var(--border2);border-radius:10px;overflow:hidden}
-table{width:100%;border-collapse:collapse;font-size:12px}
-thead{background:var(--panel2);border-bottom:1px solid var(--border2)}
-th{padding:8px 12px;text-align:left;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--text3);font-weight:400}
-tbody tr{border-bottom:1px solid var(--border);transition:background .1s}
-tbody tr:last-child{border-bottom:none}
-tbody tr:hover{background:var(--panel2)}
-td{padding:8px 12px;color:var(--text)}
-.td-rank{font-family:'IBM Plex Mono',monospace;color:var(--text3);font-size:10px;width:32px}
-.td-step{font-family:'IBM Plex Mono',monospace;font-size:11px}
-.td-facility{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:11px}
-.td-route{color:var(--text3);font-size:11px;font-family:'IBM Plex Mono',monospace}
-.td-count{text-align:right;font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:.5px}
-.ibar{height:3px;background:var(--border2);border-radius:99px;overflow:hidden;width:100px}
-.ibar-fill{height:100%;border-radius:99px;background:var(--red);opacity:.6}
-.step-hub{color:var(--blue)} .step-truck{color:var(--yellow)} .step-spoke{color:var(--purple)} .step-dispatch{color:#ff9100} .step-delivery{color:var(--cyan)}
+.sla-table{width:100%;border-collapse:collapse;font-size:10px;}
+.sla-table th{font-family:'Orbitron',sans-serif;font-size:7px;letter-spacing:1.5px;color:var(--text3);padding:6px 10px;text-align:left;border-bottom:1px solid var(--border);}
+.sla-table td{padding:7px 10px;border-bottom:1px solid rgba(0,255,136,0.05);vertical-align:middle;}
+.sla-table tr:hover td{background:var(--green-dim);}
+.td-rank{font-family:'Orbitron',sans-serif;font-size:10px;color:var(--text3);width:30px;}
+.td-step span{font-size:9px;letter-spacing:0.5px;padding:2px 6px;border-radius:2px;border:1px solid;}
+.step-hub{background:rgba(0,255,136,0.06);border-color:rgba(0,255,136,0.2)!important;color:var(--green)!important;}
+.step-truck{background:rgba(255,204,0,0.05);border-color:rgba(255,204,0,0.2)!important;color:var(--yellow)!important;}
+.step-spoke{background:rgba(0,229,255,0.05);border-color:rgba(0,229,255,0.2)!important;color:#00e5ff!important;}
+.step-dispatch{background:rgba(124,77,255,0.05);border-color:rgba(124,77,255,0.2)!important;color:#a57cff!important;}
+.step-delivery{background:rgba(255,51,68,0.05);border-color:rgba(255,51,68,0.2)!important;color:var(--red)!important;}
+.td-facility{color:var(--text2);font-family:'Orbitron',sans-serif;font-size:9px;letter-spacing:1px;}
+.td-route{color:var(--text3);}
+.td-count{font-family:'Orbitron',sans-serif;font-size:11px;color:var(--red);text-align:right;}
+.ibar{height:3px;background:rgba(255,51,68,0.1);border-radius:0;width:80px;}
+.ibar-fill{height:100%;background:var(--red);opacity:0.6;}
 
 /* ═══ TRENDS ═══ */
-.trend-grid{display:flex;flex-direction:column;gap:5px}
-.trend-row{
-  display:grid;grid-template-columns:82px 1fr;
-  align-items:center;gap:12px;
-  padding:6px 10px;border-radius:8px;
-  background:var(--panel);border:1px solid var(--border);
-  transition:border-color .15s;
-}
-.trend-row:hover{border-color:var(--border2)}
-.trend-name{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;color:var(--text)}
-.trend-bars{display:flex;gap:3px;align-items:flex-end;height:44px}
-.trend-day{display:flex;flex-direction:column;align-items:center;gap:2px;flex:1;min-width:0}
-.trend-bar-wrap{width:100%;display:flex;align-items:flex-end;height:28px}
-.trend-bar{width:100%;border-radius:2px 2px 0 0;min-height:2px}
-.trend-bar.green{background:var(--green)} .trend-bar.yellow{background:var(--yellow)} .trend-bar.red{background:var(--red)} .trend-bar.grey{background:var(--border2)}
-.trend-date{font-family:'IBM Plex Mono',monospace;font-size:8px;color:var(--text3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;width:100%;text-align:center}
-.trend-val{font-family:'IBM Plex Mono',monospace;font-size:8px;white-space:nowrap}
-.trend-val.green{color:var(--green)} .trend-val.yellow{color:var(--yellow)} .trend-val.red{color:var(--red)} .trend-val.grey{color:var(--text3)}
+.trend-row{display:flex;align-items:flex-end;gap:12px;margin-bottom:8px;padding:10px 12px;background:var(--panel);border:1px solid var(--border);border-left:2px solid var(--border2);}
+.trend-name{font-family:'Orbitron',sans-serif;font-size:10px;color:var(--text2);letter-spacing:1px;width:60px;flex-shrink:0;}
+.trend-bars{display:flex;gap:4px;align-items:flex-end;flex:1;}
+.trend-day{display:flex;flex-direction:column;align-items:center;gap:2px;}
+.trend-val{font-size:7px;color:var(--text3);letter-spacing:0.5px;white-space:nowrap;}
+.trend-val.green{color:var(--green);}
+.trend-val.yellow{color:var(--yellow);}
+.trend-val.red{color:var(--red);}
+.trend-bar-wrap{height:28px;display:flex;align-items:flex-end;}
+.trend-bar{width:20px;border-radius:0 0 0 0;min-height:3px;transition:height .3s;}
+.trend-bar.green{background:var(--green);box-shadow:0 0 4px rgba(0,255,136,0.3);}
+.trend-bar.yellow{background:var(--yellow);}
+.trend-bar.red{background:var(--red);}
+.trend-bar.grey{background:var(--text3);}
+.trend-date{font-size:7px;color:var(--text3);}
 
 /* ═══ MODAL ═══ */
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:200;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(6px)}
-.modal-overlay.open{display:flex}
-.modal{
-  background:var(--panel);border:1px solid var(--border2);border-radius:14px;
-  width:100%;max-width:500px;max-height:84vh;overflow-y:auto;
-  box-shadow:0 32px 80px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.04) inset;
-  animation:mIn .18s ease;
-}
-@keyframes mIn{from{opacity:0;transform:scale(.95) translateY(10px)}to{opacity:1;transform:none}}
-.modal-hdr{
-  padding:18px 22px 14px;border-bottom:1px solid var(--border);
-  display:flex;align-items:flex-start;justify-content:space-between;gap:12px;
-  position:sticky;top:0;background:var(--panel);z-index:1;border-radius:14px 14px 0 0;
-}
-.modal-fac{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:1px;color:#fff}
-.modal-sub{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--text3);margin-top:2px;letter-spacing:.3px}
-.modal-x{
-  background:var(--panel2);border:1px solid var(--border2);color:var(--text3);
-  width:28px;height:28px;border-radius:6px;cursor:pointer;font-size:16px;
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;
-  transition:color .15s,border-color .15s;line-height:1;
-}
-.modal-x:hover{color:#fff;border-color:var(--text3)}
-.modal-body{padding:18px 22px 26px}
-.modal-hero{display:flex;align-items:baseline;gap:8px;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--border)}
-.modal-big{font-family:'Bebas Neue',sans-serif;font-size:56px;line-height:1;letter-spacing:1px}
-.modal-big.green{color:var(--green)} .modal-big.yellow{color:var(--yellow)} .modal-big.red{color:var(--red)}
-.modal-hero-meta{display:flex;flex-direction:column;gap:3px}
-.modal-hero-lbl{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--text3)}
-.modal-status-badge{
-  display:inline-flex;align-items:center;gap:5px;
-  padding:3px 9px;border-radius:4px;font-family:'IBM Plex Mono',monospace;font-size:10px;border:1px solid;
-}
-.modal-status-badge.green {background:var(--green-dim);border-color:#1a5c33;color:var(--green)}
-.modal-status-badge.yellow{background:var(--yellow-dim);border-color:#5c4400;color:var(--yellow)}
-.modal-status-badge.red   {background:var(--red-dim);border-color:#5c1c1c;color:var(--red)}
-.modal-routes-lbl{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--text3);margin-bottom:10px}
-.route-list{display:flex;flex-direction:column;gap:5px}
-.route-row{display:grid;grid-template-columns:1fr 54px;align-items:center;gap:10px;padding:10px 12px;border-radius:7px;border:1px solid var(--border);background:var(--panel2)}
-.route-row.rr{border-color:#4d1212;background:var(--red-dim)}
-.route-row.ry{border-color:#4d3800;background:var(--yellow-dim)}
-.route-left{display:flex;flex-direction:column;gap:5px}
-.route-name{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text)}
-.route-bar-track{height:3px;background:var(--border2);border-radius:99px;overflow:hidden}
-.route-bar-fill{height:100%;border-radius:99px}
-.route-bar-fill.green{background:var(--green)} .route-bar-fill.yellow{background:var(--yellow)} .route-bar-fill.red{background:var(--red)} .route-bar-fill.grey{background:var(--muted)}
-.route-pct{font-family:'Bebas Neue',sans-serif;font-size:18px;text-align:right;letter-spacing:.5px}
-.route-pct.green{color:var(--green)} .route-pct.yellow{color:var(--yellow)} .route-pct.red{color:var(--red)} .route-pct.grey{color:var(--text3)}
-.route-divider{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--text3);letter-spacing:.8px;text-transform:uppercase;padding:8px 0 5px;opacity:.5}
-.no-routes{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text3);text-align:center;padding:20px}
+.modal-overlay{position:fixed;inset:0;background:rgba(0,5,2,0.85);z-index:200;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px);}
+.modal-overlay.open{display:flex;}
+.modal{background:var(--panel);border:1px solid var(--border2);width:100%;max-width:480px;max-height:85vh;overflow-y:auto;position:relative;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px));}
+.modal::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--green),transparent);}
+.modal-header{padding:18px 20px 14px;border-bottom:1px solid var(--border);}
+.m-title-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
+.m-name{font-family:'Orbitron',sans-serif;font-size:20px;font-weight:900;color:var(--green);letter-spacing:2px;}
+.modal-x{background:var(--panel2);border:1px solid var(--border);color:var(--text2);width:28px;height:28px;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;}
+.modal-x:hover{border-color:var(--green);color:var(--green);}
+.modal-sub{font-size:8px;color:var(--text3);letter-spacing:2px;}
+.modal-body{padding:16px 20px;}
+.modal-big{font-family:'Orbitron',sans-serif;font-size:52px;font-weight:900;line-height:1;margin-bottom:6px;}
+.modal-big.green{color:var(--green);text-shadow:0 0 20px rgba(0,255,136,0.4);}
+.modal-big.yellow{color:var(--yellow);text-shadow:0 0 20px rgba(255,204,0,0.4);}
+.modal-big.red{color:var(--red);text-shadow:0 0 20px rgba(255,51,68,0.4);}
+.modal-status-badge{font-family:'Orbitron',sans-serif;font-size:9px;letter-spacing:2px;padding:3px 10px;border:1px solid;display:inline-block;margin-bottom:14px;}
+.modal-status-badge.green{background:rgba(0,255,136,0.06);border-color:rgba(0,255,136,0.3);color:var(--green);}
+.modal-status-badge.yellow{background:rgba(255,204,0,0.06);border-color:rgba(255,204,0,0.3);color:var(--yellow);}
+.modal-status-badge.red{background:rgba(255,51,68,0.08);border-color:rgba(255,51,68,0.3);color:var(--red);}
+.modal-routes-lbl{font-size:8px;color:var(--text3);letter-spacing:1.5px;margin-bottom:10px;border-top:1px solid var(--border);padding-top:12px;}
+.route-divider{font-size:8px;color:var(--text3);letter-spacing:1px;padding:4px 0;margin:4px 0;}
+.route-row{display:flex;align-items:center;justify-content:space-between;padding:8px 10px;margin-bottom:4px;background:var(--panel2);border:1px solid var(--border);}
+.route-row.rr{background:rgba(255,51,68,0.04);border-color:rgba(255,51,68,0.15);}
+.route-row.ry{background:rgba(255,204,0,0.04);border-color:rgba(255,204,0,0.15);}
+.route-left{flex:1;}
+.route-name{font-family:'Orbitron',sans-serif;font-size:10px;color:var(--text2);letter-spacing:1px;margin-bottom:4px;}
+.route-bar-track{height:2px;background:rgba(0,255,136,0.06);overflow:hidden;}
+.route-bar-fill{height:100%;}
+.route-bar-fill.green{background:var(--green);}
+.route-bar-fill.yellow{background:var(--yellow);}
+.route-bar-fill.red{background:var(--red);}
+.route-pct{font-family:'Orbitron',sans-serif;font-size:14px;font-weight:700;margin-left:16px;}
+.route-pct.green{color:var(--green);}
+.route-pct.yellow{color:var(--yellow);}
+.route-pct.red{color:var(--red);}
+.no-routes{font-size:10px;color:var(--text3);padding:10px 0;letter-spacing:1px;}
 
-/* ═══ LEGEND ═══ */
-.legend{display:flex;gap:20px;margin-top:18px;flex-wrap:wrap}
-.legend-item{display:flex;align-items:center;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--text3)}
-.ldot{width:7px;height:7px;border-radius:50%}
+/* ═══ EOS REPORTS ═══ */
+.eos-grid-layout{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:12px;}
+.eos-card{background:var(--panel);border:1px solid var(--border);overflow:hidden;display:flex;flex-direction:column;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));transition:border-color .15s;}
+.eos-card:hover{border-color:var(--border2);}
+.eos-card.eos-clean{border-top:2px solid rgba(0,255,136,0.4);}
+.eos-card.eos-issues{border-top:2px solid rgba(255,51,68,0.5);}
+.eos-card.eos-warn{border-top:2px solid rgba(255,204,0,0.4);}
+.eos-card.eos-none{border-top:2px solid rgba(0,255,136,0.1);}
+.eos-card-header{display:flex;align-items:center;justify-content:space-between;padding:11px 14px 10px;border-bottom:1px solid var(--border);background:rgba(0,255,136,0.02);}
+.eos-header-left{display:flex;align-items:center;gap:10px;}
+.eos-hub-name{font-family:'Orbitron',sans-serif;font-size:13px;font-weight:700;color:rgba(0,255,136,0.8);letter-spacing:1px;}
+.eos-date{font-size:8px;color:var(--text3);letter-spacing:0.5px;}
+.eos-status-badge{font-family:'Orbitron',sans-serif;font-size:8px;letter-spacing:1px;padding:3px 8px;border:1px solid;}
+.eos-status-badge.ok{background:rgba(0,255,136,0.06);border-color:rgba(0,255,136,0.25);color:var(--green);}
+.eos-status-badge.bad{background:rgba(255,51,68,0.06);border-color:rgba(255,51,68,0.25);color:var(--red);}
+.eos-status-badge.warn{background:rgba(255,204,0,0.06);border-color:rgba(255,204,0,0.25);color:var(--yellow);}
+.eos-status-badge.na{background:var(--panel2);border-color:var(--border);color:var(--text3);}
+.eos-card-body{padding:12px 14px;display:flex;flex-direction:column;gap:10px;flex:1;}
+.eos-flags{display:flex;flex-direction:column;gap:3px;}
+.eos-flag{display:flex;align-items:center;justify-content:space-between;font-size:8px;letter-spacing:0.5px;padding:4px 8px;border:1px solid;}
+.eos-flag .flag-key{color:var(--text3);}
+.eos-flag .flag-val{font-weight:600;font-family:'Orbitron',sans-serif;font-size:8px;}
+.eos-flag.ok{background:rgba(0,255,136,0.03);border-color:rgba(0,255,136,0.1);}
+.eos-flag.ok .flag-val{color:var(--green);}
+.eos-flag.bad{background:rgba(255,51,68,0.05);border-color:rgba(255,51,68,0.15);}
+.eos-flag.bad .flag-val{color:var(--red);}
+.eos-flag.warn{background:rgba(255,204,0,0.04);border-color:rgba(255,204,0,0.15);}
+.eos-flag.warn .flag-val{color:var(--yellow);}
+.eos-flag.na{background:transparent;border-color:var(--border);}
+.eos-flag.na .flag-val{color:var(--text3);}
+.eos-block-label{font-family:'Orbitron',sans-serif;font-size:7px;letter-spacing:1.5px;color:var(--text3);margin-bottom:4px;}
+.eos-summary-text{font-size:9px;color:var(--text2);line-height:1.7;background:rgba(0,255,136,0.02);padding:8px 10px;border-left:1px solid rgba(0,255,136,0.2);}
+.eos-alert{padding:7px 10px;border-left:2px solid;font-size:9px;line-height:1.6;}
+.eos-alert.rolled{background:rgba(255,204,0,0.04);border-color:var(--yellow);color:var(--yellow);}
+.eos-alert.lanes{background:rgba(249,115,22,0.04);border-color:#f97316;color:#f97316;}
+.eos-alert strong{display:block;font-size:7px;letter-spacing:1px;margin-bottom:2px;}
+.eos-no-report{font-size:10px;color:var(--text3);text-align:center;padding:30px 16px;border:1px dashed var(--border);display:flex;flex-direction:column;align-items:center;gap:8px;letter-spacing:1px;}
+
+.no-data{text-align:center;padding:60px 20px;color:var(--text3);font-family:'Orbitron',sans-serif;font-size:12px;letter-spacing:2px;}
 
 /* ═══ FOOTER ═══ */
-footer{margin-top:28px;padding:18px 28px;border-top:1px solid var(--border);font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--text3);display:flex;justify-content:space-between;align-items:center;letter-spacing:.3px}
+footer{text-align:center;padding:14px;border-top:1px solid var(--border);font-size:8px;color:var(--text3);letter-spacing:2px;margin-top:24px;}
 
-.no-data{text-align:center;padding:60px 20px;color:var(--text3);font-family:'IBM Plex Mono',monospace}
-
-/* ═══ TICKER ═══ */
-.ticker{background:var(--bg2);border-bottom:1px solid var(--border);padding:6px 0;overflow:hidden;position:relative}
-.ticker-inner{display:flex;gap:40px;animation:ticker 40s linear infinite;white-space:nowrap;width:max-content}
-.ticker-inner:hover{animation-play-state:paused}
-@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.ticker-item{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--text3);display:flex;align-items:center;gap:8px;letter-spacing:.3px}
-.ticker-item .ti-name{color:var(--text2);font-weight:500}
-.ticker-item .ti-val{font-weight:600}
-.ticker-item .ti-val.g{color:var(--green)} .ticker-item .ti-val.y{color:var(--yellow)} .ticker-item .ti-val.r{color:var(--red)} .ticker-item .ti-val.n{color:var(--text3)}
-.ticker-sep{color:var(--muted)}
-
-  /* ═══ EOS REPORTS ═══ */
-  .eos-grid-layout {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 14px;
-  }
-  .eos-card {
-    background: var(--panel);
-    border: 1px solid var(--border2);
-    border-radius: 12px;
-    overflow: hidden;
-    transition: transform .15s, box-shadow .15s;
-    display: flex;
-    flex-direction: column;
-  }
-  .eos-card:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(0,0,0,.4); }
-  .eos-card.eos-clean  { border-top: 3px solid var(--green); }
-  .eos-card.eos-issues { border-top: 3px solid var(--red); }
-  .eos-card.eos-warn   { border-top: 3px solid var(--yellow); }
-  .eos-card.eos-none   { border-top: 3px solid var(--muted); }
-  .eos-card-header {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 14px 18px 12px; border-bottom: 1px solid var(--border);
-    background: var(--panel2);
-  }
-  .eos-header-left { display: flex; align-items: center; gap: 10px; }
-  .eos-hub-name { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 1.5px; color: #fff; }
-  .eos-date { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: var(--text3); letter-spacing: .3px; }
-  .eos-status-badge {
-    font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: .8px;
-    padding: 3px 10px; border-radius: 4px; border: 1px solid; white-space: nowrap;
-  }
-  .eos-status-badge.ok   { background: var(--green-dim); border-color: #1a5c33; color: var(--green); }
-  .eos-status-badge.bad  { background: var(--red-dim);   border-color: #5c1c1c; color: var(--red); }
-  .eos-status-badge.warn { background: var(--yellow-dim);border-color: #5c4400; color: var(--yellow); }
-  .eos-status-badge.na   { background: var(--panel2);    border-color: var(--border); color: var(--text3); }
-  .eos-card-body { padding: 14px 18px 18px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
-  .eos-flags { display: flex; flex-direction: column; gap: 4px; }
-  .eos-flag {
-    display: flex; align-items: center; justify-content: space-between;
-    font-family: 'IBM Plex Mono', monospace; font-size: 9px;
-    padding: 5px 10px; border-radius: 5px; border: 1px solid;
-  }
-  .eos-flag .flag-key { color: var(--text3); }
-  .eos-flag .flag-val { font-weight: 600; }
-  .eos-flag.ok   { background: rgba(0,230,118,.05);  border-color: rgba(0,230,118,.15); }
-  .eos-flag.ok   .flag-val { color: var(--green); }
-  .eos-flag.bad  { background: rgba(255,61,61,.08);  border-color: rgba(255,61,61,.22); }
-  .eos-flag.bad  .flag-val { color: var(--red); }
-  .eos-flag.warn { background: rgba(255,202,40,.06); border-color: rgba(255,202,40,.2); }
-  .eos-flag.warn .flag-val { color: var(--yellow); }
-  .eos-flag.na   { background: transparent;           border-color: var(--border); }
-  .eos-flag.na   .flag-val { color: var(--text3); }
-  .eos-block-label {
-    font-family: 'IBM Plex Mono', monospace; font-size: 8px; letter-spacing: 1.2px;
-    text-transform: uppercase; color: var(--text3); margin-bottom: 5px;
-  }
-  .eos-summary-text {
-    font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--text2);
-    line-height: 1.7; background: var(--panel2); padding: 10px 12px;
-    border-radius: 6px; border: 1px solid var(--border);
-  }
-  .eos-alert {
-    padding: 8px 12px; border-radius: 6px; border-left: 2px solid;
-    font-family: 'IBM Plex Mono', monospace; font-size: 9px; line-height: 1.6;
-  }
-  .eos-alert.rolled { background: rgba(255,202,40,.06); border-color: var(--yellow); color: var(--yellow); }
-  .eos-alert.lanes  { background: rgba(249,115,22,.06); border-color: #f97316; color: #f97316; }
-  .eos-alert strong { display: block; margin-bottom: 3px; font-size: 8px; letter-spacing: .5px; }
-  .eos-no-report {
-    font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--text3);
-    text-align: center; padding: 40px 20px; border: 1px dashed var(--border);
-    border-radius: 10px; display: flex; flex-direction: column; align-items: center; gap: 8px;
-  }
-
+/* ═══ EOS TAB PANEL ═══ */
+#tab-eos .sec{margin-top:0;}
 </style>
 </head>
 <body>
 
-<!-- Modal -->
-<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
-  <div class="modal">
-    <div class="modal-hdr">
-      <div>
-        <div class="modal-fac" id="m-name">—</div>
-        <div class="modal-sub">HUB SORTATION · ROUTE BREAKDOWN</div>
-      </div>
-      <button class="modal-x" onclick="closeModalDirect()">×</button>
-    </div>
-    <div class="modal-body">
-      <div class="modal-hero">
-        <div class="modal-big" id="m-pct">—</div>
-        <div class="modal-hero-meta">
-          <div class="modal-hero-lbl">OVERALL OTD%</div>
-          <div class="modal-status-badge" id="m-badge">—</div>
-        </div>
-      </div>
-      <div class="modal-routes-lbl" id="m-routes-lbl">ROUTES</div>
-      <div class="route-list" id="m-routes"></div>
-    </div>
-  </div>
-</div>
-
-<!-- Header -->
 <header>
   <div class="hdr-left">
     <div class="hdr-logo">
-      <div class="hdr-badge">E</div>
-      <div class="hdr-title-block">
-        <div class="hdr-eyebrow">East Region Ops</div>
-        <div class="hdr-title">Golden Path</div>
+      <!-- Holographic parcel SVG -->
+      <svg class="logo-parcel" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="lgl"><feGaussianBlur stdDeviation="0.8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+        <!-- Top face -->
+        <polygon points="19,3 32,10 19,17 6,10" fill="rgba(0,255,136,0.14)" stroke="#00ff88" stroke-width="1.5" stroke-linejoin="round" filter="url(#lgl)"/>
+        <!-- Left face -->
+        <polygon points="6,10 19,17 19,31 6,24" fill="rgba(0,255,136,0.08)" stroke="rgba(0,255,136,0.7)" stroke-width="1.5" stroke-linejoin="round"/>
+        <!-- Right face -->
+        <polygon points="19,17 32,10 32,24 19,31" fill="rgba(0,255,136,0.06)" stroke="rgba(0,255,136,0.6)" stroke-width="1.5" stroke-linejoin="round"/>
+        <!-- Tape top -->
+        <polygon points="19,3 23,5.5 19,8 15,5.5" fill="rgba(0,255,136,0.3)" stroke="#00ff88" stroke-width="1" stroke-linejoin="round"/>
+        <polygon points="23,5.5 32,10 28,12.5 19,8" fill="rgba(0,255,136,0.25)" stroke="rgba(0,255,136,0.6)" stroke-width="0.8"/>
+        <polygon points="6,10 15,5.5 19,8 10,12.5" fill="rgba(0,255,136,0.22)" stroke="rgba(0,255,136,0.5)" stroke-width="0.8"/>
+        <!-- Tape sides -->
+        <polygon points="10,12.5 14,10 14,24 10,26.5" fill="rgba(0,255,136,0.15)" stroke="rgba(0,255,136,0.4)" stroke-width="0.7"/>
+        <polygon points="24,10 28,12.5 28,26.5 24,24" fill="rgba(0,255,136,0.12)" stroke="rgba(0,255,136,0.35)" stroke-width="0.7"/>
+        <!-- Tape drip -->
+        <line x1="19" y1="17" x2="19" y2="25" stroke="rgba(0,255,136,0.5)" stroke-width="1.5"/>
+        <circle cx="19" cy="25" r="1.5" fill="rgba(0,255,136,0.6)" filter="url(#lgl)"/>
+        <!-- Edge highlights -->
+        <polyline points="6,10 19,3 32,10" fill="none" stroke="#00ff88" stroke-width="2" stroke-linejoin="round" filter="url(#lgl)"/>
+        <line x1="6" y1="10" x2="6" y2="24" stroke="#00ff88" stroke-width="1.8"/>
+        <line x1="32" y1="10" x2="32" y2="24" stroke="#00ff88" stroke-width="1.8"/>
+        <polyline points="6,24 19,31 32,24" fill="none" stroke="#00ff88" stroke-width="1.8" stroke-linejoin="round" filter="url(#lgl)"/>
+        <!-- Corner dots -->
+        <circle cx="19" cy="3" r="1.8" fill="#00ff88" filter="url(#lgl)"/>
+        <circle cx="6" cy="10" r="1.4" fill="#00ff88" filter="url(#lgl)"/>
+        <circle cx="32" cy="10" r="1.4" fill="#00ff88" filter="url(#lgl)"/>
+        <circle cx="6" cy="24" r="1.4" fill="rgba(0,255,136,0.8)"/>
+        <circle cx="32" cy="24" r="1.4" fill="rgba(0,255,136,0.8)"/>
+        <circle cx="19" cy="31" r="1.8" fill="#00ff88" filter="url(#lgl)"/>
+        <!-- Pulse ring on top face -->
+        <polygon points="19,3 32,10 19,17 6,10" fill="none" stroke="rgba(0,255,136,0.5)" stroke-width="0.8">
+          <animate attributeName="opacity" values="0.8;0.1;0.8" dur="2.5s" repeatCount="indefinite"/>
+        </polygon>
+      </svg>
+      <div class="logo-text-block">
+        <div class="logo-wordmark">DASHLINK</div>
+        <div class="logo-sub">EAST REGION OPS CENTER</div>
       </div>
     </div>
-    <div class="hdr-status-cluster" id="hdr-chips"></div>
-  </div>
-  <div class="hdr-right">
-    <div class="date-nav">
-      <button class="nav-btn" id="btn-prev" onclick="navigateDate(-1)">&#8592;</button>
-      <select class="date-sel" id="date-sel" onchange="loadDate(this.value)"></select>
-      <button class="nav-btn" id="btn-next" onclick="navigateDate(1)">&#8594;</button>
+    <div class="hdr-stats" id="hdr-chips">
+      <div class="hdr-stat"><div class="hdr-stat-num n">—</div><div class="hdr-stat-lbl">On Track</div></div>
+      <div class="hdr-stat"><div class="hdr-stat-num n">—</div><div class="hdr-stat-lbl">Watch</div></div>
+      <div class="hdr-stat"><div class="hdr-stat-num n">—</div><div class="hdr-stat-lbl">Critical</div></div>
+      <div class="hdr-stat"><div class="hdr-stat-num n">—</div><div class="hdr-stat-lbl">No Data</div></div>
     </div>
+  </div>
+
+  <div class="hdr-right">
     <div class="hdr-meta">
       <div class="hdr-date-str" id="hdr-date">—</div>
       <div>PULLED <span id="hdr-pulled">—</span></div>
     </div>
+    <div class="date-nav">
+      <button class="nav-btn" id="btn-prev" onclick="navigateDate(-1)" disabled>←</button>
+      <select class="date-sel" id="date-sel" onchange="loadDate(this.value)"></select>
+      <button class="nav-btn" id="btn-next" onclick="navigateDate(1)" disabled>→</button>
+    </div>
   </div>
 </header>
 
-<!-- Ticker -->
-<div class="ticker" id="ticker-wrap">
+<div class="ticker-wrap">
   <div class="ticker-inner" id="ticker"></div>
 </div>
 
-<!-- Tabs -->
 <div class="tabs">
   <div class="tab active" onclick="switchTab('daily')">DAILY VIEW</div>
   <div class="tab" onclick="switchTab('trends')">14-DAY TRENDS</div>
@@ -485,24 +391,26 @@ footer{margin-top:28px;padding:18px 28px;border-top:1px solid var(--border);font
 </div>
 
 <main>
-  <!-- DAILY -->
+
+  <!-- DAILY TAB -->
   <div class="tab-panel active" id="tab-daily">
 
-    <!-- Hubs + Pallets -->
     <div class="sec">
-      <span class="sec-label">Hubs</span>
+      <span class="sec-label">Hub Sortation</span>
       <span class="sec-count" id="hub-count">—</span>
       <span class="sec-line"></span>
       <span class="sec-hint">CLICK FOR ROUTE DETAIL</span>
     </div>
     <div class="hub-row">
-      <div class="fac-grid" id="hub-grid" style="grid-template-columns:repeat(3,1fr)"></div>
+      <div class="fac-grid" id="hub-grid" style="grid-template-columns:repeat(5,1fr)"></div>
+
       <div class="pallet-section">
         <div class="pallet-header">Pallet Inventory</div>
         <div class="pallet-cards" id="pallet-cards"></div>
       </div>
+
       <div>
-        <div class="sec" style="margin-top:0;margin-bottom:12px">
+        <div class="sec" style="margin-top:0;margin-bottom:10px">
           <span class="sec-label">End of Shift</span>
           <span class="sec-count" id="daily-eos-count">—</span>
           <span class="sec-line"></span>
@@ -512,51 +420,35 @@ footer{margin-top:28px;padding:18px 28px;border-top:1px solid var(--border);font
       </div>
     </div>
 
-    <!-- EOS Cards on Daily View -->
     <div class="sec">
-      <span class="sec-label">End of Shift</span>
-      <span class="sec-count" id="daily-eos-count">—</span>
-      <span class="sec-line"></span>
-      <span class="sec-hint">MOST RECENT PER HUB</span>
-    </div>
-    <div class="eos-grid-layout" id="daily-eos-grid"></div>
-
-    <!-- Spokes -->
-    <div class="sec">
-      <span class="sec-label">Spokes</span>
+      <span class="sec-label">Spoke Sortation</span>
       <span class="sec-count" id="spoke-count">—</span>
       <span class="sec-line"></span>
     </div>
-    <div class="fac-grid" id="spoke-grid"></div>
+    <div class="spoke-grid-wrap">
+      <div class="fac-grid" id="spoke-grid" style="grid-template-columns:repeat(8,1fr)"></div>
+    </div>
 
-    <!-- SLA Stack Rank -->
     <div class="sec">
-      <span class="sec-label">Steps Missing SLA — Yesterday</span>
+      <span class="sec-label">SLA Stack Rank</span>
       <span class="sec-line"></span>
-      <span class="sec-hint">EAST REGION</span>
+      <span class="sec-hint">MISS COUNT · CURRENT PERIOD</span>
     </div>
-    <div class="tbl-wrap">
-      <table>
-        <thead><tr><th>#</th><th>Step</th><th>Facility</th><th>Route</th><th style="text-align:right">Misses</th><th style="width:110px"></th></tr></thead>
-        <tbody id="sla-tbody"></tbody>
-      </table>
-    </div>
+    <table class="sla-table">
+      <thead><tr><th>#</th><th>Step</th><th>Facility</th><th>Route</th><th style="text-align:right">Misses</th><th></th></tr></thead>
+      <tbody id="sla-tbody"></tbody>
+    </table>
 
-    <div class="legend">
-      <div class="legend-item"><div class="ldot" style="background:var(--green)"></div>≥ 95% On Track</div>
-      <div class="legend-item"><div class="ldot" style="background:var(--yellow)"></div>90–94% Watch</div>
-      <div class="legend-item"><div class="ldot" style="background:var(--red)"></div>&lt; 90% Critical</div>
-      <div class="legend-item"><div class="ldot" style="background:var(--muted)"></div>No Data</div>
-    </div>
   </div>
 
-  <!-- TRENDS -->
+  <!-- TRENDS TAB -->
   <div class="tab-panel" id="tab-trends">
-    <div class="sec" style="margin-top:0"><span class="sec-label">Hubs</span><span class="sec-line"></span></div>
-    <div class="trend-grid" id="hub-trend"></div>
-    <div class="sec"><span class="sec-label">Spokes</span><span class="sec-line"></span></div>
-    <div class="trend-grid" id="spoke-trend"></div>
+    <div class="sec" style="margin-top:0"><span class="sec-label">Hub 14-Day OTD Trend</span><span class="sec-line"></span></div>
+    <div id="hub-trend"></div>
+    <div class="sec"><span class="sec-label">Spoke 14-Day OTD Trend</span><span class="sec-line"></span></div>
+    <div id="spoke-trend"></div>
   </div>
+
   <!-- EOS TAB -->
   <div class="tab-panel" id="tab-eos">
     <div class="sec" style="margin-top:0">
@@ -570,10 +462,26 @@ footer{margin-top:28px;padding:18px 28px;border-top:1px solid var(--border);font
 
 </main>
 
-<footer>
-  <span>EAST REGION OPERATIONS · DOORDASH</span>
-  <span>CREATED BY PAUL BROWN</span>
-</footer>
+<footer>EAST REGION OPERATIONS · DASHLINK · GOLDEN PATH</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="m-title-row">
+        <div class="m-name" id="m-name">—</div>
+        <button class="modal-x" onclick="closeModalDirect()">✕</button>
+      </div>
+      <div class="modal-sub">HUB SORTATION · ROUTE BREAKDOWN</div>
+    </div>
+    <div class="modal-body">
+      <div class="modal-big" id="m-pct">—</div>
+      <div class="modal-status-badge" id="m-badge">—</div>
+      <div class="modal-routes-lbl" id="m-routes-lbl">— ROUTES</div>
+      <div id="m-routes"></div>
+    </div>
+  </div>
+</div>
 
 <script>
 let allData={},availableDates=[],currentDate=null,currentData=null;
@@ -612,17 +520,15 @@ function renderEOS(data, containerId) {
           + '<div class="eos-header-left"><div class="eos-hub-name">'+hub+'</div></div>'
           + '<div class="eos-status-badge na">NO REPORT</div>'
         + '</div>'
-        + '<div class="eos-card-body"><div class="eos-no-report"><div style="font-size:24px;margin-bottom:8px">⚫</div><div>No end of shift report submitted</div></div></div>'
+        + '<div class="eos-card-body"><div class="eos-no-report"><div style="font-size:20px;margin-bottom:6px">⚫</div><div>No end of shift report submitted</div></div></div>'
         + '</div>';
     }
-
     const isYes = function(v){ return v && v.toLowerCase()==='yes'; };
     const hasIssues = isYes(r.late_inbound_rolled)||isYes(r.late_outbounds)||isYes(r.pallets_on_floor)||!isYes(r.all_trucks_departed);
     const hasWarn   = isYes(r.volume_variance) && !hasIssues;
     const cardCls   = hasIssues ? 'eos-issues' : hasWarn ? 'eos-warn' : 'eos-clean';
     const badgeCls  = hasIssues ? 'bad' : hasWarn ? 'warn' : 'ok';
     const badgeTxt  = hasIssues ? 'ISSUES' : hasWarn ? 'WATCH' : 'CLEAN';
-
     const flags = '<div class="eos-flags">'
       + eosFlag('ALL TRUCKS OUT',   r.all_trucks_departed, true)
       + eosFlag('INBOUND ROLLED',   r.late_inbound_rolled, false)
@@ -630,32 +536,26 @@ function renderEOS(data, containerId) {
       + eosFlag('PALLETS ON FLOOR', r.pallets_on_floor,    false)
       + eosFlag('VOLUME VARIANCE',  r.volume_variance,     false)
       + '</div>';
-
     const rolled = (r.rolled_details && r.rolled_details!=='nan' && r.rolled_details.trim())
       ? '<div><div class="eos-block-label">↩ Rolled Volume</div><div class="eos-alert rolled"><strong>DETAILS</strong> '+r.rolled_details.substring(0,200)+(r.rolled_details.length>200?'…':'')+'</div></div>' : '';
-
     const lanes = (r.rollover_lanes && r.rollover_lanes!=='nan' && r.rollover_lanes.trim())
       ? '<div><div class="eos-block-label">📦 Rollover Lanes</div><div class="eos-alert lanes"><strong>LANES</strong> '+r.rollover_lanes.substring(0,200)+(r.rollover_lanes.length>200?'…':'')+'</div></div>' : '';
-
     const summary = (r.summary && r.summary!=='nan' && r.summary.trim())
       ? '<div><div class="eos-block-label">Shift Summary</div><div class="eos-summary-text">'+r.summary.substring(0,350)+(r.summary.length>350?'…':'')+'</div></div>' : '';
-
     return '<div class="eos-card '+cardCls+'">'
       + '<div class="eos-card-header">'
         + '<div class="eos-header-left">'
           + '<div class="eos-hub-name">'+hub+'</div>'
-          + '<div class="eos-date">'+( r.op_date||'—')+'</div>'
+          + '<div class="eos-date">'+(r.op_date||'—')+'</div>'
         + '</div>'
         + '<div class="eos-status-badge '+badgeCls+'">'+badgeTxt+'</div>'
       + '</div>'
       + '<div class="eos-card-body">'+flags+rolled+lanes+summary+'</div>'
       + '</div>';
   });
-
   var target = document.getElementById(containerId);
   if(target) target.innerHTML = cards.join('');
 }
-
 
 async function init(){
   const idx=await fetchJ('data/index.json');
@@ -693,7 +593,7 @@ function renderTicker(data){
     return `<div class="ticker-item"><span class="ti-name">${f}</span><span class="ti-val ${cls}">${val}</span></div><span class="ticker-sep">·</span>`;
   }).join('');
   const inner=document.getElementById('ticker');
-  inner.innerHTML=items+items; // duplicate for seamless loop
+  inner.innerHTML=items+items;
 }
 
 function renderDaily(data){
@@ -702,23 +602,16 @@ function renderDaily(data){
   Object.values(facs).forEach(f=>{const c=sc(f.otd_pct);if(c==='green')g++;else if(c==='yellow')y++;else if(c==='red')r++;else n++;});
   document.getElementById('hdr-chips').innerHTML=`
     <div class="hdr-stat"><div class="hdr-stat-num g">${g}</div><div class="hdr-stat-lbl">On Track</div></div>
-    <div class="hdr-divider"></div>
     <div class="hdr-stat"><div class="hdr-stat-num y">${y}</div><div class="hdr-stat-lbl">Watch</div></div>
-    <div class="hdr-divider"></div>
     <div class="hdr-stat"><div class="hdr-stat-num r">${r}</div><div class="hdr-stat-lbl">Critical</div></div>
-    <div class="hdr-divider"></div>
     <div class="hdr-stat"><div class="hdr-stat-num n">${n}</div><div class="hdr-stat-lbl">No Data</div></div>`;
-
   const hubs=HUBS.filter(f=>facs[f]);
   document.getElementById('hub-count').textContent=hubs.length;
   document.getElementById('hub-grid').innerHTML=hubs.map(n=>facCard(n,facs[n],true)).join('');
-
   const spokes=SPOKES.filter(f=>facs[f]);
   document.getElementById('spoke-count').textContent=spokes.length;
   document.getElementById('spoke-grid').innerHTML=spokes.map(n=>facCard(n,facs[n],false)).join('');
-
   renderPallets(data.pallet_inventory);
-
   const sla=data.sla_stack_rank||[];
   const mx=sla.length?Math.max(...sla.map(r=>r.miss_count)):1;
   document.getElementById('sla-tbody').innerHTML=sla.map((row,i)=>{
@@ -747,9 +640,7 @@ function facCard(name,data,isHub){
 
 function renderPallets(inv){
   const el=document.getElementById('pallet-cards');
-  if(!inv||!Object.keys(inv).length){
-    el.innerHTML='<div class="no-data" style="padding:16px;font-size:10px">No inventory data.</div>';return;
-  }
+  if(!inv||!Object.keys(inv).length){el.innerHTML='<div class="no-data" style="padding:16px;font-size:10px;letter-spacing:1px">No inventory data.</div>';return;}
   el.innerHTML=Object.entries(inv).map(([hub,d])=>{
     const pp=Math.round((d.remaining_pallets/d.starting_pallets)*100);
     const gp=Math.round((d.remaining_gaylords/d.starting_gaylords)*100);
@@ -757,30 +648,21 @@ function renderPallets(inv){
     const hasTrend=d.avg_daily_outbound!==undefined;
     const dp=d.days_remaining_pallets,dg=d.days_remaining_gaylords;
     return `<div class="pal-card">
-      <div class="pal-top">
-        <div class="pal-hub">${hub}</div>
-        <div class="pal-badge">−${d.outbound_today} TODAY</div>
-      </div>
+      <div class="pal-top"><div class="pal-hub">${hub}</div><div class="pal-badge">−${d.outbound_today} TODAY</div></div>
       <div class="pal-counts">
         <div><div class="pal-count-type">Pallets</div><div class="pal-count-num ${pCls}">${d.remaining_pallets.toLocaleString()}</div></div>
         <div><div class="pal-count-type">Gaylords</div><div class="pal-count-num ${gCls}">${d.remaining_gaylords.toLocaleString()}</div></div>
       </div>
       <div class="pal-bars">
-        <div class="pal-bar-wrap">
-          <div class="pal-bar-label"><span>PALLETS</span><span>${pp}%</span></div>
-          <div class="pal-bar-track"><div class="pal-bar-fill ${pCls}" style="width:${pp}%"></div></div>
-        </div>
-        <div class="pal-bar-wrap">
-          <div class="pal-bar-label"><span>GAYLORDS</span><span>${gp}%</span></div>
-          <div class="pal-bar-track"><div class="pal-bar-fill ${gCls}" style="width:${gp}%"></div></div>
-        </div>
+        <div class="pal-bar-wrap"><div class="pal-bar-label"><span>PALLETS</span><span>${pp}%</span></div><div class="pal-bar-track"><div class="pal-bar-fill ${pCls}" style="width:${pp}%"></div></div></div>
+        <div class="pal-bar-wrap"><div class="pal-bar-label"><span>GAYLORDS</span><span>${gp}%</span></div><div class="pal-bar-track"><div class="pal-bar-fill ${gCls}" style="width:${gp}%"></div></div></div>
       </div>
       ${hasTrend?`<div class="pal-days">
-        <div class="pal-days-col"><div class="pal-days-num ${dc(dp)}">${dp}d</div><div class="pal-days-sub">PALLETS LEFT</div></div>
+        <div class="pal-days-col"><div class="pal-days-num ${dc(dp)}">${dp}d</div><div class="pal-days-sub">PALLETS</div></div>
         <div class="pal-days-divider"></div>
-        <div class="pal-days-col"><div class="pal-days-num ${dc(dg)}">${dg}d</div><div class="pal-days-sub">GAYLORDS LEFT</div></div>
+        <div class="pal-days-col"><div class="pal-days-num ${dc(dg)}">${dg}d</div><div class="pal-days-sub">GAYLORDS</div></div>
         <div class="pal-days-divider"></div>
-        <div class="pal-days-col"><div class="pal-days-num na" style="font-size:15px">${d.avg_daily_outbound}</div><div class="pal-days-sub">${d.history_days}D AVG</div></div>
+        <div class="pal-days-col"><div class="pal-days-num na" style="font-size:13px">${d.avg_daily_outbound}</div><div class="pal-days-sub">${d.history_days}D AVG</div></div>
       </div>`:''}
     </div>`;
   }).join('');
@@ -798,8 +680,8 @@ function openModal(name){
   badge.textContent=sl(cls);badge.className='modal-status-badge '+cls;
   const routes=fac.routes||[];
   document.getElementById('m-routes-lbl').textContent=`${routes.length} ROUTE${routes.length!==1?'S':''} · SORTED BY PERFORMANCE`;
-  if(!routes.length){document.getElementById('m-routes').innerHTML='<div class="no-routes">No route data.</div>';
-  }else{
+  if(!routes.length){document.getElementById('m-routes').innerHTML='<div class="no-routes">No route data.</div>';}
+  else{
     const bad=routes.filter(r=>sc(r.otd_pct)!=='green');
     const good=routes.filter(r=>sc(r.otd_pct)==='green');
     let html='';
@@ -845,7 +727,7 @@ function switchTab(name){
   if(name==='trends')renderTrends();
 }
 
-init().catch(()=>{document.querySelector('main').innerHTML='<div class="no-data"><div style="font-size:28px;margin-bottom:12px">⚠</div><div>Could not load data.</div></div>'});
+init().catch(()=>{document.querySelector('main').innerHTML='<div class="no-data">⚠ COULD NOT LOAD DATA</div>'});
 </script>
 </body>
 </html>
