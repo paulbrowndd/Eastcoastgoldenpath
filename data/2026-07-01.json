@@ -547,68 +547,68 @@
   },
   "eos_reports": {
     "ATL-15": {
-      "op_date": "2026-06-27",
+      "op_date": "2026-07-01",
+      "all_trucks_departed": "Yes",
+      "late_inbound_rolled": "Yes",
+      "volume_variance": "No",
+      "late_outbounds": "No",
+      "pallets_on_floor": "Yes",
+      "summary": "Transportation delays and one missed inbound resulted in rolled freight. ORD-7 (DLKUDQVCMZXC62Z) arrived at 10:53 PM, 5 hours late \u2014 2,427 parcels rolled. Macy's (DLK3M678YPK2D33) arrived 2 hours late \u2014 394 parcels rolled. BuiltBar-UT-1 did not arrive due to operational issues in Salt Lake City and Delta \u2014 156 units rolled. Total rollover: 2,977 parcels. Key win: team maintained full control of the operation despite transportation variability, processed all arriving inbounds ahead of schedule.",
+      "rolled_details": "ORD-7 DLKUDQVCMZXC62Z 2,427 parcels rolled. Macy's DLK3M678YPK2D33 394 parcels rolled. BuiltBar-UT-1 156 parcels rolled (truck no-show).",
+      "rollover_lanes": "EWR-2, 4 pallets, not enough space on truck."
+    },
+    "EWR-2": {
+      "op_date": "2026-07-01",
+      "all_trucks_departed": "Yes",
+      "late_inbound_rolled": "No",
+      "volume_variance": "Yes",
+      "late_outbounds": "No",
+      "pallets_on_floor": "No",
+      "summary": "Forecast was not accurate \u2014 merchants inbounded lower quantities than forecast. Sigma/Dashboard showed 62,244 forecast, received 48,686, not received 20,813. Ongoing issue this week causing overstaffed labor planning and ~45 min downtime due to no workflow. Key variances: PETCO forecast 5,887 actual 4,321; TikTok-NJ-1 forecast 10,635 actual 5,530; TikTok-NJ-2 forecast 8,965 actual 4,715; STORD-NY-1 forecast 8,772 actual 3,484.",
+      "rolled_details": "",
+      "rollover_lanes": ""
+    },
+    "GCO-1": {
+      "op_date": "2026-07-01",
       "all_trucks_departed": "Yes",
       "late_inbound_rolled": "No",
       "volume_variance": "No",
       "late_outbounds": "No",
       "pallets_on_floor": "No",
-      "summary": "Primary challenge was managing increased volume from delayed inbound arrivals from yesterday and earlier this week. Team remained focused on processing oldest freight first, maintained focus on highest operational priorities.",
+      "summary": "No issues with this evening's sort.",
       "rolled_details": "",
-      "rollover_lanes": ""
-    },
-    "EWR-2": {
-      "op_date": "2026-06-26",
-      "all_trucks_departed": "Yes",
-      "late_inbound_rolled": "Yes",
-      "volume_variance": "Yes",
-      "late_outbounds": "No",
-      "pallets_on_floor": "Yes",
-      "summary": "Sort finished at 9:15 but STORD arrived late by over 1 hour \u2014 left untouched. PHL7, PHL8, LIN1 late due to arriving at site late. ATL-15 driver parked in wrong door causing yard congestion.",
-      "rolled_details": "STORD, truck ID: C6453, 3,527 parcels rolled.",
-      "rollover_lanes": "ORD7, 5 pallets, left onsite to continue to sort."
-    },
-    "GCO-1": {
-      "op_date": "2026-06-27",
-      "all_trucks_departed": "Yes",
-      "late_inbound_rolled": "Yes",
-      "volume_variance": "No",
-      "late_outbounds": "No",
-      "pallets_on_floor": "No",
-      "summary": "Backcountry Inbound was late again tonight so the parcels will have to get moved to tomorrow.",
-      "rolled_details": "Backcountry, Truck ID: DLBKNHOY5MMA6L2, 1,766 parcels rolled.",
       "rollover_lanes": ""
     },
     "MCI-1": {
-      "op_date": "2026-06-27",
-      "all_trucks_departed": "Yes",
+      "op_date": "2026-07-01",
+      "all_trucks_departed": "No",
       "late_inbound_rolled": "No",
       "volume_variance": "No",
-      "late_outbounds": "No",
-      "pallets_on_floor": "No",
-      "summary": "Everything arrived and departed on time, nothing else to report.",
+      "late_outbounds": "Yes",
+      "pallets_on_floor": "Yes",
+      "summary": "Not a good night \u2014 ATL-15 truck (DLJ3AB) never arrived for pickup, 1,200 parcels unable to scan. Two separate tickets created with DoorDash to resolve.",
       "rolled_details": "",
-      "rollover_lanes": ""
+      "rollover_lanes": "ATL-15 truck ID: DLJ3AB never arrived for pick up. Ticket created with DoorDash."
     },
     "NYC-1": {
-      "op_date": "2026-06-27",
+      "op_date": "2026-07-01",
       "all_trucks_departed": "Yes",
       "late_inbound_rolled": "No",
       "volume_variance": "No",
       "late_outbounds": "No",
       "pallets_on_floor": "No",
-      "summary": "None.",
+      "summary": "No Issues.",
       "rolled_details": "",
       "rollover_lanes": ""
     },
     "SLC-8": {
-      "op_date": "2026-06-25",
+      "op_date": "2026-07-01",
       "all_trucks_departed": "Yes",
       "late_inbound_rolled": "No",
       "volume_variance": "No",
       "late_outbounds": "No",
       "pallets_on_floor": "No",
-      "summary": "Nothing to report.",
+      "summary": "No report submitted.",
       "rolled_details": "",
       "rollover_lanes": ""
     }
