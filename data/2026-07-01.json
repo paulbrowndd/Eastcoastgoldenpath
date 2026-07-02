@@ -1,6 +1,6 @@
 {
   "date": "2026-07-01",
-  "pulled_at": "2026-07-02 20:33 EST",
+  "pulled_at": "2026-07-02 21:13 EST",
   "facilities": {
     "ATL-15": {
       "type": "hub",
@@ -512,36 +512,36 @@
   ],
   "pallet_inventory": {
     "ATL-15": {
-      "starting_pallets": 2678,
-      "starting_gaylords": 1410,
+      "starting_pallets": 1300,
+      "starting_gaylords": 280,
       "outbound_today": 138,
-      "remaining_pallets": 2540,
-      "remaining_gaylords": 1272,
+      "remaining_pallets": 1162,
+      "remaining_gaylords": 142,
       "avg_daily_outbound": 119,
-      "days_remaining_pallets": 21.3,
-      "days_remaining_gaylords": 10.7,
+      "days_remaining_pallets": 9.8,
+      "days_remaining_gaylords": 1.2,
       "history_days": 9
     },
     "EWR-2": {
-      "starting_pallets": 2678,
-      "starting_gaylords": 3000,
+      "starting_pallets": 250,
+      "starting_gaylords": 4800,
       "outbound_today": 396,
-      "remaining_pallets": 2282,
-      "remaining_gaylords": 2604,
+      "remaining_pallets": -146,
+      "remaining_gaylords": 4404,
       "avg_daily_outbound": 349,
-      "days_remaining_pallets": 6.5,
-      "days_remaining_gaylords": 7.5,
+      "days_remaining_pallets": -0.4,
+      "days_remaining_gaylords": 12.6,
       "history_days": 30
     },
     "MCI-1": {
-      "starting_pallets": 1115,
-      "starting_gaylords": 740,
+      "starting_pallets": 985,
+      "starting_gaylords": 770,
       "outbound_today": 18,
-      "remaining_pallets": 1097,
-      "remaining_gaylords": 722,
+      "remaining_pallets": 967,
+      "remaining_gaylords": 752,
       "avg_daily_outbound": 14,
-      "days_remaining_pallets": 78.4,
-      "days_remaining_gaylords": 51.6,
+      "days_remaining_pallets": 69.1,
+      "days_remaining_gaylords": 53.7,
       "history_days": 20
     }
   },
