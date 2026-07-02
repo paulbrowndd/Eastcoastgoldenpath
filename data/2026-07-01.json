@@ -553,7 +553,7 @@
       "volume_variance": "No",
       "late_outbounds": "No",
       "pallets_on_floor": "Yes",
-      "summary": "Transportation delays and one missed inbound resulted in rolled freight. ORD-7 (DLKUDQVCMZXC62Z) arrived at 10:53 PM, 5 hours late \u2014 2,427 parcels rolled. Macy's (DLK3M678YPK2D33) arrived 2 hours late \u2014 394 parcels rolled. BuiltBar-UT-1 did not arrive due to operational issues in Salt Lake City and Delta \u2014 156 units rolled. Total rollover: 2,977 parcels. Key win: team maintained full control of the operation despite transportation variability, processed all arriving inbounds ahead of schedule.",
+      "summary": "Transportation delays and one missed inbound resulted in rolled freight. ORD-7 (DLKUDQVCMZXC62Z) arrived at 10:53 PM, 5 hours late \u2014 2,427 parcels rolled. Macy's (DLK3M678YPK2D33) arrived 2 hours late \u2014 394 parcels rolled. BuiltBar-UT-1 did not arrive due to operational issues in Salt Lake City and Delta \u2014 156 units rolled. Total rollover: 2,977 parcels. Key win: team maintained full control of the operation despite transportation variability.",
       "rolled_details": "ORD-7 DLKUDQVCMZXC62Z 2,427 parcels rolled. Macy's DLK3M678YPK2D33 394 parcels rolled. BuiltBar-UT-1 156 parcels rolled (truck no-show).",
       "rollover_lanes": "EWR-2, 4 pallets, not enough space on truck."
     },
@@ -564,7 +564,7 @@
       "volume_variance": "Yes",
       "late_outbounds": "No",
       "pallets_on_floor": "No",
-      "summary": "Forecast was not accurate \u2014 merchants inbounded lower quantities than forecast. Sigma/Dashboard showed 62,244 forecast, received 48,686, not received 20,813. Ongoing issue this week causing overstaffed labor planning and ~45 min downtime due to no workflow. Key variances: PETCO forecast 5,887 actual 4,321; TikTok-NJ-1 forecast 10,635 actual 5,530; TikTok-NJ-2 forecast 8,965 actual 4,715; STORD-NY-1 forecast 8,772 actual 3,484.",
+      "summary": "Forecast was inaccurate \u2014 merchants inbounded lower quantities than forecast. Sigma/Dashboard showed 62,244 forecast, received 48,686, not received 20,813. Ongoing issue this week causing overstaffed labor planning and ~45 min downtime. Key variances: TikTok-NJ-1 forecast 10,635 actual 5,530; TikTok-NJ-2 forecast 8,965 actual 4,715; STORD-NY-1 forecast 8,772 actual 3,484.",
       "rolled_details": "",
       "rollover_lanes": ""
     },
