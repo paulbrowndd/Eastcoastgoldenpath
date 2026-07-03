@@ -503,13 +503,13 @@
       "history_days": 9
     },
     "EWR-2": {
-      "starting_pallets": 250,
+      "starting_pallets": 1450,
       "starting_gaylords": 4800,
       "outbound_today": 412,
-      "remaining_pallets": -162,
+      "remaining_pallets": 1038,
       "remaining_gaylords": 4388,
       "avg_daily_outbound": 349,
-      "days_remaining_pallets": 0.0,
+      "days_remaining_pallets": 3.0,
       "days_remaining_gaylords": 12.6,
       "history_days": 30
     },
