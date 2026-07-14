@@ -521,5 +521,61 @@
       "history_days": 20
     }
   },
-  "eos_reports": {}
+  "eos_reports": {
+    "ATL-15": {
+      "op_date": "2026-07-10",
+      "all_trucks_departed": "Yes",
+      "late_inbound_rolled": "No",
+      "volume_variance": "No",
+      "late_outbounds": "No",
+      "pallets_on_floor": "No",
+      "summary": "Petco was the only account that rolled over \u2014 labor had to be redirected throughout the night to address changing priorities. Despite adjustments, team worked through each issue efficiently.",
+      "rolled_details": "",
+      "rollover_lanes": ""
+    },
+    "EWR-2": {
+      "op_date": "2026-07-10",
+      "all_trucks_departed": "Yes",
+      "late_inbound_rolled": "Yes",
+      "volume_variance": "Yes",
+      "late_outbounds": "Yes",
+      "pallets_on_floor": "No",
+      "summary": "BuiltBar arrived 2hrs late \u2014 540 parcels rolled. 3 outbound drivers arrived late to site causing late dispatch. TikTok-NJ-2 forecasted 7,731 actual 5,166; STORD forecasted 4,017 actual 3,537; Petco forecasted 4,293 actual 3,466; TikTok-NJ-1 forecasted 10,648 actual 8,292.",
+      "rolled_details": "BuiltBar truck ID 9575 \u2014 540 parcels rolled.",
+      "rollover_lanes": ""
+    },
+    "MCI-1": {
+      "op_date": "2026-07-10",
+      "all_trucks_departed": "Yes",
+      "late_inbound_rolled": "No",
+      "volume_variance": "No",
+      "late_outbounds": "No",
+      "pallets_on_floor": "Yes",
+      "summary": "AEO_KS dropped off 6 pallets that couldn't be processed correctly. 3 ATL-15 pallets missed truck due to staging confusion. 4 pallets with only customer names, no destination. 3 scan-not-found pallets. 3 mixed pallets need sorting.",
+      "rolled_details": "",
+      "rollover_lanes": "ATL-15 \u2014 3 pallets, staging confusion."
+    },
+    "GCO-1": {
+      "op_date": "2026-07-10",
+      "all_trucks_departed": "Yes",
+      "late_inbound_rolled": "No",
+      "volume_variance": "No",
+      "late_outbounds": "No",
+      "pallets_on_floor": "No",
+      "summary": "No issues with this evening's sort.",
+      "rolled_details": "",
+      "rollover_lanes": ""
+    },
+    "NYC-1": {
+      "op_date": "2026-07-10",
+      "all_trucks_departed": "Yes",
+      "late_inbound_rolled": "No",
+      "volume_variance": "No",
+      "late_outbounds": "No",
+      "pallets_on_floor": "No",
+      "summary": "No issues.",
+      "rolled_details": "",
+      "rollover_lanes": ""
+    }
+  }
 }
