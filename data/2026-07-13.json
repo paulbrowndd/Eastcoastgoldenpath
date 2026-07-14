@@ -541,5 +541,61 @@
       "history_days": 20
     }
   },
-  "eos_reports": {}
+  "eos_reports": {
+    "ATL-15": {
+      "op_date": "2026-07-13",
+      "all_trucks_departed": "Yes",
+      "late_inbound_rolled": "No",
+      "volume_variance": "Yes",
+      "late_outbounds": "No",
+      "pallets_on_floor": "No",
+      "summary": "1 STORD trailer did not show up. Forecast 19,800 units, actual 18,186.",
+      "rolled_details": "",
+      "rollover_lanes": ""
+    },
+    "ELZ-1": {
+      "op_date": "2026-07-13",
+      "all_trucks_departed": "Yes",
+      "late_inbound_rolled": "No",
+      "volume_variance": "No",
+      "late_outbounds": "No",
+      "pallets_on_floor": "No",
+      "summary": "Everything ran smoothly this evening.",
+      "rolled_details": "",
+      "rollover_lanes": ""
+    },
+    "GCO-1": {
+      "op_date": "2026-07-13",
+      "all_trucks_departed": "Yes",
+      "late_inbound_rolled": "No",
+      "volume_variance": "No",
+      "late_outbounds": "No",
+      "pallets_on_floor": "No",
+      "summary": "No issues with this evening's sort.",
+      "rolled_details": "",
+      "rollover_lanes": ""
+    },
+    "MCI-1": {
+      "op_date": "2026-07-13",
+      "all_trucks_departed": "Yes",
+      "late_inbound_rolled": "No",
+      "volume_variance": "No",
+      "late_outbounds": "No",
+      "pallets_on_floor": "No",
+      "summary": "No issues to report, overall a good night.",
+      "rolled_details": "",
+      "rollover_lanes": ""
+    },
+    "NYC-1": {
+      "op_date": "2026-07-13",
+      "all_trucks_departed": "No",
+      "late_inbound_rolled": "Yes",
+      "volume_variance": "No",
+      "late_outbounds": "No",
+      "pallets_on_floor": "No",
+      "summary": "Capstone Logistics driver Enrique (reports to Mateo, plate KNB-5665) waited 1h 30min outside a closed Macy's. Driver arrived at NYC-1 at 8:20pm with ~1,100 parcels but had not scanned them during pickup \u2014 sortation could not begin until scanning was complete. At 10:10pm driver was still scanning. EWR-2 arrived on site at 9:39pm. This is the second time this driver arrived without scanning parcels at pickup.",
+      "rolled_details": "Macy's SFS, Capstone Driver Enrique (plate KNB-5665) ~1,000 parcels rolled.",
+      "rollover_lanes": ""
+    }
+  }
 }
