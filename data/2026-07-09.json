@@ -533,5 +533,61 @@
       "history_days": 20
     }
   },
-  "eos_reports": {}
+  "eos_reports": {
+    "ATL-15": {
+      "op_date": "2026-07-09",
+      "all_trucks_departed": "Yes",
+      "late_inbound_rolled": "No",
+      "volume_variance": "No",
+      "late_outbounds": "No",
+      "pallets_on_floor": "No",
+      "summary": "Finished scanning at 19:54. After shift clean went well. 9 scanners need to be fixed \u2014 Jimmy notified and will escalate. Overall good night.",
+      "rolled_details": "",
+      "rollover_lanes": ""
+    },
+    "EWR-2": {
+      "op_date": "2026-07-09",
+      "all_trucks_departed": "Yes",
+      "late_inbound_rolled": "No",
+      "volume_variance": "Yes",
+      "late_outbounds": "No",
+      "pallets_on_floor": "No",
+      "summary": "Merchants didn't send forecasted volume \u2014 TikTok-1/2, UNIQLO, STORD all under. 45min downtime, had to send associates home early. TikTok-1 forecasted 9,296 actual 7,127; UNIQLO forecasted 1,374 actual 823; TikTok-2 forecasted 7,616 actual 4,900; STORD forecasted 3,361 actual 2,933.",
+      "rolled_details": "",
+      "rollover_lanes": ""
+    },
+    "MCI-1": {
+      "op_date": "2026-07-09",
+      "all_trucks_departed": "Yes",
+      "late_inbound_rolled": "No",
+      "volume_variance": "No",
+      "late_outbounds": "No",
+      "pallets_on_floor": "No",
+      "summary": "3 full gaylords and 4 half gaylords with no destination. All but one gaylord from today's inbound worked. Finished all carry-over from yesterday.",
+      "rolled_details": "",
+      "rollover_lanes": ""
+    },
+    "GCO-1": {
+      "op_date": "2026-07-09",
+      "all_trucks_departed": "Yes",
+      "late_inbound_rolled": "No",
+      "volume_variance": "No",
+      "late_outbounds": "No",
+      "pallets_on_floor": "No",
+      "summary": "No issues with this evening's sort.",
+      "rolled_details": "",
+      "rollover_lanes": ""
+    },
+    "NYC-1": {
+      "op_date": "2026-07-09",
+      "all_trucks_departed": "No",
+      "late_inbound_rolled": "No",
+      "volume_variance": "No",
+      "late_outbounds": "No",
+      "pallets_on_floor": "No",
+      "summary": "No issues.",
+      "rolled_details": "",
+      "rollover_lanes": ""
+    }
+  }
 }
