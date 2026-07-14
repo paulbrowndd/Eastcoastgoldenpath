@@ -532,5 +532,61 @@
       "history_days": 20
     }
   },
-  "eos_reports": {}
+  "eos_reports": {
+    "ATL-15": {
+      "op_date": "2026-07-12",
+      "all_trucks_departed": "Yes",
+      "late_inbound_rolled": "No",
+      "volume_variance": "Yes",
+      "late_outbounds": "No",
+      "pallets_on_floor": "No",
+      "summary": "2 STORD trailers and 1 BuiltBar inbound arrived that were not on inbound schedule. Forecast 18,715 actual 14,996.",
+      "rolled_details": "",
+      "rollover_lanes": ""
+    },
+    "EWR-2": {
+      "op_date": "2026-07-12",
+      "all_trucks_departed": "No",
+      "late_inbound_rolled": "No",
+      "volume_variance": "Yes",
+      "late_outbounds": "No",
+      "pallets_on_floor": "Yes",
+      "summary": "All volume sorted. STORD no-show (carrier error \u2014 will have 2 drops tomorrow). HGR-1 driver checked in incorrectly by gatekeeper as HBG-2 \u2014 forklift loaded wrong freight. Driver declined to take HGR-1 load. TikTok-NJ-1 forecasted 12,953 actual 9,869; TikTok-NJ-2 forecasted 7,601 actual 5,140; Petco forecasted 3,427 actual 4,163.",
+      "rolled_details": "",
+      "rollover_lanes": "HGR-1 \u2014 4 pallets, gatekeeper check-in error mixed up HGR-1 and HBG-2 drivers."
+    },
+    "MCI-1": {
+      "op_date": "2026-07-12",
+      "all_trucks_departed": "Yes",
+      "late_inbound_rolled": "No",
+      "volume_variance": "No",
+      "late_outbounds": "No",
+      "pallets_on_floor": "No",
+      "summary": "Pretty simple night, light load.",
+      "rolled_details": "",
+      "rollover_lanes": ""
+    },
+    "GCO-1": {
+      "op_date": "2026-07-12",
+      "all_trucks_departed": "Yes",
+      "late_inbound_rolled": "No",
+      "volume_variance": "No",
+      "late_outbounds": "No",
+      "pallets_on_floor": "No",
+      "summary": "No issues with this evening's sort.",
+      "rolled_details": "",
+      "rollover_lanes": ""
+    },
+    "NYC-1": {
+      "op_date": "2026-07-12",
+      "all_trucks_departed": "No",
+      "late_inbound_rolled": "No",
+      "volume_variance": "No",
+      "late_outbounds": "No",
+      "pallets_on_floor": "No",
+      "summary": "No issues.",
+      "rolled_details": "",
+      "rollover_lanes": ""
+    }
+  }
 }
