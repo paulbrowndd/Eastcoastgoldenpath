@@ -533,5 +533,61 @@
       "history_days": 20
     }
   },
-  "eos_reports": {}
+  "eos_reports": {
+    "ATL-15": {
+      "op_date": "2026-07-11",
+      "all_trucks_departed": "Yes",
+      "late_inbound_rolled": "Yes",
+      "volume_variance": "No",
+      "late_outbounds": "No",
+      "pallets_on_floor": "No",
+      "summary": "Exceptional operation \u2014 all outbound on time, inbound scanning done by 7:48pm, all trailers loaded by 10:30pm ahead of schedule. Labor hours reduced while maintaining performance. Only rollover was BuiltBar-UT-1 (c5680c4b) \u2014 freight not cleared by Delta in time for dispatch.",
+      "rolled_details": "BuiltBar-UT-1 c5680c4b-9753-37f6-bad4-8cb8be914a8b \u2014 272 parcels rolled.",
+      "rollover_lanes": ""
+    },
+    "EWR-2": {
+      "op_date": "2026-07-11",
+      "all_trucks_departed": "No",
+      "late_inbound_rolled": "Yes",
+      "volume_variance": "Yes",
+      "late_outbounds": "No",
+      "pallets_on_floor": "Yes",
+      "summary": "All volume sorted. BuiltBar no-show (operational delays on their side). NNJ-6 not departed \u2014 carrier system issue, load not showing up. Petco forecasted 4,436 actual 3,468; TikTok-NJ-1 forecasted 10,551 actual 7,264; TikTok-NJ-2 forecasted 7,636 actual 5,340; STORD forecasted 3,247 actual 2,721.",
+      "rolled_details": "BuiltBar truck ID 389f \u2014 436 parcels rolled.",
+      "rollover_lanes": "NNJ-6 \u2014 4 pallets, carrier system issue."
+    },
+    "MCI-1": {
+      "op_date": "2026-07-11",
+      "all_trucks_departed": "Yes",
+      "late_inbound_rolled": "No",
+      "volume_variance": "No",
+      "late_outbounds": "No",
+      "pallets_on_floor": "No",
+      "summary": "All 6 AEO_KS pallets from yesterday sorted. Today's AEO_KS truck pallets loaded. 3 remaining pallets with mixed issues (scan not found, customer name, actual destination) still need sorting.",
+      "rolled_details": "",
+      "rollover_lanes": ""
+    },
+    "GCO-1": {
+      "op_date": "2026-07-11",
+      "all_trucks_departed": "Yes",
+      "late_inbound_rolled": "No",
+      "volume_variance": "No",
+      "late_outbounds": "No",
+      "pallets_on_floor": "No",
+      "summary": "No issues this evening.",
+      "rolled_details": "",
+      "rollover_lanes": ""
+    },
+    "NYC-1": {
+      "op_date": "2026-07-11",
+      "all_trucks_departed": "Yes",
+      "late_inbound_rolled": "No",
+      "volume_variance": "No",
+      "late_outbounds": "No",
+      "pallets_on_floor": "No",
+      "summary": "None.",
+      "rolled_details": "",
+      "rollover_lanes": ""
+    }
+  }
 }
