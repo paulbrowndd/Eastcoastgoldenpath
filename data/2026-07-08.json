@@ -531,20 +531,20 @@
       "all_trucks_departed": "Yes",
       "late_inbound_rolled": "No",
       "volume_variance": "No",
-      "late_outbounds": "No",
-      "pallets_on_floor": "No",
-      "summary": "Report submitted \u2014 full details pending (Gmail auth issue on thread fetch).",
+      "late_outbounds": "Yes",
+      "pallets_on_floor": "Yes",
+      "summary": "Multiple late inbound trucks: GCO-1 43min late, Elove-Tusk 1hr late, BuiltBar-UT-1 1hr late. Unexpected STORD third trailer + returns trailer not on inbound board \u2014 paused receiving to verify. Scanner issues throughout shift, ticket submitted. ORD-7 driver fell asleep after departure, returned 39min late. BuiltBar second outbound load promised at 2300 never arrived. Team VTO'd 5 associates while completing 100% of scans.",
       "rolled_details": "",
-      "rollover_lanes": ""
+      "rollover_lanes": "ORL-3 DLAE2YF6740B0NJ \u2014 4 pallets, not enough space on truck."
     },
     "EWR-2": {
       "op_date": "2026-07-08",
       "all_trucks_departed": "Yes",
       "late_inbound_rolled": "No",
-      "volume_variance": "No",
-      "late_outbounds": "No",
+      "volume_variance": "Yes",
+      "late_outbounds": "Yes",
       "pallets_on_floor": "No",
-      "summary": "Report submitted \u2014 full details pending (Gmail auth issue on thread fetch).",
+      "summary": "Inbound timing causing sort downtime. Forecast was high for the week \u2014 staffed accordingly, then forecast dropped causing early associate send-home. TikTok-1 forecasted 11,471 actual 8,895. VAB driver 2hrs late due to carrier delay.",
       "rolled_details": "",
       "rollover_lanes": ""
     },
@@ -552,22 +552,33 @@
       "op_date": "2026-07-08",
       "all_trucks_departed": "Yes",
       "late_inbound_rolled": "No",
-      "volume_variance": "No",
+      "volume_variance": "Yes",
       "late_outbounds": "No",
+      "pallets_on_floor": "Yes",
+      "summary": "BOL said 2,283 packages, received closer to 10,000 \u2014 major positive variance. DFW-1 was a box truck, could only hold 12 pallets but had 14 \u2014 2 pallets held over.",
+      "rolled_details": "",
+      "rollover_lanes": "DFW-1 \u2014 2 pallets, box truck capacity."
+    },
+    "GCO-1": {
+      "op_date": "2026-07-08",
+      "all_trucks_departed": "Yes",
+      "late_inbound_rolled": "No",
+      "volume_variance": "Yes",
+      "late_outbounds": "Yes",
       "pallets_on_floor": "No",
-      "summary": "Report submitted \u2014 full details pending (Gmail auth issue on thread fetch).",
+      "summary": "ELZ-1 departed at 2200 \u2014 late outbound. Macy's forecast 9,850 actual 6,350. No other issues.",
       "rolled_details": "",
       "rollover_lanes": ""
     },
     "NYC-1": {
       "op_date": "2026-07-08",
-      "all_trucks_departed": "Yes",
-      "late_inbound_rolled": "No",
+      "all_trucks_departed": "No",
+      "late_inbound_rolled": "Yes",
       "volume_variance": "No",
       "late_outbounds": "No",
       "pallets_on_floor": "No",
-      "summary": "Report submitted \u2014 full details pending (Gmail auth issue on thread fetch).",
-      "rolled_details": "",
+      "summary": "Late in-house driver drop being rolled over. All pallets staged and inbound cleared after external drivers confirmed. Request for daily driver list to track late Macy's/KOTN drops.",
+      "rolled_details": "Macy's, truck ID unavailable, roughly 300 parcels rolled.",
       "rollover_lanes": ""
     }
   }
