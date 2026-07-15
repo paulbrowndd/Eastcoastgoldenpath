@@ -253,8 +253,30 @@
       "otd_pct": 98.7
     },
     "ELZ-1": {
-      "type": "spoke",
-      "otd_pct": null
+      "type": "hub",
+      "otd_pct": 100.0,
+      "routes": [
+        {
+          "route": "ELZ-1 > DCA-5",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "ELZ-1 > HFD-3",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "ELZ-1 > VAB-4",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "ELZ-1 > PIT-2",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "ELZ-1 > BOS-5",
+          "otd_pct": 100.0
+        }
+      ]
     },
     "HBG-2": {
       "type": "spoke",
@@ -327,6 +349,11 @@
     "VAB-4": {
       "type": "spoke",
       "otd_pct": 99.6
+    },
+    "DMV-1": {
+      "type": "hub",
+      "otd_pct": null,
+      "routes": []
     }
   },
   "sla_stack_rank": [
