@@ -356,10 +356,45 @@ footer{text-align:center;padding:14px;border-top:1px solid var(--border);font-si
   .eos-modal-alert.rolled{background:rgba(255,204,0,0.05);border-color:var(--yellow);color:var(--yellow);}
   .eos-modal-alert.lanes{background:rgba(249,115,22,0.05);border-color:#f97316;color:#f97316;}
   .eos-modal-summary{font-size:11px;color:var(--text2);line-height:1.8;background:rgba(0,255,136,0.02);padding:12px 14px;border-left:1px solid rgba(0,255,136,0.2);letter-spacing:0.2px;}
-  .eos-card{cursor:pointer;transition:border-color .15s,box-shadow .15s;}
-  .eos-card:hover{border-color:var(--border2);box-shadow:0 0 14px rgba(0,255,136,0.07);}
+ .eos-card{cursor:pointer;transition:border-color .15s,box-shadow .15s;}
+ .eos-card:hover{border-color:var(--border2);box-shadow:0 0 14px rgba(0,255,136,0.07);}
 
-</style>
+/* ═══ OKR TAB ═══ */
+.okr-week-banner{
+ background:var(--panel);border:1px solid var(--border2);padding:16px 20px;margin-bottom:16px;
+ display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+ clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));
+ position:relative;
+}
+.okr-week-banner::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--green),transparent);}
+.okr-week-left{display:flex;flex-direction:column;gap:4px;}
+.okr-week-label{font-family:'Orbitron',sans-serif;font-size:8px;letter-spacing:3px;color:var(--text3);}
+.okr-week-range{font-family:'Orbitron',sans-serif;font-size:18px;font-weight:900;color:var(--green);letter-spacing:1px;text-shadow:0 0 10px rgba(0,255,136,0.35);}
+.okr-week-sub{font-size:9px;color:var(--text2);letter-spacing:1px;}
+.okr-week-right{display:flex;align-items:center;gap:10px;}
+.okr-week-nav{display:flex;align-items:center;gap:6px;}
+.okr-progress-badge{font-family:'Orbitron',sans-serif;font-size:8px;letter-spacing:2px;padding:5px 10px;border:1px solid rgba(255,204,0,0.4);background:rgba(255,204,0,0.08);color:var(--yellow);animation:led-pulse 2s ease-in-out infinite;}
+.okr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;}
+.okr-card{
+ background:var(--panel);border:1px solid var(--border);padding:18px 20px;position:relative;overflow:hidden;
+ clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));
+ transition:border-color .15s,box-shadow .15s;cursor:pointer;
+}
+.okr-card:hover{border-color:var(--border2);box-shadow:0 0 16px rgba(0,255,136,0.08);}
+.okr-card.green{border-color:rgba(0,255,136,0.25);}
+.okr-card.yellow{border-color:rgba(255,204,0,0.25);}
+.okr-card.red{border-color:rgba(255,51,68,0.25);}
+.okr-card-title{font-family:'Orbitron',sans-serif;font-size:9px;letter-spacing:2px;color:var(--text3);margin-bottom:10px;}
+.okr-card-metric{font-family:'Orbitron',sans-serif;font-size:42px;font-weight:900;line-height:1;margin-bottom:8px;}
+.okr-card-metric.green{color:var(--green);text-shadow:0 0 14px rgba(0,255,136,0.35);}
+.okr-card-metric.yellow{color:var(--yellow);text-shadow:0 0 14px rgba(255,204,0,0.35);}
+.okr-card-metric.red{color:var(--red);text-shadow:0 0 14px rgba(255,51,68,0.35);}
+.okr-card-meta{font-size:8px;color:var(--text3);letter-spacing:1px;line-height:1.8;}
+.okr-card-hint{font-size:7px;color:var(--text3);letter-spacing:1px;text-align:right;margin-top:10px;}
+.okr-modal-sub{font-size:8px;color:var(--text3);letter-spacing:2px;margin-top:4px;}
+.okr-hub-note{font-size:9px;color:var(--text2);letter-spacing:0.5px;margin-bottom:12px;padding:8px 10px;background:rgba(0,255,136,0.03);border-left:1px solid var(--border2);}
+
+ </style>
 </head>
 <body>
 
@@ -436,6 +471,7 @@ footer{text-align:center;padding:14px;border-top:1px solid var(--border);font-si
 
 <div class="tabs">
   <div class="tab active" onclick="switchTab('daily')">DAILY VIEW</div>
+  <div class="tab" onclick="switchTab('okr')">OKR</div>
   <div class="tab" onclick="switchTab('trends')">14-DAY TRENDS</div>
   <div class="tab" onclick="switchTab('eos')">END OF SHIFT</div>
 </div>
@@ -491,6 +527,30 @@ footer{text-align:center;padding:14px;border-top:1px solid var(--border);font-si
 
   </div>
 
+  <!-- OKR TAB -->
+  <div class="tab-panel" id="tab-okr">
+    <div class="okr-week-banner" id="okr-week-banner">
+      <div class="okr-week-left">
+        <div class="okr-week-label">REPORTING WEEK · MON–SUN</div>
+        <div class="okr-week-range" id="okr-week-range">—</div>
+        <div class="okr-week-sub" id="okr-week-sub">—</div>
+      </div>
+      <div class="okr-week-right">
+        <span class="okr-progress-badge" id="okr-progress-badge" style="display:none">WEEK IN PROGRESS</span>
+        <div class="okr-week-nav">
+          <button class="nav-btn" id="okr-btn-prev" onclick="navigateOkrWeek(-1)" disabled>←</button>
+          <button class="nav-btn" id="okr-btn-next" onclick="navigateOkrWeek(1)" disabled>→</button>
+        </div>
+      </div>
+    </div>
+    <div class="sec" style="margin-top:0">
+      <span class="sec-label">Weekly OKRs</span>
+      <span class="sec-line"></span>
+      <span class="sec-hint">EAST REGION HUBS · CLICK FOR BREAKDOWN</span>
+    </div>
+    <div class="okr-grid" id="okr-grid"></div>
+  </div>
+
   <!-- TRENDS TAB -->
   <div class="tab-panel" id="tab-trends">
     <div class="sec" style="margin-top:0"><span class="sec-label">Hub 14-Day OTD Trend</span><span class="sec-line"></span></div>
@@ -514,6 +574,28 @@ footer{text-align:center;padding:14px;border-top:1px solid var(--border);font-si
 
 <footer>EAST REGION OPERATIONS · DASHLINK · GOLDEN PATH</footer>
 
+<!-- OKR MODAL -->
+<div class="modal-overlay" id="okr-modal-overlay" onclick="closeOkrModal(event)">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="m-title-row">
+        <div>
+          <div class="m-name" id="om-title">—</div>
+          <div class="okr-modal-sub" id="om-week">—</div>
+        </div>
+        <button class="modal-x" onclick="closeOkrModalDirect()">✕</button>
+      </div>
+    </div>
+    <div class="modal-body">
+      <div class="modal-big" id="om-pct">—</div>
+      <div class="modal-status-badge" id="om-badge">—</div>
+      <div class="okr-hub-note" id="om-note">—</div>
+      <div class="modal-routes-lbl" id="om-hubs-lbl">— HUBS</div>
+      <div id="om-hubs"></div>
+    </div>
+  </div>
+</div>
+
 <!-- MODAL -->
 <div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
   <div class="modal">
@@ -535,6 +617,7 @@ footer{text-align:center;padding:14px;border-top:1px solid var(--border);font-si
 
 <script>
 let allData={},availableDates=[],currentDate=null,currentData=null;
+let okrData=null,okrWeeks=[],currentOkrWeek=null;
 const HUBS=['ATL-15','DMV-1','ELZ-1','EWR-2','GCO-1','NYC-1','SLC-8'];
 const SPOKES=['ALX-1','ATL-11','ATL-12','BKN-9','BLT-3','BNX-1','BOS-5','BOS-6','CIN-5','CLE-7','CLT-3','CNJ-2','COL-5','DCA-5','DET-13','HBG-2','HFD-3','HGR-1','HUD-1','JAX-2','LIN-1','NAS-2','NNJ-5','NNJ-6','ORL-3','PHL-7','PHL-8','PIT-2','QNS-2','RAL-3','RIC-2','TPA-4','VAB-4','WMA-1'];
 
@@ -544,6 +627,16 @@ function dc(d){if(d>=7)return'hi';if(d>=3)return'md';return'lo'}
 function pc(p){if(p>=60)return'hi';if(p>=30)return'md';return'lo'}
 function fmtShort(d){return new Date(d+'T12:00:00').toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'})}
 function fmtLong(d){return new Date(d+'T12:00:00').toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'})}
+function fmtWeekRange(start,end){
+  const s=new Date(start+'T12:00:00'),e=new Date(end+'T12:00:00');
+  const sm=s.toLocaleDateString('en-US',{month:'short',day:'numeric'});
+  const em=e.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+  return `MON ${sm.toUpperCase()} – SUN ${em.toUpperCase()}`;
+}
+function fmtWeekLong(start,end){
+  const s=new Date(start+'T12:00:00'),e=new Date(end+'T12:00:00');
+  return s.toLocaleDateString('en-US',{month:'long',day:'numeric'})+' – '+e.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
+}
 
 async function fetchJ(url){const r=await fetch(url+'?t='+Date.now());if(!r.ok)throw new Error(r.status);return r.json()}
 
@@ -613,6 +706,11 @@ async function init(){
   const sel=document.getElementById('date-sel');
   availableDates.forEach(d=>{const o=document.createElement('option');o.value=d;o.textContent=fmtShort(d);sel.appendChild(o)});
   await Promise.all(availableDates.map(async d=>{try{allData[d]=await fetchJ(`data/${d}.json`)}catch(e){}}));
+  try{
+    okrData=await fetchJ('data/okr.json');
+    okrWeeks=okrData.weeks||[];
+    currentOkrWeek=okrData.current_week||okrWeeks[0];
+  }catch(e){okrData=null;okrWeeks=[];}
   loadDate(idx.latest);
 }
 
@@ -771,11 +869,80 @@ function renderTrends(){
 }
 
 function switchTab(name){
-  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',['daily','trends','eos'][i]===name));
+  const tabs=['daily','okr','trends','eos'];
+  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',tabs[i]===name));
   document.querySelectorAll('.tab-panel').forEach(p=>p.classList.toggle('active',p.id==='tab-'+name));
   if(name==='eos')renderEOS(currentData,'eos-grid');
   if(name==='trends')renderTrends();
+  if(name==='okr')renderOKR();
 }
+
+function renderOKR(){
+  if(!okrData||!currentOkrWeek)return;
+  const week=okrData.hub_sortation[currentOkrWeek];
+  if(!week)return;
+  const i=okrWeeks.indexOf(currentOkrWeek);
+  document.getElementById('okr-btn-prev').disabled=i>=okrWeeks.length-1;
+  document.getElementById('okr-btn-next').disabled=i<=0;
+  document.getElementById('okr-week-range').textContent=fmtWeekRange(week.week_start,week.week_end);
+  document.getElementById('okr-week-sub').textContent='Week starting Monday '+fmtLong(week.week_start,week.week_end)+(okrData.pulled_at?' · Pulled '+okrData.pulled_at:'');
+  const prog=document.getElementById('okr-progress-badge');
+  prog.style.display=week.in_progress?'inline-block':'none';
+  const hs=week;
+  const cls=sc(hs.network_otd_pct);
+  const card=`<div class="okr-card ${cls}" onclick="openOkrModal('hub_sortation')">
+    <div class="led ${cls}"></div>
+    <div class="okr-card-title">HUB SORTATION WEEKLY OKR</div>
+    <div class="okr-card-metric ${cls}">${hs.network_otd_pct!==null?hs.network_otd_pct.toFixed(1)+'<span class="card-pct-unit">%</span>':'—'}</div>
+    <div class="okr-card-meta">EAST REGION NETWORK AVG · ${hs.reporting_hubs} OF ${HUBS.length} HUBS REPORTING<br>${week.in_progress?'Partial week — metrics still accumulating':'Weighted by barcode volume'}</div>
+    <div class="okr-card-hint">▸ HUB BREAKDOWN</div>
+  </div>`;
+  document.getElementById('okr-grid').innerHTML=card;
+}
+
+function navigateOkrWeek(dir){
+  const i=okrWeeks.indexOf(currentOkrWeek);
+  const n=okrWeeks[i-dir];
+  if(n){currentOkrWeek=n;renderOKR();}
+}
+
+function openOkrModal(metric){
+  if(!okrData||!currentOkrWeek)return;
+  const week=okrData.hub_sortation[currentOkrWeek];
+  if(!week)return;
+  const pct=week.network_otd_pct;
+  const cls=sc(pct);
+  document.getElementById('om-title').textContent='HUB SORTATION WEEKLY OKR';
+  document.getElementById('om-week').textContent=fmtWeekRange(week.week_start,week.week_end);
+  const big=document.getElementById('om-pct');
+  big.textContent=pct!==null?pct.toFixed(1)+'%':'—';
+  big.className='modal-big '+cls;
+  const badge=document.getElementById('om-badge');
+  badge.textContent=sl(cls);badge.className='modal-status-badge '+cls;
+  const reporting=HUBS.filter(h=>week.hubs[h]&&week.hubs[h].otd_pct!==null);
+  document.getElementById('om-note').textContent=week.in_progress
+    ? 'This week is still in progress. Numbers reflect data through the latest pull and will shift as the week completes.'
+    : `Network average is a barcode-weighted rollup across ${reporting.length} east region hub${reporting.length!==1?'s':''}. Hubs with no volume show as NO DATA.`;
+  const withData=HUBS.filter(h=>week.hubs[h]&&week.hubs[h].otd_pct!==null).sort((a,b)=>week.hubs[a].otd_pct-week.hubs[b].otd_pct);
+  const noData=HUBS.filter(h=>!week.hubs[h]||week.hubs[h].otd_pct===null);
+  document.getElementById('om-hubs-lbl').textContent=`${withData.length} HUB${withData.length!==1?'S':''} IN CALCULATION · SORTED BY PERFORMANCE`;
+  let html='';
+  if(withData.length)html+=withData.map(h=>okrHubRow(h,week.hubs[h])).join('');
+  if(noData.length)html+=`<div class="route-divider">NO DATA (${noData.length})</div>`+noData.map(h=>`<div class="route-row"><div class="route-left"><div class="route-name">${h}</div></div><div class="route-pct n" style="color:var(--text3)">—</div></div>`).join('');
+  document.getElementById('om-hubs').innerHTML=html||'<div class="no-routes">No hub data for this week.</div>';
+  document.getElementById('okr-modal-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
+function okrHubRow(hub,data){
+  const cls=sc(data.otd_pct);
+  const rowCls=cls==='red'?'rr':cls==='yellow'?'ry':'';
+  const bw=data.otd_pct!==null?Math.min(100,data.otd_pct):0;
+  return `<div class="route-row ${rowCls}"><div class="route-left"><div class="route-name">${hub}</div><div class="route-bar-track"><div class="route-bar-fill ${cls}" style="width:${bw}%"></div></div><div style="font-size:7px;color:var(--text3);margin-top:3px;letter-spacing:1px">${data.barcodes.toLocaleString()} BARCODES</div></div><div class="route-pct ${cls}">${data.otd_pct.toFixed(1)}%</div></div>`;
+}
+
+function closeOkrModal(e){if(e.target===document.getElementById('okr-modal-overlay'))closeOkrModalDirect()}
+function closeOkrModalDirect(){document.getElementById('okr-modal-overlay').classList.remove('open');document.body.style.overflow=''}
 
 
 function openEosModal(hub) {
@@ -837,7 +1004,7 @@ function openEosModal(hub) {
 
 function closeEosModal(e) { if(e.target === document.getElementById('eos-modal-overlay')) closeEosModalDirect(); }
 function closeEosModalDirect() { document.getElementById('eos-modal-overlay').classList.remove('open'); document.body.style.overflow = ''; }
-document.addEventListener('keydown', e => { if(e.key === 'Escape') { closeEosModalDirect(); closeModalDirect(); } });
+document.addEventListener('keydown', e => { if(e.key === 'Escape') { closeEosModalDirect(); closeModalDirect(); closeOkrModalDirect(); } });
 
 init().catch(()=>{document.querySelector('main').innerHTML='<div class="no-data">⚠ COULD NOT LOAD DATA</div>'});
 </script>
