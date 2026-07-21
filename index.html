@@ -393,6 +393,34 @@ footer{text-align:center;padding:14px;border-top:1px solid var(--border);font-si
 .okr-card-hint{font-size:7px;color:var(--text3);letter-spacing:1px;text-align:right;margin-top:10px;}
 .okr-modal-sub{font-size:8px;color:var(--text3);letter-spacing:2px;margin-top:4px;}
 .okr-hub-note{font-size:9px;color:var(--text2);letter-spacing:0.5px;margin-bottom:12px;padding:8px 10px;background:rgba(0,255,136,0.03);border-left:1px solid var(--border2);}
+.okr-section{margin-top:20px;}
+.okr-ppp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;}
+.okr-ppp-card{
+ background:var(--panel);border:1px solid var(--border);padding:16px 18px;position:relative;overflow:hidden;
+ clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));
+ transition:border-color .15s,box-shadow .15s;cursor:pointer;
+}
+.okr-ppp-card:hover{border-color:var(--border2);box-shadow:0 0 16px rgba(0,255,136,0.08);}
+.okr-ppp-card.nodata{opacity:.55;cursor:default;}
+.okr-ppp-card.nodata:hover{border-color:var(--border);box-shadow:none;}
+.okr-ppp-hub{font-family:'Orbitron',sans-serif;font-size:16px;font-weight:900;color:var(--text);letter-spacing:1px;margin-bottom:4px;}
+.okr-ppp-label{font-family:'Orbitron',sans-serif;font-size:8px;letter-spacing:2px;color:var(--text3);margin-bottom:12px;}
+.okr-ppp-segments{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.okr-ppp-seg{padding:10px;border:1px solid var(--border);background:rgba(255,255,255,0.02);}
+.okr-ppp-seg.h2h{border-color:rgba(0,180,255,0.25);background:rgba(0,180,255,0.04);}
+.okr-ppp-seg.h2s{border-color:rgba(255,140,0,0.25);background:rgba(255,140,0,0.04);}
+.okr-ppp-seg-type{font-family:'Orbitron',sans-serif;font-size:7px;letter-spacing:1.5px;margin-bottom:6px;}
+.okr-ppp-seg.h2h .okr-ppp-seg-type{color:#00b4ff;}
+.okr-ppp-seg.h2s .okr-ppp-seg-type{color:#ff8c00;}
+.okr-ppp-seg-val{font-family:'Orbitron',sans-serif;font-size:24px;font-weight:900;line-height:1;}
+.okr-ppp-seg.h2h .okr-ppp-seg-val{color:#00b4ff;text-shadow:0 0 10px rgba(0,180,255,0.25);}
+.okr-ppp-seg.h2s .okr-ppp-seg-val{color:#ff8c00;text-shadow:0 0 10px rgba(255,140,0,0.25);}
+.okr-ppp-seg-val.na{font-size:14px;color:var(--text3);text-shadow:none;}
+.okr-ppp-seg-sub{font-size:7px;color:var(--text3);letter-spacing:1px;margin-top:5px;}
+.okr-ppp-hint{font-size:7px;color:var(--text3);letter-spacing:1px;text-align:right;margin-top:10px;}
+.okr-seg-badge{font-family:'Orbitron',sans-serif;font-size:7px;letter-spacing:1.5px;padding:3px 8px;border:1px solid;display:inline-block;margin-bottom:10px;}
+.okr-seg-badge.h2h{color:#00b4ff;border-color:rgba(0,180,255,0.35);background:rgba(0,180,255,0.08);}
+.okr-seg-badge.h2s{color:#ff8c00;border-color:rgba(255,140,0,0.35);background:rgba(255,140,0,0.08);}
 
  </style>
 </head>
@@ -544,11 +572,17 @@ footer{text-align:center;padding:14px;border-top:1px solid var(--border);font-si
       </div>
     </div>
     <div class="sec" style="margin-top:0">
-      <span class="sec-label">Weekly OKRs</span>
+      <span class="sec-label">Hub Sortation OKR</span>
       <span class="sec-line"></span>
-      <span class="sec-hint">EAST REGION HUBS · CLICK FOR BREAKDOWN</span>
+      <span class="sec-hint">NETWORK AVG · CLICK FOR HUB BREAKDOWN</span>
     </div>
     <div class="okr-grid" id="okr-grid"></div>
+    <div class="sec okr-section">
+      <span class="sec-label">Pieces Per Pallet</span>
+      <span class="sec-line"></span>
+      <span class="sec-hint">WEEKLY · EAST HUBS · HUB→HUB vs HUB→SPOKE</span>
+    </div>
+    <div class="okr-ppp-grid" id="okr-ppp-grid"></div>
   </div>
 
   <!-- TRENDS TAB -->
@@ -898,6 +932,33 @@ function renderOKR(){
     <div class="okr-card-hint">▸ HUB BREAKDOWN</div>
   </div>`;
   document.getElementById('okr-grid').innerHTML=card;
+  renderOkrPpp();
+}
+
+function pppSegBlock(segKey,label,data){
+  if(!data)return `<div class="okr-ppp-seg ${segKey}"><div class="okr-ppp-seg-type">${label}</div><div class="okr-ppp-seg-val na">—</div><div class="okr-ppp-seg-sub">NO DATA</div></div>`;
+  return `<div class="okr-ppp-seg ${segKey}"><div class="okr-ppp-seg-type">${label}</div><div class="okr-ppp-seg-val">${data.ppp.toFixed(1)}</div><div class="okr-ppp-seg-sub">${data.lane_count} LANE${data.lane_count!==1?'S':''} · ${data.pallets.toLocaleString()} PLTS</div></div>`;
+}
+
+function renderOkrPpp(){
+  const el=document.getElementById('okr-ppp-grid');
+  if(!el)return;
+  const pppWeek=okrData?.pieces_per_pallet?.[currentOkrWeek];
+  if(!pppWeek){el.innerHTML='<div class="no-data" style="padding:16px;font-size:10px;letter-spacing:1px">No pieces per pallet data for this week.</div>';return;}
+  el.innerHTML=HUBS.map(hub=>{
+    const hubData=pppWeek.hubs?.[hub];
+    const hasData=hubData&&(hubData.hub_hub||hubData.hub_spoke);
+    const click=hasData?`onclick="openOkrPppModal('${hub}')"`:'' ;
+    return `<div class="okr-ppp-card${hasData?'':' nodata'}" ${click}>
+      <div class="okr-ppp-hub">${hub}</div>
+      <div class="okr-ppp-label">PIECES PER PALLET</div>
+      <div class="okr-ppp-segments">
+        ${pppSegBlock('h2h','HUB → HUB',hubData?.hub_hub)}
+        ${pppSegBlock('h2s','HUB → SPOKE',hubData?.hub_spoke)}
+      </div>
+      ${hasData?'<div class="okr-ppp-hint">▸ LANE BREAKDOWN</div>':''}
+    </div>`;
+  }).join('');
 }
 
 function navigateOkrWeek(dir){
@@ -912,6 +973,9 @@ function openOkrModal(metric){
   if(!week)return;
   const pct=week.network_otd_pct;
   const cls=sc(pct);
+  const big=document.getElementById('om-pct');
+  big.style.fontSize='';
+  big.style.color='';
   document.getElementById('om-title').textContent='HUB SORTATION WEEKLY OKR';
   document.getElementById('om-week').textContent=fmtWeekRange(week.week_start,week.week_end);
   const big=document.getElementById('om-pct');
@@ -939,6 +1003,50 @@ function okrHubRow(hub,data){
   const rowCls=cls==='red'?'rr':cls==='yellow'?'ry':'';
   const bw=data.otd_pct!==null?Math.min(100,data.otd_pct):0;
   return `<div class="route-row ${rowCls}"><div class="route-left"><div class="route-name">${hub}</div><div class="route-bar-track"><div class="route-bar-fill ${cls}" style="width:${bw}%"></div></div><div style="font-size:7px;color:var(--text3);margin-top:3px;letter-spacing:1px">${data.barcodes.toLocaleString()} BARCODES</div></div><div class="route-pct ${cls}">${data.otd_pct.toFixed(1)}%</div></div>`;
+}
+
+function okrPppLaneRow(lane,segCls){
+  const maxPpp=160;
+  const bw=Math.min(100,Math.round((lane.ppp/maxPpp)*100));
+  return `<div class="route-row"><div class="route-left"><div class="route-name">→ ${lane.destination}</div><div class="route-bar-track"><div class="route-bar-fill ${segCls==='h2h'?'green':'yellow'}" style="width:${bw}%;background:${segCls==='h2h'?'#00b4ff':'#ff8c00'};box-shadow:0 0 6px ${segCls==='h2h'?'rgba(0,180,255,0.35)':'rgba(255,140,0,0.35)'}"></div></div><div style="font-size:7px;color:var(--text3);margin-top:3px;letter-spacing:1px">${lane.parcels.toLocaleString()} PCS · ${lane.pallets.toLocaleString()} PLTS</div></div><div class="route-pct" style="color:${segCls==='h2h'?'#00b4ff':'#ff8c00'}">${lane.ppp.toFixed(1)}</div></div>`;
+}
+
+function openOkrPppModal(hub){
+  if(!okrData||!currentOkrWeek)return;
+  const week=okrData.pieces_per_pallet?.[currentOkrWeek];
+  const hubData=week?.hubs?.[hub];
+  if(!hubData)return;
+  document.getElementById('om-title').textContent=hub+' · PIECES PER PALLET';
+  document.getElementById('om-week').textContent=fmtWeekRange(week.week_start,week.week_end);
+  const h2h=hubData.hub_hub?.ppp;
+  const h2s=hubData.hub_spoke?.ppp;
+  const summary=[h2h!==undefined?`H2H ${h2h.toFixed(1)}`:null,h2s!==undefined?`H2S ${h2s.toFixed(1)}`:null].filter(Boolean).join(' · ');
+  const big=document.getElementById('om-pct');
+  big.textContent=summary||'—';
+  big.className='modal-big';
+  big.style.color='var(--text)';
+  big.style.fontSize='28px';
+  const badge=document.getElementById('om-badge');
+  badge.textContent='WEEKLY AVG';
+  badge.className='modal-status-badge';
+  badge.style.color='var(--text2)';
+  badge.style.borderColor='var(--border2)';
+  document.getElementById('om-note').textContent=week.in_progress
+    ? 'Partial week — pieces per pallet still accumulating through Sunday.'
+    : 'Weighted weekly average: total parcels ÷ total pallets. Hub→Hub and Hub→Spoke are calculated separately.';
+  let html='';
+  if(hubData.hub_hub){
+    html+=`<div class="route-divider"><span class="okr-seg-badge h2h">HUB → HUB</span> ${hubData.hub_hub.ppp.toFixed(1)} AVG · ${hubData.hub_hub.lane_count} LANE${hubData.hub_hub.lane_count!==1?'S':''}</div>`;
+    html+=hubData.hub_hub.lanes.map(l=>okrPppLaneRow(l,'h2h')).join('');
+  }
+  if(hubData.hub_spoke){
+    html+=`<div class="route-divider"><span class="okr-seg-badge h2s">HUB → SPOKE</span> ${hubData.hub_spoke.ppp.toFixed(1)} AVG · ${hubData.hub_spoke.lane_count} LANE${hubData.hub_spoke.lane_count!==1?'S':''}</div>`;
+    html+=hubData.hub_spoke.lanes.map(l=>okrPppLaneRow(l,'h2s')).join('');
+  }
+  document.getElementById('om-hubs-lbl').textContent='LANE-LEVEL BREAKDOWN · SORTED BY PIECES PER PALLET';
+  document.getElementById('om-hubs').innerHTML=html||'<div class="no-routes">No lane data for this hub.</div>';
+  document.getElementById('okr-modal-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
 }
 
 function closeOkrModal(e){if(e.target===document.getElementById('okr-modal-overlay'))closeOkrModalDirect()}
