@@ -978,7 +978,6 @@ function openOkrModal(metric){
   big.style.color='';
   document.getElementById('om-title').textContent='HUB SORTATION WEEKLY OKR';
   document.getElementById('om-week').textContent=fmtWeekRange(week.week_start,week.week_end);
-  const big=document.getElementById('om-pct');
   big.textContent=pct!==null?pct.toFixed(1)+'%':'—';
   big.className='modal-big '+cls;
   const badge=document.getElementById('om-badge');
