@@ -6,7 +6,8 @@ When the user says "pull today's data", refresh ALL of the following:
 Daily tab (latest Sigma date, usually yesterday):
   - Hub + spoke OTD and routes  → element itgnfDcpNu (Parcel Golden Path)
   - SLA stack rank (top 25)       → element Rm9zSyNl07
-  - Pallet inventory              → carry forward from previous day (manual until mapped)
+  - Pallet inventory              → element 4fEOWBbyUc (Pallet Level Data / Daily # of Pallets - Outbound)
+                                    ATL-15, EWR-2, MCI-1 only; starting counts carry forward
 
 OKR tab (weekly metrics — refreshed every pull because in-week numbers change daily):
   - Hub sortation weekly OKR      → element itgnfDcpNu, STEP_TYPE_ORDER = '2.1 Hub Sortation'
@@ -27,6 +28,8 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 
 HUBS = ["ATL-15", "DMV-1", "ELZ-1", "EWR-2", "GCO-1", "NYC-1", "SLC-8"]
+PALLET_INVENTORY_HUBS = ["ATL-15", "EWR-2", "MCI-1"]
+PALLET_HISTORY_WINDOW = 30
 SPOKES = [
     "ALX-1", "ATL-11", "ATL-12", "BKN-9", "BLT-3", "BNX-1", "BOS-5", "BOS-6",
     "CIN-5", "CLE-7", "CLT-3", "CNJ-2", "COL-5", "DCA-5", "DET-13", "HBG-2",
@@ -41,9 +44,11 @@ DETAIL_RE = re.compile(r"^(.+?): (.+?) > (.+)$")
 # Sigma workbook IDs (for agent MCP queries)
 GOLDEN_PATH_WB = "69e5a397-7e08-464f-9921-9b3de12b7d4e"
 TRUCK_UTIL_WB = "514c6528-d9e0-4b1a-87b6-b9b5063ab84a"
+PALLET_LEVEL_WB = "696d7151-1173-49c5-a1b0-d99d20324037"
 EL_DAILY = "itgnfDcpNu"
 EL_STACK = "Rm9zSyNl07"
 EL_UTIL = "Jg7aT1Ix9W"
+EL_PALLET_OUTBOUND = "4fEOWBbyUc"
 
 
 def now_est() -> str:
@@ -63,8 +68,12 @@ def pct_from_sigma(v):
     return round(f * 100, 1) if f <= 1 else round(f, 1)
 
 
-def parse_week(val) -> str:
+def parse_day(val) -> str:
     return str(val)[:10]
+
+
+def parse_week(val) -> str:
+    return parse_day(val)
 
 
 def week_end(start: str) -> str:
@@ -269,7 +278,7 @@ def write_okr(payload):
     path.write_text(json.dumps(payload, indent=2) + "\n")
 
 
-def carry_forward_pallets(date):
+def previous_inventory(date):
     index = json.loads((DATA / "index.json").read_text())
     dates = sorted(index.get("dates", []))
     prev = [d for d in dates if d < date]
@@ -279,6 +288,86 @@ def carry_forward_pallets(date):
     if not prev_path.exists():
         return {}
     return json.loads(prev_path.read_text()).get("pallet_inventory") or {}
+
+
+def load_outbound_history(before_date, sigma_history_rows=None):
+    """Return {hub: [(date, outbound), ...]} from saved daily files."""
+    history = {hub: [] for hub in PALLET_INVENTORY_HUBS}
+    for path in sorted(DATA.glob("2026-*.json")):
+        day = path.stem
+        if day >= before_date:
+            continue
+        inv = json.loads(path.read_text()).get("pallet_inventory") or {}
+        for hub in PALLET_INVENTORY_HUBS:
+            hub_data = inv.get(hub)
+            if hub_data and hub_data.get("outbound_today") is not None:
+                history[hub].append((day, int(hub_data["outbound_today"])))
+
+    if sigma_history_rows:
+        existing = {hub: {day for day, _ in rows} for hub, rows in history.items()}
+        for hub, day, outbound in sigma_history_rows:
+            day = parse_day(day)
+            if hub not in PALLET_INVENTORY_HUBS or day >= before_date:
+                continue
+            if day not in existing.get(hub, set()):
+                history[hub].append((day, int(outbound)))
+        for hub in PALLET_INVENTORY_HUBS:
+            history[hub].sort()
+
+    return history
+
+
+def build_pallet_inventory(date, outbound_rows, prev_inventory=None, history=None):
+    """Build pallet_inventory for tracked hubs.
+
+    outbound_rows: [(hub, day, outbound_pallets), ...] for the pull date.
+    Starting pallet/gaylord baselines carry forward from the prior day unless missing.
+    Remaining counts use starting - outbound_today (same model as the dashboard).
+    """
+    outbound_by_hub = {}
+    for hub, day, outbound in outbound_rows:
+        if parse_day(day) == date and hub in PALLET_INVENTORY_HUBS:
+            outbound_by_hub[hub] = int(outbound)
+
+    prev = prev_inventory or {}
+    history = history or {hub: [] for hub in PALLET_INVENTORY_HUBS}
+    inventory = {}
+
+    for hub in PALLET_INVENTORY_HUBS:
+        outbound = outbound_by_hub.get(hub, 0)
+        prev_hub = prev.get(hub, {})
+        starting_pallets = prev_hub.get("starting_pallets")
+        starting_gaylords = prev_hub.get("starting_gaylords")
+
+        if starting_pallets is None:
+            starting_pallets = max(outbound, prev_hub.get("remaining_pallets") or 0)
+        if starting_gaylords is None:
+            starting_gaylords = max(outbound, prev_hub.get("remaining_gaylords") or 0)
+
+        remaining_pallets = max(0, int(starting_pallets) - outbound)
+        remaining_gaylords = max(0, int(starting_gaylords) - outbound)
+
+        past_outbound = [value for _, value in history.get(hub, [])]
+        window = (past_outbound + [outbound])[-PALLET_HISTORY_WINDOW:]
+        avg_daily_outbound = round(sum(window) / len(window)) if window else outbound
+
+        inventory[hub] = {
+            "starting_pallets": int(starting_pallets),
+            "starting_gaylords": int(starting_gaylords),
+            "outbound_today": outbound,
+            "remaining_pallets": remaining_pallets,
+            "remaining_gaylords": remaining_gaylords,
+            "avg_daily_outbound": avg_daily_outbound,
+            "days_remaining_pallets": round(remaining_pallets / avg_daily_outbound, 1)
+            if avg_daily_outbound
+            else None,
+            "days_remaining_gaylords": round(remaining_gaylords / avg_daily_outbound, 1)
+            if avg_daily_outbound
+            else None,
+            "history_days": len(window),
+        }
+
+    return inventory
 
 
 # --- Sigma SQL templates for the agent (MCP query tool) ---
@@ -319,6 +408,26 @@ GROUP BY 1, 2, 3
 ORDER BY 1 DESC, 2, 3
 """.strip()
 
+SQL_PALLET_OUTBOUND = f"""
+SELECT "ptE8dToYt3" AS origin, "58BsECGAoi" AS pallet_date,
+  SUM("Z3Uuroy1UV") AS outbound_pallets
+FROM "workbook"."{EL_PALLET_OUTBOUND}"
+WHERE "ptE8dToYt3" IN ({','.join(repr(h) for h in PALLET_INVENTORY_HUBS)})
+  AND "58BsECGAoi" = '{{date}}'
+GROUP BY 1, 2
+ORDER BY 1
+""".strip()
+
+SQL_PALLET_OUTBOUND_HISTORY = f"""
+SELECT "ptE8dToYt3" AS origin, "58BsECGAoi" AS pallet_date,
+  SUM("Z3Uuroy1UV") AS outbound_pallets
+FROM "workbook"."{EL_PALLET_OUTBOUND}"
+WHERE "ptE8dToYt3" IN ({','.join(repr(h) for h in PALLET_INVENTORY_HUBS)})
+  AND "58BsECGAoi" BETWEEN '{{start_date}}' AND '{{date}}'
+GROUP BY 1, 2
+ORDER BY 2 DESC, 1
+""".strip()
+
 SQL_PPP_LANES = f"""
 WITH base AS (
   SELECT
@@ -345,5 +454,8 @@ ORDER BY 1 DESC, 2, 3, 5 DESC
 
 if __name__ == "__main__":
     print("Daily pull script — run by agent after Sigma MCP queries.")
-    print("Includes: daily OTD/stack rank + weekly OKR (hub sortation + pieces per pallet).")
-    print(f"OKR SQL templates: SQL_HUB_SORT_OKR, SQL_PPP_HUB_AGG, SQL_PPP_LANES")
+    print("Includes: daily OTD/stack rank, pallet inventory, weekly OKR.")
+    print(
+        "SQL templates: SQL_HUB_SORT_OKR, SQL_PPP_HUB_AGG, SQL_PPP_LANES, "
+        "SQL_PALLET_OUTBOUND, SQL_PALLET_OUTBOUND_HISTORY"
+    )
