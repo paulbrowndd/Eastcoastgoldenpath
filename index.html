@@ -436,13 +436,16 @@ footer{text-align:center;padding:14px;border-top:1px solid var(--border);font-si
 .okr-ppp-card.nodata:hover{border-color:var(--border);box-shadow:none;}
 .okr-ppp-hub{font-family:'Orbitron',sans-serif;font-size:16px;font-weight:900;color:var(--text);letter-spacing:1px;margin-bottom:4px;}
 .okr-ppp-label{font-family:'Orbitron',sans-serif;font-size:10px;letter-spacing:1px;color:var(--text2);margin-bottom:12px;}
-.okr-ppp-segments{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.okr-ppp-segments{display:flex;flex-direction:column;gap:8px;}
+.okr-ppp-seg-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
 .okr-ppp-seg{padding:10px;border:1px solid var(--border);background:rgba(255,255,255,0.02);}
 .okr-ppp-seg.h2h{border-color:rgba(0,180,255,0.25);background:rgba(0,180,255,0.04);}
 .okr-ppp-seg.h2s{border-color:rgba(255,140,0,0.25);background:rgba(255,140,0,0.04);}
+.okr-ppp-seg.total{border-color:rgba(0,255,136,0.25);background:rgba(0,255,136,0.04);}
 .okr-ppp-seg-type{font-family:'Orbitron',sans-serif;font-size:9px;letter-spacing:0.5px;margin-bottom:6px;}
 .okr-ppp-seg.h2h .okr-ppp-seg-type{color:#00b4ff;}
 .okr-ppp-seg.h2s .okr-ppp-seg-type{color:#ff8c00;}
+.okr-ppp-seg.total .okr-ppp-seg-type{color:var(--green);}
 .okr-ppp-seg-val{font-family:'Orbitron',sans-serif;font-size:24px;font-weight:900;line-height:1;}
 .okr-ppp-seg-val.green{color:var(--green);text-shadow:0 0 10px rgba(0,255,136,0.25);}
 .okr-ppp-seg-val.yellow{color:var(--yellow);text-shadow:0 0 10px rgba(255,204,0,0.25);}
@@ -703,6 +706,18 @@ function hubCombinedPpp(hubData){
   const parcels=(hubData.hub_hub?.parcels||0)+(hubData.hub_spoke?.parcels||0);
   const pallets=(hubData.hub_hub?.pallets||0)+(hubData.hub_spoke?.pallets||0);
   return pallets?Math.round(parcels/pallets*10)/10:null;
+}
+function hubCombinedSeg(hubData){
+  if(!hubData)return null;
+  const parcels=(hubData.hub_hub?.parcels||0)+(hubData.hub_spoke?.parcels||0);
+  const pallets=(hubData.hub_hub?.pallets||0)+(hubData.hub_spoke?.pallets||0);
+  if(!pallets)return null;
+  return {
+    ppp:hubCombinedPpp(hubData),
+    parcels,
+    pallets,
+    lane_count:(hubData.hub_hub?.lane_count||0)+(hubData.hub_spoke?.lane_count||0)
+  };
 }
 function dc(d){if(d>=7)return'hi';if(d>=3)return'md';return'lo'}
 function pc(p){if(p>=60)return'hi';if(p>=30)return'md';return'lo'}
@@ -1058,7 +1073,8 @@ function renderOkrPpp(){
   el.innerHTML=HUBS.map(hub=>{
     const hubData=pppWeek.hubs?.[hub];
     const hasData=hubData&&(hubData.hub_hub||hubData.hub_spoke);
-    const combined=hubCombinedPpp(hubData);
+    const combinedSeg=hubCombinedSeg(hubData);
+    const combined=combinedSeg?.ppp??null;
     const cardCls=hasData?pppSc(combined):'';
     const click=hasData?`onclick="openOkrPppModal('${hub}')"`:'' ;
     return `<div class="okr-ppp-card${hasData?'':' nodata'}${cardCls?' '+cardCls:''}" ${click}>
@@ -1066,8 +1082,11 @@ function renderOkrPpp(){
       <div class="okr-ppp-hub">${hub}</div>
       <div class="okr-ppp-label">PIECES PER PALLET · GOAL ${PPP_GOAL}</div>
       <div class="okr-ppp-segments">
-        ${pppSegBlock('h2h','HUB → HUB',hubData?.hub_hub)}
-        ${pppSegBlock('h2s','HUB → SPOKE',hubData?.hub_spoke)}
+        ${combinedSeg?pppSegBlock('total','COMBINED',combinedSeg):''}
+        <div class="okr-ppp-seg-row">
+          ${pppSegBlock('h2h','HUB → HUB',hubData?.hub_hub)}
+          ${pppSegBlock('h2s','HUB → SPOKE',hubData?.hub_spoke)}
+        </div>
       </div>
       ${hasData?'<div class="okr-ppp-hint">▸ LANE BREAKDOWN</div>':''}
     </div>`;
@@ -1188,18 +1207,19 @@ function openOkrPppModal(hub){
   if(!hubData)return;
   document.getElementById('om-title').textContent=hub+' · PIECES PER PALLET';
   document.getElementById('om-week').textContent=fmtWeekRange(week.week_start,week.week_end)+' · GOAL '+PPP_GOAL;
-  const combined=hubCombinedPpp(hubData);
+  const combinedSeg=hubCombinedSeg(hubData);
+  const combined=combinedSeg?.ppp??null;
   const cls=pppSc(combined);
   const h2h=hubData.hub_hub?.ppp;
   const h2s=hubData.hub_spoke?.ppp;
   const summary=[h2h!==undefined?`H2H ${h2h.toFixed(1)}`:null,h2s!==undefined?`H2S ${h2s.toFixed(1)}`:null].filter(Boolean).join(' · ');
   const big=document.getElementById('om-pct');
-  big.textContent=summary||'—';
-  big.className='modal-big';
-  big.style.color='var(--text)';
-  big.style.fontSize='28px';
+  big.textContent=combined!==null?combined.toFixed(1):'—';
+  big.className='modal-big '+cls;
+  big.style.color='';
+  big.style.fontSize='';
   const badge=document.getElementById('om-badge');
-  badge.textContent=combined!==null?pppSl(cls)+' · '+combined.toFixed(1):'NO DATA';
+  badge.textContent=combined!==null?pppSl(cls)+(summary?` · ${summary}`:''):'NO DATA';
   badge.className='modal-status-badge '+cls;
   badge.style.color='';
   badge.style.borderColor='';
