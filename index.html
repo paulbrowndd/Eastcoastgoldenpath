@@ -265,100 +265,10 @@ main{padding:16px 24px;max-width:1700px;margin:0 auto}
 .route-pct.red{color:var(--red);}
 .no-routes{font-size:11px;color:var(--text2);padding:10px 0;letter-spacing:0.5px;}
 
-/* ═══ EOS REPORTS ═══ */
-.eos-grid-layout{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:12px;}
-.eos-card{background:var(--panel);border:1px solid var(--border);overflow:hidden;display:flex;flex-direction:column;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));transition:border-color .15s;}
-.eos-card:hover{border-color:var(--border2);}
-.eos-card.eos-clean{border-top:2px solid rgba(0,255,136,0.4);}
-.eos-card.eos-issues{border-top:2px solid rgba(255,51,68,0.5);}
-.eos-card.eos-warn{border-top:2px solid rgba(255,204,0,0.4);}
-.eos-card.eos-none{border-top:2px solid rgba(0,255,136,0.1);}
-.eos-card-header{display:flex;align-items:center;justify-content:space-between;padding:11px 14px 10px;border-bottom:1px solid var(--border);background:rgba(0,255,136,0.02);}
-.eos-header-left{display:flex;align-items:center;gap:10px;}
-.eos-hub-name{font-family:'Orbitron',sans-serif;font-size:14px;font-weight:700;color:var(--text);letter-spacing:0.5px;}
-.eos-date{font-size:10px;color:var(--text2);letter-spacing:0.3px;}
-.eos-status-badge{font-family:'Orbitron',sans-serif;font-size:9px;letter-spacing:0.5px;padding:3px 8px;border:1px solid;}
-.eos-status-badge.ok{background:rgba(0,255,136,0.06);border-color:rgba(0,255,136,0.25);color:var(--green);}
-.eos-status-badge.bad{background:rgba(255,51,68,0.06);border-color:rgba(255,51,68,0.25);color:var(--red);}
-.eos-status-badge.warn{background:rgba(255,204,0,0.06);border-color:rgba(255,204,0,0.25);color:var(--yellow);}
-.eos-status-badge.na{background:var(--panel2);border-color:var(--border);color:var(--text3);}
-.eos-card-body{padding:12px 14px;display:flex;flex-direction:column;gap:10px;flex:1;}
-.eos-flags{display:flex;flex-direction:column;gap:3px;}
-.eos-flag{display:flex;align-items:center;justify-content:space-between;font-size:10px;letter-spacing:0.3px;padding:5px 8px;border:1px solid;}
-.eos-flag .flag-key{color:var(--text2);}
-.eos-flag .flag-val{font-weight:600;font-family:'Orbitron',sans-serif;font-size:10px;}
-.eos-flag.ok{background:rgba(0,255,136,0.03);border-color:rgba(0,255,136,0.1);}
-.eos-flag.ok .flag-val{color:var(--green);}
-.eos-flag.bad{background:rgba(255,51,68,0.05);border-color:rgba(255,51,68,0.15);}
-.eos-flag.bad .flag-val{color:var(--red);}
-.eos-flag.warn{background:rgba(255,204,0,0.04);border-color:rgba(255,204,0,0.15);}
-.eos-flag.warn .flag-val{color:var(--yellow);}
-.eos-flag.na{background:transparent;border-color:var(--border);}
-.eos-flag.na .flag-val{color:var(--text3);}
-.eos-block-label{font-family:'Orbitron',sans-serif;font-size:9px;letter-spacing:1px;color:var(--text2);margin-bottom:4px;}
-.eos-summary-text{font-size:11px;color:var(--text);line-height:1.7;background:rgba(0,255,136,0.02);padding:8px 10px;border-left:1px solid rgba(0,255,136,0.2);}
-.eos-alert{padding:7px 10px;border-left:2px solid;font-size:10px;line-height:1.6;}
-.eos-alert.rolled{background:rgba(255,204,0,0.04);border-color:var(--yellow);color:var(--yellow);}
-.eos-alert.lanes{background:rgba(249,115,22,0.04);border-color:#f97316;color:#f97316;}
-.eos-alert strong{display:block;font-size:9px;letter-spacing:0.5px;margin-bottom:2px;}
-.eos-no-report{font-size:11px;color:var(--text2);text-align:center;padding:30px 16px;border:1px dashed var(--border);display:flex;flex-direction:column;align-items:center;gap:8px;letter-spacing:0.5px;}
-
 .no-data{text-align:center;padding:60px 20px;color:var(--text2);font-family:'Orbitron',sans-serif;font-size:13px;letter-spacing:1px;}
 
 /* ═══ FOOTER ═══ */
 footer{text-align:center;padding:14px;border-top:1px solid var(--border);font-size:10px;color:var(--text2);letter-spacing:1px;margin-top:24px;}
-
-/* ═══ EOS TAB PANEL ═══ */
-#tab-eos .sec{margin-top:0;}
-
-  /* ═══ EOS MODAL ═══ */
-  .eos-modal-overlay{position:fixed;inset:0;background:rgba(0,5,2,0.88);z-index:300;display:none;align-items:center;justify-content:center;padding:24px;backdrop-filter:blur(4px);}
-  .eos-modal-overlay.open{display:flex;}
-  .eos-modal{
-    background:var(--panel);border:1px solid var(--border2);
-    width:100%;max-width:600px;max-height:88vh;overflow-y:auto;
-    position:relative;
-    clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,14px 100%,0 calc(100% - 14px));
-    animation:eos-modal-in .18s ease;
-  }
-  @keyframes eos-modal-in{from{opacity:0;transform:scale(0.95);}to{opacity:1;transform:scale(1);}}
-  .eos-modal::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--green),transparent);}
-  .eos-modal-header{
-    display:flex;align-items:center;justify-content:space-between;
-    padding:16px 20px 14px;border-bottom:1px solid var(--border);
-    background:rgba(0,255,136,0.03);position:sticky;top:0;z-index:2;
-  }
-  .eos-modal-header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,255,136,0.2),transparent);}
-  .eos-modal-title{display:flex;align-items:center;gap:14px;}
-  .eos-modal-hub{font-family:'Orbitron',sans-serif;font-size:22px;font-weight:900;color:var(--green);letter-spacing:2px;text-shadow:0 0 12px rgba(0,255,136,0.4);}
-  .eos-modal-date{font-size:10px;color:var(--text2);letter-spacing:0.5px;}
-  .eos-modal-x{background:var(--panel2);border:1px solid var(--border);color:var(--text2);width:28px;height:28px;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-  .eos-modal-x:hover{border-color:var(--green);color:var(--green);}
-  .eos-modal-body{padding:18px 20px;}
-  .eos-modal-flags{display:flex;flex-direction:column;gap:5px;margin-bottom:16px;}
-  .eos-modal-flag{
-    display:flex;align-items:center;justify-content:space-between;
-    font-size:10px;letter-spacing:0.5px;padding:7px 12px;border:1px solid;
-  }
-  .eos-modal-flag .mfk{color:var(--text2);letter-spacing:0.5px;}
-  .eos-modal-flag .mfv{font-family:'Orbitron',sans-serif;font-size:10px;font-weight:700;}
-  .eos-modal-flag.ok{background:rgba(0,255,136,0.03);border-color:rgba(0,255,136,0.12);}
-  .eos-modal-flag.ok .mfv{color:var(--green);}
-  .eos-modal-flag.bad{background:rgba(255,51,68,0.05);border-color:rgba(255,51,68,0.18);}
-  .eos-modal-flag.bad .mfv{color:var(--red);}
-  .eos-modal-flag.warn{background:rgba(255,204,0,0.04);border-color:rgba(255,204,0,0.18);}
-  .eos-modal-flag.warn .mfv{color:var(--yellow);}
-  .eos-modal-flag.na{background:transparent;border-color:var(--border);}
-  .eos-modal-flag.na .mfv{color:var(--text3);}
-  .eos-modal-section{margin-bottom:14px;}
-  .eos-modal-section-label{font-family:'Orbitron',sans-serif;font-size:10px;letter-spacing:1px;color:var(--text2);margin-bottom:7px;display:flex;align-items:center;gap:8px;}
-  .eos-modal-section-label::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent);}
-  .eos-modal-alert{padding:10px 14px;border-left:2px solid;font-size:10px;line-height:1.7;letter-spacing:0.3px;}
-  .eos-modal-alert.rolled{background:rgba(255,204,0,0.05);border-color:var(--yellow);color:var(--yellow);}
-  .eos-modal-alert.lanes{background:rgba(249,115,22,0.05);border-color:#f97316;color:#f97316;}
-  .eos-modal-summary{font-size:11px;color:var(--text2);line-height:1.8;background:rgba(0,255,136,0.02);padding:12px 14px;border-left:1px solid rgba(0,255,136,0.2);letter-spacing:0.2px;}
- .eos-card{cursor:pointer;transition:border-color .15s,box-shadow .15s;}
- .eos-card:hover{border-color:var(--border2);box-shadow:0 0 14px rgba(0,255,136,0.07);}
 
 /* ═══ OKR TAB ═══ */
 .okr-week-banner{
@@ -540,7 +450,6 @@ footer{text-align:center;padding:14px;border-top:1px solid var(--border);font-si
   <div class="tab active" onclick="switchTab('daily')">DAILY VIEW</div>
   <div class="tab" onclick="switchTab('okr')">OKR</div>
   <div class="tab" onclick="switchTab('trends')">14-DAY TRENDS</div>
-  <div class="tab" onclick="switchTab('eos')">END OF SHIFT</div>
 </div>
 
 <main>
@@ -560,16 +469,6 @@ footer{text-align:center;padding:14px;border-top:1px solid var(--border);font-si
       <div class="pallet-section">
         <div class="pallet-header">Pallet Inventory</div>
         <div class="pallet-cards" id="pallet-cards"></div>
-      </div>
-
-      <div>
-        <div class="sec" style="margin-top:0;margin-bottom:10px">
-          <span class="sec-label">End of Shift</span>
-          <span class="sec-count" id="daily-eos-count">—</span>
-          <span class="sec-line"></span>
-          <span class="sec-hint">MOST RECENT PER HUB</span>
-        </div>
-        <div class="eos-grid-layout" id="daily-eos-grid"></div>
       </div>
     </div>
 
@@ -631,17 +530,6 @@ footer{text-align:center;padding:14px;border-top:1px solid var(--border);font-si
     <div id="hub-trend"></div>
     <div class="sec"><span class="sec-label">Spoke 14-Day OTD Trend</span><span class="sec-line"></span></div>
     <div id="spoke-trend"></div>
-  </div>
-
-  <!-- EOS TAB -->
-  <div class="tab-panel" id="tab-eos">
-    <div class="sec" style="margin-top:0">
-      <span class="sec-label">End of Shift Reports</span>
-      <span class="sec-count" id="eos-count">—</span>
-      <span class="sec-line"></span>
-      <span class="sec-hint">MOST RECENT PER HUB</span>
-    </div>
-    <div class="eos-grid-layout" id="eos-grid"></div>
   </div>
 
 </main>
@@ -736,66 +624,6 @@ function fmtWeekLong(start,end){
 
 async function fetchJ(url){const r=await fetch(url+'?t='+Date.now());if(!r.ok)throw new Error(r.status);return r.json()}
 
-function eosFlag(key, val, yesIsGood) {
-  const yes = val && val.toLowerCase() === 'yes';
-  const isWarn = key === 'VOLUME VARIANCE' && yes;
-  const cls = (!val||val==='nan') ? 'na' : isWarn ? 'warn' : (yesIsGood?(yes?'ok':'bad'):(yes?'bad':'ok'));
-  const display = (!val||val==='nan') ? '—' : isWarn ? '⚠ YES' : yes ? (yesIsGood?'✓ YES':'✗ YES') : (yesIsGood?'✗ NO':'✓ NO');
-  return '<div class="eos-flag '+cls+'"><span class="flag-key">'+key+'</span><span class="flag-val">'+display+'</span></div>';
-}
-
-function renderEOS(data, containerId) {
-  containerId = containerId || 'eos-grid';
-  const reports = data.eos_reports || {};
-  const hubs = ['ATL-15','DMV-1','ELZ-1','EWR-2','GCO-1','MCI-1','NYC-1','SLC-8'];
-  if(containerId==='eos-grid') document.getElementById('eos-count').textContent = Object.keys(reports).length;
-  if(containerId==='daily-eos-grid' && document.getElementById('daily-eos-count')) document.getElementById('daily-eos-count').textContent = Object.keys(reports).length;
-
-  const cards = hubs.map(function(hub) {
-    const r = reports[hub];
-    if (!r) {
-      return '<div class="eos-card eos-none">'
-        + '<div class="eos-card-header">'
-          + '<div class="eos-header-left"><div class="eos-hub-name">'+hub+'</div></div>'
-          + '<div class="eos-status-badge na">NO REPORT</div>'
-        + '</div>'
-        + '<div class="eos-card-body"><div class="eos-no-report"><div style="font-size:20px;margin-bottom:6px">⚫</div><div>No end of shift report submitted</div></div></div>'
-        + '</div>';
-    }
-    const isYes = function(v){ return v && v.toLowerCase()==='yes'; };
-    const hasIssues = isYes(r.late_inbound_rolled)||isYes(r.late_outbounds)||isYes(r.pallets_on_floor)||!isYes(r.all_trucks_departed);
-    const hasWarn   = isYes(r.volume_variance) && !hasIssues;
-    const cardCls   = hasIssues ? 'eos-issues' : hasWarn ? 'eos-warn' : 'eos-clean';
-    const badgeCls  = hasIssues ? 'bad' : hasWarn ? 'warn' : 'ok';
-    const badgeTxt  = hasIssues ? 'ISSUES' : hasWarn ? 'WATCH' : 'CLEAN';
-    const flags = '<div class="eos-flags">'
-      + eosFlag('ALL TRUCKS OUT',   r.all_trucks_departed, true)
-      + eosFlag('INBOUND ROLLED',   r.late_inbound_rolled, false)
-      + eosFlag('LATE OUTBOUNDS',   r.late_outbounds,      false)
-      + eosFlag('PALLETS ON FLOOR', r.pallets_on_floor,    false)
-      + eosFlag('VOLUME VARIANCE',  r.volume_variance,     false)
-      + '</div>';
-    const rolled = (r.rolled_details && r.rolled_details!=='nan' && r.rolled_details.trim())
-      ? '<div><div class="eos-block-label">↩ Rolled Volume</div><div class="eos-alert rolled"><strong>DETAILS</strong> '+r.rolled_details.substring(0,200)+(r.rolled_details.length>200?'…':'')+'</div></div>' : '';
-    const lanes = (r.rollover_lanes && r.rollover_lanes!=='nan' && r.rollover_lanes.trim())
-      ? '<div><div class="eos-block-label">📦 Rollover Lanes</div><div class="eos-alert lanes"><strong>LANES</strong> '+r.rollover_lanes.substring(0,200)+(r.rollover_lanes.length>200?'…':'')+'</div></div>' : '';
-    const summary = (r.summary && r.summary!=='nan' && r.summary.trim())
-      ? '<div><div class="eos-block-label">Shift Summary</div><div class="eos-summary-text">'+r.summary.substring(0,350)+(r.summary.length>350?'…':'')+'</div></div>' : '';
-    return '<div class="eos-card '+cardCls+'" onclick="openEosModal(\''+hub+'\')">'
-      + '<div class="eos-card-header">'
-        + '<div class="eos-header-left">'
-          + '<div class="eos-hub-name">'+hub+'</div>'
-          + '<div class="eos-date">'+(r.op_date||'—')+'</div>'
-        + '</div>'
-        + '<div class="eos-status-badge '+badgeCls+'">'+badgeTxt+'</div>'
-      + '</div>'
-      + '<div class="eos-card-body">'+flags+rolled+lanes+summary+'</div>'
-      + '</div>';
-  });
-  var target = document.getElementById(containerId);
-  if(target) target.innerHTML = cards.join('');
-}
-
 async function init(){
   const idx=await fetchJ('data/index.json');
   availableDates=idx.dates.sort();
@@ -822,8 +650,6 @@ function loadDate(ds){
   renderDaily(currentData);
   renderTicker(currentData);
   renderTrends();
-  renderEOS(currentData,"eos-grid");
-  renderEOS(currentData,"daily-eos-grid");
 }
 
 function navigateDate(dir){const i=availableDates.indexOf(currentDate);const n=availableDates[i+dir];if(n)loadDate(n)}
@@ -965,10 +791,9 @@ function renderTrends(){
 }
 
 function switchTab(name){
-  const tabs=['daily','okr','trends','eos'];
+  const tabs=['daily','okr','trends'];
   document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',tabs[i]===name));
   document.querySelectorAll('.tab-panel').forEach(p=>p.classList.toggle('active',p.id==='tab-'+name));
-  if(name==='eos')renderEOS(currentData,'eos-grid');
   if(name==='trends')renderTrends();
   if(name==='okr')renderOKR();
 }
@@ -1244,104 +1069,10 @@ function openOkrPppModal(hub){
 function closeOkrModal(e){if(e.target===document.getElementById('okr-modal-overlay'))closeOkrModalDirect()}
 function closeOkrModalDirect(){document.getElementById('okr-modal-overlay').classList.remove('open');document.body.style.overflow=''}
 
-
-function openEosModal(hub) {
-  if(!currentData || !currentData.eos_reports) return;
-  const r = currentData.eos_reports[hub];
-  if(!r) return;
-
-  document.getElementById('em-hub').textContent = hub;
-  document.getElementById('em-date').textContent = 'OP DATE: ' + (r.op_date || '—');
-
-  const isYes = v => v && v.toLowerCase() === 'yes';
-  const hasIssues = isYes(r.late_inbound_rolled)||isYes(r.late_outbounds)||isYes(r.pallets_on_floor)||!isYes(r.all_trucks_departed);
-  const hasWarn   = isYes(r.volume_variance) && !hasIssues;
-  const badgeCls  = hasIssues ? 'bad' : hasWarn ? 'warn' : 'ok';
-  const badgeTxt  = hasIssues ? 'ISSUES' : hasWarn ? 'WATCH' : 'CLEAN';
-  const badge = document.getElementById('em-badge');
-  badge.textContent = badgeTxt;
-  badge.className = 'eos-status-badge ' + badgeCls;
-
-  function mflag(key, val, yesIsGood) {
-    const yes = isYes(val);
-    const isW = key === 'VOLUME VARIANCE' && yes;
-    const cls = (!val||val==='nan') ? 'na' : isW ? 'warn' : (yesIsGood?(yes?'ok':'bad'):(yes?'bad':'ok'));
-    const disp = (!val||val==='nan') ? '—' : isW ? '⚠ YES' : yes ? (yesIsGood?'✓ YES':'✗ YES') : (yesIsGood?'✗ NO':'✓ NO');
-    return '<div class="eos-modal-flag '+cls+'"><span class="mfk">'+key+'</span><span class="mfv">'+disp+'</span></div>';
-  }
-
-  document.getElementById('em-flags').innerHTML =
-    mflag('ALL TRUCKS OUT',   r.all_trucks_departed, true) +
-    mflag('INBOUND ROLLED',   r.late_inbound_rolled, false) +
-    mflag('LATE OUTBOUNDS',   r.late_outbounds,      false) +
-    mflag('PALLETS ON FLOOR', r.pallets_on_floor,    false) +
-    mflag('VOLUME VARIANCE',  r.volume_variance,     false);
-
-  const rolledEl = document.getElementById('em-rolled-wrap');
-  const rolledTxt = document.getElementById('em-rolled');
-  if(r.rolled_details && r.rolled_details !== 'nan' && r.rolled_details.trim()) {
-    rolledTxt.textContent = r.rolled_details;
-    rolledEl.style.display = 'block';
-  } else { rolledEl.style.display = 'none'; }
-
-  const lanesEl = document.getElementById('em-lanes-wrap');
-  const lanesTxt = document.getElementById('em-lanes');
-  if(r.rollover_lanes && r.rollover_lanes !== 'nan' && r.rollover_lanes.trim()) {
-    lanesTxt.textContent = r.rollover_lanes;
-    lanesEl.style.display = 'block';
-  } else { lanesEl.style.display = 'none'; }
-
-  const summaryEl = document.getElementById('em-summary-wrap');
-  const summaryTxt = document.getElementById('em-summary');
-  if(r.summary && r.summary !== 'nan' && r.summary.trim()) {
-    summaryTxt.textContent = r.summary;
-    summaryEl.style.display = 'block';
-  } else { summaryEl.style.display = 'none'; }
-
-  document.getElementById('eos-modal-overlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeEosModal(e) { if(e.target === document.getElementById('eos-modal-overlay')) closeEosModalDirect(); }
-function closeEosModalDirect() { document.getElementById('eos-modal-overlay').classList.remove('open'); document.body.style.overflow = ''; }
-document.addEventListener('keydown', e => { if(e.key === 'Escape') { closeEosModalDirect(); closeModalDirect(); closeOkrModalDirect(); } });
+document.addEventListener('keydown', e => { if(e.key === 'Escape') { closeModalDirect(); closeOkrModalDirect(); } });
 
 init().catch(()=>{document.querySelector('main').innerHTML='<div class="no-data">⚠ COULD NOT LOAD DATA</div>'});
 </script>
-
-<!-- EOS MODAL -->
-<div class="eos-modal-overlay" id="eos-modal-overlay" onclick="closeEosModal(event)">
-  <div class="eos-modal" id="eos-modal">
-    <div class="eos-modal-header">
-      <div class="eos-modal-title">
-        <div class="eos-modal-hub" id="em-hub">—</div>
-        <div>
-          <div class="eos-modal-date" id="em-date">—</div>
-          <div id="em-badge" class="eos-status-badge" style="margin-top:4px">—</div>
-        </div>
-      </div>
-      <button class="eos-modal-x" onclick="closeEosModalDirect()">✕</button>
-    </div>
-    <div class="eos-modal-body">
-      <div class="eos-modal-section">
-        <div class="eos-modal-section-label">Status Flags</div>
-        <div class="eos-modal-flags" id="em-flags"></div>
-      </div>
-      <div id="em-rolled-wrap" class="eos-modal-section" style="display:none">
-        <div class="eos-modal-section-label">Rolled Volume</div>
-        <div class="eos-modal-alert rolled" id="em-rolled"></div>
-      </div>
-      <div id="em-lanes-wrap" class="eos-modal-section" style="display:none">
-        <div class="eos-modal-section-label">Rollover Lanes</div>
-        <div class="eos-modal-alert lanes" id="em-lanes"></div>
-      </div>
-      <div id="em-summary-wrap" class="eos-modal-section" style="display:none">
-        <div class="eos-modal-section-label">Shift Summary</div>
-        <div class="eos-modal-summary" id="em-summary"></div>
-      </div>
-    </div>
-  </div>
-</div>
 
 </body>
 </html>
