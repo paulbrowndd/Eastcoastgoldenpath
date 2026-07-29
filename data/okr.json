@@ -1,5 +1,5 @@
 {
-  "pulled_at": "2026-07-29 12:30 EST",
+  "pulled_at": "2026-07-29 12:49 EST",
   "source": "Sigma \u00b7 Parcel Golden Path + Truck Utilization",
   "current_week": "2026-07-27",
   "weeks": [
@@ -41,15 +41,11 @@
         "NYC-1": {
           "otd_pct": 100.0,
           "barcodes": 5372
-        },
-        "SLC-8": {
-          "otd_pct": 100.0,
-          "barcodes": 5850
         }
       },
       "in_progress": true,
-      "network_otd_pct": 98.0,
-      "reporting_hubs": 7
+      "network_otd_pct": 97.9,
+      "reporting_hubs": 6
     },
     "2026-07-20": {
       "week_start": "2026-07-20",
@@ -78,15 +74,11 @@
         "NYC-1": {
           "otd_pct": 80.1,
           "barcodes": 7725
-        },
-        "SLC-8": {
-          "otd_pct": 100.0,
-          "barcodes": 9127
         }
       },
       "in_progress": false,
-      "network_otd_pct": 97.5,
-      "reporting_hubs": 7
+      "network_otd_pct": 97.4,
+      "reporting_hubs": 6
     },
     "2026-07-13": {
       "week_start": "2026-07-13",
@@ -115,15 +107,11 @@
         "NYC-1": {
           "otd_pct": 100.0,
           "barcodes": 10700
-        },
-        "SLC-8": {
-          "otd_pct": 100.0,
-          "barcodes": 8565
         }
       },
       "in_progress": false,
       "network_otd_pct": 97.4,
-      "reporting_hubs": 7
+      "reporting_hubs": 6
     },
     "2026-07-06": {
       "week_start": "2026-07-06",
@@ -152,15 +140,11 @@
         "NYC-1": {
           "otd_pct": 100.0,
           "barcodes": 13989
-        },
-        "SLC-8": {
-          "otd_pct": 100.0,
-          "barcodes": 9002
         }
       },
       "in_progress": false,
-      "network_otd_pct": 89.1,
-      "reporting_hubs": 6
+      "network_otd_pct": 88.9,
+      "reporting_hubs": 5
     },
     "2026-06-29": {
       "week_start": "2026-06-29",
@@ -189,15 +173,11 @@
         "NYC-1": {
           "otd_pct": 100.0,
           "barcodes": 9216
-        },
-        "SLC-8": {
-          "otd_pct": 100.0,
-          "barcodes": 8040
         }
       },
       "in_progress": false,
-      "network_otd_pct": 94.9,
-      "reporting_hubs": 5
+      "network_otd_pct": 94.8,
+      "reporting_hubs": 4
     },
     "2026-06-22": {
       "week_start": "2026-06-22",
@@ -226,15 +206,11 @@
         "NYC-1": {
           "otd_pct": 100.0,
           "barcodes": 11265
-        },
-        "SLC-8": {
-          "otd_pct": 100.0,
-          "barcodes": 11329
         }
       },
       "in_progress": false,
-      "network_otd_pct": 92.4,
-      "reporting_hubs": 5
+      "network_otd_pct": 92.3,
+      "reporting_hubs": 4
     },
     "2026-06-15": {
       "week_start": "2026-06-15",
@@ -263,15 +239,11 @@
         "NYC-1": {
           "otd_pct": 83.1,
           "barcodes": 13249
-        },
-        "SLC-8": {
-          "otd_pct": 100.0,
-          "barcodes": 4572
         }
       },
       "in_progress": false,
-      "network_otd_pct": 78.9,
-      "reporting_hubs": 5
+      "network_otd_pct": 78.8,
+      "reporting_hubs": 4
     },
     "2026-06-08": {
       "week_start": "2026-06-08",
@@ -300,15 +272,11 @@
         "NYC-1": {
           "otd_pct": 87.3,
           "barcodes": 13561
-        },
-        "SLC-8": {
-          "otd_pct": 100.0,
-          "barcodes": 3924
         }
       },
       "in_progress": false,
       "network_otd_pct": 92.3,
-      "reporting_hubs": 5
+      "reporting_hubs": 4
     },
     "2026-06-01": {
       "week_start": "2026-06-01",
@@ -337,15 +305,11 @@
         "NYC-1": {
           "otd_pct": 88.2,
           "barcodes": 8863
-        },
-        "SLC-8": {
-          "otd_pct": 95.7,
-          "barcodes": 8031
         }
       },
       "in_progress": false,
-      "network_otd_pct": 89.7,
-      "reporting_hubs": 5
+      "network_otd_pct": 89.5,
+      "reporting_hubs": 4
     }
   },
   "pieces_per_pallet": {
@@ -727,31 +691,6 @@
               }
             ]
           }
-        },
-        "SLC-8": {
-          "hub_hub": {
-            "ppp": 120.0,
-            "parcels": 5161,
-            "pallets": 43,
-            "lane_count": 2,
-            "lanes": [
-              {
-                "lane": "SLC-8 - MCI-1",
-                "destination": "MCI-1",
-                "ppp": 129.5,
-                "parcels": 2850,
-                "pallets": 22
-              },
-              {
-                "lane": "SLC-8 - LAX-11",
-                "destination": "LAX-11",
-                "ppp": 110.0,
-                "parcels": 2311,
-                "pallets": 21
-              }
-            ]
-          },
-          "hub_spoke": null
         }
       }
     },
@@ -1140,31 +1079,6 @@
               }
             ]
           }
-        },
-        "SLC-8": {
-          "hub_hub": {
-            "ppp": 56.6,
-            "parcels": 9177,
-            "pallets": 162,
-            "lane_count": 2,
-            "lanes": [
-              {
-                "lane": "SLC-8 - MCI-1",
-                "destination": "MCI-1",
-                "ppp": 58.5,
-                "parcels": 3741,
-                "pallets": 64
-              },
-              {
-                "lane": "SLC-8 - LAX-11",
-                "destination": "LAX-11",
-                "ppp": 55.5,
-                "parcels": 5436,
-                "pallets": 98
-              }
-            ]
-          },
-          "hub_spoke": null
         }
       }
     },
@@ -1546,31 +1460,6 @@
               }
             ]
           }
-        },
-        "SLC-8": {
-          "hub_hub": {
-            "ppp": 65.7,
-            "parcels": 10507,
-            "pallets": 160,
-            "lane_count": 2,
-            "lanes": [
-              {
-                "lane": "SLC-8 - MCI-1",
-                "destination": "MCI-1",
-                "ppp": 71.9,
-                "parcels": 5246,
-                "pallets": 73
-              },
-              {
-                "lane": "SLC-8 - LAX-11",
-                "destination": "LAX-11",
-                "ppp": 60.5,
-                "parcels": 5261,
-                "pallets": 87
-              }
-            ]
-          },
-          "hub_spoke": null
         }
       }
     },
@@ -1952,31 +1841,6 @@
               }
             ]
           }
-        },
-        "SLC-8": {
-          "hub_hub": {
-            "ppp": 59.0,
-            "parcels": 12146,
-            "pallets": 206,
-            "lane_count": 2,
-            "lanes": [
-              {
-                "lane": "SLC-8 - MCI-1",
-                "destination": "MCI-1",
-                "ppp": 66.0,
-                "parcels": 5542,
-                "pallets": 84
-              },
-              {
-                "lane": "SLC-8 - LAX-11",
-                "destination": "LAX-11",
-                "ppp": 54.1,
-                "parcels": 6604,
-                "pallets": 122
-              }
-            ]
-          },
-          "hub_spoke": null
         }
       }
     },
@@ -2344,31 +2208,6 @@
               }
             ]
           }
-        },
-        "SLC-8": {
-          "hub_hub": {
-            "ppp": 63.2,
-            "parcels": 8728,
-            "pallets": 138,
-            "lane_count": 2,
-            "lanes": [
-              {
-                "lane": "SLC-8 - MCI-1",
-                "destination": "MCI-1",
-                "ppp": 71.4,
-                "parcels": 4000,
-                "pallets": 56
-              },
-              {
-                "lane": "SLC-8 - LAX-11",
-                "destination": "LAX-11",
-                "ppp": 57.7,
-                "parcels": 4728,
-                "pallets": 82
-              }
-            ]
-          },
-          "hub_spoke": null
         }
       }
     },
@@ -2729,31 +2568,6 @@
               }
             ]
           }
-        },
-        "SLC-8": {
-          "hub_hub": {
-            "ppp": 79.5,
-            "parcels": 12084,
-            "pallets": 152,
-            "lane_count": 2,
-            "lanes": [
-              {
-                "lane": "SLC-8 - MCI-1",
-                "destination": "MCI-1",
-                "ppp": 91.1,
-                "parcels": 6197,
-                "pallets": 68
-              },
-              {
-                "lane": "SLC-8 - LAX-11",
-                "destination": "LAX-11",
-                "ppp": 70.1,
-                "parcels": 5887,
-                "pallets": 84
-              }
-            ]
-          },
-          "hub_spoke": null
         }
       }
     },
@@ -3121,24 +2935,6 @@
               }
             ]
           }
-        },
-        "SLC-8": {
-          "hub_hub": {
-            "ppp": 59.4,
-            "parcels": 4573,
-            "pallets": 77,
-            "lane_count": 1,
-            "lanes": [
-              {
-                "lane": "SLC-8 - LAX-11",
-                "destination": "LAX-11",
-                "ppp": 59.4,
-                "parcels": 4573,
-                "pallets": 77
-              }
-            ]
-          },
-          "hub_spoke": null
         }
       }
     },
@@ -3485,24 +3281,6 @@
               }
             ]
           }
-        },
-        "SLC-8": {
-          "hub_hub": {
-            "ppp": 71.4,
-            "parcels": 3926,
-            "pallets": 55,
-            "lane_count": 1,
-            "lanes": [
-              {
-                "lane": "SLC-8 - LAX-11",
-                "destination": "LAX-11",
-                "ppp": 71.4,
-                "parcels": 3926,
-                "pallets": 55
-              }
-            ]
-          },
-          "hub_spoke": null
         }
       }
     },
@@ -3849,24 +3627,6 @@
               }
             ]
           }
-        },
-        "SLC-8": {
-          "hub_hub": {
-            "ppp": 77.3,
-            "parcels": 8120,
-            "pallets": 105,
-            "lane_count": 1,
-            "lanes": [
-              {
-                "lane": "SLC-8 - LAX-11",
-                "destination": "LAX-11",
-                "ppp": 77.3,
-                "parcels": 8120,
-                "pallets": 105
-              }
-            ]
-          },
-          "hub_spoke": null
         }
       }
     }
