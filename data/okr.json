@@ -1,5 +1,5 @@
 {
-  "pulled_at": "2026-07-28 12:22 EST",
+  "pulled_at": "2026-07-29 12:30 EST",
   "source": "Sigma \u00b7 Parcel Golden Path + Truck Utilization",
   "current_week": "2026-07-27",
   "weeks": [
@@ -19,36 +19,36 @@
       "week_end": "2026-08-02",
       "hubs": {
         "ATL-15": {
-          "otd_pct": 99.9,
-          "barcodes": 15383
+          "otd_pct": 99.8,
+          "barcodes": 30818
         },
         "DMV-1": {
-          "otd_pct": 89.6,
-          "barcodes": 5249
+          "otd_pct": 93.1,
+          "barcodes": 13422
         },
         "ELZ-1": {
-          "otd_pct": 95.6,
-          "barcodes": 4933
+          "otd_pct": 92.8,
+          "barcodes": 9918
         },
         "EWR-2": {
-          "otd_pct": 100.0,
-          "barcodes": 38421
+          "otd_pct": 97.7,
+          "barcodes": 61475
         },
         "GCO-1": {
           "otd_pct": 100.0,
-          "barcodes": 15351
+          "barcodes": 30050
         },
         "NYC-1": {
           "otd_pct": 100.0,
-          "barcodes": 2702
+          "barcodes": 5372
         },
         "SLC-8": {
-          "otd_pct": 92.3,
-          "barcodes": 2311
+          "otd_pct": 100.0,
+          "barcodes": 5850
         }
       },
       "in_progress": true,
-      "network_otd_pct": 98.9,
+      "network_otd_pct": 98.0,
       "reporting_hubs": 7
     },
     "2026-07-20": {
@@ -56,24 +56,24 @@
       "week_end": "2026-07-26",
       "hubs": {
         "ATL-15": {
-          "otd_pct": 98.5,
-          "barcodes": 114272
+          "otd_pct": 98.4,
+          "barcodes": 114052
         },
         "DMV-1": {
-          "otd_pct": 95.9,
-          "barcodes": 30728
+          "otd_pct": 95.8,
+          "barcodes": 30535
         },
         "ELZ-1": {
           "otd_pct": 85.0,
-          "barcodes": 9942
+          "barcodes": 9934
         },
         "EWR-2": {
           "otd_pct": 97.2,
-          "barcodes": 206865
+          "barcodes": 206002
         },
         "GCO-1": {
           "otd_pct": 100.0,
-          "barcodes": 97819
+          "barcodes": 97813
         },
         "NYC-1": {
           "otd_pct": 80.1,
@@ -94,23 +94,23 @@
       "hubs": {
         "ATL-15": {
           "otd_pct": 95.0,
-          "barcodes": 83410
+          "barcodes": 83520
         },
         "DMV-1": {
           "otd_pct": 100.0,
-          "barcodes": 16519
+          "barcodes": 16518
         },
         "ELZ-1": {
           "otd_pct": 99.9,
-          "barcodes": 87778
+          "barcodes": 87803
         },
         "EWR-2": {
           "otd_pct": 96.0,
-          "barcodes": 216365
+          "barcodes": 216370
         },
         "GCO-1": {
           "otd_pct": 100.0,
-          "barcodes": 80822
+          "barcodes": 80821
         },
         "NYC-1": {
           "otd_pct": 100.0,
@@ -131,7 +131,7 @@
       "hubs": {
         "ATL-15": {
           "otd_pct": 95.5,
-          "barcodes": 101679
+          "barcodes": 101949
         },
         "DMV-1": {
           "otd_pct": null,
@@ -139,11 +139,11 @@
         },
         "ELZ-1": {
           "otd_pct": 90.5,
-          "barcodes": 35812
+          "barcodes": 35814
         },
         "EWR-2": {
           "otd_pct": 80.8,
-          "barcodes": 211560
+          "barcodes": 211566
         },
         "GCO-1": {
           "otd_pct": 100.0,
@@ -168,7 +168,7 @@
       "hubs": {
         "ATL-15": {
           "otd_pct": 97.3,
-          "barcodes": 100246
+          "barcodes": 100243
         },
         "DMV-1": {
           "otd_pct": null,
@@ -180,7 +180,7 @@
         },
         "EWR-2": {
           "otd_pct": 92.6,
-          "barcodes": 313511
+          "barcodes": 313516
         },
         "GCO-1": {
           "otd_pct": 100.0,
@@ -204,8 +204,8 @@
       "week_end": "2026-06-28",
       "hubs": {
         "ATL-15": {
-          "otd_pct": 97.1,
-          "barcodes": 91694
+          "otd_pct": 97.0,
+          "barcodes": 91641
         },
         "DMV-1": {
           "otd_pct": null,
@@ -217,7 +217,7 @@
         },
         "EWR-2": {
           "otd_pct": 89.6,
-          "barcodes": 345761
+          "barcodes": 345760
         },
         "GCO-1": {
           "otd_pct": 97.0,
@@ -233,7 +233,7 @@
         }
       },
       "in_progress": false,
-      "network_otd_pct": 92.5,
+      "network_otd_pct": 92.4,
       "reporting_hubs": 5
     },
     "2026-06-15": {
@@ -242,7 +242,7 @@
       "hubs": {
         "ATL-15": {
           "otd_pct": 96.1,
-          "barcodes": 102387
+          "barcodes": 102386
         },
         "DMV-1": {
           "otd_pct": null,
@@ -279,7 +279,7 @@
       "hubs": {
         "ATL-15": {
           "otd_pct": 94.5,
-          "barcodes": 102667
+          "barcodes": 102665
         },
         "DMV-1": {
           "otd_pct": null,
@@ -355,61 +355,82 @@
       "in_progress": true,
       "hubs": {
         "ATL-15": {
-          "hub_hub": null,
+          "hub_hub": {
+            "ppp": 167.4,
+            "parcels": 3013,
+            "pallets": 18,
+            "lane_count": 1,
+            "lanes": [
+              {
+                "lane": "ATL-15 - ORD-7",
+                "destination": "ORD-7",
+                "ppp": 167.4,
+                "parcels": 3013,
+                "pallets": 18
+              }
+            ]
+          },
           "hub_spoke": {
-            "ppp": 123.7,
-            "parcels": 10394,
-            "pallets": 84,
-            "lane_count": 7,
+            "ppp": 118.8,
+            "parcels": 21259,
+            "pallets": 179,
+            "lane_count": 8,
             "lanes": [
               {
                 "lane": "ATL-15 - CLT-3",
                 "destination": "CLT-3",
-                "ppp": 161.4,
-                "parcels": 1775,
-                "pallets": 11
-              },
-              {
-                "lane": "ATL-15 - ATL-12",
-                "destination": "ATL-12",
-                "ppp": 135.9,
-                "parcels": 3806,
-                "pallets": 28
+                "ppp": 139.4,
+                "parcels": 3066,
+                "pallets": 22
               },
               {
                 "lane": "ATL-15 - ATL-11",
                 "destination": "ATL-11",
-                "ppp": 129.7,
-                "parcels": 1427,
-                "pallets": 11
+                "ppp": 134.1,
+                "parcels": 2682,
+                "pallets": 20
+              },
+              {
+                "lane": "ATL-15 - ATL-12",
+                "destination": "ATL-12",
+                "ppp": 129.8,
+                "parcels": 7658,
+                "pallets": 59
               },
               {
                 "lane": "ATL-15 - NAS-2",
                 "destination": "NAS-2",
-                "ppp": 121.6,
-                "parcels": 973,
-                "pallets": 8
-              },
-              {
-                "lane": "ATL-15 - JAX-2",
-                "destination": "JAX-2",
-                "ppp": 120.0,
-                "parcels": 840,
-                "pallets": 7
+                "ppp": 124.5,
+                "parcels": 1992,
+                "pallets": 16
               },
               {
                 "lane": "ATL-15 - RAL-3",
                 "destination": "RAL-3",
-                "ppp": 106.9,
-                "parcels": 748,
-                "pallets": 7
+                "ppp": 112.5,
+                "parcels": 1238,
+                "pallets": 11
+              },
+              {
+                "lane": "ATL-15 - JAX-2",
+                "destination": "JAX-2",
+                "ppp": 106.0,
+                "parcels": 1590,
+                "pallets": 15
               },
               {
                 "lane": "ATL-15 - ORL-3",
                 "destination": "ORL-3",
-                "ppp": 68.8,
-                "parcels": 825,
+                "ppp": 85.2,
+                "parcels": 1023,
                 "pallets": 12
+              },
+              {
+                "lane": "ATL-15 - TPA-4",
+                "destination": "TPA-4",
+                "ppp": 83.8,
+                "parcels": 2010,
+                "pallets": 24
               }
             ]
           }
@@ -423,130 +444,172 @@
           "hub_spoke": null
         },
         "EWR-2": {
-          "hub_hub": null,
+          "hub_hub": {
+            "ppp": 128.0,
+            "parcels": 11777,
+            "pallets": 92,
+            "lane_count": 2,
+            "lanes": [
+              {
+                "lane": "EWR-2 - ORD-7",
+                "destination": "ORD-7",
+                "ppp": 137.9,
+                "parcels": 5655,
+                "pallets": 41
+              },
+              {
+                "lane": "EWR-2 - DMV-1",
+                "destination": "DMV-1",
+                "ppp": 120.0,
+                "parcels": 6122,
+                "pallets": 51
+              }
+            ]
+          },
           "hub_spoke": {
-            "ppp": 94.3,
-            "parcels": 25452,
-            "pallets": 270,
-            "lane_count": 17,
+            "ppp": 114.6,
+            "parcels": 56370,
+            "pallets": 492,
+            "lane_count": 20,
             "lanes": [
               {
                 "lane": "EWR-2 - QNS-2",
                 "destination": "QNS-2",
-                "ppp": 195.5,
-                "parcels": 2542,
-                "pallets": 13
-              },
-              {
-                "lane": "EWR-2 - BOS-5",
-                "destination": "BOS-5",
-                "ppp": 108.3,
-                "parcels": 1841,
-                "pallets": 17
-              },
-              {
-                "lane": "EWR-2 - VAB-4",
-                "destination": "VAB-4",
-                "ppp": 106.9,
-                "parcels": 1925,
-                "pallets": 18
-              },
-              {
-                "lane": "EWR-2 - HFD-3",
-                "destination": "HFD-3",
-                "ppp": 100.5,
-                "parcels": 1507,
-                "pallets": 15
+                "ppp": 174.1,
+                "parcels": 5049,
+                "pallets": 29
               },
               {
                 "lane": "EWR-2 - PHL-8",
                 "destination": "PHL-8",
-                "ppp": 99.0,
-                "parcels": 2178,
+                "ppp": 137.0,
+                "parcels": 3014,
                 "pallets": 22
               },
               {
-                "lane": "EWR-2 - CNJ-2",
-                "destination": "CNJ-2",
-                "ppp": 96.3,
-                "parcels": 1733,
+                "lane": "EWR-2 - VAB-4",
+                "destination": "VAB-4",
+                "ppp": 133.7,
+                "parcels": 2406,
                 "pallets": 18
               },
               {
-                "lane": "EWR-2 - HBG-2",
-                "destination": "HBG-2",
-                "ppp": 95.8,
-                "parcels": 958,
-                "pallets": 10
+                "lane": "EWR-2 - NNJ-5",
+                "destination": "NNJ-5",
+                "ppp": 130.1,
+                "parcels": 2212,
+                "pallets": 17
               },
               {
-                "lane": "EWR-2 - LIN-1",
-                "destination": "LIN-1",
-                "ppp": 92.1,
-                "parcels": 1842,
-                "pallets": 20
-              },
-              {
-                "lane": "EWR-2 - HUD-1",
-                "destination": "HUD-1",
-                "ppp": 88.6,
-                "parcels": 797,
-                "pallets": 9
-              },
-              {
-                "lane": "EWR-2 - WMA-1",
-                "destination": "WMA-1",
-                "ppp": 84.9,
-                "parcels": 1698,
-                "pallets": 20
-              },
-              {
-                "lane": "EWR-2 - PHL-7",
-                "destination": "PHL-7",
-                "ppp": 84.4,
-                "parcels": 1182,
-                "pallets": 14
-              },
-              {
-                "lane": "EWR-2 - NNJ-6",
-                "destination": "NNJ-6",
-                "ppp": 83.7,
-                "parcels": 2260,
-                "pallets": 27
-              },
-              {
-                "lane": "EWR-2 - BNX-1",
-                "destination": "BNX-1",
-                "ppp": 80.8,
-                "parcels": 1292,
-                "pallets": 16
+                "lane": "EWR-2 - BKN-9",
+                "destination": "BKN-9",
+                "ppp": 119.5,
+                "parcels": 1554,
+                "pallets": 13
               },
               {
                 "lane": "EWR-2 - DCA-5",
                 "destination": "DCA-5",
-                "ppp": 76.1,
-                "parcels": 1065,
+                "ppp": 116.4,
+                "parcels": 3724,
+                "pallets": 32
+              },
+              {
+                "lane": "EWR-2 - CNJ-2",
+                "destination": "CNJ-2",
+                "ppp": 116.1,
+                "parcels": 3949,
+                "pallets": 34
+              },
+              {
+                "lane": "EWR-2 - BNX-1",
+                "destination": "BNX-1",
+                "ppp": 115.3,
+                "parcels": 1845,
+                "pallets": 16
+              },
+              {
+                "lane": "EWR-2 - BOS-5",
+                "destination": "BOS-5",
+                "ppp": 114.7,
+                "parcels": 4704,
+                "pallets": 41
+              },
+              {
+                "lane": "EWR-2 - ALX-1",
+                "destination": "ALX-1",
+                "ppp": 114.2,
+                "parcels": 1599,
                 "pallets": 14
               },
               {
                 "lane": "EWR-2 - HGR-1",
                 "destination": "HGR-1",
-                "ppp": 74.0,
-                "parcels": 666,
+                "ppp": 108.2,
+                "parcels": 974,
                 "pallets": 9
+              },
+              {
+                "lane": "EWR-2 - HFD-3",
+                "destination": "HFD-3",
+                "ppp": 106.8,
+                "parcels": 3523,
+                "pallets": 33
+              },
+              {
+                "lane": "EWR-2 - LIN-1",
+                "destination": "LIN-1",
+                "ppp": 106.0,
+                "parcels": 3922,
+                "pallets": 37
+              },
+              {
+                "lane": "EWR-2 - PHL-7",
+                "destination": "PHL-7",
+                "ppp": 105.5,
+                "parcels": 2849,
+                "pallets": 27
               },
               {
                 "lane": "EWR-2 - BLT-3",
                 "destination": "BLT-3",
-                "ppp": 73.6,
-                "parcels": 1031,
-                "pallets": 14
+                "ppp": 104.1,
+                "parcels": 3227,
+                "pallets": 31
               },
               {
-                "lane": "EWR-2 - ALX-1",
-                "destination": "ALX-1",
-                "ppp": 66.8,
-                "parcels": 935,
+                "lane": "EWR-2 - HUD-1",
+                "destination": "HUD-1",
+                "ppp": 101.9,
+                "parcels": 1732,
+                "pallets": 17
+              },
+              {
+                "lane": "EWR-2 - HBG-2",
+                "destination": "HBG-2",
+                "ppp": 101.8,
+                "parcels": 2036,
+                "pallets": 20
+              },
+              {
+                "lane": "EWR-2 - WMA-1",
+                "destination": "WMA-1",
+                "ppp": 100.9,
+                "parcels": 4137,
+                "pallets": 41
+              },
+              {
+                "lane": "EWR-2 - NNJ-6",
+                "destination": "NNJ-6",
+                "ppp": 95.5,
+                "parcels": 2578,
+                "pallets": 27
+              },
+              {
+                "lane": "EWR-2 - PIT-2",
+                "destination": "PIT-2",
+                "ppp": 95.4,
+                "parcels": 1336,
                 "pallets": 14
               }
             ]
@@ -554,98 +617,140 @@
         },
         "GCO-1": {
           "hub_hub": {
-            "ppp": 74.7,
-            "parcels": 1644,
-            "pallets": 22,
-            "lane_count": 1,
+            "ppp": 119.8,
+            "parcels": 15098,
+            "pallets": 126,
+            "lane_count": 4,
             "lanes": [
+              {
+                "lane": "GCO-1 - ATL-15",
+                "destination": "ATL-15",
+                "ppp": 150.3,
+                "parcels": 3909,
+                "pallets": 26
+              },
+              {
+                "lane": "GCO-1 - DFW-1",
+                "destination": "DFW-1",
+                "ppp": 134.8,
+                "parcels": 2696,
+                "pallets": 20
+              },
+              {
+                "lane": "GCO-1 - ELZ-1",
+                "destination": "ELZ-1",
+                "ppp": 125.3,
+                "parcels": 5262,
+                "pallets": 42
+              },
               {
                 "lane": "GCO-1 - ORD-7",
                 "destination": "ORD-7",
-                "ppp": 74.7,
-                "parcels": 1644,
-                "pallets": 22
+                "ppp": 85.0,
+                "parcels": 3231,
+                "pallets": 38
               }
             ]
           },
           "hub_spoke": {
-            "ppp": 112.0,
-            "parcels": 4591,
-            "pallets": 41,
+            "ppp": 121.9,
+            "parcels": 8165,
+            "pallets": 67,
             "lane_count": 4,
             "lanes": [
               {
                 "lane": "GCO-1 - DET-13",
                 "destination": "DET-13",
-                "ppp": 138.2,
-                "parcels": 1382,
-                "pallets": 10
-              },
-              {
-                "lane": "GCO-1 - CIN-5",
-                "destination": "CIN-5",
-                "ppp": 109.2,
-                "parcels": 655,
-                "pallets": 6
-              },
-              {
-                "lane": "GCO-1 - CHI-17",
-                "destination": "CHI-17",
-                "ppp": 102.7,
-                "parcels": 2362,
-                "pallets": 23
+                "ppp": 141.7,
+                "parcels": 2409,
+                "pallets": 17
               },
               {
                 "lane": "GCO-1 - CLE-7",
                 "destination": "CLE-7",
-                "ppp": 96.0,
-                "parcels": 192,
-                "pallets": 2
+                "ppp": 123.7,
+                "parcels": 371,
+                "pallets": 3
+              },
+              {
+                "lane": "GCO-1 - CIN-5",
+                "destination": "CIN-5",
+                "ppp": 116.7,
+                "parcels": 1167,
+                "pallets": 10
+              },
+              {
+                "lane": "GCO-1 - CHI-17",
+                "destination": "CHI-17",
+                "ppp": 114.0,
+                "parcels": 4218,
+                "pallets": 37
               }
             ]
           }
         },
         "NYC-1": {
           "hub_hub": {
-            "ppp": 59.5,
-            "parcels": 773,
-            "pallets": 13,
+            "ppp": 104.0,
+            "parcels": 2705,
+            "pallets": 26,
             "lane_count": 1,
             "lanes": [
               {
                 "lane": "NYC-1 - EWR-2",
                 "destination": "EWR-2",
-                "ppp": 59.5,
-                "parcels": 773,
-                "pallets": 13
+                "ppp": 104.0,
+                "parcels": 2705,
+                "pallets": 26
               }
             ]
           },
           "hub_spoke": {
-            "ppp": 66.5,
-            "parcels": 399,
-            "pallets": 6,
+            "ppp": 104.0,
+            "parcels": 1248,
+            "pallets": 12,
             "lane_count": 2,
             "lanes": [
               {
                 "lane": "NYC-1 - BKN-9",
                 "destination": "BKN-9",
-                "ppp": 84.5,
-                "parcels": 169,
-                "pallets": 2
+                "ppp": 104.5,
+                "parcels": 418,
+                "pallets": 4
               },
               {
                 "lane": "NYC-1 - BNX-1",
                 "destination": "BNX-1",
-                "ppp": 57.5,
-                "parcels": 230,
-                "pallets": 4
+                "ppp": 103.8,
+                "parcels": 830,
+                "pallets": 8
               }
             ]
           }
         },
         "SLC-8": {
-          "hub_hub": null,
+          "hub_hub": {
+            "ppp": 120.0,
+            "parcels": 5161,
+            "pallets": 43,
+            "lane_count": 2,
+            "lanes": [
+              {
+                "lane": "SLC-8 - MCI-1",
+                "destination": "MCI-1",
+                "ppp": 129.5,
+                "parcels": 2850,
+                "pallets": 22
+              },
+              {
+                "lane": "SLC-8 - LAX-11",
+                "destination": "LAX-11",
+                "ppp": 110.0,
+                "parcels": 2311,
+                "pallets": 21
+              }
+            ]
+          },
           "hub_spoke": null
         }
       }
@@ -657,23 +762,23 @@
       "hubs": {
         "ATL-15": {
           "hub_hub": {
-            "ppp": 146.8,
-            "parcels": 22166,
+            "ppp": 146.7,
+            "parcels": 22157,
             "pallets": 151,
             "lane_count": 1,
             "lanes": [
               {
                 "lane": "ATL-15 - ORD-7",
                 "destination": "ORD-7",
-                "ppp": 146.8,
-                "parcels": 22166,
+                "ppp": 146.7,
+                "parcels": 22157,
                 "pallets": 151
               }
             ]
           },
           "hub_spoke": {
-            "ppp": 122.0,
-            "parcels": 86998,
+            "ppp": 121.9,
+            "parcels": 86889,
             "pallets": 713,
             "lane_count": 8,
             "lanes": [
@@ -681,56 +786,56 @@
                 "lane": "ATL-15 - CLT-3",
                 "destination": "CLT-3",
                 "ppp": 152.6,
-                "parcels": 13738,
+                "parcels": 13732,
                 "pallets": 90
               },
               {
                 "lane": "ATL-15 - ATL-12",
                 "destination": "ATL-12",
-                "ppp": 135.1,
-                "parcels": 28365,
+                "ppp": 135.0,
+                "parcels": 28347,
                 "pallets": 210
               },
               {
                 "lane": "ATL-15 - NAS-2",
                 "destination": "NAS-2",
-                "ppp": 128.8,
-                "parcels": 7730,
+                "ppp": 128.7,
+                "parcels": 7724,
                 "pallets": 60
               },
               {
                 "lane": "ATL-15 - RAL-3",
                 "destination": "RAL-3",
-                "ppp": 126.6,
-                "parcels": 8480,
+                "ppp": 126.3,
+                "parcels": 8459,
                 "pallets": 67
               },
               {
                 "lane": "ATL-15 - ATL-11",
                 "destination": "ATL-11",
                 "ppp": 124.7,
-                "parcels": 9605,
+                "parcels": 9601,
                 "pallets": 77
               },
               {
                 "lane": "ATL-15 - JAX-2",
                 "destination": "JAX-2",
                 "ppp": 116.5,
-                "parcels": 6059,
+                "parcels": 6058,
                 "pallets": 52
               },
               {
                 "lane": "ATL-15 - TPA-4",
                 "destination": "TPA-4",
-                "ppp": 86.0,
-                "parcels": 6620,
+                "ppp": 85.8,
+                "parcels": 6610,
                 "pallets": 77
               },
               {
                 "lane": "ATL-15 - ORL-3",
                 "destination": "ORL-3",
-                "ppp": 80.0,
-                "parcels": 6401,
+                "ppp": 79.5,
+                "parcels": 6358,
                 "pallets": 80
               }
             ]
@@ -746,23 +851,30 @@
         },
         "EWR-2": {
           "hub_hub": {
-            "ppp": 131.3,
-            "parcels": 37949,
-            "pallets": 289,
-            "lane_count": 1,
+            "ppp": 136.9,
+            "parcels": 61457,
+            "pallets": 449,
+            "lane_count": 2,
             "lanes": [
+              {
+                "lane": "EWR-2 - DMV-1",
+                "destination": "DMV-1",
+                "ppp": 147.0,
+                "parcels": 23514,
+                "pallets": 160
+              },
               {
                 "lane": "EWR-2 - ORD-7",
                 "destination": "ORD-7",
                 "ppp": 131.3,
-                "parcels": 37949,
+                "parcels": 37943,
                 "pallets": 289
               }
             ]
           },
           "hub_spoke": {
-            "ppp": 130.5,
-            "parcels": 305782,
+            "ppp": 130.6,
+            "parcels": 306099,
             "pallets": 2343,
             "lane_count": 21,
             "lanes": [
@@ -770,21 +882,21 @@
                 "lane": "EWR-2 - DCA-5",
                 "destination": "DCA-5",
                 "ppp": 166.9,
-                "parcels": 21191,
+                "parcels": 21190,
                 "pallets": 127
               },
               {
                 "lane": "EWR-2 - BOS-5",
                 "destination": "BOS-5",
-                "ppp": 146.5,
-                "parcels": 21675,
+                "ppp": 146.4,
+                "parcels": 21670,
                 "pallets": 148
               },
               {
                 "lane": "EWR-2 - QNS-2",
                 "destination": "QNS-2",
                 "ppp": 142.2,
-                "parcels": 18056,
+                "parcels": 18055,
                 "pallets": 127
               },
               {
@@ -793,6 +905,13 @@
                 "ppp": 142.0,
                 "parcels": 19451,
                 "pallets": 137
+              },
+              {
+                "lane": "EWR-2 - PIT-2",
+                "destination": "PIT-2",
+                "ppp": 138.3,
+                "parcels": 15763,
+                "pallets": 114
               },
               {
                 "lane": "EWR-2 - PHL-8",
@@ -809,45 +928,38 @@
                 "pallets": 68
               },
               {
-                "lane": "EWR-2 - PIT-2",
-                "destination": "PIT-2",
-                "ppp": 135.1,
-                "parcels": 15399,
-                "pallets": 114
-              },
-              {
                 "lane": "EWR-2 - HFD-3",
                 "destination": "HFD-3",
-                "ppp": 133.0,
-                "parcels": 15292,
+                "ppp": 132.9,
+                "parcels": 15287,
                 "pallets": 115
               },
               {
                 "lane": "EWR-2 - ALX-1",
                 "destination": "ALX-1",
                 "ppp": 132.4,
-                "parcels": 13901,
+                "parcels": 13900,
                 "pallets": 105
               },
               {
                 "lane": "EWR-2 - CNJ-2",
                 "destination": "CNJ-2",
                 "ppp": 131.5,
-                "parcels": 18019,
+                "parcels": 18014,
                 "pallets": 137
               },
               {
                 "lane": "EWR-2 - NNJ-5",
                 "destination": "NNJ-5",
                 "ppp": 130.1,
-                "parcels": 16518,
+                "parcels": 16517,
                 "pallets": 127
               },
               {
                 "lane": "EWR-2 - WMA-1",
                 "destination": "WMA-1",
-                "ppp": 125.6,
-                "parcels": 18960,
+                "ppp": 125.5,
+                "parcels": 18958,
                 "pallets": 151
               },
               {
@@ -860,36 +972,36 @@
               {
                 "lane": "EWR-2 - PHL-7",
                 "destination": "PHL-7",
-                "ppp": 123.2,
-                "parcels": 12316,
+                "ppp": 123.1,
+                "parcels": 12309,
                 "pallets": 100
               },
               {
                 "lane": "EWR-2 - HUD-1",
                 "destination": "HUD-1",
-                "ppp": 121.7,
-                "parcels": 7544,
+                "ppp": 121.6,
+                "parcels": 7541,
                 "pallets": 62
               },
               {
                 "lane": "EWR-2 - HGR-1",
                 "destination": "HGR-1",
                 "ppp": 120.1,
-                "parcels": 6845,
+                "parcels": 6843,
                 "pallets": 57
               },
               {
                 "lane": "EWR-2 - LIN-1",
                 "destination": "LIN-1",
                 "ppp": 113.8,
-                "parcels": 18439,
+                "parcels": 18436,
                 "pallets": 162
               },
               {
                 "lane": "EWR-2 - BNX-1",
                 "destination": "BNX-1",
                 "ppp": 112.4,
-                "parcels": 15289,
+                "parcels": 15284,
                 "pallets": 136
               },
               {
@@ -902,8 +1014,8 @@
               {
                 "lane": "EWR-2 - NNJ-6",
                 "destination": "NNJ-6",
-                "ppp": 107.8,
-                "parcels": 7330,
+                "ppp": 107.7,
+                "parcels": 7324,
                 "pallets": 68
               },
               {
@@ -919,7 +1031,7 @@
         "GCO-1": {
           "hub_hub": {
             "ppp": 143.1,
-            "parcels": 74273,
+            "parcels": 74267,
             "pallets": 519,
             "lane_count": 4,
             "lanes": [
@@ -927,7 +1039,7 @@
                 "lane": "GCO-1 - ELZ-1",
                 "destination": "ELZ-1",
                 "ppp": 160.2,
-                "parcels": 36372,
+                "parcels": 36366,
                 "pallets": 227
               },
               {
@@ -1079,7 +1191,7 @@
           },
           "hub_spoke": {
             "ppp": 109.3,
-            "parcels": 69536,
+            "parcels": 69535,
             "pallets": 636,
             "lane_count": 8,
             "lanes": [
@@ -1135,8 +1247,8 @@
               {
                 "lane": "ATL-15 - ORL-3",
                 "destination": "ORL-3",
-                "ppp": 74.0,
-                "parcels": 5325,
+                "ppp": 73.9,
+                "parcels": 5324,
                 "pallets": 72
               }
             ]
@@ -1152,17 +1264,17 @@
         },
         "EWR-2": {
           "hub_hub": {
-            "ppp": 144.2,
-            "parcels": 39221,
-            "pallets": 272,
+            "ppp": 148.9,
+            "parcels": 52578,
+            "pallets": 353,
             "lane_count": 2,
             "lanes": [
               {
-                "lane": "EWR-2 - ATL-15",
-                "destination": "ATL-15",
-                "ppp": 161.5,
-                "parcels": 2746,
-                "pallets": 17
+                "lane": "EWR-2 - DMV-1",
+                "destination": "DMV-1",
+                "ppp": 164.3,
+                "parcels": 16103,
+                "pallets": 98
               },
               {
                 "lane": "EWR-2 - ORD-7",
@@ -1558,18 +1670,11 @@
         },
         "EWR-2": {
           "hub_hub": {
-            "ppp": 126.8,
-            "parcels": 45410,
-            "pallets": 358,
-            "lane_count": 2,
+            "ppp": 115.3,
+            "parcels": 27329,
+            "pallets": 237,
+            "lane_count": 1,
             "lanes": [
-              {
-                "lane": "EWR-2 - ATL-15",
-                "destination": "ATL-15",
-                "ppp": 149.4,
-                "parcels": 18081,
-                "pallets": 121
-              },
               {
                 "lane": "EWR-2 - ORD-7",
                 "destination": "ORD-7",
@@ -1883,7 +1988,7 @@
         "ATL-15": {
           "hub_hub": {
             "ppp": 129.1,
-            "parcels": 19492,
+            "parcels": 19491,
             "pallets": 151,
             "lane_count": 1,
             "lanes": [
@@ -1891,14 +1996,14 @@
                 "lane": "ATL-15 - ORD-7",
                 "destination": "ORD-7",
                 "ppp": 129.1,
-                "parcels": 19492,
+                "parcels": 19491,
                 "pallets": 151
               }
             ]
           },
           "hub_spoke": {
             "ppp": 110.5,
-            "parcels": 81782,
+            "parcels": 81781,
             "pallets": 740,
             "lane_count": 8,
             "lanes": [
@@ -1919,8 +2024,8 @@
               {
                 "lane": "ATL-15 - RAL-3",
                 "destination": "RAL-3",
-                "ppp": 120.1,
-                "parcels": 10805,
+                "ppp": 120.0,
+                "parcels": 10804,
                 "pallets": 90
               },
               {
@@ -1971,18 +2076,11 @@
         },
         "EWR-2": {
           "hub_hub": {
-            "ppp": 150.9,
-            "parcels": 51149,
-            "pallets": 339,
-            "lane_count": 2,
+            "ppp": 143.2,
+            "parcels": 32226,
+            "pallets": 225,
+            "lane_count": 1,
             "lanes": [
-              {
-                "lane": "EWR-2 - ATL-15",
-                "destination": "ATL-15",
-                "ppp": 166.0,
-                "parcels": 18923,
-                "pallets": 114
-              },
               {
                 "lane": "EWR-2 - ORD-7",
                 "destination": "ORD-7",
@@ -2363,18 +2461,11 @@
         },
         "EWR-2": {
           "hub_hub": {
-            "ppp": 155.1,
-            "parcels": 54735,
-            "pallets": 353,
-            "lane_count": 2,
+            "ppp": 147.6,
+            "parcels": 34832,
+            "pallets": 236,
+            "lane_count": 1,
             "lanes": [
-              {
-                "lane": "EWR-2 - ATL-15",
-                "destination": "ATL-15",
-                "ppp": 170.1,
-                "parcels": 19903,
-                "pallets": 117
-              },
               {
                 "lane": "EWR-2 - ORD-7",
                 "destination": "ORD-7",
@@ -2762,18 +2853,11 @@
         },
         "EWR-2": {
           "hub_hub": {
-            "ppp": 166.4,
-            "parcels": 64389,
-            "pallets": 387,
-            "lane_count": 2,
+            "ppp": 164.0,
+            "parcels": 42312,
+            "pallets": 258,
+            "lane_count": 1,
             "lanes": [
-              {
-                "lane": "EWR-2 - ATL-15",
-                "destination": "ATL-15",
-                "ppp": 171.1,
-                "parcels": 22077,
-                "pallets": 129
-              },
               {
                 "lane": "EWR-2 - ORD-7",
                 "destination": "ORD-7",
@@ -3140,18 +3224,11 @@
         },
         "EWR-2": {
           "hub_hub": {
-            "ppp": 185.4,
-            "parcels": 62855,
-            "pallets": 339,
-            "lane_count": 2,
+            "ppp": 180.2,
+            "parcels": 39821,
+            "pallets": 221,
+            "lane_count": 1,
             "lanes": [
-              {
-                "lane": "EWR-2 - ATL-15",
-                "destination": "ATL-15",
-                "ppp": 195.2,
-                "parcels": 23034,
-                "pallets": 118
-              },
               {
                 "lane": "EWR-2 - ORD-7",
                 "destination": "ORD-7",
@@ -3511,18 +3588,11 @@
         },
         "EWR-2": {
           "hub_hub": {
-            "ppp": 188.9,
-            "parcels": 61581,
-            "pallets": 326,
-            "lane_count": 2,
+            "ppp": 188.1,
+            "parcels": 42513,
+            "pallets": 226,
+            "lane_count": 1,
             "lanes": [
-              {
-                "lane": "EWR-2 - ATL-15",
-                "destination": "ATL-15",
-                "ppp": 190.7,
-                "parcels": 19068,
-                "pallets": 100
-              },
               {
                 "lane": "EWR-2 - ORD-7",
                 "destination": "ORD-7",
