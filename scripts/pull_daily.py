@@ -27,7 +27,7 @@ from zoneinfo import ZoneInfo
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 
-HUBS = ["ATL-15", "DMV-1", "ELZ-1", "EWR-2", "GCO-1", "NYC-1", "SLC-8"]
+HUBS = ["ATL-15", "DMV-1", "ELZ-1", "EWR-2", "GCO-1", "NYC-1"]
 PALLET_INVENTORY_HUBS = ["ATL-15", "EWR-2", "MCI-1"]
 PALLET_HISTORY_WINDOW = 30
 SPOKES = [
