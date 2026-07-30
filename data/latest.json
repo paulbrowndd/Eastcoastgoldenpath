@@ -1,6 +1,6 @@
 {
   "date": "2026-07-29",
-  "pulled_at": "2026-07-30 12:41 EST",
+  "pulled_at": "2026-07-30 12:59 EST",
   "facilities": {
     "ATL-15": {
       "type": "hub",
@@ -304,7 +304,7 @@
     },
     "DET-13": {
       "type": "spoke",
-      "otd_pct": null
+      "otd_pct": 0.0
     },
     "HBG-2": {
       "type": "spoke",
@@ -380,7 +380,7 @@
     },
     "WMA-1": {
       "type": "spoke",
-      "otd_pct": null
+      "otd_pct": 0.0
     }
   },
   "sla_stack_rank": [
@@ -490,17 +490,17 @@
       "miss_count": 1833
     },
     {
-      "step": "3.1 Truck Arrival",
-      "facility": "ORD-7",
-      "from_stop": "ORD-7",
-      "next_stop": "EWR-2",
-      "miss_count": 1816
-    },
-    {
       "step": "4 Spoke Sortation",
       "facility": "PHX-8",
       "from_stop": "PHX-8",
       "next_stop": "PHX-8",
+      "miss_count": 1816
+    },
+    {
+      "step": "3.1 Truck Arrival",
+      "facility": "ORD-7",
+      "from_stop": "ORD-7",
+      "next_stop": "EWR-2",
       "miss_count": 1816
     },
     {
@@ -544,6 +544,20 @@
       "from_stop": "LAX-11",
       "next_stop": "LAX-9",
       "miss_count": 1396
+    },
+    {
+      "step": "3.1 Truck Arrival",
+      "facility": "EWR-2",
+      "from_stop": "EWR-2",
+      "next_stop": "NNJ-6",
+      "miss_count": 1299
+    },
+    {
+      "step": "4 Spoke Sortation",
+      "facility": "WMA-1",
+      "from_stop": "WMA-1",
+      "next_stop": "WMA-1",
+      "miss_count": 1263
     }
   ],
   "pallet_inventory": {
