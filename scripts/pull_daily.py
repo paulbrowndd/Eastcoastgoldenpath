@@ -119,11 +119,10 @@ def build_daily_payload(date, hub_facility, hub_routes, spoke_facility, stack_ro
         }
 
     for spoke in SPOKES:
-        pct = spoke_facility.get(spoke)
-        if pct in (None, 0):
+        if spoke not in spoke_facility:
             facilities[spoke] = {"type": "spoke", "otd_pct": None}
         else:
-            facilities[spoke] = {"type": "spoke", "otd_pct": round_pct(pct)}
+            facilities[spoke] = {"type": "spoke", "otd_pct": round_pct(spoke_facility[spoke])}
 
     return {
         "date": date,
@@ -372,6 +371,15 @@ def build_pallet_inventory(date, outbound_rows, prev_inventory=None, history=Non
 
 # --- Sigma SQL templates for the agent (MCP query tool) ---
 
+SQL_STACK_RANK = f"""
+SELECT "sefIDK21P1" AS detail, "ecFYAW43ck" AS miss_count
+FROM "workbook"."{EL_STACK}"
+WHERE "vZSFs4SrDg" = '{{date}}'
+  AND "sefIDK21P1" NOT LIKE '%TT%'
+ORDER BY "ecFYAW43ck" DESC
+LIMIT 30
+""".strip()
+
 SQL_HUB_SORT_OKR = f"""
 SELECT "FACILITY" AS facility, "WEEK" AS week_start,
   SUM("MET_SLA")::float / NULLIF(SUM("BARCODES"), 0) AS otd_pct,
@@ -456,6 +464,6 @@ if __name__ == "__main__":
     print("Daily pull script — run by agent after Sigma MCP queries.")
     print("Includes: daily OTD/stack rank, pallet inventory, weekly OKR.")
     print(
-        "SQL templates: SQL_HUB_SORT_OKR, SQL_PPP_HUB_AGG, SQL_PPP_LANES, "
+        "SQL templates: SQL_STACK_RANK, SQL_HUB_SORT_OKR, SQL_PPP_HUB_AGG, SQL_PPP_LANES, "
         "SQL_PALLET_OUTBOUND, SQL_PALLET_OUTBOUND_HISTORY"
     )
