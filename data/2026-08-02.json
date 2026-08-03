@@ -556,6 +556,17 @@
       "days_remaining_gaylords": 10.6,
       "history_days": 30
     },
+    "DMV-1": {
+      "starting_pallets": 2000,
+      "starting_gaylords": 2000,
+      "outbound_today": 112,
+      "remaining_pallets": 1888,
+      "remaining_gaylords": 1888,
+      "avg_daily_outbound": 169,
+      "days_remaining_pallets": 11.2,
+      "days_remaining_gaylords": 11.2,
+      "history_days": 6
+    },
     "EWR-2": {
       "starting_pallets": 4065,
       "starting_gaylords": 9959,
