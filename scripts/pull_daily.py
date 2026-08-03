@@ -7,7 +7,7 @@ Daily tab (latest Sigma date, usually yesterday):
   - Hub + spoke OTD and routes  → element itgnfDcpNu (Parcel Golden Path)
   - SLA stack rank (top 25)       → element Rm9zSyNl07
   - Pallet inventory              → element 4fEOWBbyUc (Pallet Level Data / Daily # of Pallets - Outbound)
-                                    ATL-15, EWR-2, MCI-1 only; starting counts carry forward
+                                    ATL-15, DMV-1, EWR-2, MCI-1; starting counts carry forward
 
 OKR tab (weekly metrics — refreshed every pull because in-week numbers change daily):
   - Hub sortation weekly OKR      → element itgnfDcpNu, STEP_TYPE_ORDER = '2.1 Hub Sortation'
@@ -28,7 +28,10 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 
 HUBS = ["ATL-15", "DMV-1", "ELZ-1", "EWR-2", "GCO-1", "NYC-1"]
-PALLET_INVENTORY_HUBS = ["ATL-15", "EWR-2", "MCI-1"]
+PALLET_INVENTORY_HUBS = ["ATL-15", "DMV-1", "EWR-2", "MCI-1"]
+PALLET_BASELINES = {
+    "DMV-1": {"starting_pallets": 2000, "starting_gaylords": 2000},
+}
 PALLET_HISTORY_WINDOW = 30
 SPOKES = [
     "ALX-1", "ATL-11", "ATL-12", "BKN-9", "BLT-3", "BNX-1", "BOS-5", "BOS-6",
@@ -338,10 +341,19 @@ def build_pallet_inventory(date, outbound_rows, prev_inventory=None, history=Non
         starting_pallets = prev_hub.get("starting_pallets")
         starting_gaylords = prev_hub.get("starting_gaylords")
 
+        baseline = PALLET_BASELINES.get(hub, {})
         if starting_pallets is None:
-            starting_pallets = max(outbound, prev_hub.get("remaining_pallets") or 0)
+            starting_pallets = (
+                prev_hub.get("starting_pallets")
+                or baseline.get("starting_pallets")
+                or max(outbound, prev_hub.get("remaining_pallets") or 0)
+            )
         if starting_gaylords is None:
-            starting_gaylords = max(outbound, prev_hub.get("remaining_gaylords") or 0)
+            starting_gaylords = (
+                prev_hub.get("starting_gaylords")
+                or baseline.get("starting_gaylords")
+                or max(outbound, prev_hub.get("remaining_gaylords") or 0)
+            )
 
         remaining_pallets = max(0, int(starting_pallets) - outbound)
         remaining_gaylords = max(0, int(starting_gaylords) - outbound)
