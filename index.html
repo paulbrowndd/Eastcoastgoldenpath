@@ -211,21 +211,23 @@ main{padding:16px 24px;max-width:1700px;margin:0 auto}
 .ibar-fill{height:100%;background:var(--red);opacity:0.6;}
 
 /* ═══ TRENDS ═══ */
-.trend-row{display:flex;align-items:flex-end;gap:12px;margin-bottom:8px;padding:10px 12px;background:var(--panel);border:1px solid var(--border);border-left:2px solid var(--border2);}
-.trend-name{font-family:'Orbitron',sans-serif;font-size:11px;color:var(--text);letter-spacing:0.5px;width:60px;flex-shrink:0;}
-.trend-bars{display:flex;gap:4px;align-items:flex-end;flex:1;}
-.trend-day{display:flex;flex-direction:column;align-items:center;gap:2px;}
-.trend-val{font-size:8px;color:var(--text2);letter-spacing:0.3px;white-space:nowrap;}
+#tab-trends{--trend-bar-max:48px;}
+#tab-trends .sec-label{font-size:12px;}
+.trend-row{display:flex;align-items:flex-end;gap:14px;margin-bottom:10px;padding:12px 14px;background:var(--panel);border:1px solid var(--border);border-left:2px solid var(--border2);}
+.trend-name{font-family:'Orbitron',sans-serif;font-size:13px;color:var(--text);letter-spacing:0.5px;width:72px;flex-shrink:0;line-height:1.2;}
+.trend-bars{display:flex;gap:6px;align-items:flex-end;flex:1;overflow-x:auto;min-width:0;padding-bottom:2px;}
+.trend-day{display:flex;flex-direction:column;align-items:center;gap:4px;flex-shrink:0;}
+.trend-val{font-size:11px;font-weight:600;color:var(--text2);letter-spacing:0.3px;white-space:nowrap;}
 .trend-val.green{color:var(--green);}
 .trend-val.yellow{color:var(--yellow);}
 .trend-val.red{color:var(--red);}
-.trend-bar-wrap{height:28px;display:flex;align-items:flex-end;}
-.trend-bar{width:20px;border-radius:0 0 0 0;min-height:3px;transition:height .3s;}
+.trend-bar-wrap{height:var(--trend-bar-max);display:flex;align-items:flex-end;}
+.trend-bar{width:26px;border-radius:0 0 0 0;min-height:4px;transition:height .3s;}
 .trend-bar.green{background:var(--green);box-shadow:0 0 4px rgba(0,255,136,0.3);}
 .trend-bar.yellow{background:var(--yellow);}
 .trend-bar.red{background:var(--red);}
 .trend-bar.grey{background:var(--text3);}
-.trend-date{font-size:8px;color:var(--text2);}
+.trend-date{font-size:10px;color:var(--text2);}
 
 /* ═══ MODAL ═══ */
 .modal-overlay{position:fixed;inset:0;background:rgba(0,5,2,0.85);z-index:200;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px);}
@@ -776,11 +778,12 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModalDirect()})
 
 function renderTrends(){
   const dates=availableDates.slice(-14);
+  const barMax=48;
   function build(facilities,containerId){
     document.getElementById(containerId).innerHTML=facilities.map(name=>{
       const bars=dates.map(d=>{
         const p=allData[d]?.facilities?.[name]?.otd_pct??null;
-        const cls=sc(p);const h=p!==null?Math.max(3,Math.round((p/100)*28)):3;
+        const cls=sc(p);const h=p!==null?Math.max(4,Math.round((p/100)*barMax)):4;
         return `<div class="trend-day"><div class="trend-val ${cls}">${p!==null?p.toFixed(1)+'%':'—'}</div><div class="trend-bar-wrap"><div class="trend-bar ${cls}" style="height:${h}px"></div></div><div class="trend-date">${d.slice(5).replace('-','/')}</div></div>`;
       }).join('');
       return `<div class="trend-row"><div class="trend-name">${name}</div><div class="trend-bars">${bars}</div></div>`;
