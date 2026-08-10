@@ -1,10 +1,10 @@
 {
   "date": "2026-07-25",
-  "pulled_at": "2026-07-27 12:17 EST",
+  "pulled_at": "2026-08-10 15:17 EST",
   "facilities": {
     "ATL-15": {
       "type": "hub",
-      "otd_pct": 96.9,
+      "otd_pct": 96.8,
       "routes": [
         {
           "route": "ATL-15 > ATL-11",
@@ -12,11 +12,11 @@
         },
         {
           "route": "ATL-15 > ATL-12",
-          "otd_pct": 96.3
+          "otd_pct": 96.2
         },
         {
           "route": "ATL-15 > CLT-3",
-          "otd_pct": 96.9
+          "otd_pct": 96.5
         },
         {
           "route": "ATL-15 > DMV-1",
@@ -24,7 +24,7 @@
         },
         {
           "route": "ATL-15 > JAX-2",
-          "otd_pct": 96.4
+          "otd_pct": 96.0
         },
         {
           "route": "ATL-15 > NAS-2",
@@ -36,15 +36,15 @@
         },
         {
           "route": "ATL-15 > ORL-3",
-          "otd_pct": 97.5
+          "otd_pct": 97.3
         },
         {
           "route": "ATL-15 > RAL-3",
-          "otd_pct": 95.2
+          "otd_pct": 94.9
         },
         {
           "route": "ATL-15 > TPA-4",
-          "otd_pct": 96.8
+          "otd_pct": 96.7
         }
       ]
     },
@@ -58,7 +58,7 @@
         },
         {
           "route": "DMV-1 > BLT-3",
-          "otd_pct": 1.9
+          "otd_pct": 0.0
         },
         {
           "route": "DMV-1 > DCA-5",
@@ -94,15 +94,15 @@
     },
     "EWR-2": {
       "type": "hub",
-      "otd_pct": 97.7,
+      "otd_pct": 98.5,
       "routes": [
         {
           "route": "EWR-2 > ALX-1",
-          "otd_pct": 99.8
+          "otd_pct": 66.7
         },
         {
           "route": "EWR-2 > BKN-9",
-          "otd_pct": 99.5
+          "otd_pct": 99.6
         },
         {
           "route": "EWR-2 > BLT-3",
@@ -110,7 +110,7 @@
         },
         {
           "route": "EWR-2 > BNX-1",
-          "otd_pct": 99.2
+          "otd_pct": 99.3
         },
         {
           "route": "EWR-2 > BOS-5",
@@ -122,11 +122,11 @@
         },
         {
           "route": "EWR-2 > CNJ-2",
-          "otd_pct": 98.9
+          "otd_pct": 98.8
         },
         {
           "route": "EWR-2 > DCA-5",
-          "otd_pct": 99.9
+          "otd_pct": 33.3
         },
         {
           "route": "EWR-2 > DMV-1",
@@ -138,7 +138,7 @@
         },
         {
           "route": "EWR-2 > HFD-3",
-          "otd_pct": 100.0
+          "otd_pct": 99.9
         },
         {
           "route": "EWR-2 > HGR-1",
@@ -149,20 +149,16 @@
           "otd_pct": 99.8
         },
         {
-          "route": "EWR-2 > LIN-1",
-          "otd_pct": 0.0
-        },
-        {
           "route": "EWR-2 > NNJ-5",
           "otd_pct": 100.0
         },
         {
           "route": "EWR-2 > NNJ-6",
-          "otd_pct": 55.1
+          "otd_pct": 36.4
         },
         {
           "route": "EWR-2 > ORD-7",
-          "otd_pct": 100.0
+          "otd_pct": 99.9
         },
         {
           "route": "EWR-2 > PHL-7",
@@ -170,7 +166,7 @@
         },
         {
           "route": "EWR-2 > PHL-8",
-          "otd_pct": 80.9
+          "otd_pct": 79.7
         },
         {
           "route": "EWR-2 > PIT-2",
@@ -238,31 +234,21 @@
         }
       ]
     },
-    "SLC-8": {
-      "type": "hub",
-      "otd_pct": 100.0,
-      "routes": [
-        {
-          "route": "SLC-8 > LAX-11",
-          "otd_pct": 100.0
-        }
-      ]
-    },
     "ALX-1": {
       "type": "spoke",
-      "otd_pct": 99.0
+      "otd_pct": 99.1
     },
     "ATL-11": {
       "type": "spoke",
-      "otd_pct": 95.5
+      "otd_pct": 96.4
     },
     "ATL-12": {
       "type": "spoke",
-      "otd_pct": 95.6
+      "otd_pct": 95.9
     },
     "BKN-9": {
       "type": "spoke",
-      "otd_pct": 98.0
+      "otd_pct": 98.1
     },
     "BLT-3": {
       "type": "spoke",
@@ -270,23 +256,23 @@
     },
     "BNX-1": {
       "type": "spoke",
-      "otd_pct": 96.5
+      "otd_pct": 96.8
     },
     "BOS-5": {
       "type": "spoke",
-      "otd_pct": 96.9
+      "otd_pct": 97.2
     },
     "BOS-6": {
       "type": "spoke",
-      "otd_pct": 93.2
+      "otd_pct": 94.1
     },
     "CIN-5": {
       "type": "spoke",
-      "otd_pct": 98.3
+      "otd_pct": 98.6
     },
     "CLE-7": {
       "type": "spoke",
-      "otd_pct": 98.5
+      "otd_pct": 99.2
     },
     "CLT-3": {
       "type": "spoke",
@@ -294,19 +280,19 @@
     },
     "CNJ-2": {
       "type": "spoke",
-      "otd_pct": 96.8
+      "otd_pct": 97.0
     },
     "COL-5": {
       "type": "spoke",
-      "otd_pct": 98.7
+      "otd_pct": 98.9
     },
     "DCA-5": {
       "type": "spoke",
-      "otd_pct": 99.1
+      "otd_pct": 99.2
     },
     "DET-13": {
       "type": "spoke",
-      "otd_pct": 98.3
+      "otd_pct": 98.7
     },
     "HBG-2": {
       "type": "spoke",
@@ -314,19 +300,19 @@
     },
     "HFD-3": {
       "type": "spoke",
-      "otd_pct": null
+      "otd_pct": 0.0
     },
     "HGR-1": {
       "type": "spoke",
-      "otd_pct": 99.1
+      "otd_pct": 99.2
     },
     "HUD-1": {
       "type": "spoke",
-      "otd_pct": 96.1
+      "otd_pct": 96.5
     },
     "JAX-2": {
       "type": "spoke",
-      "otd_pct": 96.1
+      "otd_pct": 96.3
     },
     "LIN-1": {
       "type": "spoke",
@@ -334,23 +320,23 @@
     },
     "NAS-2": {
       "type": "spoke",
-      "otd_pct": 97.0
+      "otd_pct": 97.2
     },
     "NNJ-5": {
       "type": "spoke",
-      "otd_pct": 96.1
+      "otd_pct": 96.3
     },
     "NNJ-6": {
       "type": "spoke",
-      "otd_pct": 97.4
+      "otd_pct": 97.6
     },
     "ORL-3": {
       "type": "spoke",
-      "otd_pct": 99.7
+      "otd_pct": 100.0
     },
     "PHL-7": {
       "type": "spoke",
-      "otd_pct": 97.7
+      "otd_pct": 97.9
     },
     "PHL-8": {
       "type": "spoke",
@@ -370,7 +356,7 @@
     },
     "RIC-2": {
       "type": "spoke",
-      "otd_pct": 99.3
+      "otd_pct": 99.4
     },
     "TPA-4": {
       "type": "spoke",
@@ -378,11 +364,11 @@
     },
     "VAB-4": {
       "type": "spoke",
-      "otd_pct": 100.0
+      "otd_pct": null
     },
     "WMA-1": {
       "type": "spoke",
-      "otd_pct": 96.6
+      "otd_pct": 96.8
     }
   },
   "sla_stack_rank": [],

@@ -1,38 +1,97 @@
 {
   "date": "2026-07-13",
-  "pulled_at": "2026-07-14 16:54 EST",
+  "pulled_at": "2026-08-10 15:17 EST",
   "facilities": {
     "ATL-15": {
       "type": "hub",
-      "otd_pct": 100.0,
+      "otd_pct": 99.9,
       "routes": [
         {
-          "route": "ATL-15 > NAS-2",
-          "otd_pct": 100.0
+          "route": "ATL-15 > ATL-12",
+          "otd_pct": 99.8
         },
         {
           "route": "ATL-15 > CLT-3",
           "otd_pct": 100.0
         },
         {
-          "route": "ATL-15 > RAL-3",
+          "route": "ATL-15 > ELZ-1",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "ATL-15 > JAX-2",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "ATL-15 > NAS-2",
           "otd_pct": 100.0
         },
         {
           "route": "ATL-15 > ORD-7",
-          "otd_pct": 100
+          "otd_pct": 100.0
         },
         {
-          "route": "ATL-15 > ELZ-1",
-          "otd_pct": 100
+          "route": "ATL-15 > RAL-3",
+          "otd_pct": 99.9
+        }
+      ]
+    },
+    "DMV-1": {
+      "type": "hub",
+      "otd_pct": null,
+      "routes": []
+    },
+    "ELZ-1": {
+      "type": "hub",
+      "otd_pct": 99.5,
+      "routes": [
+        {
+          "route": "ELZ-1 > BLT-3",
+          "otd_pct": 100.0
         },
         {
-          "route": "ATL-15 > JAX-2",
-          "otd_pct": 100
+          "route": "ELZ-1 > CNJ-2",
+          "otd_pct": 100.0
         },
         {
-          "route": "ATL-15 > ATL-12",
-          "otd_pct": 100
+          "route": "ELZ-1 > DCA-5",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "ELZ-1 > HBG-2",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "ELZ-1 > HFD-3",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "ELZ-1 > HGR-1",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "ELZ-1 > HUD-1",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "ELZ-1 > LIN-1",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "ELZ-1 > NNJ-5",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "ELZ-1 > NNJ-6",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "ELZ-1 > PHL-7",
+          "otd_pct": 96.8
+        },
+        {
+          "route": "ELZ-1 > QNS-2",
+          "otd_pct": 100.0
         }
       ]
     },
@@ -41,92 +100,88 @@
       "otd_pct": 100.0,
       "routes": [
         {
+          "route": "EWR-2 > ALX-1",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "EWR-2 > ATL-15",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "EWR-2 > BKN-9",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "EWR-2 > BLT-3",
+          "otd_pct": 100.0
+        },
+        {
           "route": "EWR-2 > BNX-1",
           "otd_pct": 99.8
         },
         {
+          "route": "EWR-2 > BOS-5",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "EWR-2 > BOS-6",
+          "otd_pct": 100.0
+        },
+        {
           "route": "EWR-2 > CNJ-2",
-          "otd_pct": 99.9
+          "otd_pct": 100.0
+        },
+        {
+          "route": "EWR-2 > DCA-5",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "EWR-2 > HFD-3",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "EWR-2 > HGR-1",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "EWR-2 > HUD-1",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "EWR-2 > LIN-1",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "EWR-2 > NNJ-5",
+          "otd_pct": 100.0
         },
         {
           "route": "EWR-2 > NNJ-6",
           "otd_pct": 100.0
         },
         {
-          "route": "EWR-2 > HFD-3",
-          "otd_pct": 100
-        },
-        {
-          "route": "EWR-2 > BLT-3",
-          "otd_pct": 100
-        },
-        {
-          "route": "EWR-2 > PIT-2",
-          "otd_pct": 100
-        },
-        {
-          "route": "EWR-2 > BOS-5",
-          "otd_pct": 100
-        },
-        {
-          "route": "EWR-2 > QNS-2",
-          "otd_pct": 100
-        },
-        {
-          "route": "EWR-2 > HGR-1",
-          "otd_pct": 100
-        },
-        {
-          "route": "EWR-2 > DCA-5",
-          "otd_pct": 100
-        },
-        {
-          "route": "EWR-2 > ATL-15",
-          "otd_pct": 100
-        },
-        {
-          "route": "EWR-2 > BOS-6",
-          "otd_pct": 100
-        },
-        {
-          "route": "EWR-2 > HUD-1",
-          "otd_pct": 100
-        },
-        {
-          "route": "EWR-2 > LIN-1",
-          "otd_pct": 100
+          "route": "EWR-2 > ORD-7",
+          "otd_pct": 100.0
         },
         {
           "route": "EWR-2 > PHL-7",
-          "otd_pct": 100
-        },
-        {
-          "route": "EWR-2 > NNJ-5",
-          "otd_pct": 100
+          "otd_pct": 100.0
         },
         {
           "route": "EWR-2 > PHL-8",
-          "otd_pct": 100
+          "otd_pct": 100.0
         },
         {
-          "route": "EWR-2 > ORD-7",
-          "otd_pct": 100
+          "route": "EWR-2 > PIT-2",
+          "otd_pct": 100.0
         },
         {
-          "route": "EWR-2 > VAB-4",
-          "otd_pct": 100
+          "route": "EWR-2 > QNS-2",
+          "otd_pct": 100.0
         },
         {
           "route": "EWR-2 > RIC-2",
-          "otd_pct": 100
-        },
-        {
-          "route": "EWR-2 > ALX-1",
-          "otd_pct": 100
-        },
-        {
-          "route": "EWR-2 > BKN-9",
-          "otd_pct": 100
+          "otd_pct": 100.0
         }
       ]
     },
@@ -135,36 +190,36 @@
       "otd_pct": 100.0,
       "routes": [
         {
+          "route": "GCO-1 > ATL-15",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "GCO-1 > CHI-17",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "GCO-1 > CIN-5",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "GCO-1 > CLE-7",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "GCO-1 > DET-13",
+          "otd_pct": 100.0
+        },
+        {
+          "route": "GCO-1 > DFW-1",
+          "otd_pct": 100.0
+        },
+        {
           "route": "GCO-1 > ELZ-1",
           "otd_pct": 100.0
         },
         {
-          "route": "GCO-1 > ATL-15",
-          "otd_pct": 100
-        },
-        {
-          "route": "GCO-1 > DET-13",
-          "otd_pct": 100
-        },
-        {
-          "route": "GCO-1 > DFW-1",
-          "otd_pct": 100
-        },
-        {
           "route": "GCO-1 > ORD-7",
-          "otd_pct": 100
-        },
-        {
-          "route": "GCO-1 > CHI-17",
-          "otd_pct": 100
-        },
-        {
-          "route": "GCO-1 > CIN-5",
-          "otd_pct": 100
-        },
-        {
-          "route": "GCO-1 > CLE-7",
-          "otd_pct": 100
+          "otd_pct": 100.0
         }
       ]
     },
@@ -174,103 +229,93 @@
       "routes": [
         {
           "route": "NYC-1 > BKN-9",
-          "otd_pct": 100
+          "otd_pct": 100.0
         },
         {
           "route": "NYC-1 > EWR-2",
-          "otd_pct": 100
+          "otd_pct": 100.0
         },
         {
           "route": "NYC-1 > LIN-1",
-          "otd_pct": 100
+          "otd_pct": 100.0
         }
       ]
     },
-    "SLC-8": {
-      "type": "hub",
-      "otd_pct": 100.0,
-      "routes": [
-        {
-          "route": "SLC-8 > LAX-11",
-          "otd_pct": 100
-        }
-      ]
+    "ALX-1": {
+      "type": "spoke",
+      "otd_pct": 12.4
     },
     "ATL-11": {
       "type": "spoke",
-      "otd_pct": 99.7
+      "otd_pct": 99.8
     },
     "ATL-12": {
       "type": "spoke",
-      "otd_pct": 99.3
+      "otd_pct": 99.7
     },
     "BKN-9": {
       "type": "spoke",
-      "otd_pct": 96.9
+      "otd_pct": 97.1
     },
     "BLT-3": {
       "type": "spoke",
-      "otd_pct": 99.8
+      "otd_pct": 100.0
     },
     "BNX-1": {
       "type": "spoke",
-      "otd_pct": 98.5
+      "otd_pct": 98.6
     },
     "BOS-5": {
       "type": "spoke",
-      "otd_pct": 99.6
+      "otd_pct": 100.0
     },
     "BOS-6": {
       "type": "spoke",
-      "otd_pct": 99.2
+      "otd_pct": 100.0
     },
     "CIN-5": {
       "type": "spoke",
-      "otd_pct": 99.1
+      "otd_pct": 99.3
     },
     "CLE-7": {
       "type": "spoke",
-      "otd_pct": 99.8
+      "otd_pct": 99.2
     },
     "CLT-3": {
       "type": "spoke",
-      "otd_pct": 99.0
+      "otd_pct": 99.8
     },
     "CNJ-2": {
       "type": "spoke",
-      "otd_pct": 95.0
+      "otd_pct": 99.9
     },
     "COL-5": {
       "type": "spoke",
-      "otd_pct": 99.3
+      "otd_pct": 99.8
     },
     "DCA-5": {
       "type": "spoke",
-      "otd_pct": 99.7
+      "otd_pct": 99.9
     },
     "DET-13": {
       "type": "spoke",
-      "otd_pct": 99.4
-    },
-    "ELZ-1": {
-      "type": "spoke",
-      "otd_pct": null
+      "otd_pct": 99.6
     },
     "HBG-2": {
       "type": "spoke",
-      "otd_pct": 98.7
+      "otd_pct": 99.2
     },
     "HFD-3": {
       "type": "spoke",
-      "otd_pct": 90.4
+      "otd_pct": 100.0
     },
     "HGR-1": {
       "type": "spoke",
-      "otd_pct": 98.9
+      "otd_pct": 99.7
     },
     "HUD-1": {
       "type": "spoke",
-      "otd_pct": 98.9
+      "otd_pct": 99.7
     },
     "JAX-2": {
       "type": "spoke",
@@ -278,39 +323,39 @@
     },
     "LIN-1": {
       "type": "spoke",
-      "otd_pct": 99.3
+      "otd_pct": 99.6
     },
     "NAS-2": {
       "type": "spoke",
-      "otd_pct": 99.7
+      "otd_pct": 100.0
     },
     "NNJ-5": {
       "type": "spoke",
-      "otd_pct": 98.7
+      "otd_pct": 100.0
     },
     "NNJ-6": {
       "type": "spoke",
-      "otd_pct": 99.3
+      "otd_pct": 99.8
     },
     "ORL-3": {
       "type": "spoke",
-      "otd_pct": null
+      "otd_pct": 99.4
     },
     "PHL-7": {
       "type": "spoke",
-      "otd_pct": 99.3
+      "otd_pct": 100.0
     },
     "PHL-8": {
       "type": "spoke",
-      "otd_pct": 97.5
+      "otd_pct": 97.7
     },
     "PIT-2": {
       "type": "spoke",
-      "otd_pct": null
+      "otd_pct": 75.0
     },
     "QNS-2": {
       "type": "spoke",
-      "otd_pct": 98.8
+      "otd_pct": 99.0
     },
     "RAL-3": {
       "type": "spoke",
@@ -318,15 +363,19 @@
     },
     "RIC-2": {
       "type": "spoke",
-      "otd_pct": 100
+      "otd_pct": 100.0
     },
     "TPA-4": {
       "type": "spoke",
-      "otd_pct": 98.7
+      "otd_pct": 66.7
     },
     "VAB-4": {
       "type": "spoke",
       "otd_pct": 99.5
+    },
+    "WMA-1": {
+      "type": "spoke",
+      "otd_pct": 100.0
     }
   },
   "sla_stack_rank": [
@@ -539,63 +588,6 @@
       "days_remaining_pallets": 69.6,
       "days_remaining_gaylords": 54.3,
       "history_days": 20
-    }
-  },
-  "eos_reports": {
-    "ATL-15": {
-      "op_date": "2026-07-13",
-      "all_trucks_departed": "Yes",
-      "late_inbound_rolled": "No",
-      "volume_variance": "Yes",
-      "late_outbounds": "No",
-      "pallets_on_floor": "No",
-      "summary": "1 STORD trailer did not show up. Forecast 19,800 units, actual 18,186.",
-      "rolled_details": "",
-      "rollover_lanes": ""
-    },
-    "ELZ-1": {
-      "op_date": "2026-07-13",
-      "all_trucks_departed": "Yes",
-      "late_inbound_rolled": "No",
-      "volume_variance": "No",
-      "late_outbounds": "No",
-      "pallets_on_floor": "No",
-      "summary": "Everything ran smoothly this evening.",
-      "rolled_details": "",
-      "rollover_lanes": ""
-    },
-    "GCO-1": {
-      "op_date": "2026-07-13",
-      "all_trucks_departed": "Yes",
-      "late_inbound_rolled": "No",
-      "volume_variance": "No",
-      "late_outbounds": "No",
-      "pallets_on_floor": "No",
-      "summary": "No issues with this evening's sort.",
-      "rolled_details": "",
-      "rollover_lanes": ""
-    },
-    "MCI-1": {
-      "op_date": "2026-07-13",
-      "all_trucks_departed": "Yes",
-      "late_inbound_rolled": "No",
-      "volume_variance": "No",
-      "late_outbounds": "No",
-      "pallets_on_floor": "No",
-      "summary": "No issues to report, overall a good night.",
-      "rolled_details": "",
-      "rollover_lanes": ""
-    },
-    "NYC-1": {
-      "op_date": "2026-07-13",
-      "all_trucks_departed": "No",
-      "late_inbound_rolled": "Yes",
-      "volume_variance": "No",
-      "late_outbounds": "No",
-      "pallets_on_floor": "No",
-      "summary": "Capstone Logistics driver Enrique (reports to Mateo, plate KNB-5665) waited 1h 30min outside a closed Macy's. Driver arrived at NYC-1 at 8:20pm with ~1,100 parcels but had not scanned them during pickup \u2014 sortation could not begin until scanning was complete. At 10:10pm driver was still scanning. EWR-2 arrived on site at 9:39pm. This is the second time this driver arrived without scanning parcels at pickup.",
-      "rolled_details": "Macy's SFS, Capstone Driver Enrique (plate KNB-5665) ~1,000 parcels rolled.",
-      "rollover_lanes": ""
     }
   }
 }

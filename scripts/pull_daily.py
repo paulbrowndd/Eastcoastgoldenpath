@@ -4,13 +4,17 @@
 When the user says "pull today's data", refresh ALL of the following:
 
 Daily tab (latest Sigma date, usually yesterday):
-  - Hub + spoke OTD and routes  → element itgnfDcpNu (Parcel Golden Path)
+  - Hub sortation OTD + routes  → OKR Daily (qDt7Dz4HcO) hub sort step; facility totals from
+                                    itgnfDcpNu with DEPENDENT_STEP_ON_TIME = 1 (controllable)
+  - Spoke sortation OTD         → itgnfDcpNu, STEP_TYPE_ORDER = '4 Spoke Sortation',
+                                    DEPENDENT_STEP_ON_TIME = 1 (controllable)
   - SLA stack rank (top 25)       → element Rm9zSyNl07
   - Pallet inventory              → element 4fEOWBbyUc (Pallet Level Data / Daily # of Pallets - Outbound)
                                     ATL-15, DMV-1, EWR-2, MCI-1; starting counts carry forward
 
 OKR tab (weekly metrics — refreshed every pull because in-week numbers change daily):
-  - Hub sortation weekly OKR      → element itgnfDcpNu, STEP_TYPE_ORDER = '2.1 Hub Sortation'
+  - Hub sortation weekly OKR      → element itgnfDcpNu, STEP_TYPE_ORDER = '2.1 Hub Sortation',
+                                    DEPENDENT_STEP_ON_TIME = 1 (controllable)
   - Pieces per pallet weekly OKR  → element Jg7aT1Ix9W (Truck Utilization / Utilization Table)
 
 Publish: data/{date}.json, data/latest.json, data/index.json, data/okr.json
@@ -49,6 +53,7 @@ GOLDEN_PATH_WB = "69e5a397-7e08-464f-9921-9b3de12b7d4e"
 TRUCK_UTIL_WB = "514c6528-d9e0-4b1a-87b6-b9b5063ab84a"
 PALLET_LEVEL_WB = "696d7151-1173-49c5-a1b0-d99d20324037"
 EL_DAILY = "itgnfDcpNu"
+EL_DAILY_OKR = "qDt7Dz4HcO"  # OKR: Daily Network On Time Performance %
 EL_STACK = "Rm9zSyNl07"
 EL_UTIL = "Jg7aT1Ix9W"
 EL_PALLET_OUTBOUND = "4fEOWBbyUc"
@@ -68,7 +73,10 @@ def pct_from_sigma(v):
     if v is None:
         return None
     f = float(v)
-    return round(f * 100, 1) if f <= 1 else round(f, 1)
+    # Sigma returns fractions (0–1); allow slight FP overflow above 1.
+    if f <= 1.5:
+        return round(min(f, 1) * 100, 1)
+    return round(f, 1)
 
 
 def parse_day(val) -> str:
@@ -383,6 +391,41 @@ def build_pallet_inventory(date, outbound_rows, prev_inventory=None, history=Non
 
 # --- Sigma SQL templates for the agent (MCP query tool) ---
 
+SQL_HUB_FACILITY_DAILY = f"""
+SELECT "FACILITY" AS facility,
+  SUM("MET_SLA")::float / NULLIF(SUM("BARCODES"), 0) AS otd_pct
+FROM "workbook"."{EL_DAILY}"
+WHERE "TIME_ID" = '{{date}}'
+  AND "DEPENDENT_STEP_ON_TIME" = 1
+  AND "STEP_TYPE_ORDER" = '2.1 Hub Sortation'
+  AND "FACILITY" IN ({','.join(repr(h) for h in HUBS)})
+GROUP BY 1
+ORDER BY 1
+""".strip()
+
+SQL_HUB_ROUTES_DAILY = f"""
+SELECT "6cfb8075f5e9bef14ff8a5bf3b4bd59b" AS facility,
+  "92d40c13b1f0ebdc8d3111befeb6ce52" AS route,
+  "Wjnri1ukr0" AS otd_pct
+FROM "workbook"."{EL_DAILY_OKR}"
+WHERE "faPyV11Puz" = '{{date}}'
+  AND "XiWnhjOOlr" = '2.1 Hub Sortation'
+  AND "6cfb8075f5e9bef14ff8a5bf3b4bd59b" IN ({','.join(repr(h) for h in HUBS)})
+ORDER BY 1, 2
+""".strip()
+
+SQL_SPOKE_FACILITY_DAILY = f"""
+SELECT "FACILITY" AS facility,
+  SUM("MET_SLA")::float / NULLIF(SUM("BARCODES"), 0) AS otd_pct
+FROM "workbook"."{EL_DAILY}"
+WHERE "TIME_ID" = '{{date}}'
+  AND "DEPENDENT_STEP_ON_TIME" = 1
+  AND "STEP_TYPE_ORDER" = '4 Spoke Sortation'
+  AND "FACILITY" IN ({','.join(repr(s) for s in SPOKES)})
+GROUP BY 1
+ORDER BY 1
+""".strip()
+
 SQL_STACK_RANK = f"""
 SELECT "sefIDK21P1" AS detail, "ecFYAW43ck" AS miss_count
 FROM "workbook"."{EL_STACK}"
@@ -398,6 +441,7 @@ SELECT "FACILITY" AS facility, "WEEK" AS week_start,
   SUM("BARCODES") AS barcodes
 FROM "workbook"."{EL_DAILY}"
 WHERE "STEP_TYPE_ORDER" = '2.1 Hub Sortation'
+  AND "DEPENDENT_STEP_ON_TIME" = 1
   AND "FACILITY" IN ({','.join(repr(h) for h in HUBS)})
   AND "WEEK" >= '{OKR_WEEK_LOOKBACK}'
 GROUP BY 1, 2
@@ -476,6 +520,7 @@ if __name__ == "__main__":
     print("Daily pull script — run by agent after Sigma MCP queries.")
     print("Includes: daily OTD/stack rank, pallet inventory, weekly OKR.")
     print(
-        "SQL templates: SQL_STACK_RANK, SQL_HUB_SORT_OKR, SQL_PPP_HUB_AGG, SQL_PPP_LANES, "
+        "SQL templates: SQL_HUB_FACILITY_DAILY, SQL_HUB_ROUTES_DAILY, SQL_SPOKE_FACILITY_DAILY, "
+        "SQL_STACK_RANK, SQL_HUB_SORT_OKR, SQL_PPP_HUB_AGG, SQL_PPP_LANES, "
         "SQL_PALLET_OUTBOUND, SQL_PALLET_OUTBOUND_HISTORY"
     )
