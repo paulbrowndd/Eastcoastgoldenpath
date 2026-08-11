@@ -15,7 +15,8 @@ Daily tab (latest Sigma date, usually yesterday):
 OKR tab (weekly metrics — refreshed every pull because in-week numbers change daily):
   - Hub sortation weekly OKR      → element itgnfDcpNu, STEP_TYPE_ORDER = '2.1 Hub Sortation',
                                     DEPENDENT_STEP_ON_TIME = 1 (controllable)
-  - Pieces per pallet weekly OKR  → element Jg7aT1Ix9W (Truck Utilization / Utilization Table)
+  - Pieces per pallet weekly OKR  → element I9baaptOl2 (Truck Utilization / Pallets Gaylord),
+                                    aligned with "Weekly pieces per pallet [With Gaylord]" (-LFvli5FTA)
 
 Publish: data/{date}.json, data/latest.json, data/index.json, data/okr.json
 """
@@ -55,7 +56,7 @@ PALLET_LEVEL_WB = "696d7151-1173-49c5-a1b0-d99d20324037"
 EL_DAILY = "itgnfDcpNu"
 EL_DAILY_OKR = "qDt7Dz4HcO"  # OKR: Daily Network On Time Performance %
 EL_STACK = "Rm9zSyNl07"
-EL_UTIL = "Jg7aT1Ix9W"
+EL_PPP_GAYLORD = "I9baaptOl2"  # Pallets Gaylord — weekly PPP with gaylord containers
 EL_PALLET_OUTBOUND = "4fEOWBbyUc"
 
 
@@ -185,12 +186,12 @@ def build_hub_sortation(rows):
 
 
 def build_pieces_per_pallet(hub_agg_rows, lane_rows):
-    """Hub agg: [week_start, origin, lane_segment, ppp, parcels, pallets, lane_count]
-    Lanes: [week_start, origin, lane_segment, lane, ppp, parcels, pallets]
+    """Hub agg: [week_start, origin, lane_segment, parcels, pallets, gaylords, containers, ppp, lane_count]
+    Lanes: [week_start, origin, lane_segment, lane, parcels, pallets, gaylords, ppp, pallet_ppp, gaylord_ppp]
     """
     ppp = {}
     for row in hub_agg_rows:
-        ws, origin, seg, ppp_val, parcels, pallets, lane_count = row
+        ws, origin, seg, parcels, pallets, gaylords, containers, ppp_val, lane_count = row
         wk = parse_week(ws)
         if wk not in ppp:
             ppp[wk] = {
@@ -205,12 +206,14 @@ def build_pieces_per_pallet(hub_agg_rows, lane_rows):
             "ppp": round(float(ppp_val), 1),
             "parcels": int(parcels),
             "pallets": int(pallets),
+            "gaylords": int(gaylords),
+            "containers": int(containers),
             "lane_count": int(lane_count),
             "lanes": [],
         }
 
     for row in lane_rows:
-        ws, origin, seg, lane, ppp_val, parcels, pallets = row
+        ws, origin, seg, lane, parcels, pallets, gaylords, ppp_val, pallet_ppp, gaylord_ppp = row
         wk = parse_week(ws)
         if wk not in ppp or origin not in HUBS:
             continue
@@ -218,15 +221,19 @@ def build_pieces_per_pallet(hub_agg_rows, lane_rows):
         if not seg_data:
             continue
         dest = lane.split(" - ", 1)[1] if " - " in lane else lane
-        seg_data["lanes"].append(
-            {
-                "lane": lane,
-                "destination": dest,
-                "ppp": round(float(ppp_val), 1),
-                "parcels": int(parcels),
-                "pallets": int(pallets),
-            }
-        )
+        lane_entry = {
+            "lane": lane,
+            "destination": dest,
+            "ppp": round(float(ppp_val), 1),
+            "parcels": int(parcels),
+            "pallets": int(pallets),
+            "gaylords": int(gaylords),
+        }
+        if pallet_ppp is not None:
+            lane_entry["pallet_ppp"] = round(float(pallet_ppp), 1)
+        if gaylord_ppp is not None:
+            lane_entry["gaylord_ppp"] = round(float(gaylord_ppp), 1)
+        seg_data["lanes"].append(lane_entry)
 
     weeks_sorted = sorted(ppp.keys(), reverse=True)
     current_week = weeks_sorted[0] if weeks_sorted else None
@@ -257,7 +264,7 @@ def build_okr_payload(hub_sort_rows, ppp_hub_agg_rows, ppp_lane_rows):
 
     return {
         "pulled_at": now_est(),
-        "source": "Sigma · Parcel Golden Path + Truck Utilization",
+        "source": "Sigma · Parcel Golden Path + Truck Utilization (Pallets Gaylord)",
         "current_week": current_week,
         "weeks": weeks,
         "hub_sortation": hub_sortation,
@@ -449,25 +456,31 @@ ORDER BY 2 DESC, 1
 """.strip()
 
 SQL_PPP_HUB_AGG = f"""
-WITH base AS (
+WITH daily AS (
   SELECT
     DATE_TRUNC('week', "DEPARTURE_DATE_LOCAL" - INTERVAL '1 day') + INTERVAL '1 day' AS week_start,
     "ORIGIN" AS origin,
     "LANE_SEGMENT" AS lane_segment,
     "LANE" AS lane,
-    "TOTAL_PARCELS" AS parcels,
-    "TOTAL_PALLETS" AS pallets
-  FROM "workbook"."{EL_UTIL}"
+    "DEPARTURE_DATE_LOCAL" AS dep_date,
+    MAX("TOTAL_PARCELS") AS parcels,
+    SUM(CASE WHEN "PALLET_TYPE" = 'PALLET' THEN "CONTAINER_COUNT" ELSE 0 END) AS pallets,
+    SUM(CASE WHEN "PALLET_TYPE" = 'GAYLORD' THEN "CONTAINER_COUNT" ELSE 0 END) AS gaylords,
+    SUM("CONTAINER_COUNT") AS containers
+  FROM "workbook"."{EL_PPP_GAYLORD}"
   WHERE "ORIGIN" IN ({','.join(repr(h) for h in HUBS)})
-    AND "TOTAL_PALLETS" > 0
+    AND "CONTAINER_COUNT" > 0
     AND DATE_TRUNC('week', "DEPARTURE_DATE_LOCAL" - INTERVAL '1 day') + INTERVAL '1 day' >= '{OKR_WEEK_LOOKBACK}'
+  GROUP BY 1, 2, 3, 4, 5
 )
 SELECT week_start, origin, lane_segment,
-  SUM(parcels)::float / SUM(pallets) AS ppp,
   SUM(parcels) AS parcels,
   SUM(pallets) AS pallets,
+  SUM(gaylords) AS gaylords,
+  SUM(containers) AS containers,
+  SUM(parcels)::float / NULLIF(SUM(containers), 0) AS ppp,
   COUNT(DISTINCT lane) AS lane_count
-FROM base
+FROM daily
 GROUP BY 1, 2, 3
 ORDER BY 1 DESC, 2, 3
 """.strip()
@@ -493,26 +506,51 @@ ORDER BY 2 DESC, 1
 """.strip()
 
 SQL_PPP_LANES = f"""
-WITH base AS (
+WITH daily AS (
   SELECT
     DATE_TRUNC('week', "DEPARTURE_DATE_LOCAL" - INTERVAL '1 day') + INTERVAL '1 day' AS week_start,
     "ORIGIN" AS origin,
     "LANE_SEGMENT" AS lane_segment,
     "LANE" AS lane,
-    "TOTAL_PARCELS" AS parcels,
-    "TOTAL_PALLETS" AS pallets
-  FROM "workbook"."{EL_UTIL}"
+    "DEPARTURE_DATE_LOCAL" AS dep_date,
+    MAX("TOTAL_PARCELS") AS parcels,
+    SUM(CASE WHEN "PALLET_TYPE" = 'PALLET' THEN "CONTAINER_COUNT" ELSE 0 END) AS pallets,
+    SUM(CASE WHEN "PALLET_TYPE" = 'GAYLORD' THEN "CONTAINER_COUNT" ELSE 0 END) AS gaylords
+  FROM "workbook"."{EL_PPP_GAYLORD}"
   WHERE "ORIGIN" IN ({','.join(repr(h) for h in HUBS)})
-    AND "TOTAL_PALLETS" > 0
+    AND "CONTAINER_COUNT" > 0
     AND DATE_TRUNC('week', "DEPARTURE_DATE_LOCAL" - INTERVAL '1 day') + INTERVAL '1 day' >= '{OKR_WEEK_LOOKBACK}'
+  GROUP BY 1, 2, 3, 4, 5
+), lane AS (
+  SELECT week_start, origin, lane_segment, lane,
+    SUM(parcels) AS parcels,
+    SUM(pallets) AS pallets,
+    SUM(gaylords) AS gaylords
+  FROM daily
+  GROUP BY 1, 2, 3, 4
+), type_stats AS (
+  SELECT
+    DATE_TRUNC('week', "DEPARTURE_DATE_LOCAL" - INTERVAL '1 day') + INTERVAL '1 day' AS week_start,
+    "ORIGIN" AS origin,
+    "LANE" AS lane,
+    "PALLET_TYPE" AS pallet_type,
+    AVG("PIECES_PER_CONTAINER") AS avg_ppc
+  FROM "workbook"."{EL_PPP_GAYLORD}"
+  WHERE "ORIGIN" IN ({','.join(repr(h) for h in HUBS)})
+    AND "CONTAINER_COUNT" > 0
+    AND DATE_TRUNC('week', "DEPARTURE_DATE_LOCAL" - INTERVAL '1 day') + INTERVAL '1 day' >= '{OKR_WEEK_LOOKBACK}'
+  GROUP BY 1, 2, 3, 4
 )
-SELECT week_start, origin, lane_segment, lane,
-  SUM(parcels)::float / SUM(pallets) AS ppp,
-  SUM(parcels) AS parcels,
-  SUM(pallets) AS pallets
-FROM base
-GROUP BY 1, 2, 3, 4
-ORDER BY 1 DESC, 2, 3, 5 DESC
+SELECT l.week_start, l.origin, l.lane_segment, l.lane,
+  l.parcels, l.pallets, l.gaylords,
+  l.parcels::float / NULLIF(l.pallets + l.gaylords, 0) AS ppp,
+  MAX(CASE WHEN t.pallet_type = 'PALLET' THEN t.avg_ppc END) AS pallet_ppp,
+  MAX(CASE WHEN t.pallet_type = 'GAYLORD' THEN t.avg_ppc END) AS gaylord_ppp
+FROM lane l
+LEFT JOIN type_stats t
+  ON l.week_start = t.week_start AND l.origin = t.origin AND l.lane = t.lane
+GROUP BY l.week_start, l.origin, l.lane_segment, l.lane, l.parcels, l.pallets, l.gaylords
+ORDER BY 1 DESC, 2, 3, 8 DESC
 """.strip()
 
 
