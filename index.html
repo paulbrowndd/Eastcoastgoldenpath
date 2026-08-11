@@ -518,9 +518,9 @@ footer{text-align:center;padding:14px;border-top:1px solid var(--border);font-si
     </div>
     <div class="okr-grid" id="okr-grid"></div>
     <div class="sec okr-section">
-      <span class="sec-label">Pieces Per Pallet</span>
+      <span class="sec-label">Pieces Per Pallet (With Gaylord)</span>
       <span class="sec-line"></span>
-      <span class="sec-hint">GOAL · 150 PCS/PLT · NETWORK AVGS · BY HUB BELOW</span>
+      <span class="sec-hint">GOAL · 150 PCS/CONTAINER · EAST HUBS ONLY · NETWORK AVGS BELOW</span>
     </div>
     <div class="okr-ppp-network" id="okr-ppp-network"></div>
     <div class="okr-ppp-grid" id="okr-ppp-grid"></div>
@@ -594,20 +594,29 @@ function pppGapText(p){if(p===null||p===undefined)return'';const d=p-PPP_GOAL;re
 function hubCombinedPpp(hubData){
   if(!hubData)return null;
   const parcels=(hubData.hub_hub?.parcels||0)+(hubData.hub_spoke?.parcels||0);
-  const pallets=(hubData.hub_hub?.pallets||0)+(hubData.hub_spoke?.pallets||0);
-  return pallets?Math.round(parcels/pallets*10)/10:null;
+  const containers=(hubData.hub_hub?.containers||0)+(hubData.hub_spoke?.containers||0);
+  return containers?Math.round(parcels/containers*10)/10:null;
 }
 function hubCombinedSeg(hubData){
   if(!hubData)return null;
   const parcels=(hubData.hub_hub?.parcels||0)+(hubData.hub_spoke?.parcels||0);
   const pallets=(hubData.hub_hub?.pallets||0)+(hubData.hub_spoke?.pallets||0);
-  if(!pallets)return null;
+  const gaylords=(hubData.hub_hub?.gaylords||0)+(hubData.hub_spoke?.gaylords||0);
+  const containers=(hubData.hub_hub?.containers||0)+(hubData.hub_spoke?.containers||0);
+  if(!containers)return null;
   return {
     ppp:hubCombinedPpp(hubData),
     parcels,
     pallets,
+    gaylords,
+    containers,
     lane_count:(hubData.hub_hub?.lane_count||0)+(hubData.hub_spoke?.lane_count||0)
   };
+}
+function pppContainerMeta(d){
+  if(!d)return'';
+  const plts=d.pallets??0,glds=d.gaylords??0;
+  return `${plts.toLocaleString()} PLT${plts!==1?'S':''} · ${glds.toLocaleString()} GLD${glds!==1?'S':''}`;
 }
 function dc(d){if(d>=7)return'hi';if(d>=3)return'md';return'lo'}
 function pc(p){if(p>=60)return'hi';if(p>=30)return'md';return'lo'}
@@ -828,14 +837,14 @@ function renderOKR(){
 function pppSegBlock(segKey,label,data){
   if(!data)return `<div class="okr-ppp-seg ${segKey}"><div class="okr-ppp-seg-type">${label}</div><div class="okr-ppp-seg-val na">—</div><div class="okr-ppp-seg-sub">NO DATA</div></div>`;
   const cls=pppSc(data.ppp);
-  return `<div class="okr-ppp-seg ${segKey}"><div class="okr-ppp-seg-type">${label}</div><div class="okr-ppp-seg-val ${cls}">${data.ppp.toFixed(1)}</div><div class="okr-ppp-seg-gap">${pppGapText(data.ppp)}</div><div class="okr-ppp-seg-sub">${data.lane_count} LANE${data.lane_count!==1?'S':''} · ${data.pallets.toLocaleString()} PLTS</div></div>`;
+  return `<div class="okr-ppp-seg ${segKey}"><div class="okr-ppp-seg-type">${label}</div><div class="okr-ppp-seg-val ${cls}">${data.ppp.toFixed(1)}</div><div class="okr-ppp-seg-gap">${pppGapText(data.ppp)}</div><div class="okr-ppp-seg-sub">${data.lane_count} LANE${data.lane_count!==1?'S':''} · ${pppContainerMeta(data)}</div></div>`;
 }
 
 function computePppNetwork(pppWeek){
   const agg={
-    hub_hub:{parcels:0,pallets:0,hubs:0},
-    hub_spoke:{parcels:0,pallets:0,hubs:0},
-    total:{parcels:0,pallets:0}
+    hub_hub:{parcels:0,pallets:0,gaylords:0,containers:0,hubs:0},
+    hub_spoke:{parcels:0,pallets:0,gaylords:0,containers:0,hubs:0},
+    total:{parcels:0,pallets:0,gaylords:0,containers:0}
   };
   HUBS.forEach(hub=>{
     const d=pppWeek.hubs?.[hub];
@@ -843,17 +852,23 @@ function computePppNetwork(pppWeek){
     if(d.hub_hub){
       agg.hub_hub.parcels+=d.hub_hub.parcels;
       agg.hub_hub.pallets+=d.hub_hub.pallets;
+      agg.hub_hub.gaylords+=d.hub_hub.gaylords;
+      agg.hub_hub.containers+=d.hub_hub.containers;
       agg.hub_hub.hubs++;
     }
     if(d.hub_spoke){
       agg.hub_spoke.parcels+=d.hub_spoke.parcels;
       agg.hub_spoke.pallets+=d.hub_spoke.pallets;
+      agg.hub_spoke.gaylords+=d.hub_spoke.gaylords;
+      agg.hub_spoke.containers+=d.hub_spoke.containers;
       agg.hub_spoke.hubs++;
     }
   });
   agg.total.parcels=agg.hub_hub.parcels+agg.hub_spoke.parcels;
   agg.total.pallets=agg.hub_hub.pallets+agg.hub_spoke.pallets;
-  function ppp(o){return o.pallets?Math.round(o.parcels/o.pallets*10)/10:null;}
+  agg.total.gaylords=agg.hub_hub.gaylords+agg.hub_spoke.gaylords;
+  agg.total.containers=agg.hub_hub.containers+agg.hub_spoke.containers;
+  function ppp(o){return o.containers?Math.round(o.parcels/o.containers*10)/10:null;}
   return{
     hub_hub:{...agg.hub_hub,ppp:ppp(agg.hub_hub)},
     hub_spoke:{...agg.hub_spoke,ppp:ppp(agg.hub_spoke)},
@@ -875,7 +890,7 @@ function renderOkrPppNetwork(pppWeek){
     const val=d.ppp!==null?d.ppp.toFixed(1):'—';
     const cls=d.ppp!==null?pppSc(d.ppp):'';
     const meta=d.ppp!==null
-      ? `${c.key==='total'?`${d.pallets.toLocaleString()} TOTAL PLTS · ${d.parcels.toLocaleString()} PCS`:`${d.hubs} HUB${d.hubs!==1?'S':''} · ${d.pallets.toLocaleString()} PLTS · ${d.parcels.toLocaleString()} PCS`}<br>Goal ${PPP_GOAL} · ${pppGapText(d.ppp)}`
+      ? `${c.key==='total'?`${pppContainerMeta(d)} · ${d.parcels.toLocaleString()} PCS`:`${d.hubs} HUB${d.hubs!==1?'S':''} · ${pppContainerMeta(d)} · ${d.parcels.toLocaleString()} PCS`}<br>Goal ${PPP_GOAL} · ${pppGapText(d.ppp)}`
       : 'No volume this week';
     return `<div class="okr-ppp-net-card ${c.cls}${cls?' '+cls:''}" onclick="openOkrPppNetworkModal('${c.key}')">
       ${cls?`<div class="led ${cls}"></div>`:''}
@@ -908,7 +923,7 @@ function renderOkrPpp(){
     return `<div class="okr-ppp-card${hasData?'':' nodata'}${cardCls?' '+cardCls:''}" ${click}>
       ${cardCls?`<div class="led ${cardCls}"></div>`:''}
       <div class="okr-ppp-hub">${hub}</div>
-      <div class="okr-ppp-label">PIECES PER PALLET · GOAL ${PPP_GOAL}</div>
+      <div class="okr-ppp-label">WEEKLY AVG · GOAL ${PPP_GOAL} · WITH GAYLORD</div>
       <div class="okr-ppp-segments">
         ${combinedSeg?pppSegBlock('total','COMBINED',combinedSeg):''}
         <div class="okr-ppp-seg-row">
@@ -969,14 +984,15 @@ function okrPppLaneRow(lane,segCls){
   const rowCls=cls==='red'?'rr':cls==='yellow'?'ry':'';
   const bw=Math.min(100,Math.round((lane.ppp/PPP_GOAL)*100));
   const barColor=cls==='green'?'var(--green)':cls==='yellow'?'var(--yellow)':'var(--red)';
-  return `<div class="route-row ${rowCls}"><div class="route-left"><div class="route-name">→ ${lane.destination}</div><div class="route-bar-track"><div class="route-bar-fill ${cls}" style="width:${bw}%;background:${barColor}"></div></div><div class="row-meta">${lane.parcels.toLocaleString()} PCS · ${lane.pallets.toLocaleString()} PLTS · ${pppGapText(lane.ppp)}</div></div><div class="route-pct ${cls}">${lane.ppp.toFixed(1)}</div></div>`;
+  const typeDetail=[lane.pallet_ppp!==undefined?`PLT avg ${lane.pallet_ppp.toFixed(1)} (${lane.pallets})`:null,lane.gaylord_ppp!==undefined?`GLD avg ${lane.gaylord_ppp.toFixed(1)} (${lane.gaylords})`:null].filter(Boolean).join(' · ');
+  return `<div class="route-row ${rowCls}"><div class="route-left"><div class="route-name">${lane.lane||('→ '+lane.destination)}</div><div class="route-bar-track"><div class="route-bar-fill ${cls}" style="width:${bw}%;background:${barColor}"></div></div><div class="row-meta">${lane.parcels.toLocaleString()} PCS · ${pppContainerMeta(lane)} · ${pppGapText(lane.ppp)}${typeDetail?'<br>'+typeDetail:''}</div></div><div class="route-pct ${cls}">${lane.ppp.toFixed(1)}</div></div>`;
 }
 
 function okrPppHubRow(r){
   const cls=pppSc(r.ppp);
   const rowCls=cls==='red'?'rr':cls==='yellow'?'ry':'';
   const bw=Math.min(100,Math.round((r.ppp/PPP_GOAL)*100));
-  return `<div class="route-row ${rowCls}"><div class="route-left"><div class="route-name">${r.hub}</div><div class="route-bar-track"><div class="route-bar-fill ${cls}" style="width:${bw}%"></div></div><div class="row-meta">${r.parcels.toLocaleString()} PCS · ${r.pallets.toLocaleString()} PLTS · ${pppGapText(r.ppp)}</div></div><div class="route-pct ${cls}">${r.ppp.toFixed(1)}</div></div>`;
+  return `<div class="route-row ${rowCls}"><div class="route-left"><div class="route-name">${r.hub}</div><div class="route-bar-track"><div class="route-bar-fill ${cls}" style="width:${bw}%"></div></div><div class="row-meta">${r.parcels.toLocaleString()} PCS · ${pppContainerMeta(r)} · ${pppGapText(r.ppp)}</div></div><div class="route-pct ${cls}">${r.ppp.toFixed(1)}</div></div>`;
 }
 
 function openOkrPppNetworkModal(segKey){
@@ -1004,20 +1020,19 @@ function openOkrPppNetworkModal(segKey){
   badge.style.color='';
   badge.style.borderColor='';
   document.getElementById('om-note').textContent=week.in_progress
-    ? 'Partial week — network average still accumulating through Sunday. Goal is '+PPP_GOAL+' pieces per pallet.'
-    : `Weighted across all reporting east hubs. Goal is ${PPP_GOAL} pieces per pallet (≥${PPP_GOAL} on track, ≥${Math.round(PPP_GOAL*0.9)} watch).`;
+    ? 'Partial week — network average still accumulating through Sunday. Goal is '+PPP_GOAL+' pieces per container (pallets + gaylords).'
+    : `East region hubs only — excludes west coast. Goal is ${PPP_GOAL} pieces per container (≥${PPP_GOAL} on track, ≥${Math.round(PPP_GOAL*0.9)} watch).`;
   const rows=HUBS.map(hub=>{
     const d=week.hubs?.[hub];
     if(!d)return null;
     if(segKey==='total'){
-      const parcels=(d.hub_hub?.parcels||0)+(d.hub_spoke?.parcels||0);
-      const pallets=(d.hub_hub?.pallets||0)+(d.hub_spoke?.pallets||0);
-      if(!pallets)return null;
-      return {hub,ppp:Math.round(parcels/pallets*10)/10,parcels,pallets};
+      const seg=hubCombinedSeg(d);
+      if(!seg)return null;
+      return {hub,ppp:seg.ppp,parcels:seg.parcels,pallets:seg.pallets,gaylords:seg.gaylords};
     }
     const seg=d[segKey];
     if(!seg)return null;
-    return {hub,ppp:seg.ppp,parcels:seg.parcels,pallets:seg.pallets};
+    return {hub,ppp:seg.ppp,parcels:seg.parcels,pallets:seg.pallets,gaylords:seg.gaylords};
   }).filter(Boolean).sort((a,b)=>a.ppp-b.ppp);
   document.getElementById('om-hubs-lbl').textContent=`${rows.length} HUB${rows.length!==1?'S':''} · GOAL ${PPP_GOAL} · SORTED LOW TO HIGH`;
   let html='';
@@ -1033,7 +1048,7 @@ function openOkrPppModal(hub){
   const week=okrData.pieces_per_pallet?.[currentOkrWeek];
   const hubData=week?.hubs?.[hub];
   if(!hubData)return;
-  document.getElementById('om-title').textContent=hub+' · PIECES PER PALLET';
+  document.getElementById('om-title').textContent=hub+' · PIECES PER PALLET (WITH GAYLORD)';
   document.getElementById('om-week').textContent=fmtWeekRange(week.week_start,week.week_end)+' · GOAL '+PPP_GOAL;
   const combinedSeg=hubCombinedSeg(hubData);
   const combined=combinedSeg?.ppp??null;
@@ -1052,15 +1067,15 @@ function openOkrPppModal(hub){
   badge.style.color='';
   badge.style.borderColor='';
   document.getElementById('om-note').textContent=week.in_progress
-    ? 'Partial week — pieces per pallet still accumulating through Sunday. Goal is '+PPP_GOAL+' pieces per pallet.'
-    : `Goal is ${PPP_GOAL} pieces per pallet. Hub→Hub and Hub→Spoke are tracked separately below.`;
+    ? 'Partial week — weekly average still accumulating through Sunday. Combined PPP = pieces ÷ (pallets + gaylords).'
+    : `Combined PPP = pieces ÷ (pallets + gaylords). Per-type averages show avg pieces per pallet vs gaylord container. Goal is ${PPP_GOAL}.`;
   let html='';
   if(hubData.hub_hub){
-    html+=`<div class="route-divider"><span class="okr-seg-badge h2h">HUB → HUB</span> ${hubData.hub_hub.ppp.toFixed(1)} · ${pppSl(pppSc(hubData.hub_hub.ppp))} · ${hubData.hub_hub.lane_count} LANE${hubData.hub_hub.lane_count!==1?'S':''}</div>`;
+    html+=`<div class="route-divider"><span class="okr-seg-badge h2h">HUB → HUB</span> ${hubData.hub_hub.ppp.toFixed(1)} · ${pppSl(pppSc(hubData.hub_hub.ppp))} · ${hubData.hub_hub.lane_count} LANE${hubData.hub_hub.lane_count!==1?'S':''} · ${pppContainerMeta(hubData.hub_hub)}</div>`;
     html+=hubData.hub_hub.lanes.map(l=>okrPppLaneRow(l,'h2h')).join('');
   }
   if(hubData.hub_spoke){
-    html+=`<div class="route-divider"><span class="okr-seg-badge h2s">HUB → SPOKE</span> ${hubData.hub_spoke.ppp.toFixed(1)} · ${pppSl(pppSc(hubData.hub_spoke.ppp))} · ${hubData.hub_spoke.lane_count} LANE${hubData.hub_spoke.lane_count!==1?'S':''}</div>`;
+    html+=`<div class="route-divider"><span class="okr-seg-badge h2s">HUB → SPOKE</span> ${hubData.hub_spoke.ppp.toFixed(1)} · ${pppSl(pppSc(hubData.hub_spoke.ppp))} · ${hubData.hub_spoke.lane_count} LANE${hubData.hub_spoke.lane_count!==1?'S':''} · ${pppContainerMeta(hubData.hub_spoke)}</div>`;
     html+=hubData.hub_spoke.lanes.map(l=>okrPppLaneRow(l,'h2s')).join('');
   }
   document.getElementById('om-hubs-lbl').textContent='LANE-LEVEL BREAKDOWN · SORTED BY PIECES PER PALLET';
