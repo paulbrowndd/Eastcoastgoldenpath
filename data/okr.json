@@ -1,5 +1,5 @@
 {
-  "pulled_at": "2026-08-10 23:10 EST",
+  "pulled_at": "2026-08-10 23:16 EST",
   "source": "Sigma \u00b7 Parcel Golden Path + Truck Utilization (Pallets Gaylord)",
   "current_week": "2026-08-03",
   "weeks": [
@@ -381,7 +381,9 @@
                 "pallet_ppp": 28.1,
                 "gaylord_ppp": 149.3
               }
-            ]
+            ],
+            "pallet_ppp": 35.1,
+            "gaylord_ppp": 163.6
           },
           "hub_spoke": {
             "ppp": 112.2,
@@ -461,7 +463,9 @@
                 "pallet_ppp": 34.8,
                 "gaylord_ppp": 129.3
               }
-            ]
+            ],
+            "pallet_ppp": 39.6,
+            "gaylord_ppp": 185.4
           }
         },
         "DMV-1": {
@@ -493,7 +497,9 @@
                 "pallet_ppp": 75.4,
                 "gaylord_ppp": 165.9
               }
-            ]
+            ],
+            "pallet_ppp": 70.4,
+            "gaylord_ppp": 207.5
           },
           "hub_spoke": {
             "ppp": 117.6,
@@ -553,7 +559,9 @@
                 "pallet_ppp": 30.9,
                 "gaylord_ppp": 92.8
               }
-            ]
+            ],
+            "pallet_ppp": 61.9,
+            "gaylord_ppp": 155.2
           }
         },
         "ELZ-1": {
@@ -575,7 +583,9 @@
                 "pallet_ppp": 17.5,
                 "gaylord_ppp": 79.0
               }
-            ]
+            ],
+            "pallet_ppp": 17.5,
+            "gaylord_ppp": 79.0
           },
           "hub_spoke": null
         },
@@ -608,7 +618,9 @@
                 "pallet_ppp": 103.9,
                 "gaylord_ppp": 149.0
               }
-            ]
+            ],
+            "pallet_ppp": 95.6,
+            "gaylord_ppp": 155.9
           },
           "hub_spoke": {
             "ppp": 118.0,
@@ -798,7 +810,9 @@
                 "pallet_ppp": 55.5,
                 "gaylord_ppp": 126.8
               }
-            ]
+            ],
+            "pallet_ppp": 58.8,
+            "gaylord_ppp": 153.5
           }
         },
         "GCO-1": {
@@ -840,7 +854,9 @@
                 "pallet_ppp": 28.1,
                 "gaylord_ppp": 57.3
               }
-            ]
+            ],
+            "pallet_ppp": 57.6,
+            "gaylord_ppp": 135.8
           },
           "hub_spoke": {
             "ppp": 118.5,
@@ -890,7 +906,9 @@
                 "pallet_ppp": 42.5,
                 "gaylord_ppp": 110.1
               }
-            ]
+            ],
+            "pallet_ppp": 71.8,
+            "gaylord_ppp": 128.8
           }
         },
         "NYC-1": {
@@ -912,7 +930,9 @@
                 "pallet_ppp": 70.9,
                 "gaylord_ppp": 114.9
               }
-            ]
+            ],
+            "pallet_ppp": 70.9,
+            "gaylord_ppp": 114.9
           },
           "hub_spoke": {
             "ppp": 82.7,
@@ -942,7 +962,9 @@
                 "pallet_ppp": 47.5,
                 "gaylord_ppp": 89.7
               }
-            ]
+            ],
+            "pallet_ppp": 55.6,
+            "gaylord_ppp": 106.5
           }
         }
       }
@@ -981,7 +1003,9 @@
                 "pallet_ppp": 42.0,
                 "gaylord_ppp": 220.6
               }
-            ]
+            ],
+            "pallet_ppp": 46.6,
+            "gaylord_ppp": 223.7
           },
           "hub_spoke": {
             "ppp": 112.0,
@@ -1071,7 +1095,9 @@
                 "pallet_ppp": 28.6,
                 "gaylord_ppp": 145.2
               }
-            ]
+            ],
+            "pallet_ppp": 36.4,
+            "gaylord_ppp": 195.4
           }
         },
         "DMV-1": {
@@ -1103,7 +1129,9 @@
                 "pallet_ppp": 91.5,
                 "gaylord_ppp": 176.8
               }
-            ]
+            ],
+            "pallet_ppp": 79.2,
+            "gaylord_ppp": 206.4
           },
           "hub_spoke": {
             "ppp": 115.7,
@@ -1163,7 +1191,9 @@
                 "pallet_ppp": 25.3,
                 "gaylord_ppp": 109.2
               }
-            ]
+            ],
+            "pallet_ppp": 57.8,
+            "gaylord_ppp": 156.0
           }
         },
         "ELZ-1": {
@@ -1185,7 +1215,9 @@
                 "pallet_ppp": 26.7,
                 "gaylord_ppp": 99.4
               }
-            ]
+            ],
+            "pallet_ppp": 26.7,
+            "gaylord_ppp": 99.4
           },
           "hub_spoke": null
         },
@@ -1218,7 +1250,9 @@
                 "pallet_ppp": 75.3,
                 "gaylord_ppp": 168.7
               }
-            ]
+            ],
+            "pallet_ppp": 82.7,
+            "gaylord_ppp": 164.0
           },
           "hub_spoke": {
             "ppp": 119.4,
@@ -1428,7 +1462,9 @@
                 "pallet_ppp": 42.7,
                 "gaylord_ppp": 145.5
               }
-            ]
+            ],
+            "pallet_ppp": 70.1,
+            "gaylord_ppp": 164.8
           }
         },
         "GCO-1": {
@@ -1480,7 +1516,9 @@
                 "pallet_ppp": 55.8,
                 "gaylord_ppp": 83.9
               }
-            ]
+            ],
+            "pallet_ppp": 63.1,
+            "gaylord_ppp": 132.2
           },
           "hub_spoke": {
             "ppp": 120.5,
@@ -1530,7 +1568,9 @@
                 "pallet_ppp": 42.0,
                 "gaylord_ppp": 115.3
               }
-            ]
+            ],
+            "pallet_ppp": 119.5,
+            "gaylord_ppp": 120.6
           }
         },
         "NYC-1": {
@@ -1552,7 +1592,9 @@
                 "pallet_ppp": 67.4,
                 "gaylord_ppp": 142.9
               }
-            ]
+            ],
+            "pallet_ppp": 67.4,
+            "gaylord_ppp": 142.9
           },
           "hub_spoke": {
             "ppp": 98.5,
@@ -1582,7 +1624,9 @@
                 "pallet_ppp": 49.0,
                 "gaylord_ppp": 116.4
               }
-            ]
+            ],
+            "pallet_ppp": 61.4,
+            "gaylord_ppp": 135.7
           }
         }
       }
@@ -1621,7 +1665,9 @@
                 "pallet_ppp": 47.9,
                 "gaylord_ppp": 190.0
               }
-            ]
+            ],
+            "pallet_ppp": 42.8,
+            "gaylord_ppp": 201.9
           },
           "hub_spoke": {
             "ppp": 121.4,
@@ -1711,7 +1757,9 @@
                 "pallet_ppp": 31.6,
                 "gaylord_ppp": 159.2
               }
-            ]
+            ],
+            "pallet_ppp": 38.1,
+            "gaylord_ppp": 209.3
           }
         },
         "DMV-1": {
@@ -1743,7 +1791,9 @@
                 "pallet_ppp": 78.9,
                 "gaylord_ppp": 206.3
               }
-            ]
+            ],
+            "pallet_ppp": 65.7,
+            "gaylord_ppp": 220.2
           },
           "hub_spoke": {
             "ppp": 89.1,
@@ -1803,7 +1853,9 @@
                 "pallet_ppp": 11.4,
                 "gaylord_ppp": 99.6
               }
-            ]
+            ],
+            "pallet_ppp": 23.8,
+            "gaylord_ppp": 160.1
           }
         },
         "ELZ-1": {
@@ -1825,7 +1877,9 @@
                 "pallet_ppp": 17.3,
                 "gaylord_ppp": 74.8
               }
-            ]
+            ],
+            "pallet_ppp": 17.3,
+            "gaylord_ppp": 74.8
           },
           "hub_spoke": null
         },
@@ -1858,7 +1912,9 @@
                 "pallet_ppp": 80.4,
                 "gaylord_ppp": 157.0
               }
-            ]
+            ],
+            "pallet_ppp": 76.7,
+            "gaylord_ppp": 173.6
           },
           "hub_spoke": {
             "ppp": 130.4,
@@ -2068,7 +2124,9 @@
                 "pallet_ppp": 47.3,
                 "gaylord_ppp": 151.4
               }
-            ]
+            ],
+            "pallet_ppp": 62.0,
+            "gaylord_ppp": 194.2
           }
         },
         "GCO-1": {
@@ -2120,7 +2178,9 @@
                 "pallet_ppp": 67.5,
                 "gaylord_ppp": 113.7
               }
-            ]
+            ],
+            "pallet_ppp": 83.5,
+            "gaylord_ppp": 154.8
           },
           "hub_spoke": {
             "ppp": 137.6,
@@ -2170,7 +2230,9 @@
                 "pallet_ppp": 38.0,
                 "gaylord_ppp": 129.2
               }
-            ]
+            ],
+            "pallet_ppp": 117.1,
+            "gaylord_ppp": 139.9
           }
         },
         "NYC-1": {
@@ -2192,7 +2254,9 @@
                 "pallet_ppp": 74.9,
                 "gaylord_ppp": 172.9
               }
-            ]
+            ],
+            "pallet_ppp": 74.9,
+            "gaylord_ppp": 172.9
           },
           "hub_spoke": {
             "ppp": 98.3,
@@ -2222,7 +2286,9 @@
                 "pallet_ppp": 44.7,
                 "gaylord_ppp": 115.6
               }
-            ]
+            ],
+            "pallet_ppp": 54.7,
+            "gaylord_ppp": 140.0
           }
         }
       }
@@ -2261,7 +2327,9 @@
                 "pallet_ppp": 35.5,
                 "gaylord_ppp": 205.6
               }
-            ]
+            ],
+            "pallet_ppp": 43.1,
+            "gaylord_ppp": 232.4
           },
           "hub_spoke": {
             "ppp": 108.6,
@@ -2351,7 +2419,9 @@
                 "pallet_ppp": 28.9,
                 "gaylord_ppp": 129.2
               }
-            ]
+            ],
+            "pallet_ppp": 37.3,
+            "gaylord_ppp": 188.6
           }
         },
         "DMV-1": {
@@ -2383,7 +2453,9 @@
                 "pallet_ppp": 46.5,
                 "gaylord_ppp": 243.7
               }
-            ]
+            ],
+            "pallet_ppp": 68.3,
+            "gaylord_ppp": 219.3
           },
           "hub_spoke": null
         },
@@ -2420,7 +2492,9 @@
                 "pallet_ppp": 64.4,
                 "gaylord_ppp": 177.1
               }
-            ]
+            ],
+            "pallet_ppp": 76.9,
+            "gaylord_ppp": 182.9
           },
           "hub_spoke": {
             "ppp": 125.4,
@@ -2630,7 +2704,9 @@
                 "pallet_ppp": 47.7,
                 "gaylord_ppp": 147.6
               }
-            ]
+            ],
+            "pallet_ppp": 56.1,
+            "gaylord_ppp": 194.2
           }
         },
         "GCO-1": {
@@ -2682,7 +2758,9 @@
                 "pallet_ppp": 57.6,
                 "gaylord_ppp": 101.7
               }
-            ]
+            ],
+            "pallet_ppp": 69.7,
+            "gaylord_ppp": 156.4
           },
           "hub_spoke": {
             "ppp": 133.8,
@@ -2730,7 +2808,9 @@
                 "gaylords": 9,
                 "gaylord_ppp": 139.2
               }
-            ]
+            ],
+            "pallet_ppp": 107.7,
+            "gaylord_ppp": 135.9
           }
         },
         "NYC-1": {
@@ -2752,7 +2832,9 @@
                 "pallet_ppp": 78.7,
                 "gaylord_ppp": 147.9
               }
-            ]
+            ],
+            "pallet_ppp": 78.7,
+            "gaylord_ppp": 147.9
           },
           "hub_spoke": {
             "ppp": 87.9,
@@ -2782,7 +2864,9 @@
                 "pallet_ppp": 44.2,
                 "gaylord_ppp": 120.7
               }
-            ]
+            ],
+            "pallet_ppp": 50.1,
+            "gaylord_ppp": 129.4
           }
         }
       }
@@ -2811,7 +2895,9 @@
                 "pallet_ppp": 25.7,
                 "gaylord_ppp": 170.8
               }
-            ]
+            ],
+            "pallet_ppp": 25.7,
+            "gaylord_ppp": 170.8
           },
           "hub_spoke": {
             "ppp": 141.5,
@@ -2881,7 +2967,9 @@
                 "pallet_ppp": 20.7,
                 "gaylord_ppp": 187.0
               }
-            ]
+            ],
+            "pallet_ppp": 30.5,
+            "gaylord_ppp": 231.5
           }
         },
         "DMV-1": {
@@ -2911,7 +2999,9 @@
                 "pallet_ppp": 69.1,
                 "gaylord_ppp": 164.4
               }
-            ]
+            ],
+            "pallet_ppp": 69.1,
+            "gaylord_ppp": 164.4
           },
           "hub_spoke": {
             "ppp": 123.1,
@@ -3101,7 +3191,9 @@
                 "pallet_ppp": 37.8,
                 "gaylord_ppp": 132.7
               }
-            ]
+            ],
+            "pallet_ppp": 42.2,
+            "gaylord_ppp": 190.4
           }
         },
         "GCO-1": {
@@ -3153,7 +3245,9 @@
                 "pallet_ppp": 65.0,
                 "gaylord_ppp": 85.3
               }
-            ]
+            ],
+            "pallet_ppp": 63.9,
+            "gaylord_ppp": 209.2
           },
           "hub_spoke": {
             "ppp": 151.9,
@@ -3190,7 +3284,8 @@
                 "gaylords": 11,
                 "gaylord_ppp": 148.2
               }
-            ]
+            ],
+            "gaylord_ppp": 152.0
           }
         },
         "NYC-1": {
@@ -3212,7 +3307,9 @@
                 "pallet_ppp": 72.8,
                 "gaylord_ppp": 307.7
               }
-            ]
+            ],
+            "pallet_ppp": 72.8,
+            "gaylord_ppp": 307.7
           },
           "hub_spoke": {
             "ppp": 90.5,
@@ -3242,7 +3339,9 @@
                 "pallet_ppp": 43.0,
                 "gaylord_ppp": 123.0
               }
-            ]
+            ],
+            "pallet_ppp": 44.3,
+            "gaylord_ppp": 137.0
           }
         }
       }
