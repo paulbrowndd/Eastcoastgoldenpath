@@ -185,6 +185,21 @@ def build_hub_sortation(rows):
     return hub_weeks, weeks_sorted, current_week
 
 
+def type_avgs_from_lanes(lanes):
+    pallet_num = pallet_den = gaylord_num = gaylord_den = 0
+    for lane in lanes:
+        if lane.get("pallet_ppp") is not None and lane.get("pallets"):
+            pallet_num += lane["pallet_ppp"] * lane["pallets"]
+            pallet_den += lane["pallets"]
+        if lane.get("gaylord_ppp") is not None and lane.get("gaylords"):
+            gaylord_num += lane["gaylord_ppp"] * lane["gaylords"]
+            gaylord_den += lane["gaylords"]
+    return {
+        "pallet_ppp": round(pallet_num / pallet_den, 1) if pallet_den else None,
+        "gaylord_ppp": round(gaylord_num / gaylord_den, 1) if gaylord_den else None,
+    }
+
+
 def build_pieces_per_pallet(hub_agg_rows, lane_rows):
     """Hub agg: [week_start, origin, lane_segment, parcels, pallets, gaylords, containers, ppp, lane_count]
     Lanes: [week_start, origin, lane_segment, lane, parcels, pallets, gaylords, ppp, pallet_ppp, gaylord_ppp]
@@ -245,6 +260,11 @@ def build_pieces_per_pallet(hub_agg_rows, lane_rows):
                 seg_data = ppp[wk]["hubs"][h][seg]
                 if seg_data and seg_data["lanes"]:
                     seg_data["lanes"].sort(key=lambda x: x["ppp"], reverse=True)
+                    avgs = type_avgs_from_lanes(seg_data["lanes"])
+                    if avgs["pallet_ppp"] is not None:
+                        seg_data["pallet_ppp"] = avgs["pallet_ppp"]
+                    if avgs["gaylord_ppp"] is not None:
+                        seg_data["gaylord_ppp"] = avgs["gaylord_ppp"]
 
     return ppp, weeks_sorted, current_week
 
