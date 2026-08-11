@@ -334,7 +334,7 @@ footer{text-align:center;padding:14px;border-top:1px solid var(--border);font-si
 .okr-ppp-goal-tag span{color:var(--green);}
 .okr-ppp-net-meta{font-size:10px;color:var(--text2);letter-spacing:0.4px;line-height:1.7;}
 .okr-ppp-net-hint{font-size:9px;color:var(--text2);letter-spacing:0.5px;text-align:right;margin-top:10px;}
-.okr-ppp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;}
+.okr-ppp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;}
 .okr-ppp-card.green{border-color:rgba(0,255,136,0.25);}
 .okr-ppp-card.yellow{border-color:rgba(255,204,0,0.25);}
 .okr-ppp-card.red{border-color:rgba(255,51,68,0.25);}
@@ -369,6 +369,31 @@ footer{text-align:center;padding:14px;border-top:1px solid var(--border);font-si
 .okr-ppp-seg-val.red+.okr-ppp-seg-gap{color:var(--red);}
 .okr-ppp-seg-sub{font-size:9px;color:var(--text2);letter-spacing:0.4px;margin-top:5px;}
 .okr-ppp-hint{font-size:9px;color:var(--text2);letter-spacing:0.5px;text-align:right;margin-top:10px;}
+.okr-ppp-type-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px;}
+.okr-ppp-type-row.compact{gap:6px;margin-top:8px;}
+.okr-ppp-type-row.modal{margin:14px 0 4px;}
+.okr-ppp-type-box{
+  padding:10px 8px;border:1px solid var(--border);background:rgba(255,255,255,0.02);text-align:center;
+}
+.okr-ppp-type-row.compact .okr-ppp-type-box{padding:8px 6px;}
+.okr-ppp-type-box.pallet{border-color:rgba(0,180,255,0.35);background:rgba(0,180,255,0.06);}
+.okr-ppp-type-box.gaylord{border-color:rgba(255,140,0,0.35);background:rgba(255,140,0,0.06);}
+.okr-ppp-type-label{font-family:'Orbitron',sans-serif;font-size:9px;letter-spacing:0.8px;margin-bottom:6px;}
+.okr-ppp-type-box.pallet .okr-ppp-type-label{color:#00b4ff;}
+.okr-ppp-type-box.gaylord .okr-ppp-type-label{color:#ff8c00;}
+.okr-ppp-type-val{font-family:'Orbitron',sans-serif;font-size:22px;font-weight:900;line-height:1;margin-bottom:4px;}
+.okr-ppp-type-row.compact .okr-ppp-type-val{font-size:18px;}
+.okr-ppp-type-val.green{color:var(--green);text-shadow:0 0 10px rgba(0,255,136,0.25);}
+.okr-ppp-type-val.yellow{color:var(--yellow);text-shadow:0 0 10px rgba(255,204,0,0.25);}
+.okr-ppp-type-val.red{color:var(--red);text-shadow:0 0 10px rgba(255,51,68,0.25);}
+.okr-ppp-type-val.na{font-size:14px;color:var(--text2);text-shadow:none;}
+.okr-ppp-type-count{font-size:9px;color:var(--text2);letter-spacing:0.4px;margin-bottom:3px;}
+.okr-ppp-type-gap{font-size:9px;letter-spacing:0.35px;}
+.okr-ppp-type-val.green+.okr-ppp-type-gap{color:var(--green);}
+.okr-ppp-type-val.yellow+.okr-ppp-type-gap{color:var(--yellow);}
+.okr-ppp-type-val.red+.okr-ppp-type-gap{color:var(--red);}
+.okr-ppp-coach-head{font-family:'Orbitron',sans-serif;font-size:9px;letter-spacing:1px;color:var(--text2);margin:10px 0 6px;text-align:center;}
+.okr-ppp-lane-types{margin-top:8px;}
 .okr-seg-badge{font-family:'Orbitron',sans-serif;font-size:9px;letter-spacing:0.5px;padding:3px 8px;border:1px solid;display:inline-block;margin-bottom:10px;}
 .okr-seg-badge.h2h{color:#00b4ff;border-color:rgba(0,180,255,0.35);background:rgba(0,180,255,0.08);}
 .okr-seg-badge.h2s{color:#ff8c00;border-color:rgba(255,140,0,0.35);background:rgba(255,140,0,0.08);}
@@ -553,6 +578,7 @@ footer{text-align:center;padding:14px;border-top:1px solid var(--border);font-si
     <div class="modal-body">
       <div class="modal-big" id="om-pct">—</div>
       <div class="modal-status-badge" id="om-badge">—</div>
+      <div id="om-ppp-types"></div>
       <div class="okr-hub-note" id="om-note">—</div>
       <div class="modal-routes-lbl" id="om-hubs-lbl">— HUBS</div>
       <div id="om-hubs"></div>
@@ -597,6 +623,25 @@ function hubCombinedPpp(hubData){
   const containers=(hubData.hub_hub?.containers||0)+(hubData.hub_spoke?.containers||0);
   return containers?Math.round(parcels/containers*10)/10:null;
 }
+function typeAvgsFromLanes(lanes){
+  if(!lanes||!lanes.length)return{pallet_ppp:null,gaylord_ppp:null};
+  let pSum=0,pCnt=0,gSum=0,gCnt=0;
+  lanes.forEach(l=>{
+    if(l.pallet_ppp!=null&&l.pallets){pSum+=l.pallet_ppp*l.pallets;pCnt+=l.pallets;}
+    if(l.gaylord_ppp!=null&&l.gaylords){gSum+=l.gaylord_ppp*l.gaylords;gCnt+=l.gaylords;}
+  });
+  return{
+    pallet_ppp:pCnt?Math.round(pSum/pCnt*10)/10:null,
+    gaylord_ppp:gCnt?Math.round(gSum/gCnt*10)/10:null
+  };
+}
+function segWithTypeAvgs(data){
+  if(!data)return null;
+  const avgs=data.pallet_ppp!=null||data.gaylord_ppp!=null
+    ?{pallet_ppp:data.pallet_ppp,gaylord_ppp:data.gaylord_ppp}
+    :typeAvgsFromLanes(data.lanes);
+  return{...data,...avgs};
+}
 function hubCombinedSeg(hubData){
   if(!hubData)return null;
   const parcels=(hubData.hub_hub?.parcels||0)+(hubData.hub_spoke?.parcels||0);
@@ -604,14 +649,57 @@ function hubCombinedSeg(hubData){
   const gaylords=(hubData.hub_hub?.gaylords||0)+(hubData.hub_spoke?.gaylords||0);
   const containers=(hubData.hub_hub?.containers||0)+(hubData.hub_spoke?.containers||0);
   if(!containers)return null;
+  const allLanes=[...(hubData.hub_hub?.lanes||[]),...(hubData.hub_spoke?.lanes||[])];
+  const avgs=typeAvgsFromLanes(allLanes);
   return {
     ppp:hubCombinedPpp(hubData),
     parcels,
     pallets,
     gaylords,
     containers,
-    lane_count:(hubData.hub_hub?.lane_count||0)+(hubData.hub_spoke?.lane_count||0)
+    lane_count:(hubData.hub_hub?.lane_count||0)+(hubData.hub_spoke?.lane_count||0),
+    ...avgs
   };
+}
+function networkTypeAvgs(pppWeek,segKey){
+  let lanes=[];
+  HUBS.forEach(hub=>{
+    const d=pppWeek.hubs?.[hub];
+    if(!d)return;
+    if(segKey==='total')lanes=lanes.concat(d.hub_hub?.lanes||[],d.hub_spoke?.lanes||[]);
+    else if(d[segKey])lanes=lanes.concat(d[segKey].lanes||[]);
+  });
+  return typeAvgsFromLanes(lanes);
+}
+function pppTypeVal(v){
+  if(v===null||v===undefined)return{cls:'na',text:'—'};
+  const cls=pppSc(v);
+  return{cls,text:v.toFixed(1)};
+}
+function pppTypeAvgsHtml(data,{compact=false,modal=false,head=''}={}){
+  if(!data)return'';
+  const d=segWithTypeAvgs(data)||data;
+  const p=pppTypeVal(d.pallet_ppp),g=pppTypeVal(d.gaylord_ppp);
+  const rowCls=['okr-ppp-type-row',compact?'compact':'',modal?'modal':''].filter(Boolean).join(' ');
+  const headHtml=head?`<div class="okr-ppp-coach-head">${head}</div>`:'';
+  return `${headHtml}<div class="${rowCls}">
+    <div class="okr-ppp-type-box pallet">
+      <div class="okr-ppp-type-label">PALLET AVG</div>
+      <div class="okr-ppp-type-val ${p.cls}">${p.text}</div>
+      <div class="okr-ppp-type-count">${(d.pallets??0).toLocaleString()} pallet${d.pallets===1?'':'s'}</div>
+      ${p.cls!=='na'?`<div class="okr-ppp-type-gap">${pppGapText(d.pallet_ppp)}</div>`:''}
+    </div>
+    <div class="okr-ppp-type-box gaylord">
+      <div class="okr-ppp-type-label">GAYLORD AVG</div>
+      <div class="okr-ppp-type-val ${g.cls}">${g.text}</div>
+      <div class="okr-ppp-type-count">${(d.gaylords??0).toLocaleString()} gaylord${d.gaylords===1?'':'s'}</div>
+      ${g.cls!=='na'?`<div class="okr-ppp-type-gap">${pppGapText(d.gaylord_ppp)}</div>`:''}
+    </div>
+  </div>`;
+}
+function setOkrPppTypes(html){
+  const el=document.getElementById('om-ppp-types');
+  if(el){el.innerHTML=html||'';el.style.display=html?'block':'none';}
 }
 function pppContainerMeta(d){
   if(!d)return'';
@@ -834,10 +922,12 @@ function renderOKR(){
   renderOkrPpp();
 }
 
-function pppSegBlock(segKey,label,data){
+function pppSegBlock(segKey,label,data,{showTypes=true,compactTypes=false}={}){
   if(!data)return `<div class="okr-ppp-seg ${segKey}"><div class="okr-ppp-seg-type">${label}</div><div class="okr-ppp-seg-val na">—</div><div class="okr-ppp-seg-sub">NO DATA</div></div>`;
-  const cls=pppSc(data.ppp);
-  return `<div class="okr-ppp-seg ${segKey}"><div class="okr-ppp-seg-type">${label}</div><div class="okr-ppp-seg-val ${cls}">${data.ppp.toFixed(1)}</div><div class="okr-ppp-seg-gap">${pppGapText(data.ppp)}</div><div class="okr-ppp-seg-sub">${data.lane_count} LANE${data.lane_count!==1?'S':''} · ${pppContainerMeta(data)}</div></div>`;
+  const enriched=segWithTypeAvgs(data);
+  const cls=pppSc(enriched.ppp);
+  const types=showTypes?pppTypeAvgsHtml(enriched,{compact:compactTypes,head:compactTypes?'':''}):'';
+  return `<div class="okr-ppp-seg ${segKey}"><div class="okr-ppp-seg-type">${label}</div><div class="okr-ppp-seg-val ${cls}">${enriched.ppp.toFixed(1)}</div><div class="okr-ppp-seg-gap">${pppGapText(enriched.ppp)} combined</div><div class="okr-ppp-seg-sub">${enriched.lane_count} LANE${enriched.lane_count!==1?'S':''} · ${pppContainerMeta(enriched)}</div>${types}</div>`;
 }
 
 function computePppNetwork(pppWeek){
@@ -869,11 +959,16 @@ function computePppNetwork(pppWeek){
   agg.total.gaylords=agg.hub_hub.gaylords+agg.hub_spoke.gaylords;
   agg.total.containers=agg.hub_hub.containers+agg.hub_spoke.containers;
   function ppp(o){return o.containers?Math.round(o.parcels/o.containers*10)/10:null;}
-  return{
+  const result={
     hub_hub:{...agg.hub_hub,ppp:ppp(agg.hub_hub)},
     hub_spoke:{...agg.hub_spoke,ppp:ppp(agg.hub_spoke)},
     total:{...agg.total,ppp:ppp(agg.total),hubs:agg.hub_hub.hubs+agg.hub_spoke.hubs}
   };
+  ['hub_hub','hub_spoke','total'].forEach(k=>{
+    const avgs=networkTypeAvgs(pppWeek,k);
+    result[k]={...result[k],...avgs};
+  });
+  return result;
 }
 
 function renderOkrPppNetwork(pppWeek){
@@ -894,10 +989,11 @@ function renderOkrPppNetwork(pppWeek){
       : 'No volume this week';
     return `<div class="okr-ppp-net-card ${c.cls}${cls?' '+cls:''}" onclick="openOkrPppNetworkModal('${c.key}')">
       ${cls?`<div class="led ${cls}"></div>`:''}
-      <div class="okr-ppp-goal-tag">GOAL · <span>${PPP_GOAL}</span> PCS/PLT</div>
+      <div class="okr-ppp-goal-tag">GOAL · <span>${PPP_GOAL}</span> PCS/CONTAINER</div>
       <div class="okr-ppp-net-title">${c.title}</div>
       <div class="okr-ppp-net-metric${d.ppp===null?' na':cls?' '+cls:''}">${val}</div>
       <div class="okr-ppp-net-meta">${c.label}<br>${meta}</div>
+      ${d.ppp!==null?pppTypeAvgsHtml(d,{compact:true,head:'COACHING AVGS'}):''}
       <div class="okr-ppp-net-hint">▸ HUB BREAKDOWN</div>
     </div>`;
   }).join('');
@@ -923,12 +1019,12 @@ function renderOkrPpp(){
     return `<div class="okr-ppp-card${hasData?'':' nodata'}${cardCls?' '+cardCls:''}" ${click}>
       ${cardCls?`<div class="led ${cardCls}"></div>`:''}
       <div class="okr-ppp-hub">${hub}</div>
-      <div class="okr-ppp-label">WEEKLY AVG · GOAL ${PPP_GOAL} · WITH GAYLORD</div>
+      <div class="okr-ppp-label">WEEKLY COMBINED · GOAL ${PPP_GOAL}</div>
       <div class="okr-ppp-segments">
-        ${combinedSeg?pppSegBlock('total','COMBINED',combinedSeg):''}
+        ${combinedSeg?pppSegBlock('total','COMBINED',combinedSeg,{showTypes:true,compactTypes:false}):''}
         <div class="okr-ppp-seg-row">
-          ${pppSegBlock('h2h','HUB → HUB',hubData?.hub_hub)}
-          ${pppSegBlock('h2s','HUB → SPOKE',hubData?.hub_spoke)}
+          ${pppSegBlock('h2h','HUB → HUB',hubData?.hub_hub,{showTypes:true,compactTypes:true})}
+          ${pppSegBlock('h2s','HUB → SPOKE',hubData?.hub_spoke,{showTypes:true,compactTypes:true})}
         </div>
       </div>
       ${hasData?'<div class="okr-ppp-hint">▸ LANE BREAKDOWN</div>':''}
@@ -944,6 +1040,7 @@ function navigateOkrWeek(dir){
 
 function openOkrModal(metric){
   if(!okrData||!currentOkrWeek)return;
+  setOkrPppTypes('');
   const week=okrData.hub_sortation[currentOkrWeek];
   if(!week)return;
   const pct=week.network_otd_pct;
@@ -984,15 +1081,14 @@ function okrPppLaneRow(lane,segCls){
   const rowCls=cls==='red'?'rr':cls==='yellow'?'ry':'';
   const bw=Math.min(100,Math.round((lane.ppp/PPP_GOAL)*100));
   const barColor=cls==='green'?'var(--green)':cls==='yellow'?'var(--yellow)':'var(--red)';
-  const typeDetail=[lane.pallet_ppp!==undefined?`PLT avg ${lane.pallet_ppp.toFixed(1)} (${lane.pallets})`:null,lane.gaylord_ppp!==undefined?`GLD avg ${lane.gaylord_ppp.toFixed(1)} (${lane.gaylords})`:null].filter(Boolean).join(' · ');
-  return `<div class="route-row ${rowCls}"><div class="route-left"><div class="route-name">${lane.lane||('→ '+lane.destination)}</div><div class="route-bar-track"><div class="route-bar-fill ${cls}" style="width:${bw}%;background:${barColor}"></div></div><div class="row-meta">${lane.parcels.toLocaleString()} PCS · ${pppContainerMeta(lane)} · ${pppGapText(lane.ppp)}${typeDetail?'<br>'+typeDetail:''}</div></div><div class="route-pct ${cls}">${lane.ppp.toFixed(1)}</div></div>`;
+  return `<div class="route-row ${rowCls}"><div class="route-left"><div class="route-name">${lane.lane||('→ '+lane.destination)}</div><div class="route-bar-track"><div class="route-bar-fill ${cls}" style="width:${bw}%;background:${barColor}"></div></div><div class="row-meta">${lane.parcels.toLocaleString()} PCS · ${pppContainerMeta(lane)} · Combined ${lane.ppp.toFixed(1)} · ${pppGapText(lane.ppp)}</div><div class="okr-ppp-lane-types">${pppTypeAvgsHtml(lane,{compact:true})}</div></div><div class="route-pct ${cls}">${lane.ppp.toFixed(1)}</div></div>`;
 }
 
 function okrPppHubRow(r){
   const cls=pppSc(r.ppp);
   const rowCls=cls==='red'?'rr':cls==='yellow'?'ry':'';
   const bw=Math.min(100,Math.round((r.ppp/PPP_GOAL)*100));
-  return `<div class="route-row ${rowCls}"><div class="route-left"><div class="route-name">${r.hub}</div><div class="route-bar-track"><div class="route-bar-fill ${cls}" style="width:${bw}%"></div></div><div class="row-meta">${r.parcels.toLocaleString()} PCS · ${pppContainerMeta(r)} · ${pppGapText(r.ppp)}</div></div><div class="route-pct ${cls}">${r.ppp.toFixed(1)}</div></div>`;
+  return `<div class="route-row ${rowCls}"><div class="route-left"><div class="route-name">${r.hub}</div><div class="route-bar-track"><div class="route-bar-fill ${cls}" style="width:${bw}%"></div></div><div class="row-meta">${r.parcels.toLocaleString()} PCS · Combined ${r.ppp.toFixed(1)} · ${pppContainerMeta(r)}</div><div class="okr-ppp-lane-types">${pppTypeAvgsHtml(r,{compact:true})}</div></div><div class="route-pct ${cls}">${r.ppp.toFixed(1)}</div></div>`;
 }
 
 function openOkrPppNetworkModal(segKey){
@@ -1019,20 +1115,21 @@ function openOkrPppNetworkModal(segKey){
   badge.className='modal-status-badge '+cls;
   badge.style.color='';
   badge.style.borderColor='';
+  setOkrPppTypes(netData.ppp!==null?pppTypeAvgsHtml(netData,{modal:true,head:'NETWORK COACHING AVGS · PALLET vs GAYLORD'}):'');
   document.getElementById('om-note').textContent=week.in_progress
-    ? 'Partial week — network average still accumulating through Sunday. Goal is '+PPP_GOAL+' pieces per container (pallets + gaylords).'
-    : `East region hubs only — excludes west coast. Goal is ${PPP_GOAL} pieces per container (≥${PPP_GOAL} on track, ≥${Math.round(PPP_GOAL*0.9)} watch).`;
+    ? 'Partial week — averages still accumulating through Sunday. Coach sites on pallet avg and gaylord avg separately — goal is '+PPP_GOAL+' pcs per container.'
+    : `East region hubs only. Combined = pieces ÷ (pallets + gaylords). Pallet avg and gaylord avg are weekly averages per container type — use these to coach packing. Goal ${PPP_GOAL}.`;
   const rows=HUBS.map(hub=>{
     const d=week.hubs?.[hub];
     if(!d)return null;
     if(segKey==='total'){
       const seg=hubCombinedSeg(d);
       if(!seg)return null;
-      return {hub,ppp:seg.ppp,parcels:seg.parcels,pallets:seg.pallets,gaylords:seg.gaylords};
+      return {hub,...seg};
     }
-    const seg=d[segKey];
+    const seg=segWithTypeAvgs(d[segKey]);
     if(!seg)return null;
-    return {hub,ppp:seg.ppp,parcels:seg.parcels,pallets:seg.pallets,gaylords:seg.gaylords};
+    return {hub,...seg};
   }).filter(Boolean).sort((a,b)=>a.ppp-b.ppp);
   document.getElementById('om-hubs-lbl').textContent=`${rows.length} HUB${rows.length!==1?'S':''} · GOAL ${PPP_GOAL} · SORTED LOW TO HIGH`;
   let html='';
@@ -1066,9 +1163,10 @@ function openOkrPppModal(hub){
   badge.className='modal-status-badge '+cls;
   badge.style.color='';
   badge.style.borderColor='';
+  setOkrPppTypes(combinedSeg?pppTypeAvgsHtml(combinedSeg,{modal:true,head:'SITE COACHING AVGS · PALLET vs GAYLORD'}):'');
   document.getElementById('om-note').textContent=week.in_progress
-    ? 'Partial week — weekly average still accumulating through Sunday. Combined PPP = pieces ÷ (pallets + gaylords).'
-    : `Combined PPP = pieces ÷ (pallets + gaylords). Per-type averages show avg pieces per pallet vs gaylord container. Goal is ${PPP_GOAL}.`;
+    ? 'Partial week — coach on pallet avg and gaylord avg below. Combined is pieces ÷ all containers.'
+    : `Coach sites using pallet avg and gaylord avg (goal ${PPP_GOAL} each). Lane breakdown shows the same split per route.`;
   let html='';
   if(hubData.hub_hub){
     html+=`<div class="route-divider"><span class="okr-seg-badge h2h">HUB → HUB</span> ${hubData.hub_hub.ppp.toFixed(1)} · ${pppSl(pppSc(hubData.hub_hub.ppp))} · ${hubData.hub_hub.lane_count} LANE${hubData.hub_hub.lane_count!==1?'S':''} · ${pppContainerMeta(hubData.hub_hub)}</div>`;
