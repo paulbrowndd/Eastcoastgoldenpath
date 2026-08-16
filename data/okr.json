@@ -1,5 +1,5 @@
 {
-  "pulled_at": "2026-08-15 13:26 EST",
+  "pulled_at": "2026-08-16 18:30 EST",
   "source": "Sigma \u00b7 Parcel Golden Path + Truck Utilization (Pallets Gaylord)",
   "current_week": "2026-08-10",
   "weeks": [
@@ -21,32 +21,32 @@
       "week_end": "2026-08-16",
       "hubs": {
         "ATL-15": {
-          "otd_pct": 100.0,
-          "barcodes": 72468
+          "otd_pct": 99.3,
+          "barcodes": 86424
         },
         "DMV-1": {
-          "otd_pct": 98.6,
-          "barcodes": 50474
+          "otd_pct": 98.8,
+          "barcodes": 58102
         },
         "ELZ-1": {
-          "otd_pct": 80.3,
-          "barcodes": 64552
+          "otd_pct": 82.0,
+          "barcodes": 77409
         },
         "EWR-2": {
-          "otd_pct": 93.5,
-          "barcodes": 126686
+          "otd_pct": 94.6,
+          "barcodes": 152162
         },
         "GCO-1": {
           "otd_pct": 99.0,
-          "barcodes": 55120
+          "barcodes": 64301
         },
         "NYC-1": {
           "otd_pct": 100.0,
-          "barcodes": 7600
+          "barcodes": 8002
         }
       },
       "in_progress": true,
-      "network_otd_pct": 94.1,
+      "network_otd_pct": 94.6,
       "reporting_hubs": 6
     },
     "2026-08-03": {
@@ -55,11 +55,11 @@
       "hubs": {
         "ATL-15": {
           "otd_pct": 94.2,
-          "barcodes": 94096
+          "barcodes": 94094
         },
         "DMV-1": {
           "otd_pct": 95.6,
-          "barcodes": 67514
+          "barcodes": 67511
         },
         "ELZ-1": {
           "otd_pct": 99.7,
@@ -67,7 +67,7 @@
         },
         "EWR-2": {
           "otd_pct": 91.5,
-          "barcodes": 227187
+          "barcodes": 227183
         },
         "GCO-1": {
           "otd_pct": 98.4,
@@ -88,7 +88,7 @@
       "hubs": {
         "ATL-15": {
           "otd_pct": 98.7,
-          "barcodes": 107045
+          "barcodes": 107042
         },
         "DMV-1": {
           "otd_pct": 65.3,
@@ -104,7 +104,7 @@
         },
         "GCO-1": {
           "otd_pct": 97.4,
-          "barcodes": 73629
+          "barcodes": 73624
         },
         "NYC-1": {
           "otd_pct": 100.0,
@@ -388,127 +388,127 @@
       "hubs": {
         "ATL-15": {
           "hub_hub": {
-            "ppp": 150.8,
-            "parcels": 25635,
-            "pallets": 79,
-            "gaylords": 91,
-            "containers": 170,
+            "ppp": 140.5,
+            "parcels": 29230,
+            "pallets": 97,
+            "gaylords": 111,
+            "containers": 208,
             "lane_count": 2,
             "lanes": [
               {
                 "lane": "ATL-15 - DMV-1",
                 "destination": "DMV-1",
-                "ppp": 168.8,
-                "parcels": 14345,
-                "pallets": 46,
-                "gaylords": 39,
-                "pallet_ppp": 56.7,
-                "gaylord_ppp": 338.1
+                "ppp": 158.4,
+                "parcels": 16317,
+                "pallets": 55,
+                "gaylords": 48,
+                "pallet_ppp": 50.4,
+                "gaylord_ppp": 309.3
               },
               {
                 "lane": "ATL-15 - ORD-7",
                 "destination": "ORD-7",
-                "ppp": 132.8,
-                "parcels": 11290,
-                "pallets": 33,
-                "gaylords": 52,
-                "pallet_ppp": 35.5,
-                "gaylord_ppp": 195.8
+                "ppp": 123.0,
+                "parcels": 12913,
+                "pallets": 42,
+                "gaylords": 63,
+                "pallet_ppp": 31.0,
+                "gaylord_ppp": 184.1
               }
             ],
-            "pallet_ppp": 47.8,
-            "gaylord_ppp": 256.8
+            "pallet_ppp": 42.0,
+            "gaylord_ppp": 238.2
           },
           "hub_spoke": {
-            "ppp": 130.5,
-            "parcels": 51012,
-            "pallets": 204,
-            "gaylords": 187,
-            "containers": 391,
+            "ppp": 127.3,
+            "parcels": 59207,
+            "pallets": 238,
+            "gaylords": 227,
+            "containers": 465,
             "lane_count": 7,
             "lanes": [
               {
                 "lane": "ATL-15 - CLT-3",
                 "destination": "CLT-3",
-                "ppp": 180.5,
-                "parcels": 9026,
-                "pallets": 26,
-                "gaylords": 24,
-                "pallet_ppp": 61.9,
-                "gaylord_ppp": 325.3
+                "ppp": 179.6,
+                "parcels": 10418,
+                "pallets": 29,
+                "gaylords": 29,
+                "pallet_ppp": 58.4,
+                "gaylord_ppp": 313.5
               },
               {
                 "lane": "ATL-15 - ATL-12",
                 "destination": "ATL-12",
-                "ppp": 151.1,
-                "parcels": 16471,
-                "pallets": 50,
-                "gaylords": 59,
-                "pallet_ppp": 55.6,
-                "gaylord_ppp": 370.1
+                "ppp": 148.3,
+                "parcels": 19128,
+                "pallets": 57,
+                "gaylords": 72,
+                "pallet_ppp": 53.2,
+                "gaylord_ppp": 338.9
               },
               {
                 "lane": "ATL-15 - NAS-2",
                 "destination": "NAS-2",
-                "ppp": 132.5,
-                "parcels": 5831,
-                "pallets": 22,
-                "gaylords": 22,
-                "pallet_ppp": 37.2,
-                "gaylord_ppp": 228.2
+                "ppp": 130.4,
+                "parcels": 6649,
+                "pallets": 25,
+                "gaylords": 26,
+                "pallet_ppp": 36.9,
+                "gaylord_ppp": 219.8
               },
               {
                 "lane": "ATL-15 - JAX-2",
                 "destination": "JAX-2",
-                "ppp": 122.0,
-                "parcels": 4757,
-                "pallets": 20,
-                "gaylords": 19,
-                "pallet_ppp": 46.9,
-                "gaylord_ppp": 200.3
-              },
-              {
-                "lane": "ATL-15 - ATL-11",
-                "destination": "ATL-11",
-                "ppp": 109.5,
-                "parcels": 4929,
-                "pallets": 22,
-                "gaylords": 23,
-                "pallet_ppp": 38.9,
-                "gaylord_ppp": 180.9
+                "ppp": 120.7,
+                "parcels": 5432,
+                "pallets": 23,
+                "gaylords": 22,
+                "pallet_ppp": 45.6,
+                "gaylord_ppp": 197.8
               },
               {
                 "lane": "ATL-15 - TPA-4",
                 "destination": "TPA-4",
-                "ppp": 103.4,
-                "parcels": 5379,
-                "pallets": 33,
-                "gaylords": 19,
-                "pallet_ppp": 58.1,
-                "gaylord_ppp": 196.5
+                "ppp": 101.7,
+                "parcels": 6205,
+                "pallets": 38,
+                "gaylords": 23,
+                "pallet_ppp": 52.9,
+                "gaylord_ppp": 192.9
+              },
+              {
+                "lane": "ATL-15 - ATL-11",
+                "destination": "ATL-11",
+                "ppp": 99.5,
+                "parcels": 6171,
+                "pallets": 31,
+                "gaylords": 31,
+                "pallet_ppp": 42.6,
+                "gaylord_ppp": 166.3
               },
               {
                 "lane": "ATL-15 - ORL-3",
                 "destination": "ORL-3",
-                "ppp": 88.8,
-                "parcels": 4619,
-                "pallets": 31,
-                "gaylords": 21,
-                "pallet_ppp": 43.2,
-                "gaylord_ppp": 161.9
+                "ppp": 88.2,
+                "parcels": 5204,
+                "pallets": 35,
+                "gaylords": 24,
+                "pallet_ppp": 39.8,
+                "gaylord_ppp": 162.4
               }
             ],
-            "pallet_ppp": 50.3,
-            "gaylord_ppp": 266.1
+            "pallet_ppp": 48.0,
+            "gaylord_ppp": 251.3
           }
         },
         "DMV-1": {
           "hub_hub": {
-            "ppp": 140.5,
-            "parcels": 35118,
-            "pallets": 91,
-            "gaylords": 159,
-            "containers": 250,
+            "ppp": 131.8,
+            "parcels": 37825,
+            "pallets": 106,
+            "gaylords": 181,
+            "containers": 287,
             "lane_count": 3,
             "lanes": [
               {
@@ -524,108 +524,108 @@
               {
                 "lane": "DMV-1 - ATL-15",
                 "destination": "ATL-15",
-                "ppp": 124.8,
-                "parcels": 12981,
-                "pallets": 39,
-                "gaylords": 65,
-                "pallet_ppp": 79.9,
-                "gaylord_ppp": 148.7
+                "ppp": 116.5,
+                "parcels": 15034,
+                "pallets": 51,
+                "gaylords": 78,
+                "pallet_ppp": 75.0,
+                "gaylord_ppp": 143.2
               },
               {
                 "lane": "DMV-1 - GCO-1",
                 "destination": "GCO-1",
-                "ppp": 117.3,
-                "parcels": 8683,
-                "pallets": 23,
-                "gaylords": 51,
-                "pallet_ppp": 44.1,
-                "gaylord_ppp": 152.5
+                "ppp": 108.6,
+                "parcels": 9337,
+                "pallets": 26,
+                "gaylords": 60,
+                "pallet_ppp": 40.9,
+                "gaylord_ppp": 137.9
               }
             ],
-            "pallet_ppp": 64.3,
-            "gaylord_ppp": 183.4
+            "pallet_ppp": 62.3,
+            "gaylord_ppp": 172.2
           },
           "hub_spoke": {
-            "ppp": 127.3,
-            "parcels": 31952,
-            "pallets": 93,
-            "gaylords": 158,
-            "containers": 251,
+            "ppp": 127.0,
+            "parcels": 37474,
+            "pallets": 116,
+            "gaylords": 179,
+            "containers": 295,
             "lane_count": 7,
             "lanes": [
               {
                 "lane": "DMV-1 - PIT-2",
                 "destination": "PIT-2",
-                "ppp": 156.9,
-                "parcels": 9569,
-                "pallets": 24,
-                "gaylords": 37,
-                "pallet_ppp": 54.2,
-                "gaylord_ppp": 217.3
+                "ppp": 173.0,
+                "parcels": 11588,
+                "pallets": 29,
+                "gaylords": 38,
+                "pallet_ppp": 112.9,
+                "gaylord_ppp": 519.8
               },
               {
                 "lane": "DMV-1 - RAL-3",
                 "destination": "RAL-3",
-                "ppp": 142.8,
-                "parcels": 7711,
-                "pallets": 22,
-                "gaylords": 32,
-                "pallet_ppp": 50.6,
-                "gaylord_ppp": 206.8
+                "ppp": 143.0,
+                "parcels": 9435,
+                "pallets": 29,
+                "gaylords": 37,
+                "pallet_ppp": 59.4,
+                "gaylord_ppp": 206.1
               },
               {
                 "lane": "DMV-1 - VAB-4",
                 "destination": "VAB-4",
-                "ppp": 134.3,
-                "parcels": 6044,
-                "pallets": 20,
-                "gaylords": 25,
-                "pallet_ppp": 57.2,
-                "gaylord_ppp": 193.9
+                "ppp": 126.6,
+                "parcels": 6712,
+                "pallets": 24,
+                "gaylords": 29,
+                "pallet_ppp": 57.5,
+                "gaylord_ppp": 174.1
               },
               {
                 "lane": "DMV-1 - ALX-1",
                 "destination": "ALX-1",
-                "ppp": 111.4,
-                "parcels": 2563,
-                "pallets": 8,
-                "gaylords": 15,
-                "pallet_ppp": 48.6,
-                "gaylord_ppp": 139.1
+                "ppp": 102.5,
+                "parcels": 2869,
+                "pallets": 10,
+                "gaylords": 18,
+                "pallet_ppp": 44.3,
+                "gaylord_ppp": 130.4
               },
               {
                 "lane": "DMV-1 - DCA-5",
                 "destination": "DCA-5",
-                "ppp": 105.7,
-                "parcels": 2114,
-                "pallets": 8,
-                "gaylords": 12,
-                "pallet_ppp": 45.4,
-                "gaylord_ppp": 139.4
+                "ppp": 102.2,
+                "parcels": 2350,
+                "pallets": 9,
+                "gaylords": 14,
+                "pallet_ppp": 43.0,
+                "gaylord_ppp": 133.4
               },
               {
                 "lane": "DMV-1 - BLT-3",
                 "destination": "BLT-3",
-                "ppp": 94.5,
-                "parcels": 2269,
-                "pallets": 7,
-                "gaylords": 17,
-                "pallet_ppp": 38.7,
-                "gaylord_ppp": 125.0
+                "ppp": 92.0,
+                "parcels": 2577,
+                "pallets": 9,
+                "gaylords": 19,
+                "pallet_ppp": 38.4,
+                "gaylord_ppp": 125.9
               },
               {
                 "lane": "DMV-1 - HBG-2",
                 "destination": "HBG-2",
-                "ppp": 70.1,
-                "parcels": 1682,
-                "pallets": 4,
-                "gaylords": 20,
-                "pallet_ppp": 42.2,
-                "gaylord_ppp": 74.8
+                "ppp": 64.8,
+                "parcels": 1943,
+                "pallets": 6,
+                "gaylords": 24,
+                "pallet_ppp": 37.1,
+                "gaylord_ppp": 71.6
               }
             ],
-            "pallet_ppp": 51.1,
-            "gaylord_ppp": 170.2
+            "pallet_ppp": 67.0,
+            "gaylord_ppp": 227.7
           }
         },
         "ELZ-1": {
@@ -655,74 +655,74 @@
         },
         "EWR-2": {
           "hub_hub": {
-            "ppp": 119.3,
-            "parcels": 43674,
-            "pallets": 153,
-            "gaylords": 213,
-            "containers": 366,
+            "ppp": 118.9,
+            "parcels": 50294,
+            "pallets": 182,
+            "gaylords": 241,
+            "containers": 423,
             "lane_count": 2,
             "lanes": [
               {
                 "lane": "EWR-2 - ORD-7",
                 "destination": "ORD-7",
-                "ppp": 137.0,
-                "parcels": 18087,
-                "pallets": 52,
-                "gaylords": 80,
-                "pallet_ppp": 74.0,
-                "gaylord_ppp": 182.7
+                "ppp": 134.4,
+                "parcels": 21238,
+                "pallets": 64,
+                "gaylords": 94,
+                "pallet_ppp": 77.4,
+                "gaylord_ppp": 175.6
               },
               {
                 "lane": "EWR-2 - DMV-1",
                 "destination": "DMV-1",
-                "ppp": 109.3,
-                "parcels": 25587,
-                "pallets": 101,
-                "gaylords": 133,
-                "pallet_ppp": 63.5,
-                "gaylord_ppp": 134.6
+                "ppp": 109.6,
+                "parcels": 29056,
+                "pallets": 118,
+                "gaylords": 147,
+                "pallet_ppp": 66.3,
+                "gaylord_ppp": 138.7
               }
             ],
-            "pallet_ppp": 67.1,
-            "gaylord_ppp": 152.7
+            "pallet_ppp": 70.2,
+            "gaylord_ppp": 153.1
           },
           "hub_spoke": {
-            "ppp": 122.8,
-            "parcels": 173319,
-            "pallets": 607,
-            "gaylords": 804,
-            "containers": 1411,
+            "ppp": 122.6,
+            "parcels": 194023,
+            "pallets": 684,
+            "gaylords": 899,
+            "containers": 1583,
             "lane_count": 18,
             "lanes": [
               {
                 "lane": "EWR-2 - DCA-5",
                 "destination": "DCA-5",
-                "ppp": 150.0,
-                "parcels": 8852,
-                "pallets": 26,
-                "gaylords": 33,
-                "pallet_ppp": 127.8,
-                "gaylord_ppp": 186.7
+                "ppp": 151.1,
+                "parcels": 12538,
+                "pallets": 33,
+                "gaylords": 50,
+                "pallet_ppp": 110.6,
+                "gaylord_ppp": 187.3
               },
               {
                 "lane": "EWR-2 - ALX-1",
                 "destination": "ALX-1",
-                "ppp": 143.6,
-                "parcels": 9624,
-                "pallets": 31,
-                "gaylords": 36,
-                "pallet_ppp": 71.7,
-                "gaylord_ppp": 207.8
+                "ppp": 145.1,
+                "parcels": 11315,
+                "pallets": 36,
+                "gaylords": 42,
+                "pallet_ppp": 69.8,
+                "gaylord_ppp": 211.8
               },
               {
                 "lane": "EWR-2 - BOS-5",
                 "destination": "BOS-5",
                 "ppp": 141.8,
-                "parcels": 15885,
-                "pallets": 44,
-                "gaylords": 68,
-                "pallet_ppp": 57.8,
-                "gaylord_ppp": 200.5
+                "parcels": 17727,
+                "pallets": 50,
+                "gaylords": 75,
+                "pallet_ppp": 61.4,
+                "gaylord_ppp": 199.6
               },
               {
                 "lane": "EWR-2 - PHL-8",
@@ -737,12 +737,12 @@
               {
                 "lane": "EWR-2 - HFD-3",
                 "destination": "HFD-3",
-                "ppp": 129.1,
-                "parcels": 9939,
-                "pallets": 36,
-                "gaylords": 41,
-                "pallet_ppp": 57.9,
-                "gaylord_ppp": 194.6
+                "ppp": 129.5,
+                "parcels": 11009,
+                "pallets": 42,
+                "gaylords": 43,
+                "pallet_ppp": 65.1,
+                "gaylord_ppp": 200.7
               },
               {
                 "lane": "EWR-2 - CNJ-2",
@@ -757,22 +757,22 @@
               {
                 "lane": "EWR-2 - PHL-7",
                 "destination": "PHL-7",
-                "ppp": 127.3,
-                "parcels": 8531,
-                "pallets": 29,
-                "gaylords": 38,
-                "pallet_ppp": 49.1,
-                "gaylord_ppp": 186.9
+                "ppp": 124.6,
+                "parcels": 9473,
+                "pallets": 35,
+                "gaylords": 41,
+                "pallet_ppp": 51.8,
+                "gaylord_ppp": 186.5
               },
               {
                 "lane": "EWR-2 - NNJ-5",
                 "destination": "NNJ-5",
-                "ppp": 122.5,
-                "parcels": 10538,
-                "pallets": 34,
-                "gaylords": 52,
-                "pallet_ppp": 59.6,
-                "gaylord_ppp": 165.8
+                "ppp": 123.7,
+                "parcels": 11998,
+                "pallets": 39,
+                "gaylords": 58,
+                "pallet_ppp": 61.1,
+                "gaylord_ppp": 170.1
               },
               {
                 "lane": "EWR-2 - QNS-2",
@@ -787,178 +787,178 @@
               {
                 "lane": "EWR-2 - BLT-3",
                 "destination": "BLT-3",
-                "ppp": 117.6,
-                "parcels": 9642,
-                "pallets": 36,
-                "gaylords": 46,
-                "pallet_ppp": 48.6,
-                "gaylord_ppp": 183.3
-              },
-              {
-                "lane": "EWR-2 - LIN-1",
-                "destination": "LIN-1",
-                "ppp": 116.7,
-                "parcels": 10382,
-                "pallets": 42,
-                "gaylords": 47,
+                "ppp": 119.4,
+                "parcels": 11464,
+                "pallets": 44,
+                "gaylords": 52,
                 "pallet_ppp": 49.3,
-                "gaylord_ppp": 181.6
+                "gaylord_ppp": 191.7
               },
               {
                 "lane": "EWR-2 - HBG-2",
                 "destination": "HBG-2",
-                "ppp": 115.6,
-                "parcels": 4972,
-                "pallets": 22,
-                "gaylords": 21,
-                "pallet_ppp": 46.0,
-                "gaylord_ppp": 199.8
+                "ppp": 114.8,
+                "parcels": 5627,
+                "pallets": 25,
+                "gaylords": 24,
+                "pallet_ppp": 49.5,
+                "gaylord_ppp": 190.8
+              },
+              {
+                "lane": "EWR-2 - LIN-1",
+                "destination": "LIN-1",
+                "ppp": 114.1,
+                "parcels": 12433,
+                "pallets": 47,
+                "gaylords": 62,
+                "pallet_ppp": 47.6,
+                "gaylord_ppp": 169.9
               },
               {
                 "lane": "EWR-2 - WMA-1",
                 "destination": "WMA-1",
-                "ppp": 112.0,
-                "parcels": 11312,
-                "pallets": 38,
-                "gaylords": 63,
-                "pallet_ppp": 54.0,
-                "gaylord_ppp": 151.3
+                "ppp": 111.8,
+                "parcels": 12852,
+                "pallets": 46,
+                "gaylords": 69,
+                "pallet_ppp": 53.2,
+                "gaylord_ppp": 157.9
               },
               {
                 "lane": "EWR-2 - BKN-9",
                 "destination": "BKN-9",
-                "ppp": 111.0,
-                "parcels": 8876,
-                "pallets": 37,
-                "gaylords": 43,
-                "pallet_ppp": 43.4,
-                "gaylord_ppp": 165.3
-              },
-              {
-                "lane": "EWR-2 - HGR-1",
-                "destination": "HGR-1",
-                "ppp": 104.4,
-                "parcels": 3549,
-                "pallets": 18,
-                "gaylords": 16,
-                "pallet_ppp": 80.6,
-                "gaylord_ppp": 149.3
-              },
-              {
-                "lane": "EWR-2 - NNJ-6",
-                "destination": "NNJ-6",
-                "ppp": 104.2,
-                "parcels": 5419,
-                "pallets": 22,
-                "gaylords": 30,
-                "pallet_ppp": 41.6,
-                "gaylord_ppp": 154.2
+                "ppp": 109.3,
+                "parcels": 10381,
+                "pallets": 41,
+                "gaylords": 54,
+                "pallet_ppp": 41.8,
+                "gaylord_ppp": 157.0
               },
               {
                 "lane": "EWR-2 - HUD-1",
                 "destination": "HUD-1",
-                "ppp": 103.7,
-                "parcels": 4046,
+                "ppp": 103.4,
+                "parcels": 4034,
                 "pallets": 15,
                 "gaylords": 24,
                 "pallet_ppp": 29.0,
                 "gaylord_ppp": 154.2
               },
               {
+                "lane": "EWR-2 - NNJ-6",
+                "destination": "NNJ-6",
+                "ppp": 103.3,
+                "parcels": 6199,
+                "pallets": 25,
+                "gaylords": 35,
+                "pallet_ppp": 39.3,
+                "gaylord_ppp": 151.0
+              },
+              {
+                "lane": "EWR-2 - HGR-1",
+                "destination": "HGR-1",
+                "ppp": 101.2,
+                "parcels": 4048,
+                "pallets": 21,
+                "gaylords": 19,
+                "pallet_ppp": 72.2,
+                "gaylord_ppp": 145.0
+              },
+              {
                 "lane": "EWR-2 - BNX-1",
                 "destination": "BNX-1",
-                "ppp": 97.8,
-                "parcels": 9971,
-                "pallets": 50,
-                "gaylords": 52,
-                "pallet_ppp": 51.8,
-                "gaylord_ppp": 151.7
+                "ppp": 96.9,
+                "parcels": 11144,
+                "pallets": 58,
+                "gaylords": 57,
+                "pallet_ppp": 53.2,
+                "gaylord_ppp": 149.4
               }
             ],
-            "pallet_ppp": 59.0,
-            "gaylord_ppp": 177.6
+            "pallet_ppp": 58.9,
+            "gaylord_ppp": 177.4
           }
         },
         "GCO-1": {
           "hub_hub": {
-            "ppp": 113.8,
-            "parcels": 33795,
-            "pallets": 101,
-            "gaylords": 196,
-            "containers": 297,
+            "ppp": 112.0,
+            "parcels": 39295,
+            "pallets": 124,
+            "gaylords": 227,
+            "containers": 351,
             "lane_count": 4,
             "lanes": [
               {
                 "lane": "GCO-1 - ATL-15",
                 "destination": "ATL-15",
-                "ppp": 130.9,
-                "parcels": 7066,
-                "pallets": 14,
-                "gaylords": 40,
-                "pallet_ppp": 116.0,
-                "gaylord_ppp": 137.6
+                "ppp": 129.1,
+                "parcels": 8133,
+                "pallets": 18,
+                "gaylords": 45,
+                "pallet_ppp": 104.7,
+                "gaylord_ppp": 139.7
               },
               {
                 "lane": "GCO-1 - DMV-1",
                 "destination": "DMV-1",
-                "ppp": 128.2,
-                "parcels": 8721,
-                "pallets": 26,
-                "gaylords": 42,
-                "pallet_ppp": 83.4,
-                "gaylord_ppp": 171.7
+                "ppp": 125.4,
+                "parcels": 10030,
+                "pallets": 33,
+                "gaylords": 47,
+                "pallet_ppp": 78.5,
+                "gaylord_ppp": 174.3
               },
               {
                 "lane": "GCO-1 - ELZ-1",
                 "destination": "ELZ-1",
-                "ppp": 108.8,
-                "parcels": 16752,
-                "pallets": 59,
-                "gaylords": 95,
-                "pallet_ppp": 52.2,
-                "gaylord_ppp": 121.2
+                "ppp": 106.8,
+                "parcels": 19765,
+                "pallets": 71,
+                "gaylords": 114,
+                "pallet_ppp": 57.1,
+                "gaylord_ppp": 122.1
               },
               {
                 "lane": "GCO-1 - ORD-7",
                 "destination": "ORD-7",
-                "ppp": 59.8,
-                "parcels": 1256,
+                "ppp": 59.4,
+                "parcels": 1367,
                 "pallets": 2,
-                "gaylords": 19,
+                "gaylords": 21,
                 "pallet_ppp": 37.0,
-                "gaylord_ppp": 69.5
+                "gaylord_ppp": 67.2
               }
             ],
-            "pallet_ppp": 68.8,
-            "gaylord_ppp": 130.4
+            "pallet_ppp": 69.4,
+            "gaylord_ppp": 131.3
           },
           "hub_spoke": {
-            "ppp": 121.4,
-            "parcels": 21367,
-            "pallets": 26,
-            "gaylords": 150,
-            "containers": 176,
+            "ppp": 117.2,
+            "parcels": 23901,
+            "pallets": 31,
+            "gaylords": 173,
+            "containers": 204,
             "lane_count": 4,
             "lanes": [
               {
                 "lane": "GCO-1 - CHI-17",
                 "destination": "CHI-17",
-                "ppp": 141.1,
-                "parcels": 10021,
-                "pallets": 6,
-                "gaylords": 65,
-                "pallet_ppp": 93.4,
-                "gaylord_ppp": 146.3
+                "ppp": 134.7,
+                "parcels": 11177,
+                "pallets": 9,
+                "gaylords": 74,
+                "pallet_ppp": 90.2,
+                "gaylord_ppp": 139.1
               },
               {
                 "lane": "GCO-1 - DET-13",
                 "destination": "DET-13",
-                "ppp": 129.8,
-                "parcels": 5841,
-                "pallets": 10,
-                "gaylords": 35,
-                "pallet_ppp": 105.4,
-                "gaylord_ppp": 139.1
+                "ppp": 122.4,
+                "parcels": 6730,
+                "pallets": 11,
+                "gaylords": 44,
+                "pallet_ppp": 85.3,
+                "gaylord_ppp": 131.0
               },
               {
                 "lane": "GCO-1 - CLE-7",
@@ -973,72 +973,72 @@
               {
                 "lane": "GCO-1 - CIN-5",
                 "destination": "CIN-5",
-                "ppp": 91.6,
-                "parcels": 3206,
-                "pallets": 5,
-                "gaylords": 30,
-                "pallet_ppp": 45.2,
-                "gaylord_ppp": 94.5
+                "ppp": 90.1,
+                "parcels": 3695,
+                "pallets": 6,
+                "gaylords": 35,
+                "pallet_ppp": 53.4,
+                "gaylord_ppp": 92.1
               }
             ],
-            "pallet_ppp": 77.4,
-            "gaylord_ppp": 129.2
+            "pallet_ppp": 72.3,
+            "gaylord_ppp": 124.0
           }
         },
         "NYC-1": {
           "hub_hub": {
-            "ppp": 94.4,
-            "parcels": 5662,
-            "pallets": 19,
-            "gaylords": 41,
-            "containers": 60,
+            "ppp": 93.3,
+            "parcels": 6716,
+            "pallets": 23,
+            "gaylords": 49,
+            "containers": 72,
             "lane_count": 1,
             "lanes": [
               {
                 "lane": "NYC-1 - EWR-2",
                 "destination": "EWR-2",
-                "ppp": 94.4,
-                "parcels": 5662,
-                "pallets": 19,
-                "gaylords": 41,
-                "pallet_ppp": 73.8,
-                "gaylord_ppp": 103.9
+                "ppp": 93.3,
+                "parcels": 6716,
+                "pallets": 23,
+                "gaylords": 49,
+                "pallet_ppp": 71.3,
+                "gaylord_ppp": 104.5
               }
             ],
-            "pallet_ppp": 73.8,
-            "gaylord_ppp": 103.9
+            "pallet_ppp": 71.3,
+            "gaylord_ppp": 104.5
           },
           "hub_spoke": {
-            "ppp": 77.0,
-            "parcels": 2233,
-            "pallets": 14,
-            "gaylords": 15,
-            "containers": 29,
+            "ppp": 76.5,
+            "parcels": 2601,
+            "pallets": 16,
+            "gaylords": 18,
+            "containers": 34,
             "lane_count": 2,
             "lanes": [
               {
                 "lane": "NYC-1 - BNX-1",
                 "destination": "BNX-1",
-                "ppp": 81.0,
-                "parcels": 1621,
-                "pallets": 10,
-                "gaylords": 10,
-                "pallet_ppp": 48.8,
-                "gaylord_ppp": 112.9
+                "ppp": 81.9,
+                "parcels": 1883,
+                "pallets": 11,
+                "gaylords": 12,
+                "pallet_ppp": 51.8,
+                "gaylord_ppp": 110.3
               },
               {
                 "lane": "NYC-1 - BKN-9",
                 "destination": "BKN-9",
-                "ppp": 68.0,
-                "parcels": 612,
-                "pallets": 4,
-                "gaylords": 5,
-                "pallet_ppp": 39.0,
-                "gaylord_ppp": 91.2
+                "ppp": 65.3,
+                "parcels": 718,
+                "pallets": 5,
+                "gaylords": 6,
+                "pallet_ppp": 37.2,
+                "gaylord_ppp": 88.7
               }
             ],
-            "pallet_ppp": 46.0,
-            "gaylord_ppp": 105.7
+            "pallet_ppp": 47.2,
+            "gaylord_ppp": 103.1
           }
         }
       }
@@ -1167,7 +1167,7 @@
         "DMV-1": {
           "hub_hub": {
             "ppp": 144.3,
-            "parcels": 79931,
+            "parcels": 79929,
             "pallets": 227,
             "gaylords": 327,
             "containers": 554,
@@ -1187,7 +1187,7 @@
                 "lane": "DMV-1 - ATL-15",
                 "destination": "ATL-15",
                 "ppp": 133.3,
-                "parcels": 21722,
+                "parcels": 21720,
                 "pallets": 63,
                 "gaylords": 100,
                 "pallet_ppp": 75.4,
@@ -3026,152 +3026,152 @@
       "hubs": {
         "ATL-15": {
           "hub_hub": {
-            "ppp": 142.2,
-            "parcels": 19630,
-            "pallets": 68,
-            "gaylords": 70,
-            "containers": 138,
+            "ppp": 158.2,
+            "parcels": 14392,
+            "pallets": 42,
+            "gaylords": 49,
+            "containers": 91,
             "lane_count": 2,
             "lanes": [
               {
                 "lane": "ATL-15 - DMV-1",
                 "destination": "DMV-1",
-                "ppp": 154.7,
-                "parcels": 12379,
-                "pallets": 41,
-                "gaylords": 39,
-                "pallet_ppp": 53.1,
-                "gaylord_ppp": 271.9
+                "ppp": 173.0,
+                "parcels": 9690,
+                "pallets": 25,
+                "gaylords": 31,
+                "pallet_ppp": 58.6,
+                "gaylord_ppp": 274.4
               },
               {
                 "lane": "ATL-15 - ORD-7",
                 "destination": "ORD-7",
-                "ppp": 125.0,
-                "parcels": 7251,
-                "pallets": 27,
-                "gaylords": 31,
-                "pallet_ppp": 39.5,
-                "gaylord_ppp": 210.8
+                "ppp": 134.3,
+                "parcels": 4702,
+                "pallets": 17,
+                "gaylords": 18,
+                "pallet_ppp": 46.8,
+                "gaylord_ppp": 220.0
               }
             ],
-            "pallet_ppp": 47.7,
-            "gaylord_ppp": 244.8
+            "pallet_ppp": 53.8,
+            "gaylord_ppp": 254.4
           },
           "hub_spoke": {
-            "ppp": 106.0,
-            "parcels": 37853,
-            "pallets": 190,
-            "gaylords": 167,
-            "containers": 357,
+            "ppp": 98.4,
+            "parcels": 24896,
+            "pallets": 138,
+            "gaylords": 115,
+            "containers": 253,
             "lane_count": 7,
             "lanes": [
               {
                 "lane": "ATL-15 - CLT-3",
                 "destination": "CLT-3",
-                "ppp": 136.2,
-                "parcels": 7625,
-                "pallets": 27,
-                "gaylords": 29,
-                "pallet_ppp": 44.7,
-                "gaylord_ppp": 216.9
-              },
-              {
-                "lane": "ATL-15 - ATL-12",
-                "destination": "ATL-12",
-                "ppp": 119.0,
-                "parcels": 12851,
-                "pallets": 61,
-                "gaylords": 47,
-                "pallet_ppp": 65.5,
-                "gaylord_ppp": 249.0
+                "ppp": 124.3,
+                "parcels": 4847,
+                "pallets": 19,
+                "gaylords": 20,
+                "pallet_ppp": 40.8,
+                "gaylord_ppp": 202.9
               },
               {
                 "lane": "ATL-15 - ATL-11",
                 "destination": "ATL-11",
-                "ppp": 115.0,
-                "parcels": 4947,
-                "pallets": 20,
-                "gaylords": 23,
-                "pallet_ppp": 26.7,
-                "gaylord_ppp": 194.3
+                "ppp": 110.7,
+                "parcels": 3320,
+                "pallets": 14,
+                "gaylords": 16,
+                "pallet_ppp": 27.5,
+                "gaylord_ppp": 188.1
+              },
+              {
+                "lane": "ATL-15 - ATL-12",
+                "destination": "ATL-12",
+                "ppp": 107.3,
+                "parcels": 8263,
+                "pallets": 45,
+                "gaylords": 32,
+                "pallet_ppp": 67.7,
+                "gaylord_ppp": 245.3
               },
               {
                 "lane": "ATL-15 - NAS-2",
                 "destination": "NAS-2",
-                "ppp": 107.0,
-                "parcels": 3639,
-                "pallets": 16,
-                "gaylords": 18,
-                "pallet_ppp": 25.1,
-                "gaylord_ppp": 179.9
+                "ppp": 100.8,
+                "parcels": 2419,
+                "pallets": 11,
+                "gaylords": 13,
+                "pallet_ppp": 22.8,
+                "gaylord_ppp": 168.9
               },
               {
                 "lane": "ATL-15 - JAX-2",
                 "destination": "JAX-2",
-                "ppp": 87.5,
-                "parcels": 2886,
-                "pallets": 18,
-                "gaylords": 15,
-                "pallet_ppp": 24.8,
-                "gaylord_ppp": 161.3
-              },
-              {
-                "lane": "ATL-15 - ORL-3",
-                "destination": "ORL-3",
-                "ppp": 71.6,
-                "parcels": 2794,
-                "pallets": 23,
-                "gaylords": 16,
-                "pallet_ppp": 29.8,
-                "gaylord_ppp": 131.9
+                "ppp": 77.5,
+                "parcels": 1860,
+                "pallets": 14,
+                "gaylords": 10,
+                "pallet_ppp": 24.2,
+                "gaylord_ppp": 153.1
               },
               {
                 "lane": "ATL-15 - TPA-4",
                 "destination": "TPA-4",
-                "ppp": 70.7,
-                "parcels": 3111,
-                "pallets": 25,
-                "gaylords": 19,
-                "pallet_ppp": 28.3,
-                "gaylord_ppp": 126.8
+                "ppp": 71.9,
+                "parcels": 2229,
+                "pallets": 17,
+                "gaylords": 14,
+                "pallet_ppp": 30.8,
+                "gaylord_ppp": 120.4
+              },
+              {
+                "lane": "ATL-15 - ORL-3",
+                "destination": "ORL-3",
+                "ppp": 69.9,
+                "parcels": 1958,
+                "pallets": 18,
+                "gaylords": 10,
+                "pallet_ppp": 32.7,
+                "gaylord_ppp": 134.9
               }
             ],
-            "pallet_ppp": 42.0,
-            "gaylord_ppp": 195.4
+            "pallet_ppp": 42.8,
+            "gaylord_ppp": 188.5
           }
         },
         "DMV-1": {
           "hub_hub": {
-            "ppp": 149.2,
-            "parcels": 22527,
-            "pallets": 63,
-            "gaylords": 88,
-            "containers": 151,
+            "ppp": 150.9,
+            "parcels": 17205,
+            "pallets": 49,
+            "gaylords": 65,
+            "containers": 114,
             "lane_count": 2,
             "lanes": [
               {
                 "lane": "DMV-1 - ATL-15",
                 "destination": "ATL-15",
-                "ppp": 156.7,
-                "parcels": 10344,
-                "pallets": 23,
-                "gaylords": 43,
-                "pallet_ppp": 98.3,
-                "gaylord_ppp": 193.9
+                "ppp": 166.0,
+                "parcels": 8136,
+                "pallets": 15,
+                "gaylords": 34,
+                "pallet_ppp": 94.7,
+                "gaylord_ppp": 210.3
               },
               {
                 "lane": "DMV-1 - EWR-2",
                 "destination": "EWR-2",
-                "ppp": 143.3,
-                "parcels": 12183,
-                "pallets": 40,
-                "gaylords": 45,
-                "pallet_ppp": 44.7,
-                "gaylord_ppp": 233.7
+                "ppp": 139.5,
+                "parcels": 9069,
+                "pallets": 34,
+                "gaylords": 31,
+                "pallet_ppp": 48.7,
+                "gaylord_ppp": 242.5
               }
             ],
-            "pallet_ppp": 64.3,
-            "gaylord_ppp": 214.3
+            "pallet_ppp": 62.8,
+            "gaylord_ppp": 225.7
           },
           "hub_spoke": null
         },
@@ -3181,54 +3181,54 @@
         },
         "EWR-2": {
           "hub_hub": {
-            "ppp": 150.2,
-            "parcels": 32438,
-            "pallets": 60,
-            "gaylords": 156,
-            "containers": 216,
+            "ppp": 149.2,
+            "parcels": 25505,
+            "pallets": 40,
+            "gaylords": 131,
+            "containers": 171,
             "lane_count": 2,
             "lanes": [
               {
                 "lane": "EWR-2 - DMV-1",
                 "destination": "DMV-1",
-                "ppp": 167.7,
-                "parcels": 11401,
-                "pallets": 21,
-                "gaylords": 47,
-                "pallet_ppp": 90.8,
-                "gaylord_ppp": 212.5
+                "ppp": 164.6,
+                "parcels": 8887,
+                "pallets": 13,
+                "gaylords": 41,
+                "pallet_ppp": 84.6,
+                "gaylord_ppp": 191.5
               },
               {
                 "lane": "EWR-2 - ORD-7",
                 "destination": "ORD-7",
-                "ppp": 142.1,
-                "parcels": 21037,
-                "pallets": 39,
-                "gaylords": 109,
-                "pallet_ppp": 51.3,
-                "gaylord_ppp": 180.2
+                "ppp": 142.0,
+                "parcels": 16618,
+                "pallets": 27,
+                "gaylords": 90,
+                "pallet_ppp": 50.5,
+                "gaylord_ppp": 173.6
               }
             ],
-            "pallet_ppp": 65.1,
-            "gaylord_ppp": 189.9
+            "pallet_ppp": 61.6,
+            "gaylord_ppp": 179.2
           },
           "hub_spoke": {
-            "ppp": 123.0,
-            "parcels": 88426,
-            "pallets": 375,
-            "gaylords": 344,
-            "containers": 719,
+            "ppp": 121.7,
+            "parcels": 65981,
+            "pallets": 274,
+            "gaylords": 268,
+            "containers": 542,
             "lane_count": 18,
             "lanes": [
               {
                 "lane": "EWR-2 - QNS-2",
                 "destination": "QNS-2",
-                "ppp": 162.3,
-                "parcels": 6977,
-                "pallets": 22,
-                "gaylords": 21,
-                "pallet_ppp": 50.7,
-                "gaylord_ppp": 278.6
+                "ppp": 162.7,
+                "parcels": 5370,
+                "pallets": 17,
+                "gaylords": 16,
+                "pallet_ppp": 54.9,
+                "gaylord_ppp": 278.3
               },
               {
                 "lane": "EWR-2 - HUD-1",
@@ -3243,325 +3243,325 @@
               {
                 "lane": "EWR-2 - DCA-5",
                 "destination": "DCA-5",
-                "ppp": 151.8,
-                "parcels": 6981,
-                "pallets": 18,
-                "gaylords": 28,
-                "pallet_ppp": 50.8,
-                "gaylord_ppp": 222.5
+                "ppp": 144.4,
+                "parcels": 4908,
+                "pallets": 11,
+                "gaylords": 23,
+                "pallet_ppp": 41.7,
+                "gaylord_ppp": 194.8
               },
               {
                 "lane": "EWR-2 - BLT-3",
                 "destination": "BLT-3",
-                "ppp": 136.0,
-                "parcels": 7208,
-                "pallets": 28,
-                "gaylords": 25,
-                "pallet_ppp": 58.1,
-                "gaylord_ppp": 223.9
-              },
-              {
-                "lane": "EWR-2 - BOS-5",
-                "destination": "BOS-5",
-                "ppp": 134.4,
-                "parcels": 7255,
-                "pallets": 26,
-                "gaylords": 28,
-                "pallet_ppp": 66.9,
-                "gaylord_ppp": 211.0
-              },
-              {
-                "lane": "EWR-2 - PHL-8",
-                "destination": "PHL-8",
-                "ppp": 130.7,
-                "parcels": 8363,
-                "pallets": 33,
-                "gaylords": 31,
-                "pallet_ppp": 39.1,
-                "gaylord_ppp": 235.0
+                "ppp": 135.4,
+                "parcels": 5553,
+                "pallets": 21,
+                "gaylords": 20,
+                "pallet_ppp": 53.9,
+                "gaylord_ppp": 221.0
               },
               {
                 "lane": "EWR-2 - HGR-1",
                 "destination": "HGR-1",
-                "ppp": 129.5,
-                "parcels": 2850,
-                "pallets": 12,
-                "gaylords": 10,
-                "pallet_ppp": 102.8,
-                "gaylord_ppp": 151.8
+                "ppp": 130.0,
+                "parcels": 2210,
+                "pallets": 9,
+                "gaylords": 8,
+                "pallet_ppp": 96.9,
+                "gaylord_ppp": 155.5
               },
               {
                 "lane": "EWR-2 - WMA-1",
                 "destination": "WMA-1",
-                "ppp": 129.3,
-                "parcels": 7889,
-                "pallets": 26,
-                "gaylords": 35,
-                "pallet_ppp": 42.4,
-                "gaylord_ppp": 196.4
+                "ppp": 128.8,
+                "parcels": 6055,
+                "pallets": 19,
+                "gaylords": 28,
+                "pallet_ppp": 44.9,
+                "gaylord_ppp": 186.1
               },
               {
-                "lane": "EWR-2 - HBG-2",
-                "destination": "HBG-2",
-                "ppp": 127.9,
-                "parcels": 3198,
-                "pallets": 12,
-                "gaylords": 13,
-                "pallet_ppp": 45.1,
-                "gaylord_ppp": 222.5
+                "lane": "EWR-2 - BOS-5",
+                "destination": "BOS-5",
+                "ppp": 126.3,
+                "parcels": 5431,
+                "pallets": 18,
+                "gaylords": 25,
+                "pallet_ppp": 52.4,
+                "gaylord_ppp": 175.9
               },
               {
                 "lane": "EWR-2 - CNJ-2",
                 "destination": "CNJ-2",
-                "ppp": 123.9,
-                "parcels": 5453,
-                "pallets": 21,
-                "gaylords": 23,
-                "pallet_ppp": 36.2,
-                "gaylord_ppp": 207.4
+                "ppp": 126.2,
+                "parcels": 4417,
+                "pallets": 18,
+                "gaylords": 17,
+                "pallet_ppp": 34.2,
+                "gaylord_ppp": 225.8
               },
               {
                 "lane": "EWR-2 - NNJ-5",
                 "destination": "NNJ-5",
-                "ppp": 120.5,
-                "parcels": 5061,
-                "pallets": 23,
-                "gaylords": 19,
-                "pallet_ppp": 61.8,
-                "gaylord_ppp": 196.8
+                "ppp": 125.0,
+                "parcels": 4000,
+                "pallets": 17,
+                "gaylords": 15,
+                "pallet_ppp": 70.6,
+                "gaylord_ppp": 191.1
+              },
+              {
+                "lane": "EWR-2 - PHL-8",
+                "destination": "PHL-8",
+                "ppp": 121.8,
+                "parcels": 4873,
+                "pallets": 22,
+                "gaylords": 18,
+                "pallet_ppp": 34.4,
+                "gaylord_ppp": 238.8
               },
               {
                 "lane": "EWR-2 - ALX-1",
                 "destination": "ALX-1",
-                "ppp": 120.4,
-                "parcels": 4697,
-                "pallets": 17,
-                "gaylords": 22,
-                "pallet_ppp": 41.5,
-                "gaylord_ppp": 187.4
+                "ppp": 118.4,
+                "parcels": 3553,
+                "pallets": 12,
+                "gaylords": 18,
+                "pallet_ppp": 41.1,
+                "gaylord_ppp": 172.1
+              },
+              {
+                "lane": "EWR-2 - HBG-2",
+                "destination": "HBG-2",
+                "ppp": 118.4,
+                "parcels": 2368,
+                "pallets": 9,
+                "gaylords": 11,
+                "pallet_ppp": 47.0,
+                "gaylord_ppp": 177.8
               },
               {
                 "lane": "EWR-2 - HFD-3",
                 "destination": "HFD-3",
-                "ppp": 110.7,
-                "parcels": 4649,
-                "pallets": 26,
-                "gaylords": 16,
-                "pallet_ppp": 60.9,
-                "gaylord_ppp": 196.0
+                "ppp": 110.2,
+                "parcels": 3638,
+                "pallets": 20,
+                "gaylords": 13,
+                "pallet_ppp": 67.7,
+                "gaylord_ppp": 175.7
               },
               {
                 "lane": "EWR-2 - PHL-7",
                 "destination": "PHL-7",
-                "ppp": 109.1,
-                "parcels": 3492,
-                "pallets": 21,
-                "gaylords": 11,
-                "pallet_ppp": 54.1,
-                "gaylord_ppp": 230.0
+                "ppp": 104.8,
+                "parcels": 2725,
+                "pallets": 17,
+                "gaylords": 9,
+                "pallet_ppp": 57.0,
+                "gaylord_ppp": 208.9
               },
               {
                 "lane": "EWR-2 - NNJ-6",
                 "destination": "NNJ-6",
-                "ppp": 96.6,
-                "parcels": 2126,
-                "pallets": 10,
-                "gaylords": 12,
-                "pallet_ppp": 35.3,
-                "gaylord_ppp": 153.6
-              },
-              {
-                "lane": "EWR-2 - LIN-1",
-                "destination": "LIN-1",
-                "ppp": 90.0,
-                "parcels": 4321,
-                "pallets": 29,
-                "gaylords": 19,
-                "pallet_ppp": 42.7,
-                "gaylord_ppp": 163.0
+                "ppp": 98.4,
+                "parcels": 1673,
+                "pallets": 7,
+                "gaylords": 10,
+                "pallet_ppp": 36.2,
+                "gaylord_ppp": 143.1
               },
               {
                 "lane": "EWR-2 - BNX-1",
                 "destination": "BNX-1",
-                "ppp": 88.0,
-                "parcels": 2815,
-                "pallets": 19,
-                "gaylords": 13,
-                "pallet_ppp": 30.0,
-                "gaylord_ppp": 191.4
+                "ppp": 91.6,
+                "parcels": 1923,
+                "pallets": 14,
+                "gaylords": 7,
+                "pallet_ppp": 31.5,
+                "gaylord_ppp": 223.9
+              },
+              {
+                "lane": "EWR-2 - LIN-1",
+                "destination": "LIN-1",
+                "ppp": 90.1,
+                "parcels": 3332,
+                "pallets": 22,
+                "gaylords": 15,
+                "pallet_ppp": 42.8,
+                "gaylord_ppp": 159.7
               },
               {
                 "lane": "EWR-2 - BKN-9",
                 "destination": "BKN-9",
-                "ppp": 82.3,
-                "parcels": 3045,
-                "pallets": 25,
-                "gaylords": 12,
-                "pallet_ppp": 41.1,
-                "gaylord_ppp": 162.1
+                "ppp": 82.9,
+                "parcels": 1906,
+                "pallets": 14,
+                "gaylords": 9,
+                "pallet_ppp": 37.2,
+                "gaylord_ppp": 153.9
               }
             ],
-            "pallet_ppp": 50.1,
-            "gaylord_ppp": 207.4
+            "pallet_ppp": 49.6,
+            "gaylord_ppp": 196.7
           }
         },
         "GCO-1": {
           "hub_hub": {
-            "ppp": 140.0,
-            "parcels": 30528,
-            "pallets": 44,
-            "gaylords": 174,
-            "containers": 218,
+            "ppp": 138.9,
+            "parcels": 21802,
+            "pallets": 29,
+            "gaylords": 128,
+            "containers": 157,
             "lane_count": 4,
             "lanes": [
               {
-                "lane": "GCO-1 - ELZ-1",
-                "destination": "ELZ-1",
-                "ppp": 161.7,
-                "parcels": 15197,
-                "pallets": 19,
-                "gaylords": 75,
-                "pallet_ppp": 82.9,
-                "gaylord_ppp": 185.3
-              },
-              {
                 "lane": "GCO-1 - ATL-15",
                 "destination": "ATL-15",
-                "ppp": 155.6,
-                "parcels": 7002,
-                "pallets": 8,
-                "gaylords": 37,
-                "pallet_ppp": 65.0,
-                "gaylord_ppp": 181.3
+                "ppp": 161.0,
+                "parcels": 4991,
+                "pallets": 4,
+                "gaylords": 27,
+                "pallet_ppp": 54.3,
+                "gaylord_ppp": 188.3
+              },
+              {
+                "lane": "GCO-1 - ELZ-1",
+                "destination": "ELZ-1",
+                "ppp": 157.1,
+                "parcels": 10680,
+                "pallets": 14,
+                "gaylords": 54,
+                "pallet_ppp": 76.8,
+                "gaylord_ppp": 183.3
               },
               {
                 "lane": "GCO-1 - DFW-1",
                 "destination": "DFW-1",
-                "ppp": 112.4,
-                "parcels": 4383,
-                "pallets": 9,
-                "gaylords": 30,
-                "pallet_ppp": 67.2,
-                "gaylord_ppp": 124.7
+                "ppp": 114.2,
+                "parcels": 3311,
+                "pallets": 6,
+                "gaylords": 23,
+                "pallet_ppp": 46.4,
+                "gaylord_ppp": 133.7
               },
               {
                 "lane": "GCO-1 - ORD-7",
                 "destination": "ORD-7",
-                "ppp": 98.7,
-                "parcels": 3946,
-                "pallets": 8,
-                "gaylords": 32,
-                "pallet_ppp": 61.5,
-                "gaylord_ppp": 107.4
+                "ppp": 97.2,
+                "parcels": 2820,
+                "pallets": 5,
+                "gaylords": 24,
+                "pallet_ppp": 58.7,
+                "gaylord_ppp": 105.0
               }
             ],
-            "pallet_ppp": 72.5,
-            "gaylord_ppp": 159.7
+            "pallet_ppp": 64.3,
+            "gaylord_ppp": 160.8
           },
           "hub_spoke": {
-            "ppp": 126.3,
-            "parcels": 8211,
+            "ppp": 130.6,
+            "parcels": 5877,
             "pallets": 3,
-            "gaylords": 62,
-            "containers": 65,
+            "gaylords": 42,
+            "containers": 45,
             "lane_count": 4,
             "lanes": [
               {
-                "lane": "GCO-1 - CLE-7",
-                "destination": "CLE-7",
-                "ppp": 138.8,
-                "parcels": 555,
-                "pallets": 0,
-                "gaylords": 4,
-                "gaylord_ppp": 143.5
-              },
-              {
                 "lane": "GCO-1 - DET-13",
                 "destination": "DET-13",
-                "ppp": 136.0,
-                "parcels": 2720,
+                "ppp": 131.4,
+                "parcels": 2103,
                 "pallets": 0,
-                "gaylords": 20,
-                "gaylord_ppp": 135.9
+                "gaylords": 16,
+                "gaylord_ppp": 129.7
               },
               {
                 "lane": "GCO-1 - CIN-5",
                 "destination": "CIN-5",
-                "ppp": 128.0,
-                "parcels": 1408,
+                "ppp": 131.1,
+                "parcels": 1049,
                 "pallets": 0,
-                "gaylords": 11,
-                "gaylord_ppp": 128.7
+                "gaylords": 8,
+                "gaylord_ppp": 131.6
+              },
+              {
+                "lane": "GCO-1 - CLE-7",
+                "destination": "CLE-7",
+                "ppp": 130.3,
+                "parcels": 391,
+                "pallets": 0,
+                "gaylords": 3,
+                "gaylord_ppp": 132.8
               },
               {
                 "lane": "GCO-1 - CHI-17",
                 "destination": "CHI-17",
-                "ppp": 117.6,
-                "parcels": 3528,
+                "ppp": 129.7,
+                "parcels": 2334,
                 "pallets": 3,
-                "gaylords": 27,
+                "gaylords": 15,
                 "pallet_ppp": 108.2,
-                "gaylord_ppp": 122.3
+                "gaylord_ppp": 133.6
               }
             ],
             "pallet_ppp": 108.2,
-            "gaylord_ppp": 129.2
+            "gaylord_ppp": 131.7
           }
         },
         "NYC-1": {
           "hub_hub": {
-            "ppp": 113.5,
-            "parcels": 4538,
-            "pallets": 16,
-            "gaylords": 24,
-            "containers": 40,
+            "ppp": 117.3,
+            "parcels": 3754,
+            "pallets": 12,
+            "gaylords": 20,
+            "containers": 32,
             "lane_count": 1,
             "lanes": [
               {
                 "lane": "NYC-1 - EWR-2",
                 "destination": "EWR-2",
-                "ppp": 113.5,
-                "parcels": 4538,
-                "pallets": 16,
-                "gaylords": 24,
-                "pallet_ppp": 90.6,
-                "gaylord_ppp": 122.1
+                "ppp": 117.3,
+                "parcels": 3754,
+                "pallets": 12,
+                "gaylords": 20,
+                "pallet_ppp": 67.7,
+                "gaylord_ppp": 150.7
               }
             ],
-            "pallet_ppp": 90.6,
-            "gaylord_ppp": 122.1
+            "pallet_ppp": 67.7,
+            "gaylord_ppp": 150.7
           },
           "hub_spoke": {
-            "ppp": 81.9,
-            "parcels": 1966,
-            "pallets": 13,
-            "gaylords": 11,
-            "containers": 24,
+            "ppp": 88.5,
+            "parcels": 1593,
+            "pallets": 10,
+            "gaylords": 8,
+            "containers": 18,
             "lane_count": 2,
             "lanes": [
               {
                 "lane": "NYC-1 - BNX-1",
                 "destination": "BNX-1",
-                "ppp": 89.1,
-                "parcels": 1426,
-                "pallets": 8,
-                "gaylords": 8,
-                "pallet_ppp": 52.9,
-                "gaylord_ppp": 125.6
+                "ppp": 98.6,
+                "parcels": 1183,
+                "pallets": 6,
+                "gaylords": 6,
+                "pallet_ppp": 57.7,
+                "gaylord_ppp": 139.8
               },
               {
                 "lane": "NYC-1 - BKN-9",
                 "destination": "BKN-9",
-                "ppp": 67.5,
-                "parcels": 540,
-                "pallets": 5,
-                "gaylords": 3,
-                "pallet_ppp": 41.4,
-                "gaylord_ppp": 108.3
+                "ppp": 68.3,
+                "parcels": 410,
+                "pallets": 4,
+                "gaylords": 2,
+                "pallet_ppp": 38.8,
+                "gaylord_ppp": 122.0
               }
             ],
-            "pallet_ppp": 48.5,
-            "gaylord_ppp": 120.9
+            "pallet_ppp": 50.1,
+            "gaylord_ppp": 135.4
           }
         }
       }
