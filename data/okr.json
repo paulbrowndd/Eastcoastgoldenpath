@@ -1,5 +1,5 @@
 {
-  "pulled_at": "2026-08-22 14:57 EST",
+  "pulled_at": "2026-08-24 09:02 EST",
   "source": "Sigma \u00b7 Parcel Golden Path + Truck Utilization (Pallets Gaylord)",
   "current_week": "2026-08-17",
   "weeks": [
@@ -266,7 +266,7 @@
         },
         "EWR-2": {
           "otd_pct": 94.7,
-          "barcodes": 249849
+          "barcodes": 249846
         },
         "GCO-1": {
           "otd_pct": 100.0,
@@ -332,7 +332,7 @@
         },
         "EWR-2": {
           "otd_pct": 89.4,
-          "barcodes": 271847
+          "barcodes": 271846
         },
         "GCO-1": {
           "otd_pct": 98.4,
@@ -353,7 +353,7 @@
       "hubs": {
         "ATL-15": {
           "otd_pct": 97.8,
-          "barcodes": 104273
+          "barcodes": 104272
         },
         "DMV-1": {
           "otd_pct": 96.8,
@@ -361,11 +361,11 @@
         },
         "ELZ-1": {
           "otd_pct": 84.3,
-          "barcodes": 93799
+          "barcodes": 93798
         },
         "EWR-2": {
           "otd_pct": 93.4,
-          "barcodes": 202642
+          "barcodes": 202635
         },
         "GCO-1": {
           "otd_pct": 98.9,
@@ -373,7 +373,7 @@
         },
         "NYC-1": {
           "otd_pct": 100.0,
-          "barcodes": 8372
+          "barcodes": 8371
         }
       },
       "in_progress": false,
@@ -385,28 +385,28 @@
       "week_end": "2026-08-23",
       "hubs": {
         "ATL-15": {
-          "otd_pct": 97.7,
-          "barcodes": 94734
+          "otd_pct": 97.2,
+          "barcodes": 115015
         },
         "DMV-1": {
           "otd_pct": 98.5,
-          "barcodes": 41005
+          "barcodes": 47160
         },
         "ELZ-1": {
           "otd_pct": 99.8,
-          "barcodes": 74589
+          "barcodes": 93399
         },
         "EWR-2": {
           "otd_pct": 99.8,
-          "barcodes": 172777
+          "barcodes": 203153
         },
         "GCO-1": {
-          "otd_pct": 94.0,
-          "barcodes": 81070
+          "otd_pct": 94.9,
+          "barcodes": 96484
         },
         "NYC-1": {
           "otd_pct": 100.0,
-          "barcodes": 7112
+          "barcodes": 9015
         }
       },
       "in_progress": true,
