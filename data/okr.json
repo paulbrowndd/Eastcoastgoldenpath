@@ -1,8 +1,9 @@
 {
-  "pulled_at": "2026-08-24 09:02 EST",
+  "pulled_at": "2026-08-25 14:26 EST",
   "source": "Sigma \u00b7 Parcel Golden Path + Truck Utilization (Pallets Gaylord)",
-  "current_week": "2026-08-17",
+  "current_week": "2026-08-24",
   "weeks": [
+    "2026-08-24",
     "2026-08-17",
     "2026-08-10",
     "2026-08-03",
@@ -266,7 +267,7 @@
         },
         "EWR-2": {
           "otd_pct": 94.7,
-          "barcodes": 249846
+          "barcodes": 249845
         },
         "GCO-1": {
           "otd_pct": 100.0,
@@ -299,7 +300,7 @@
         },
         "EWR-2": {
           "otd_pct": 87.9,
-          "barcodes": 265355
+          "barcodes": 265354
         },
         "GCO-1": {
           "otd_pct": 94.3,
@@ -332,7 +333,7 @@
         },
         "EWR-2": {
           "otd_pct": 89.4,
-          "barcodes": 271846
+          "barcodes": 271847
         },
         "GCO-1": {
           "otd_pct": 98.4,
@@ -357,19 +358,19 @@
         },
         "DMV-1": {
           "otd_pct": 96.8,
-          "barcodes": 77736
+          "barcodes": 77734
         },
         "ELZ-1": {
           "otd_pct": 84.3,
           "barcodes": 93798
         },
         "EWR-2": {
-          "otd_pct": 93.4,
-          "barcodes": 202635
+          "otd_pct": 91.3,
+          "barcodes": 207487
         },
         "GCO-1": {
           "otd_pct": 98.9,
-          "barcodes": 74228
+          "barcodes": 74227
         },
         "NYC-1": {
           "otd_pct": 100.0,
@@ -377,7 +378,7 @@
         }
       },
       "in_progress": false,
-      "network_otd_pct": 94.0,
+      "network_otd_pct": 93.2,
       "reporting_hubs": 6
     },
     "2026-08-17": {
@@ -385,32 +386,65 @@
       "week_end": "2026-08-23",
       "hubs": {
         "ATL-15": {
-          "otd_pct": 97.2,
-          "barcodes": 115015
+          "otd_pct": 91.1,
+          "barcodes": 132278
         },
         "DMV-1": {
-          "otd_pct": 98.5,
-          "barcodes": 47160
+          "otd_pct": 94.3,
+          "barcodes": 59523
         },
         "ELZ-1": {
           "otd_pct": 99.8,
-          "barcodes": 93399
+          "barcodes": 107872
         },
         "EWR-2": {
-          "otd_pct": 99.8,
-          "barcodes": 203153
+          "otd_pct": 99.9,
+          "barcodes": 228553
         },
         "GCO-1": {
-          "otd_pct": 94.9,
-          "barcodes": 96484
+          "otd_pct": 94.7,
+          "barcodes": 107963
         },
         "NYC-1": {
           "otd_pct": 100.0,
-          "barcodes": 9015
+          "barcodes": 9454
+        }
+      },
+      "in_progress": false,
+      "network_otd_pct": 96.7,
+      "reporting_hubs": 6
+    },
+    "2026-08-24": {
+      "week_start": "2026-08-24",
+      "week_end": "2026-08-30",
+      "hubs": {
+        "ATL-15": {
+          "otd_pct": 97.3,
+          "barcodes": 16774
+        },
+        "DMV-1": {
+          "otd_pct": 91.2,
+          "barcodes": 9251
+        },
+        "ELZ-1": {
+          "otd_pct": 100.0,
+          "barcodes": 18687
+        },
+        "EWR-2": {
+          "otd_pct": 99.7,
+          "barcodes": 33275
+        },
+        "GCO-1": {
+          "otd_pct": 99.3,
+          "barcodes": 17609
+        },
+        "NYC-1": {
+          "otd_pct": 100.0,
+          "barcodes": 1715
         }
       },
       "in_progress": true,
-      "network_otd_pct": 98.3,
+      "network_otd_pct": 98.5,
       "reporting_hubs": 6
     }
   },
@@ -418,7 +452,7 @@
     "2026-08-17": {
       "week_start": "2026-08-17",
       "week_end": "2026-08-23",
-      "in_progress": true,
+      "in_progress": false,
       "hubs": {
         "ATL-15": {
           "hub_hub": {
