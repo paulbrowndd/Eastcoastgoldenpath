@@ -1,5 +1,5 @@
 {
-  "pulled_at": "2026-08-26 12:52 EST",
+  "pulled_at": "2026-08-28 19:04 EST",
   "source": "Sigma \u00b7 Parcel Golden Path + Truck Utilization (Pallets Gaylord)",
   "current_week": "2026-08-24",
   "weeks": [
@@ -18,70 +18,334 @@
     "2026-06-01"
   ],
   "hub_sortation": {
-    "2026-06-01": {
-      "week_start": "2026-06-01",
-      "week_end": "2026-06-07",
+    "2026-08-24": {
+      "week_start": "2026-08-24",
+      "week_end": "2026-08-30",
       "hubs": {
         "ATL-15": {
-          "otd_pct": 94.0,
-          "barcodes": 60584
+          "otd_pct": 92.0,
+          "barcodes": 79126
         },
         "DMV-1": {
-          "otd_pct": null,
-          "barcodes": 0
+          "otd_pct": 98.0,
+          "barcodes": 45349
         },
         "ELZ-1": {
-          "otd_pct": null,
-          "barcodes": 0
+          "otd_pct": 99.9,
+          "barcodes": 79824
         },
         "EWR-2": {
-          "otd_pct": 87.7,
-          "barcodes": 296038
+          "otd_pct": 99.7,
+          "barcodes": 147025
         },
         "GCO-1": {
-          "otd_pct": 100.0,
-          "barcodes": 64668
+          "otd_pct": 98.6,
+          "barcodes": 75032
         },
         "NYC-1": {
-          "otd_pct": 88.2,
-          "barcodes": 8838
+          "otd_pct": 100.0,
+          "barcodes": 6737
+        }
+      },
+      "in_progress": true,
+      "network_otd_pct": 98.0,
+      "reporting_hubs": 6
+    },
+    "2026-08-17": {
+      "week_start": "2026-08-17",
+      "week_end": "2026-08-23",
+      "hubs": {
+        "ATL-15": {
+          "otd_pct": 89.4,
+          "barcodes": 132115
+        },
+        "DMV-1": {
+          "otd_pct": 94.3,
+          "barcodes": 59511
+        },
+        "ELZ-1": {
+          "otd_pct": 99.8,
+          "barcodes": 107834
+        },
+        "EWR-2": {
+          "otd_pct": 99.9,
+          "barcodes": 228495
+        },
+        "GCO-1": {
+          "otd_pct": 94.7,
+          "barcodes": 107917
+        },
+        "NYC-1": {
+          "otd_pct": 100.0,
+          "barcodes": 9452
         }
       },
       "in_progress": false,
-      "network_otd_pct": 90.4,
-      "reporting_hubs": 4
+      "network_otd_pct": 96.3,
+      "reporting_hubs": 6
     },
-    "2026-06-08": {
-      "week_start": "2026-06-08",
-      "week_end": "2026-06-14",
+    "2026-08-10": {
+      "week_start": "2026-08-10",
+      "week_end": "2026-08-16",
       "hubs": {
         "ATL-15": {
-          "otd_pct": 94.7,
-          "barcodes": 101984
+          "otd_pct": 97.8,
+          "barcodes": 104268
         },
         "DMV-1": {
-          "otd_pct": null,
-          "barcodes": 0
+          "otd_pct": 96.8,
+          "barcodes": 77734
         },
         "ELZ-1": {
-          "otd_pct": null,
-          "barcodes": 0
+          "otd_pct": 84.3,
+          "barcodes": 93797
+        },
+        "EWR-2": {
+          "otd_pct": 91.3,
+          "barcodes": 207482
+        },
+        "GCO-1": {
+          "otd_pct": 98.9,
+          "barcodes": 74229
+        },
+        "NYC-1": {
+          "otd_pct": 100.0,
+          "barcodes": 8372
+        }
+      },
+      "in_progress": false,
+      "network_otd_pct": 93.2,
+      "reporting_hubs": 6
+    },
+    "2026-08-03": {
+      "week_start": "2026-08-03",
+      "week_end": "2026-08-09",
+      "hubs": {
+        "ATL-15": {
+          "otd_pct": 94.3,
+          "barcodes": 101760
+        },
+        "DMV-1": {
+          "otd_pct": 95.1,
+          "barcodes": 78700
+        },
+        "ELZ-1": {
+          "otd_pct": 99.7,
+          "barcodes": 13639
         },
         "EWR-2": {
           "otd_pct": 89.4,
-          "barcodes": 325975
+          "barcodes": 271845
         },
         "GCO-1": {
-          "otd_pct": 100.0,
-          "barcodes": 108291
+          "otd_pct": 98.4,
+          "barcodes": 61796
         },
         "NYC-1": {
-          "otd_pct": 87.3,
-          "barcodes": 13518
+          "otd_pct": 100.0,
+          "barcodes": 10426
         }
       },
       "in_progress": false,
-      "network_otd_pct": 92.4,
+      "network_otd_pct": 92.7,
+      "reporting_hubs": 6
+    },
+    "2026-07-27": {
+      "week_start": "2026-07-27",
+      "week_end": "2026-08-02",
+      "hubs": {
+        "ATL-15": {
+          "otd_pct": 98.7,
+          "barcodes": 107039
+        },
+        "DMV-1": {
+          "otd_pct": 63.9,
+          "barcodes": 85733
+        },
+        "ELZ-1": {
+          "otd_pct": 60.7,
+          "barcodes": 14607
+        },
+        "EWR-2": {
+          "otd_pct": 87.9,
+          "barcodes": 265350
+        },
+        "GCO-1": {
+          "otd_pct": 94.2,
+          "barcodes": 73304
+        },
+        "NYC-1": {
+          "otd_pct": 100.0,
+          "barcodes": 13698
+        }
+      },
+      "in_progress": false,
+      "network_otd_pct": 86.7,
+      "reporting_hubs": 6
+    },
+    "2026-07-20": {
+      "week_start": "2026-07-20",
+      "week_end": "2026-07-26",
+      "hubs": {
+        "ATL-15": {
+          "otd_pct": 98.5,
+          "barcodes": 114603
+        },
+        "DMV-1": {
+          "otd_pct": 93.6,
+          "barcodes": 30235
+        },
+        "ELZ-1": {
+          "otd_pct": 84.9,
+          "barcodes": 9849
+        },
+        "EWR-2": {
+          "otd_pct": 94.7,
+          "barcodes": 249844
+        },
+        "GCO-1": {
+          "otd_pct": 100.0,
+          "barcodes": 97080
+        },
+        "NYC-1": {
+          "otd_pct": 80.0,
+          "barcodes": 7712
+        }
+      },
+      "in_progress": false,
+      "network_otd_pct": 96.1,
+      "reporting_hubs": 6
+    },
+    "2026-07-13": {
+      "week_start": "2026-07-13",
+      "week_end": "2026-07-19",
+      "hubs": {
+        "ATL-15": {
+          "otd_pct": 95.7,
+          "barcodes": 90523
+        },
+        "DMV-1": {
+          "otd_pct": 100.0,
+          "barcodes": 16379
+        },
+        "ELZ-1": {
+          "otd_pct": 99.9,
+          "barcodes": 91712
+        },
+        "EWR-2": {
+          "otd_pct": 96.1,
+          "barcodes": 216518
+        },
+        "GCO-1": {
+          "otd_pct": 100.0,
+          "barcodes": 80025
+        },
+        "NYC-1": {
+          "otd_pct": 100.0,
+          "barcodes": 10700
+        }
+      },
+      "in_progress": false,
+      "network_otd_pct": 97.5,
+      "reporting_hubs": 6
+    },
+    "2026-07-06": {
+      "week_start": "2026-07-06",
+      "week_end": "2026-07-12",
+      "hubs": {
+        "ATL-15": {
+          "otd_pct": 95.9,
+          "barcodes": 111300
+        },
+        "DMV-1": {
+          "otd_pct": null,
+          "barcodes": 0
+        },
+        "ELZ-1": {
+          "otd_pct": 76.1,
+          "barcodes": 67269
+        },
+        "EWR-2": {
+          "otd_pct": 76.9,
+          "barcodes": 231952
+        },
+        "GCO-1": {
+          "otd_pct": 100.0,
+          "barcodes": 86309
+        },
+        "NYC-1": {
+          "otd_pct": 100.0,
+          "barcodes": 13961
+        }
+      },
+      "in_progress": false,
+      "network_otd_pct": 85.5,
+      "reporting_hubs": 5
+    },
+    "2026-06-29": {
+      "week_start": "2026-06-29",
+      "week_end": "2026-07-05",
+      "hubs": {
+        "ATL-15": {
+          "otd_pct": 96.4,
+          "barcodes": 106233
+        },
+        "DMV-1": {
+          "otd_pct": null,
+          "barcodes": 0
+        },
+        "ELZ-1": {
+          "otd_pct": null,
+          "barcodes": 0
+        },
+        "EWR-2": {
+          "otd_pct": 92.8,
+          "barcodes": 311333
+        },
+        "GCO-1": {
+          "otd_pct": 100.0,
+          "barcodes": 82139
+        },
+        "NYC-1": {
+          "otd_pct": 100.0,
+          "barcodes": 9194
+        }
+      },
+      "in_progress": false,
+      "network_otd_pct": 94.8,
+      "reporting_hubs": 4
+    },
+    "2026-06-22": {
+      "week_start": "2026-06-22",
+      "week_end": "2026-06-28",
+      "hubs": {
+        "ATL-15": {
+          "otd_pct": 98.2,
+          "barcodes": 107598
+        },
+        "DMV-1": {
+          "otd_pct": null,
+          "barcodes": 0
+        },
+        "ELZ-1": {
+          "otd_pct": null,
+          "barcodes": 0
+        },
+        "EWR-2": {
+          "otd_pct": 89.7,
+          "barcodes": 345187
+        },
+        "GCO-1": {
+          "otd_pct": 97.0,
+          "barcodes": 85468
+        },
+        "NYC-1": {
+          "otd_pct": 100.0,
+          "barcodes": 11234
+        }
+      },
+      "in_progress": false,
+      "network_otd_pct": 92.7,
       "reporting_hubs": 4
     },
     "2026-06-15": {
@@ -106,346 +370,82 @@
         },
         "GCO-1": {
           "otd_pct": 98.1,
-          "barcodes": 101331
+          "barcodes": 101350
         },
         "NYC-1": {
           "otd_pct": 83.0,
-          "barcodes": 13168
+          "barcodes": 13191
         }
       },
       "in_progress": false,
       "network_otd_pct": 78.2,
       "reporting_hubs": 4
     },
-    "2026-06-22": {
-      "week_start": "2026-06-22",
-      "week_end": "2026-06-28",
+    "2026-06-08": {
+      "week_start": "2026-06-08",
+      "week_end": "2026-06-14",
       "hubs": {
         "ATL-15": {
-          "otd_pct": 98.2,
-          "barcodes": 107599
-        },
-        "DMV-1": {
-          "otd_pct": null,
-          "barcodes": 0
-        },
-        "ELZ-1": {
-          "otd_pct": null,
-          "barcodes": 0
-        },
-        "EWR-2": {
-          "otd_pct": 89.7,
-          "barcodes": 345803
-        },
-        "GCO-1": {
-          "otd_pct": 97.0,
-          "barcodes": 85461
-        },
-        "NYC-1": {
-          "otd_pct": 100.0,
-          "barcodes": 11220
-        }
-      },
-      "in_progress": false,
-      "network_otd_pct": 92.7,
-      "reporting_hubs": 4
-    },
-    "2026-06-29": {
-      "week_start": "2026-06-29",
-      "week_end": "2026-07-05",
-      "hubs": {
-        "ATL-15": {
-          "otd_pct": 96.4,
-          "barcodes": 106235
-        },
-        "DMV-1": {
-          "otd_pct": null,
-          "barcodes": 0
-        },
-        "ELZ-1": {
-          "otd_pct": null,
-          "barcodes": 0
-        },
-        "EWR-2": {
-          "otd_pct": 92.8,
-          "barcodes": 311334
-        },
-        "GCO-1": {
-          "otd_pct": 100.0,
-          "barcodes": 82129
-        },
-        "NYC-1": {
-          "otd_pct": 100.0,
-          "barcodes": 9187
-        }
-      },
-      "in_progress": false,
-      "network_otd_pct": 94.8,
-      "reporting_hubs": 4
-    },
-    "2026-07-06": {
-      "week_start": "2026-07-06",
-      "week_end": "2026-07-12",
-      "hubs": {
-        "ATL-15": {
-          "otd_pct": 95.9,
-          "barcodes": 111300
-        },
-        "DMV-1": {
-          "otd_pct": null,
-          "barcodes": 0
-        },
-        "ELZ-1": {
-          "otd_pct": 76.1,
-          "barcodes": 67269
-        },
-        "EWR-2": {
-          "otd_pct": 76.9,
-          "barcodes": 231952
-        },
-        "GCO-1": {
-          "otd_pct": 100.0,
-          "barcodes": 86301
-        },
-        "NYC-1": {
-          "otd_pct": 100.0,
-          "barcodes": 13953
-        }
-      },
-      "in_progress": false,
-      "network_otd_pct": 85.5,
-      "reporting_hubs": 5
-    },
-    "2026-07-13": {
-      "week_start": "2026-07-13",
-      "week_end": "2026-07-19",
-      "hubs": {
-        "ATL-15": {
-          "otd_pct": 95.7,
-          "barcodes": 90524
-        },
-        "DMV-1": {
-          "otd_pct": 100.0,
-          "barcodes": 16379
-        },
-        "ELZ-1": {
-          "otd_pct": 99.9,
-          "barcodes": 91712
-        },
-        "EWR-2": {
-          "otd_pct": 96.1,
-          "barcodes": 216519
-        },
-        "GCO-1": {
-          "otd_pct": 100.0,
-          "barcodes": 80022
-        },
-        "NYC-1": {
-          "otd_pct": 100.0,
-          "barcodes": 10677
-        }
-      },
-      "in_progress": false,
-      "network_otd_pct": 97.5,
-      "reporting_hubs": 6
-    },
-    "2026-07-20": {
-      "week_start": "2026-07-20",
-      "week_end": "2026-07-26",
-      "hubs": {
-        "ATL-15": {
-          "otd_pct": 98.5,
-          "barcodes": 114604
-        },
-        "DMV-1": {
-          "otd_pct": 91.6,
-          "barcodes": 30898
-        },
-        "ELZ-1": {
-          "otd_pct": 84.9,
-          "barcodes": 9849
-        },
-        "EWR-2": {
           "otd_pct": 94.7,
-          "barcodes": 249844
-        },
-        "GCO-1": {
-          "otd_pct": 100.0,
-          "barcodes": 97074
-        },
-        "NYC-1": {
-          "otd_pct": 80.1,
-          "barcodes": 7710
-        }
-      },
-      "in_progress": false,
-      "network_otd_pct": 96.0,
-      "reporting_hubs": 6
-    },
-    "2026-07-27": {
-      "week_start": "2026-07-27",
-      "week_end": "2026-08-02",
-      "hubs": {
-        "ATL-15": {
-          "otd_pct": 98.7,
-          "barcodes": 107040
+          "barcodes": 101984
         },
         "DMV-1": {
-          "otd_pct": 63.9,
-          "barcodes": 85733
+          "otd_pct": null,
+          "barcodes": 0
         },
         "ELZ-1": {
-          "otd_pct": 60.7,
-          "barcodes": 14607
-        },
-        "EWR-2": {
-          "otd_pct": 87.9,
-          "barcodes": 265354
-        },
-        "GCO-1": {
-          "otd_pct": 94.3,
-          "barcodes": 73602
-        },
-        "NYC-1": {
-          "otd_pct": 100.0,
-          "barcodes": 13686
-        }
-      },
-      "in_progress": false,
-      "network_otd_pct": 86.7,
-      "reporting_hubs": 6
-    },
-    "2026-08-03": {
-      "week_start": "2026-08-03",
-      "week_end": "2026-08-09",
-      "hubs": {
-        "ATL-15": {
-          "otd_pct": 94.3,
-          "barcodes": 101760
-        },
-        "DMV-1": {
-          "otd_pct": 95.1,
-          "barcodes": 78700
-        },
-        "ELZ-1": {
-          "otd_pct": 99.7,
-          "barcodes": 13639
+          "otd_pct": null,
+          "barcodes": 0
         },
         "EWR-2": {
           "otd_pct": 89.4,
-          "barcodes": 271847
+          "barcodes": 325975
         },
         "GCO-1": {
-          "otd_pct": 98.4,
-          "barcodes": 61794
+          "otd_pct": 100.0,
+          "barcodes": 108306
         },
         "NYC-1": {
-          "otd_pct": 100.0,
-          "barcodes": 10414
+          "otd_pct": 87.3,
+          "barcodes": 13530
         }
       },
       "in_progress": false,
-      "network_otd_pct": 92.7,
-      "reporting_hubs": 6
+      "network_otd_pct": 92.4,
+      "reporting_hubs": 4
     },
-    "2026-08-10": {
-      "week_start": "2026-08-10",
-      "week_end": "2026-08-16",
+    "2026-06-01": {
+      "week_start": "2026-06-01",
+      "week_end": "2026-06-07",
       "hubs": {
         "ATL-15": {
-          "otd_pct": 97.8,
-          "barcodes": 104271
+          "otd_pct": 94.0,
+          "barcodes": 60584
         },
         "DMV-1": {
-          "otd_pct": 96.8,
-          "barcodes": 77734
+          "otd_pct": null,
+          "barcodes": 0
         },
         "ELZ-1": {
-          "otd_pct": 84.3,
-          "barcodes": 93798
+          "otd_pct": null,
+          "barcodes": 0
         },
         "EWR-2": {
-          "otd_pct": 91.3,
-          "barcodes": 207487
+          "otd_pct": 87.7,
+          "barcodes": 296038
         },
         "GCO-1": {
-          "otd_pct": 98.9,
-          "barcodes": 74226
+          "otd_pct": 100.0,
+          "barcodes": 64677
         },
         "NYC-1": {
-          "otd_pct": 100.0,
-          "barcodes": 8371
+          "otd_pct": 88.2,
+          "barcodes": 8861
         }
       },
       "in_progress": false,
-      "network_otd_pct": 93.2,
-      "reporting_hubs": 6
-    },
-    "2026-08-17": {
-      "week_start": "2026-08-17",
-      "week_end": "2026-08-23",
-      "hubs": {
-        "ATL-15": {
-          "otd_pct": 89.4,
-          "barcodes": 132205
-        },
-        "DMV-1": {
-          "otd_pct": 94.3,
-          "barcodes": 59519
-        },
-        "ELZ-1": {
-          "otd_pct": 99.8,
-          "barcodes": 107862
-        },
-        "EWR-2": {
-          "otd_pct": 99.9,
-          "barcodes": 228531
-        },
-        "GCO-1": {
-          "otd_pct": 94.7,
-          "barcodes": 107950
-        },
-        "NYC-1": {
-          "otd_pct": 100.0,
-          "barcodes": 9452
-        }
-      },
-      "in_progress": false,
-      "network_otd_pct": 96.3,
-      "reporting_hubs": 6
-    },
-    "2026-08-24": {
-      "week_start": "2026-08-24",
-      "week_end": "2026-08-30",
-      "hubs": {
-        "ATL-15": {
-          "otd_pct": 90.6,
-          "barcodes": 39290
-        },
-        "DMV-1": {
-          "otd_pct": 94.9,
-          "barcodes": 17605
-        },
-        "ELZ-1": {
-          "otd_pct": 100.0,
-          "barcodes": 39312
-        },
-        "EWR-2": {
-          "otd_pct": 99.8,
-          "barcodes": 69338
-        },
-        "GCO-1": {
-          "otd_pct": 99.5,
-          "barcodes": 35711
-        },
-        "NYC-1": {
-          "otd_pct": 100.0,
-          "barcodes": 3536
-        }
-      },
-      "in_progress": true,
-      "network_otd_pct": 97.6,
-      "reporting_hubs": 6
+      "network_otd_pct": 90.4,
+      "reporting_hubs": 4
     }
   },
   "pieces_per_pallet": {
