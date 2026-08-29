@@ -1,5 +1,5 @@
 {
-  "pulled_at": "2026-08-28 19:04 EST",
+  "pulled_at": "2026-08-29 14:47 EST",
   "source": "Sigma \u00b7 Parcel Golden Path + Truck Utilization (Pallets Gaylord)",
   "current_week": "2026-08-24",
   "weeks": [
@@ -23,32 +23,32 @@
       "week_end": "2026-08-30",
       "hubs": {
         "ATL-15": {
-          "otd_pct": 92.0,
-          "barcodes": 79126
+          "otd_pct": 91.8,
+          "barcodes": 97896
         },
         "DMV-1": {
-          "otd_pct": 98.0,
-          "barcodes": 45349
+          "otd_pct": 95.5,
+          "barcodes": 55347
         },
         "ELZ-1": {
           "otd_pct": 99.9,
-          "barcodes": 79824
+          "barcodes": 93709
         },
         "EWR-2": {
-          "otd_pct": 99.7,
-          "barcodes": 147025
+          "otd_pct": 98.4,
+          "barcodes": 180115
         },
         "GCO-1": {
           "otd_pct": 98.6,
-          "barcodes": 75032
+          "barcodes": 91988
         },
         "NYC-1": {
           "otd_pct": 100.0,
-          "barcodes": 6737
+          "barcodes": 8100
         }
       },
       "in_progress": true,
-      "network_otd_pct": 98.0,
+      "network_otd_pct": 97.2,
       "reporting_hubs": 6
     },
     "2026-08-17": {
@@ -57,7 +57,7 @@
       "hubs": {
         "ATL-15": {
           "otd_pct": 89.4,
-          "barcodes": 132115
+          "barcodes": 132117
         },
         "DMV-1": {
           "otd_pct": 94.3,
@@ -65,7 +65,7 @@
         },
         "ELZ-1": {
           "otd_pct": 99.8,
-          "barcodes": 107834
+          "barcodes": 107836
         },
         "EWR-2": {
           "otd_pct": 99.9,
@@ -139,7 +139,7 @@
         },
         "GCO-1": {
           "otd_pct": 98.4,
-          "barcodes": 61796
+          "barcodes": 61795
         },
         "NYC-1": {
           "otd_pct": 100.0,
@@ -201,7 +201,7 @@
         },
         "EWR-2": {
           "otd_pct": 94.7,
-          "barcodes": 249844
+          "barcodes": 249843
         },
         "GCO-1": {
           "otd_pct": 100.0,
