@@ -1,6 +1,6 @@
 {
   "date": "2026-08-31",
-  "pulled_at": "2026-09-08 11:41 EST",
+  "pulled_at": "2026-09-08 11:49 EST",
   "facilities": {
     "ATL-15": {
       "type": "hub",
@@ -473,14 +473,11 @@
       "days_remaining_pallets": 6.6,
       "days_remaining_gaylords": 11.4,
       "history_days": 30,
-      "weekly_usage": {
-        "pallets": 601,
-        "gaylords": 503,
-        "containers": 1104,
-        "week_start": "2026-08-31",
-        "week_end": "2026-09-06",
-        "days_elapsed": 1,
-        "in_progress": true,
+      "avg_weekly_usage": {
+        "pallets": 439,
+        "gaylords": 401,
+        "containers": 840,
+        "weeks": 4,
         "source": "truck_util"
       }
     },
@@ -494,14 +491,11 @@
       "days_remaining_pallets": 13.3,
       "days_remaining_gaylords": 13.3,
       "history_days": 30,
-      "weekly_usage": {
-        "pallets": 405,
-        "gaylords": 746,
-        "containers": 1151,
-        "week_start": "2026-08-31",
-        "week_end": "2026-09-06",
-        "days_elapsed": 1,
-        "in_progress": true,
+      "avg_weekly_usage": {
+        "pallets": 365,
+        "gaylords": 441,
+        "containers": 806,
+        "weeks": 4,
         "source": "truck_util"
       }
     },
@@ -515,14 +509,11 @@
       "days_remaining_pallets": 11.7,
       "days_remaining_gaylords": 28.6,
       "history_days": 30,
-      "weekly_usage": {
-        "pallets": 1168,
-        "gaylords": 1180,
-        "containers": 2348,
-        "week_start": "2026-08-31",
-        "week_end": "2026-09-06",
-        "days_elapsed": 1,
-        "in_progress": true,
+      "avg_weekly_usage": {
+        "pallets": 851,
+        "gaylords": 945,
+        "containers": 1796,
+        "weeks": 4,
         "source": "truck_util"
       }
     },
@@ -536,14 +527,11 @@
       "days_remaining_pallets": 10.1,
       "days_remaining_gaylords": 5.2,
       "history_days": 30,
-      "weekly_usage": {
-        "pallets": 392,
-        "gaylords": 458,
-        "containers": 850,
-        "week_start": "2026-08-31",
-        "week_end": "2026-09-06",
-        "days_elapsed": 1,
-        "in_progress": true,
+      "avg_weekly_usage": {
+        "pallets": 317,
+        "gaylords": 398,
+        "containers": 715,
+        "weeks": 4,
         "source": "truck_util"
       }
     }
