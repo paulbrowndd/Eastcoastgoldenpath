@@ -1,5 +1,5 @@
 {
-  "pulled_at": "2026-09-07 16:02 EST",
+  "pulled_at": "2026-09-08 11:17 EST",
   "source": "Sigma \u00b7 Parcel Golden Path + Truck Utilization (Pallets Gaylord)",
   "current_week": "2026-08-31",
   "weeks": [
@@ -31,6 +31,10 @@
           "otd_pct": 99.1,
           "barcodes": 86123
         },
+        "DMV-2": {
+          "otd_pct": 89.4,
+          "barcodes": 14715
+        },
         "ELZ-1": {
           "otd_pct": 99.2,
           "barcodes": 115660
@@ -49,8 +53,8 @@
         }
       },
       "in_progress": true,
-      "network_otd_pct": 99.1,
-      "reporting_hubs": 6
+      "network_otd_pct": 98.9,
+      "reporting_hubs": 7
     },
     "2026-08-24": {
       "week_start": "2026-08-24",
@@ -63,6 +67,10 @@
         "DMV-1": {
           "otd_pct": 96.5,
           "barcodes": 71674
+        },
+        "DMV-2": {
+          "otd_pct": 100.0,
+          "barcodes": 11950
         },
         "ELZ-1": {
           "otd_pct": 99.9,
@@ -83,7 +91,7 @@
       },
       "in_progress": false,
       "network_otd_pct": 96.4,
-      "reporting_hubs": 6
+      "reporting_hubs": 7
     },
     "2026-08-17": {
       "week_start": "2026-08-17",
@@ -96,6 +104,10 @@
         "DMV-1": {
           "otd_pct": 94.3,
           "barcodes": 59512
+        },
+        "DMV-2": {
+          "otd_pct": null,
+          "barcodes": 0
         },
         "ELZ-1": {
           "otd_pct": 99.8,
@@ -130,6 +142,10 @@
           "otd_pct": 96.7,
           "barcodes": 77734
         },
+        "DMV-2": {
+          "otd_pct": null,
+          "barcodes": 0
+        },
         "ELZ-1": {
           "otd_pct": 84.3,
           "barcodes": 93797
@@ -162,6 +178,10 @@
         "DMV-1": {
           "otd_pct": 95.1,
           "barcodes": 78699
+        },
+        "DMV-2": {
+          "otd_pct": null,
+          "barcodes": 0
         },
         "ELZ-1": {
           "otd_pct": 99.7,
@@ -196,6 +216,10 @@
           "otd_pct": 63.9,
           "barcodes": 85733
         },
+        "DMV-2": {
+          "otd_pct": null,
+          "barcodes": 0
+        },
         "ELZ-1": {
           "otd_pct": 60.7,
           "barcodes": 14607
@@ -228,6 +252,10 @@
         "DMV-1": {
           "otd_pct": 93.6,
           "barcodes": 30235
+        },
+        "DMV-2": {
+          "otd_pct": null,
+          "barcodes": 0
         },
         "ELZ-1": {
           "otd_pct": 84.9,
@@ -262,6 +290,10 @@
           "otd_pct": 100.0,
           "barcodes": 16379
         },
+        "DMV-2": {
+          "otd_pct": null,
+          "barcodes": 0
+        },
         "ELZ-1": {
           "otd_pct": 99.9,
           "barcodes": 91712
@@ -292,6 +324,10 @@
           "barcodes": 111300
         },
         "DMV-1": {
+          "otd_pct": null,
+          "barcodes": 0
+        },
+        "DMV-2": {
           "otd_pct": null,
           "barcodes": 0
         },
@@ -328,6 +364,10 @@
           "otd_pct": null,
           "barcodes": 0
         },
+        "DMV-2": {
+          "otd_pct": null,
+          "barcodes": 0
+        },
         "ELZ-1": {
           "otd_pct": null,
           "barcodes": 0
@@ -358,6 +398,10 @@
           "barcodes": 107598
         },
         "DMV-1": {
+          "otd_pct": null,
+          "barcodes": 0
+        },
+        "DMV-2": {
           "otd_pct": null,
           "barcodes": 0
         },
@@ -394,6 +438,10 @@
           "otd_pct": null,
           "barcodes": 0
         },
+        "DMV-2": {
+          "otd_pct": null,
+          "barcodes": 0
+        },
         "ELZ-1": {
           "otd_pct": null,
           "barcodes": 0
@@ -427,6 +475,10 @@
           "otd_pct": null,
           "barcodes": 0
         },
+        "DMV-2": {
+          "otd_pct": null,
+          "barcodes": 0
+        },
         "ELZ-1": {
           "otd_pct": null,
           "barcodes": 0
@@ -457,6 +509,10 @@
           "barcodes": 60584
         },
         "DMV-1": {
+          "otd_pct": null,
+          "barcodes": 0
+        },
+        "DMV-2": {
           "otd_pct": null,
           "barcodes": 0
         },
@@ -739,6 +795,10 @@
             "pallet_ppp": 55.6,
             "gaylord_ppp": 145.8
           }
+        },
+        "DMV-2": {
+          "hub_hub": null,
+          "hub_spoke": null
         },
         "ELZ-1": {
           "hub_hub": null,
@@ -1411,6 +1471,10 @@
             "gaylord_ppp": 208.5
           }
         },
+        "DMV-2": {
+          "hub_hub": null,
+          "hub_spoke": null
+        },
         "ELZ-1": {
           "hub_hub": null,
           "hub_spoke": null
@@ -2081,6 +2145,10 @@
             "pallet_ppp": 57.5,
             "gaylord_ppp": 165.9
           }
+        },
+        "DMV-2": {
+          "hub_hub": null,
+          "hub_spoke": null
         },
         "ELZ-1": {
           "hub_hub": null,
@@ -2753,6 +2821,10 @@
             "gaylord_ppp": 162.9
           }
         },
+        "DMV-2": {
+          "hub_hub": null,
+          "hub_spoke": null
+        },
         "ELZ-1": {
           "hub_hub": null,
           "hub_spoke": null
@@ -3374,6 +3446,10 @@
             "gaylord_ppp": 158.5
           }
         },
+        "DMV-2": {
+          "hub_hub": null,
+          "hub_spoke": null
+        },
         "ELZ-1": {
           "hub_hub": null,
           "hub_spoke": null
@@ -3755,6 +3831,118 @@
             "pallet_ppp": 56.8,
             "gaylord_ppp": 138.9
           }
+        }
+      }
+    },
+    "2026-08-24": {
+      "week_start": "2026-08-24",
+      "week_end": "2026-08-30",
+      "in_progress": false,
+      "hubs": {
+        "ATL-15": {
+          "hub_hub": null,
+          "hub_spoke": null
+        },
+        "DMV-1": {
+          "hub_hub": null,
+          "hub_spoke": null
+        },
+        "DMV-2": {
+          "hub_hub": {
+            "ppp": 59.8,
+            "parcels": 18778,
+            "pallets": 37,
+            "gaylords": 277,
+            "containers": 314,
+            "lane_count": 1,
+            "lanes": [
+              {
+                "lane": "DMV-2 - DMV-1",
+                "destination": "DMV-1",
+                "ppp": 59.8,
+                "parcels": 18778,
+                "pallets": 37,
+                "gaylords": 277,
+                "pallet_ppp": 39.1,
+                "gaylord_ppp": 62.6
+              }
+            ],
+            "pallet_ppp": 39.1,
+            "gaylord_ppp": 62.6
+          },
+          "hub_spoke": null
+        },
+        "ELZ-1": {
+          "hub_hub": null,
+          "hub_spoke": null
+        },
+        "EWR-2": {
+          "hub_hub": null,
+          "hub_spoke": null
+        },
+        "GCO-1": {
+          "hub_hub": null,
+          "hub_spoke": null
+        },
+        "NYC-1": {
+          "hub_hub": null,
+          "hub_spoke": null
+        }
+      }
+    },
+    "2026-08-31": {
+      "week_start": "2026-08-31",
+      "week_end": "2026-09-06",
+      "in_progress": true,
+      "hubs": {
+        "ATL-15": {
+          "hub_hub": null,
+          "hub_spoke": null
+        },
+        "DMV-1": {
+          "hub_hub": null,
+          "hub_spoke": null
+        },
+        "DMV-2": {
+          "hub_hub": {
+            "ppp": 52.1,
+            "parcels": 21474,
+            "pallets": 9,
+            "gaylords": 403,
+            "containers": 412,
+            "lane_count": 1,
+            "lanes": [
+              {
+                "lane": "DMV-2 - DMV-1",
+                "destination": "DMV-1",
+                "ppp": 52.1,
+                "parcels": 21474,
+                "pallets": 9,
+                "gaylords": 403,
+                "pallet_ppp": 55.8,
+                "gaylord_ppp": 52.0
+              }
+            ],
+            "pallet_ppp": 55.8,
+            "gaylord_ppp": 52.0
+          },
+          "hub_spoke": null
+        },
+        "ELZ-1": {
+          "hub_hub": null,
+          "hub_spoke": null
+        },
+        "EWR-2": {
+          "hub_hub": null,
+          "hub_spoke": null
+        },
+        "GCO-1": {
+          "hub_hub": null,
+          "hub_spoke": null
+        },
+        "NYC-1": {
+          "hub_hub": null,
+          "hub_spoke": null
         }
       }
     }
