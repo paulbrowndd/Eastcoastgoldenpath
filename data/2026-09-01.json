@@ -1,6 +1,6 @@
 {
   "date": "2026-09-01",
-  "pulled_at": "2026-09-08 11:17 EST",
+  "pulled_at": "2026-09-08 11:41 EST",
   "facilities": {
     "ATL-15": {
       "type": "hub",
@@ -480,7 +480,17 @@
       "avg_daily_outbound": 159,
       "days_remaining_pallets": 5.1,
       "days_remaining_gaylords": 9.9,
-      "history_days": 30
+      "history_days": 30,
+      "weekly_usage": {
+        "pallets": 601,
+        "gaylords": 503,
+        "containers": 1104,
+        "week_start": "2026-08-31",
+        "week_end": "2026-09-06",
+        "days_elapsed": 2,
+        "in_progress": true,
+        "source": "truck_util"
+      }
     },
     "DMV-1": {
       "starting_pallets": 2000,
@@ -491,7 +501,17 @@
       "avg_daily_outbound": 153,
       "days_remaining_pallets": 11.9,
       "days_remaining_gaylords": 11.9,
-      "history_days": 30
+      "history_days": 30,
+      "weekly_usage": {
+        "pallets": 405,
+        "gaylords": 746,
+        "containers": 1151,
+        "week_start": "2026-08-31",
+        "week_end": "2026-09-06",
+        "days_elapsed": 2,
+        "in_progress": true,
+        "source": "truck_util"
+      }
     },
     "EWR-2": {
       "starting_pallets": 4065,
@@ -502,7 +522,17 @@
       "avg_daily_outbound": 346,
       "days_remaining_pallets": 10.7,
       "days_remaining_gaylords": 27.7,
-      "history_days": 30
+      "history_days": 30,
+      "weekly_usage": {
+        "pallets": 1168,
+        "gaylords": 1180,
+        "containers": 2348,
+        "week_start": "2026-08-31",
+        "week_end": "2026-09-06",
+        "days_elapsed": 2,
+        "in_progress": true,
+        "source": "truck_util"
+      }
     },
     "MCI-1": {
       "starting_pallets": 1342,
@@ -513,7 +543,17 @@
       "avg_daily_outbound": 133,
       "days_remaining_pallets": 9.0,
       "days_remaining_gaylords": 4.1,
-      "history_days": 30
+      "history_days": 30,
+      "weekly_usage": {
+        "pallets": 392,
+        "gaylords": 458,
+        "containers": 850,
+        "week_start": "2026-08-31",
+        "week_end": "2026-09-06",
+        "days_elapsed": 2,
+        "in_progress": true,
+        "source": "truck_util"
+      }
     }
   }
 }
