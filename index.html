@@ -503,7 +503,7 @@ footer{text-align:center;padding:14px;border-top:1px solid var(--border);font-si
       <div class="fac-grid" id="hub-grid" style="grid-template-columns:repeat(6,1fr)"></div>
 
       <div class="pallet-section">
-        <div class="pallet-header">Pallet Inventory<span class="sec-hint" style="margin-left:8px">WEEKLY CONTAINER USAGE PER HUB</span></div>
+        <div class="pallet-header">Pallet Inventory<span class="sec-hint" style="margin-left:8px">AVG DAILY &amp; WEEKLY USAGE PER SITE</span></div>
         <div class="pallet-cards" id="pallet-cards"></div>
       </div>
     </div>
@@ -825,14 +825,14 @@ function renderPallets(inv){
     const pCls=pc(pp),gCls=pc(gp);
     const hasTrend=d.avg_daily_outbound!==undefined;
     const dp=d.days_remaining_pallets,dg=d.days_remaining_gaylords;
-    const wu=d.weekly_usage;
+    const wu=d.avg_weekly_usage;
     const usageHtml=wu?`<div class="pal-usage">
-        <div class="pal-usage-hdr">WEEK USAGE · ROUGH</div>
+        <div class="pal-usage-hdr">AVG WEEKLY USAGE · ROUGH</div>
         <div class="pal-usage-row">
           <div><span class="pal-usage-lbl">Pallets</span><span class="pal-usage-num">${wu.pallets.toLocaleString()}</span></div>
           <div><span class="pal-usage-lbl">Gaylords</span><span class="pal-usage-num">${wu.gaylords.toLocaleString()}</span></div>
         </div>
-        <div class="pal-usage-sub">${fmtWeekRange(wu.week_start,wu.week_end)} · ${wu.days_elapsed}d${wu.in_progress?' · partial week':''}</div>
+        <div class="pal-usage-sub">${wu.weeks}W AVG · containers shipped</div>
       </div>`:'';
     return `<div class="pal-card">
       <div class="pal-top"><div class="pal-hub">${hub}</div><div class="pal-badge">−${d.outbound_today} TODAY</div></div>
@@ -854,12 +854,6 @@ function renderPallets(inv){
       </div>`:''}
     </div>`;
   }).join('');
-}
-function fmtWeekRange(start,end){
-  if(!start||!end)return'—';
-  const s=new Date(start+'T12:00:00'),e=new Date(end+'T12:00:00');
-  const opts={month:'short',day:'numeric'};
-  return s.toLocaleDateString('en-US',opts)+'–'+e.toLocaleDateString('en-US',opts);
 }
 
 function openModal(name){
