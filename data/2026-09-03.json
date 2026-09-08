@@ -1,6 +1,6 @@
 {
   "date": "2026-09-03",
-  "pulled_at": "2026-09-08 12:46 EST",
+  "pulled_at": "2026-09-08 12:47 EST",
   "facilities": {
     "ATL-15": {
       "type": "hub",
@@ -508,14 +508,14 @@
       }
     },
     "DMV-2": {
-      "starting_pallets": 45,
-      "starting_gaylords": 45,
+      "starting_pallets": 100,
+      "starting_gaylords": 900,
       "outbound_today": 59,
-      "remaining_pallets": 0,
-      "remaining_gaylords": 0,
+      "remaining_pallets": 41,
+      "remaining_gaylords": 841,
       "avg_daily_outbound": 50,
-      "days_remaining_pallets": 0.0,
-      "days_remaining_gaylords": 0.0,
+      "days_remaining_pallets": 0.8,
+      "days_remaining_gaylords": 16.8,
       "history_days": 11,
       "avg_weekly_usage": {
         "pallets": 37,
