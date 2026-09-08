@@ -191,6 +191,12 @@ main{padding:16px 24px;max-width:1700px;margin:0 auto}
 .pal-days-num.na{color:var(--text2);font-size:12px;}
 .pal-days-sub{font-size:9px;color:var(--text2);letter-spacing:0.5px;margin-top:1px;}
 .pal-days-divider{width:1px;height:28px;background:var(--border);}
+.pal-usage{margin-top:8px;padding-top:8px;border-top:1px solid var(--border);}
+.pal-usage-hdr{font-size:9px;color:var(--text2);letter-spacing:0.5px;margin-bottom:6px;}
+.pal-usage-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:4px;}
+.pal-usage-lbl{display:block;font-size:9px;color:var(--text2);letter-spacing:0.5px;margin-bottom:2px;}
+.pal-usage-num{font-family:'Orbitron',sans-serif;font-size:15px;font-weight:700;color:var(--text);}
+.pal-usage-sub{font-size:9px;color:var(--text2);letter-spacing:0.3px;}
 
 /* ═══ SLA TABLE ═══ */
 .sla-table{width:100%;border-collapse:collapse;font-size:11px;}
@@ -497,7 +503,7 @@ footer{text-align:center;padding:14px;border-top:1px solid var(--border);font-si
       <div class="fac-grid" id="hub-grid" style="grid-template-columns:repeat(6,1fr)"></div>
 
       <div class="pallet-section">
-        <div class="pallet-header">Pallet Inventory</div>
+        <div class="pallet-header">Pallet Inventory<span class="sec-hint" style="margin-left:8px">WEEKLY CONTAINER USAGE PER HUB</span></div>
         <div class="pallet-cards" id="pallet-cards"></div>
       </div>
     </div>
@@ -819,6 +825,15 @@ function renderPallets(inv){
     const pCls=pc(pp),gCls=pc(gp);
     const hasTrend=d.avg_daily_outbound!==undefined;
     const dp=d.days_remaining_pallets,dg=d.days_remaining_gaylords;
+    const wu=d.weekly_usage;
+    const usageHtml=wu?`<div class="pal-usage">
+        <div class="pal-usage-hdr">WEEK USAGE · ROUGH</div>
+        <div class="pal-usage-row">
+          <div><span class="pal-usage-lbl">Pallets</span><span class="pal-usage-num">${wu.pallets.toLocaleString()}</span></div>
+          <div><span class="pal-usage-lbl">Gaylords</span><span class="pal-usage-num">${wu.gaylords.toLocaleString()}</span></div>
+        </div>
+        <div class="pal-usage-sub">${fmtWeekRange(wu.week_start,wu.week_end)} · ${wu.days_elapsed}d${wu.in_progress?' · partial week':''}</div>
+      </div>`:'';
     return `<div class="pal-card">
       <div class="pal-top"><div class="pal-hub">${hub}</div><div class="pal-badge">−${d.outbound_today} TODAY</div></div>
       <div class="pal-counts">
@@ -829,6 +844,7 @@ function renderPallets(inv){
         <div class="pal-bar-wrap"><div class="pal-bar-label"><span>PALLETS</span><span>${pp}%</span></div><div class="pal-bar-track"><div class="pal-bar-fill ${pCls}" style="width:${pp}%"></div></div></div>
         <div class="pal-bar-wrap"><div class="pal-bar-label"><span>GAYLORDS</span><span>${gp}%</span></div><div class="pal-bar-track"><div class="pal-bar-fill ${gCls}" style="width:${gp}%"></div></div></div>
       </div>
+      ${usageHtml}
       ${hasTrend?`<div class="pal-days">
         <div class="pal-days-col"><div class="pal-days-num ${dc(dp)}">${dp}d</div><div class="pal-days-sub">PALLETS</div></div>
         <div class="pal-days-divider"></div>
@@ -838,6 +854,12 @@ function renderPallets(inv){
       </div>`:''}
     </div>`;
   }).join('');
+}
+function fmtWeekRange(start,end){
+  if(!start||!end)return'—';
+  const s=new Date(start+'T12:00:00'),e=new Date(end+'T12:00:00');
+  const opts={month:'short',day:'numeric'};
+  return s.toLocaleDateString('en-US',opts)+'–'+e.toLocaleDateString('en-US',opts);
 }
 
 function openModal(name){
