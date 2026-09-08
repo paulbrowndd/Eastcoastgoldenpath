@@ -1,6 +1,6 @@
 {
   "date": "2026-09-02",
-  "pulled_at": "2026-09-07 16:02 EST",
+  "pulled_at": "2026-09-08 11:17 EST",
   "facilities": {
     "ATL-15": {
       "type": "hub",
@@ -103,6 +103,16 @@
         {
           "route": "DMV-1 > VAB-4",
           "otd_pct": 100.0
+        }
+      ]
+    },
+    "DMV-2": {
+      "type": "hub",
+      "otd_pct": 76.0,
+      "routes": [
+        {
+          "route": "DMV-2 > DMV-1",
+          "otd_pct": 76.0
         }
       ]
     },
