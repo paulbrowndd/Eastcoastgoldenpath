@@ -1,6 +1,6 @@
 {
   "date": "2026-08-27",
-  "pulled_at": "2026-08-28 19:04 EST",
+  "pulled_at": "2026-09-08 11:17 EST",
   "facilities": {
     "ATL-15": {
       "type": "hub",
@@ -91,6 +91,16 @@
         {
           "route": "DMV-1 > VAB-4",
           "otd_pct": 100
+        }
+      ]
+    },
+    "DMV-2": {
+      "type": "hub",
+      "otd_pct": 100.0,
+      "routes": [
+        {
+          "route": "DMV-2 > DMV-1",
+          "otd_pct": 100.0
         }
       ]
     },
@@ -455,183 +465,7 @@
       "otd_pct": 100
     }
   },
-  "sla_stack_rank": [
-    {
-      "step": "3.2 Truck Transit",
-      "facility": "ORD-7",
-      "from_stop": "ORD-7",
-      "next_stop": "EWR-2",
-      "miss_count": 5324
-    },
-    {
-      "step": "3.1 Truck Arrival",
-      "facility": "DMV-1",
-      "from_stop": "DMV-1",
-      "next_stop": "ATL-15",
-      "miss_count": 3292
-    },
-    {
-      "step": "3.1 Truck Arrival",
-      "facility": "ORD-7",
-      "from_stop": "ORD-7",
-      "next_stop": "DET-13",
-      "miss_count": 2766
-    },
-    {
-      "step": "4 Spoke Sortation",
-      "facility": "EBY-8",
-      "from_stop": "EBY-8",
-      "next_stop": "EBY-8",
-      "miss_count": 2646
-    },
-    {
-      "step": "4 Spoke Sortation",
-      "facility": "CIN-5",
-      "from_stop": "CIN-5",
-      "next_stop": "CIN-5",
-      "miss_count": 2485
-    },
-    {
-      "step": "3.2 Truck Transit",
-      "facility": "ELZ-1",
-      "from_stop": "ELZ-1",
-      "next_stop": "BOS-6",
-      "miss_count": 2353
-    },
-    {
-      "step": "3.2 Truck Transit",
-      "facility": "ELZ-1",
-      "from_stop": "ELZ-1",
-      "next_stop": "NNJ-6",
-      "miss_count": 2312
-    },
-    {
-      "step": "3.2 Truck Transit",
-      "facility": "EWR-2",
-      "from_stop": "EWR-2",
-      "next_stop": "DMV-1",
-      "miss_count": 2173
-    },
-    {
-      "step": "1.1 First Mile Arrival",
-      "facility": "WP-NY-1",
-      "from_stop": "WP-NY-1",
-      "next_stop": "EWR-2",
-      "miss_count": 2020
-    },
-    {
-      "step": "3.1 Truck Arrival",
-      "facility": "DMV-1",
-      "from_stop": "DMV-1",
-      "next_stop": "ELZ-1",
-      "miss_count": 1734
-    },
-    {
-      "step": "3.1 Truck Arrival",
-      "facility": "ORD-7",
-      "from_stop": "ORD-7",
-      "next_stop": "DFW-1",
-      "miss_count": 1659
-    },
-    {
-      "step": "5 Dispatch",
-      "facility": "BOS-5",
-      "from_stop": "BOS-5",
-      "next_stop": "BOS-5",
-      "miss_count": 1515
-    },
-    {
-      "step": "4 Spoke Sortation",
-      "facility": "JAX-2",
-      "from_stop": "JAX-2",
-      "next_stop": "JAX-2",
-      "miss_count": 1514
-    },
-    {
-      "step": "3.2 Truck Transit",
-      "facility": "ORD-7",
-      "from_stop": "ORD-7",
-      "next_stop": "CLE-7",
-      "miss_count": 1476
-    },
-    {
-      "step": "3.1 Truck Arrival",
-      "facility": "DFW-1",
-      "from_stop": "DFW-1",
-      "next_stop": "HOU-10",
-      "miss_count": 1438
-    },
-    {
-      "step": "3.2 Truck Transit",
-      "facility": "SLC-8",
-      "from_stop": "SLC-8",
-      "next_stop": "LAX-11",
-      "miss_count": 1432
-    },
-    {
-      "step": "1.2 First Mile Transit",
-      "facility": "PETCO-CA-1",
-      "from_stop": "PETCO-CA-1",
-      "next_stop": "LAX-11",
-      "miss_count": 1373
-    },
-    {
-      "step": "4 Spoke Sortation",
-      "facility": "MSP-6",
-      "from_stop": "MSP-6",
-      "next_stop": "MSP-6",
-      "miss_count": 1356
-    },
-    {
-      "step": "5 Dispatch",
-      "facility": "NNJ-5",
-      "from_stop": "NNJ-5",
-      "next_stop": "NNJ-5",
-      "miss_count": 1283
-    },
-    {
-      "step": "3.2 Truck Transit",
-      "facility": "DMV-1",
-      "from_stop": "DMV-1",
-      "next_stop": "RIC-2",
-      "miss_count": 1195
-    },
-    {
-      "step": "3.2 Truck Transit",
-      "facility": "MCI-1",
-      "from_stop": "MCI-1",
-      "next_stop": "DMV-1",
-      "miss_count": 1161
-    },
-    {
-      "step": "5 Dispatch",
-      "facility": "HFD-3",
-      "from_stop": "HFD-3",
-      "next_stop": "HFD-3",
-      "miss_count": 1137
-    },
-    {
-      "step": "3.2 Truck Transit",
-      "facility": "DFW-1",
-      "from_stop": "DFW-1",
-      "next_stop": "MCI-1",
-      "miss_count": 1033
-    },
-    {
-      "step": "3.1 Truck Arrival",
-      "facility": "ELZ-1",
-      "from_stop": "ELZ-1",
-      "next_stop": "DCA-5",
-      "miss_count": 1004
-    },
-    {
-      "step": "3.1 Truck Arrival",
-      "facility": "DMV-1",
-      "from_stop": "DMV-1",
-      "next_stop": "GCO-1",
-      "miss_count": 914
-    }
-  ],
+  "sla_stack_rank": [],
   "pallet_inventory": {
     "ATL-15": {
       "starting_pallets": 1029,
